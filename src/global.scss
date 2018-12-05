@@ -1,0 +1,25 @@
+$backgroundColor: #434343;
+$titleColor: #e87a90;
+$dateColor: #fedfe1;
+$fontColor: #fcfaf2;
+
+body {
+  background-color: $backgroundColor;
+  color: $fontColor;
+  font-family: 'weiruanyahei';
+}
+
+blockquote {
+  color: $fontColor;
+  border-left: 0.32813rem solid $titleColor;
+}
+
+.css-title {
+  color: $titleColor;
+}
+.css-date {
+  color: $dateColor;
+}
+a {
+  color: #e87a90;
+}

@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
+    const homePaginate = path.resolve('./src/templates/index.js')
     resolve(
       graphql(
         `
@@ -29,9 +30,26 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors)
           reject(result.errors)
         }
+        const posts = result.data.allMarkdownRemark.edges;
+
+        // create homepage pagination
+        const postsPerPage = 1
+        const numPages = Math.ceil(posts.length / postsPerPage)
+
+        Array.from({ length: numPages }).forEach((_, i) => {
+          createPage({
+            path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+            component: homePaginate,
+            context: {
+              currentPage: i+1,
+              totalPage:numPages,
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+            },
+          })
+        })
 
         // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges;
 
         posts.forEach((post, index) => {
           const previous = index === posts.length - 1 ? null : posts[index + 1].node;
