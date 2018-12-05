@@ -6,7 +6,9 @@ $fontColor: #fcfaf2;
 body {
   background-color: $backgroundColor;
   color: $fontColor;
-  font-family: 'weiruanyahei';
+  font-family: source-han-sans-traditional, sans-serif;
+  font-weight: 200;
+  font-style: normal;
 }
 
 blockquote {
@@ -16,6 +18,7 @@ blockquote {
 
 .css-title {
   color: $titleColor;
+  font-weight: 300;
 }
 .css-date {
   color: $dateColor;
