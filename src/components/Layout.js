@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { rhythm, scale } from '../utils/typography'
-import 'prismjs/themes/prism-TWILIGHT.css'
+import 'prismjs/themes/prism-twilight.css'
 
 import '../global.scss'
 
 (function(d) {
   var config = {
-    kitId: 'htu4kxo',
+    kitId: 'xrb8rdl',
     scriptTimeout: 3000,
     async: true
   },
@@ -22,9 +22,8 @@ class Layout extends React.Component {
     let header
 
     header = (
-      <h3
+      <div
         style={{
-          fontFamily: '微软雅黑 Montserrat, sans-serif',
           marginTop: 0,
           marginBottom: rhythm(-1),
         }}
@@ -34,12 +33,13 @@ class Layout extends React.Component {
             boxShadow: 'none',
             textDecoration: 'none',
             color: 'inherit',
+            fontSize:  rhythm(1)
           }}
-          to={'/'}
+          to={'/blog'}
         >
           {title}
         </Link>
-      </h3>
+      </div>
     )
     return (
       <div
