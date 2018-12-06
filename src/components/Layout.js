@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import 'prismjs/themes/prism-twilight.css'
 
-import '../global.scss'
+import './global.scss'
 
 class Layout extends React.Component {
   render() {
