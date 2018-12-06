@@ -79,7 +79,7 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($tag: String!) {
     site {
       siteMetadata {
         title
@@ -88,8 +88,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       edges {
         node {

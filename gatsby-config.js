@@ -3,7 +3,7 @@ module.exports = {
     title: 'Usubeni Fantasy',
     author: 'ssshooter',
     description: '次の千年へ　夢を紡いで',
-    // siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
+    siteUrl: 'https://github.com/ssshooter',// todo
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [

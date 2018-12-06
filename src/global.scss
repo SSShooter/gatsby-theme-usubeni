@@ -17,12 +17,22 @@ blockquote {
 }
 
 .css-title {
+  font-family: source-han-sans-simplified-c, sans-serif;
   color: $titleColor;
-  font-weight: 300;
+  font-weight: 400;
 }
 .css-date {
   color: $dateColor;
 }
+.css-tags{
+    display: inline-flex;
+}
+.css-tag{
+    background-color: $titleColor;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin: 3px;
+}
 a {
-  color: #e87a90;
+  color: $titleColor;
 }

@@ -32,17 +32,14 @@ class BlogPostTemplate extends React.Component {
           </script>
         </Helmet>
         <h1 className="css-title">{post.frontmatter.title}</h1>
-        <p
-          className="css-date"
-          style={{
-            ...scale(-1 / 5),
-            display: 'block',
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
+        <div className="css-date">{post.frontmatter.date}</div>
+        {post.frontmatter.tags ? (
+          <div className="css-tags">
+            {post.frontmatter.tags.map(tag => (
+              <div className="css-tag">{tag}</div>
+            ))}
+          </div>
+        ) : null}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -96,6 +93,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        tags
         date(formatString: "MMMM DD, YYYY")
       }
     }
