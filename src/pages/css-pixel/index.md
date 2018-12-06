@@ -1,9 +1,9 @@
 ---
 title: 只用 CSS 就能做到的像素画/像素动画
 date: "2015-05-06T23:46:37.121Z"
-tags: ["animals", "Chicago", "zoos"]
-attachments:
-  - './salty_egg.jpg'
+tags: ["CSS"]
+# attachments:
+#   - './salty_egg.jpg'
 ---
 ![clipboard.png](https://3.bp.blogspot.com/-BMZo-li4ULk/W9JHdwqmiBI/AAAAAAAAInY/voTh6bjHoZExFjDA6o9x1m4tWN1UxByowCLcBGAs/s1600/pixel-art.png)
 > 原文链接：[box-shadowを使ってCSSだけでドット絵を描き、アニメーションさせる](https://kuroeveryday.blogspot.com/2018/10/draw-and-animate-pixel-art-using-only-css.html)    

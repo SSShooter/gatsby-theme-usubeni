@@ -15,6 +15,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `meme`,
+        path: `${__dirname}/src/meme/`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

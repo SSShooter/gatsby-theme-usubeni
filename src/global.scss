@@ -23,15 +23,16 @@ blockquote {
 }
 .css-date {
   color: $dateColor;
+  margin-bottom: 1rem;
 }
-.css-tags{
-    display: inline-flex;
+.css-tags {
+  display: inline-flex;
 }
-.css-tag{
-    background-color: $titleColor;
-    border-radius: 5px;
-    padding: 3px 5px;
-    margin: 3px;
+.css-tag {
+  background-color: $titleColor;
+  border-radius: 5px;
+  padding: 3px 5px;
+  margin: 3px;
 }
 a {
   color: $titleColor;

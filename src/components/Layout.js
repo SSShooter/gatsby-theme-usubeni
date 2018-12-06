@@ -16,7 +16,6 @@ class Layout extends React.Component {
       <div
         style={{
           marginTop: 0,
-          marginBottom: rhythm(-1),
         }}
       >
         <Link
