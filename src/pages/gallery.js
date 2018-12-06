@@ -7,26 +7,26 @@ class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
     console.log(data)
-    const meme = data.allFile.edges
+    const gallery = data.allFile.edges
     return (
       <Layout location={this.props.location} title="Usubeni Fantasy">
-        <h3>沙雕表情库</h3>
-        {meme.map(img => (
-          <a
-            href={img.node.publicURL}
-            key={img.node.relativePath}
-            style={{
-              boxShadow: 'none',
-            }}
-          >
-            <Img
+        <h3>Gallery</h3>
+        <div className="masonry">
+          {gallery.map(img => (
+            <a
+              href={img.node.publicURL}
+              key={img.node.relativePath}
               style={{
-                margin: '12px',
+                display: 'block',
+                boxShadow: 'none',
+                width: '100%',
+                marginBottom:'10px'
               }}
-              fixed={img.node.childImageSharp.fixed}
-            />
-          </a>
-        ))}
+            >
+              <Img fluid={img.node.childImageSharp.fluid} />
+            </a>
+          ))}
+        </div>
       </Layout>
     )
   }
@@ -36,7 +36,7 @@ export default NotFoundPage
 
 export const query = graphql`
   query {
-    allFile(filter: { sourceInstanceName: { eq: "meme" } }) {
+    allFile(filter: { sourceInstanceName: { eq: "gallery" } }) {
       edges {
         node {
           id
@@ -47,8 +47,8 @@ export const query = graphql`
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
-            fixed(width: 125, height: 125) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }

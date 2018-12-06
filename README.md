@@ -9,3 +9,6 @@ Or [view the live demo here](https://gatsby-starter-blog-demo.netlify.com/).
 
 ## Running in development
 `gatsby develop`
+
+## thanks
+https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647

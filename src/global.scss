@@ -1,4 +1,5 @@
-$backgroundColor: #434343;
+$backgroundColor: #231c2f;
+// $backgroundColor: #434343;
 $titleColor: #e87a90;
 $dateColor: #fedfe1;
 $fontColor: #fcfaf2;
@@ -20,6 +21,13 @@ blockquote {
   font-family: source-han-sans-simplified-c, sans-serif;
   color: $titleColor;
   font-weight: 400;
+  margin: 0;
+}
+h3 {
+  font-family: source-han-sans-simplified-c, sans-serif;
+  color: $titleColor;
+  font-weight: 400;
+  margin-top: 2rem;
 }
 .css-date {
   color: $dateColor;
@@ -36,4 +44,6 @@ blockquote {
 }
 a {
   color: $titleColor;
+}
+.masonry {
 }

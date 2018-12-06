@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
-import { rhythm, scale } from '../utils/typography'
 import 'prismjs/themes/prism-twilight.css'
 
 import '../global.scss'
@@ -10,22 +8,16 @@ class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    let header
-
-    header = (
-      <div
-        style={{
-          marginTop: 0,
-        }}
-      >
+    const header = (
+      <div>
         <Link
           style={{
             boxShadow: 'none',
             textDecoration: 'none',
             color: 'inherit',
-            fontSize:  rhythm(1)
+            fontSize: '2rem',
           }}
-          to={'/blog'}
+          to={'/'}
         >
           {title}
         </Link>
@@ -34,10 +26,9 @@ class Layout extends React.Component {
     return (
       <div
         style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          margin: 'auto',
+          maxWidth: '672px',
+          padding: '1.2rem 1.1rem',
         }}
       >
         {header}
