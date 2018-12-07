@@ -1,14 +1,15 @@
 ---
 title: 只用 CSS 就能做到的像素画/像素动画
-date: "2015-05-06T23:46:37.121Z"
-tags: ["CSS"]
+date: "2018-12-07T21:22:37.121Z"
+tags: ["CSS","翻译"]
 # attachments:
 #   - './salty_egg.jpg'
 ---
 ![clipboard.png](https://3.bp.blogspot.com/-BMZo-li4ULk/W9JHdwqmiBI/AAAAAAAAInY/voTh6bjHoZExFjDA6o9x1m4tWN1UxByowCLcBGAs/s1600/pixel-art.png)
 > 原文链接：[box-shadowを使ってCSSだけでドット絵を描き、アニメーションさせる](https://kuroeveryday.blogspot.com/2018/10/draw-and-animate-pixel-art-using-only-css.html)    
 作者推特：[bc_rikko](https://twitter.com/bc_rikko)    
-作者的推特里面有不少例子，有能力的同学可以看一下
+作者的推特里面有不少例子，有能力的同学可以看一下      
+译文原址：https://segmentfault.com/a/1190000017190802
 
 这篇文章将会介绍只用 CSS 就能制作像素画·像素动画的方法。虽说纯 CSS 就能做到，但是为了更高的可维护性，也会顺便介绍使用 Sass 的制作方法。
 

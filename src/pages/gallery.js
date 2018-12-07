@@ -23,7 +23,7 @@ class NotFoundPage extends React.Component {
                 marginBottom:'10px'
               }}
             >
-              <Img fluid={img.node.childImageSharp.fluid} />
+              <img style={{width:'100%'}} src={img.node.publicURL} />
             </a>
           ))}
         </div>
@@ -40,6 +40,7 @@ export const query = graphql`
       edges {
         node {
           id
+          name
           relativePath
           relativeDirectory
           publicURL
