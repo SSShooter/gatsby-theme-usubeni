@@ -18,7 +18,7 @@ const TagsPage = ({
 }) => (
   <div>
     <Layout title="Usubeni Fantasy">
-      <h3>Tags</h3>
+    <h1 className="css-page-name">Tags</h1>
       <ul>
         {group.map(tag => (
           <li key={tag.fieldValue}>

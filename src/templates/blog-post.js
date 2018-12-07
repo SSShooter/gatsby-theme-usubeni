@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, navigate } from 'gatsby'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
@@ -19,7 +19,7 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         >
-          <script>
+          {/* <script>
             {`(function(d) {
             var config = {
               kitId: 'xrb8rdl',
@@ -28,14 +28,20 @@ class BlogPostTemplate extends React.Component {
             },
             h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
           })(document);`}
-          </script>
+          </script> */}
         </Helmet>
         <h1 className="css-title">{post.frontmatter.title}</h1>
         <div className="css-date">{post.frontmatter.date}</div>
         {post.frontmatter.tags ? (
           <div className="css-tags">
             {post.frontmatter.tags.map(tag => (
-              <div className="css-tag">{tag}</div>
+              <div
+                key={tag}
+                onClick={() => navigate(`/tags/${tag.toLowerCase()}`)}
+                className="css-tag"
+              >
+                {tag}
+              </div>
             ))}
           </div>
         ) : null}
