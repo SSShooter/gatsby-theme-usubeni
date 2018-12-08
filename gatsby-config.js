@@ -3,7 +3,7 @@ module.exports = {
     title: 'Usubeni Fantasy',
     author: 'ssshooter',
     description: '次の千年へ　夢を紡いで',
-    siteUrl: 'https://github.com/ssshooter',// todo
+    siteUrl: 'https://ssshooter.com',
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -86,6 +86,7 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`
   ],
 }
