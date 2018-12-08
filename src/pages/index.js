@@ -27,6 +27,9 @@ class IndexPage extends React.Component {
             <a style={{ fontSize: '1.5rem' }} href="/meme">
               meme
             </a>
+            <a style={{ fontSize: '1.5rem' }} href="/about">
+              about
+            </a>
             <a style={{ fontSize: '1.5rem' }} href="/tags">
               tags
             </a>
