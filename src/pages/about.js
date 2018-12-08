@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
         <div>segmentfault: https://segmentfault.com/u/ssshooter</div>
         <div>twitter: https://twitter.com/zhoudejie</div>
         <div>
-          新米骑空士，在爆肝的路上渐行渐远，和程序员这个职业结合起来，简直头发再见
+          新人骑空士，在爆肝的路上渐行渐远，和程序员这个职业结合起来，简直头发再见
         </div>
         <div>在这里当然要私心放出链接 http://game.granbluefantasy.jp/</div>
         <h1 className="css-page-name">work</h1>

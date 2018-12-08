@@ -14,6 +14,7 @@ export default class HTML extends React.Component {
           />
           <meta name="google-site-verification" content="ebowurt3yvxVX2IhEbMGgmpbNBQIHYxRwVNbxuIx58s" />
           <meta name="baidu-site-verification" content="rVEuQMP8C6" />
+          <script src="https://cdn.commento.io/js/commento.js"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>

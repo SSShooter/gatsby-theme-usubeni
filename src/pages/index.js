@@ -6,11 +6,13 @@ import Img from 'gatsby-image'
 class IndexPage extends React.Component {
   render() {
     return (
-      <div>
-        <Img style={{
-          height:'80vh'
-        }}
-         fluid={this.props.data.file.childImageSharp.fluid} />
+      <div style={{
+        maxWidth:'900px',
+        margin:'auto'
+      }}>
+      <Img
+        fluid={this.props.data.file.childImageSharp.fluid}
+      />
         <Layout location={this.props.location} title="Usubeni Fantasy">
           <div
             style={{
@@ -44,7 +46,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "yozakura.png" }) {
+    file(relativePath: { eq: "yozakura.jpg" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_noBase64

@@ -41,7 +41,7 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         {/* <Bio /> */}
-
+        <div id="commento" />
         <ul
           style={{
             display: 'flex',
