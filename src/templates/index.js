@@ -14,7 +14,7 @@ class BlogIndex extends React.Component {
     const { totalPage, currentPage } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} pageName="日记" pageDescript="一些生活日常，一些没有什么用的人生思考">
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
@@ -27,6 +27,7 @@ class BlogIndex extends React.Component {
             <div key={node.fields.slug}>
               <h3
                 style={{
+                  marginTop:'3rem',
                   marginBottom: '0.25rem',
                 }}
               >

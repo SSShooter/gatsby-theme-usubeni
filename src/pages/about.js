@@ -6,8 +6,7 @@ import Img from 'gatsby-image'
 class IndexPage extends React.Component {
   render() {
     return (
-      <Layout location={this.props.location} title="Usubeni Fantasy">
-        <h1 className="css-page-name">关于我</h1>
+      <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="关于我" pageDescript="小小的我">
         <div>
           一个 web 前端开发工程师，机缘巧合接触到
           RN，现在已经不知为何开始研究起了 iOS 和 android

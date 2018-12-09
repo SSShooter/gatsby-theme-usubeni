@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class HTML extends React.Component {
   render() {
@@ -12,9 +12,11 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <meta name="google-site-verification" content="ebowurt3yvxVX2IhEbMGgmpbNBQIHYxRwVNbxuIx58s" />
+          <meta
+            name="google-site-verification"
+            content="ebowurt3yvxVX2IhEbMGgmpbNBQIHYxRwVNbxuIx58s"
+          />
           <meta name="baidu-site-verification" content="rVEuQMP8C6" />
-          <script defer src="https://cdn.commento.io/js/commento.js"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
@@ -25,6 +27,7 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
+          <script defer src="https://cdn.commento.io/js/commento.js" />
         </body>
       </html>
     )

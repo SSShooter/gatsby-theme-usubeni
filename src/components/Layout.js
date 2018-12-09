@@ -6,10 +6,12 @@ import './global.scss'
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    console.log(this.props)
+    const { pageName,pageDescript, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    const header = (
-      <div>
+    // This is the website name
+    const websiteName = (
+      <h1>
         <Link
           style={{
             boxShadow: 'none',
@@ -21,9 +23,14 @@ class Layout extends React.Component {
         >
           {title}
         </Link>
-      </div>
+      </h1>
     )
+    const name = <h2>{pageName}</h2>
+    const descript = <h3 style={{
+      marginBottom:'3rem'
+    }}>{pageDescript}</h3>
     return (
+      // TODO add page name
       <div
         style={{
           margin: 'auto',
@@ -31,7 +38,9 @@ class Layout extends React.Component {
           padding: '1.2rem 1.1rem',
         }}
       >
-        {header}
+        {websiteName}
+        {name}
+        {descript}
         {children}
       </div>
     )

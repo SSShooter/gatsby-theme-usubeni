@@ -9,8 +9,7 @@ class NotFoundPage extends React.Component {
     console.log(data)
     const gallery = data.allFile.edges
     return (
-      <Layout location={this.props.location} title="Usubeni Fantasy">
-        <h1 className="css-page-name">Gallery</h1>
+      <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="Gallery" pageDescript="试验性摄影区">
         <div className="masonry">
           {gallery.map(img => (
             <a

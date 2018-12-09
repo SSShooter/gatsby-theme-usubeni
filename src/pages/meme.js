@@ -9,8 +9,7 @@ class NotFoundPage extends React.Component {
     console.log(data)
     const meme = data.allFile.edges
     return (
-      <Layout location={this.props.location} title="Usubeni Fantasy">
-        <h1 className="css-page-name">沙雕表情库</h1>
+      <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="沙雕表情库" pageDescript="点击图片，大图带走">
         {meme.map(img => (
           <a
             href={img.node.publicURL}

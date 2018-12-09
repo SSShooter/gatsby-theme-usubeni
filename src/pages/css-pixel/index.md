@@ -13,9 +13,9 @@ tags: ["CSS","翻译"]
 
 这篇文章将会介绍只用 CSS 就能制作像素画·像素动画的方法。虽说纯 CSS 就能做到，但是为了更高的可维护性，也会顺便介绍使用 Sass 的制作方法。
 
-![clipboard.png](https://4.bp.blogspot.com/-IL3WBEOa_4U/W9AcIgQoM6I/AAAAAAAAIl8/Is_daJbh4M4IjXl3kXE1idbUz892vNc0QCLcBGAs/s640/icons.png)
+![pixel art](./1.png)
 
-![clipboard.png](https://4.bp.blogspot.com/-kvLi_PbK2hI/W9Ab7vxHccI/AAAAAAAAIl4/wDpyjKnJ4pYgTEg6XfC-D8Vg8mW5VgXRgCLcBGAs/s640/pixel-animation.gif)
+![pixel art](https://4.bp.blogspot.com/-kvLi_PbK2hI/W9Ab7vxHccI/AAAAAAAAIl4/wDpyjKnJ4pYgTEg6XfC-D8Vg8mW5VgXRgCLcBGAs/s640/pixel-animation.gif)
 
 上面的马里奥和 Minecraft 方块都没有使用 JavaScript，单纯使用 CSS 动画制作。
 

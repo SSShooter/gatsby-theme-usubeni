@@ -1,8 +1,8 @@
 $backgroundColor: #231c2f;
 // $backgroundColor: #434343;
 $titleColor: #e87a90;
-$dateColor: #fedfe1;
-$fontColor: #fcfaf2;
+$dateColor: #fcfaf2;
+$fontColor: #fedfe1;
 
 body {
   background-color: $backgroundColor !important;
@@ -20,14 +20,6 @@ body {
   margin: 0;
 }
 
-// page name
-.css-page-name {
-  font-size: 1.5rem;
-  font-family: source-han-sans-simplified-c, sans-serif;
-  color: $titleColor;
-  font-weight: 400;
-  margin-top: 2rem;
-}
 .css-date {
   color: $dateColor;
 }
@@ -46,4 +38,12 @@ a {
 blockquote {
   color: $fontColor !important;
   border-left: 0.32813rem solid $titleColor !important;
+}
+h1 .website-name{
+  padding: 0;
+  left: 0;
+  font-family: source-han-sans-simplified-c, sans-serif;
+  color: $titleColor;
+  font-weight: 400;
+  margin: 0;
 }
