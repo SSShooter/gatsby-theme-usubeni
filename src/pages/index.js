@@ -20,20 +20,23 @@ class IndexPage extends React.Component {
               justifyContent: 'space-between',
             }}
           >
-            <a style={{ fontSize: '1.5rem' }} href="/blog">
-              blog
+            <a style={{ fontSize: '1.5rem' }} href="/tag/coding/">
+              技术
             </a>
-            <a style={{ fontSize: '1.5rem' }} href="/gallery">
-              gallery
-            </a>
-            <a style={{ fontSize: '1.5rem' }} href="/meme">
-              meme
-            </a>
-            <a style={{ fontSize: '1.5rem' }} href="/about">
-              about
+            <a style={{ fontSize: '1.5rem' }} href="/tag/diary/">
+              生活
             </a>
             <a style={{ fontSize: '1.5rem' }} href="/tags">
-              tags
+              标签
+            </a>
+            <a style={{ fontSize: '1.5rem' }} href="/gallery">
+              摄影
+            </a>
+            <a style={{ fontSize: '1.5rem' }} href="/meme">
+              表情
+            </a>
+            <a style={{ fontSize: '1.5rem' }} href="/about">
+              关于
             </a>
           </div>
         </Layout>

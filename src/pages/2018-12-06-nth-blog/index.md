@@ -2,7 +2,7 @@
 path: "/nth-blog"
 date: "2018-12-06T22:38:49.715Z"
 title: "Nth Blog"
-tags: []
+tags: ["diary"]
 ---
 
 说实话，真的不知道是我的第几个 blog 了，

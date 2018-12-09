@@ -6,8 +6,6 @@ Wordpress2016.overrideThemeStyles = () => ({
     boxShadow: 'none',
   },
   'h1, h2, h3, h4, h5, h6': {
-    marginTop: 0,
-    marginBottom: '1rem',
     fontWeight: 100
   },
   'h1':{

@@ -17,6 +17,10 @@ exports.createPages = ({ graphql, actions }) => {
               sort: { fields: [frontmatter___date], order: DESC }
               limit: 1000
             ) {
+              group(field: frontmatter___tags) {
+                fieldValue
+                totalCount
+              }
               edges {
                 node {
                   fields {
@@ -36,44 +40,45 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors)
           reject(result.errors)
         }
+        const tags = result.data.allMarkdownRemark.group
         const posts = result.data.allMarkdownRemark.edges
 
         // create homepage pagination
         const postsPerPage = 8
-        const numPages = Math.ceil(posts.length / postsPerPage)
+        // const numPages = Math.ceil(posts.length / postsPerPage)
 
-        Array.from({ length: numPages }).forEach((_, i) => {
-          createPage({
-            path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-            component: homePaginate,
-            context: {
-              currentPage: i + 1,
-              totalPage: numPages,
-              limit: postsPerPage,
-              skip: i * postsPerPage,
-            },
-          })
-        })
-
-        // Create page for every tag
-        let tags = []
-        // Iterate through each post, putting all found tags into `tags`
-        _.each(posts, edge => {
-          if (_.get(edge, 'node.frontmatter.tags')) {
-            tags = tags.concat(edge.node.frontmatter.tags)
-          }
-        })
-        // Eliminate duplicate tags
-        tags = _.uniq(tags)
+        // Array.from({ length: numPages }).forEach((_, i) => {
+        //   createPage({
+        //     path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        //     component: homePaginate,
+        //     context: {
+        //       currentPage: i + 1,
+        //       totalPage: numPages,
+        //       limit: postsPerPage,
+        //       skip: i * postsPerPage,
+        //     },
+        //   })
+        // })
 
         // Make tag pages
         tags.forEach(tag => {
-          createPage({
-            path: `/tags/${_.kebabCase(tag)}/`,
-            component: tagTemplate,
-            context: {
-              tag,
-            },
+          const total = tag.totalCount
+          const numPages = Math.ceil(total / postsPerPage)
+          Array.from({ length: numPages }).forEach((_, i) => {
+            createPage({
+              path:
+                i === 0
+                  ? `/tag/${tag.fieldValue}`
+                  : `/tag/${tag.fieldValue}/${i + 1}`,
+              component: tagTemplate,
+              context: {
+                tag: tag.fieldValue,
+                currentPage: i + 1,
+                totalPage: numPages,
+                limit: postsPerPage,
+                skip: i * postsPerPage,
+              },
+            })
           })
         })
 
