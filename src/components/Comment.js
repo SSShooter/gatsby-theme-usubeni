@@ -23,33 +23,32 @@ export default class Comment extends Component {
         message: this.message.value,
       },
     }
-    console.log(data)
     xhr.send(JSON.stringify(data))
   }
   render() {
     return (
-      <div>
-        <h3>Add a comment</h3>
-        <form>
-          <input
-            ref={input => (this.name = input)}
-            type="text"
-            placeholder="Name"
-            required
-          />
-          <input
-            ref={input => (this.email = input)}
-            type="email"
-            placeholder="Email"
-            required
-          />
-          <textarea
-            ref={input => (this.message = input)}
-            placeholder="message"
-            required
-          />
-          <button onClick={this.submit}>Submit message</button>
-        </form>
+      <div className="css-comment">
+        <h3>留言<span>（留言将在数分钟后显示）</span></h3>
+        <p>昵称</p>
+        <input
+          ref={input => (this.name = input)}
+          type="text"
+          placeholder="必填 请输入你的昵称"
+          required
+        />
+        <p>联系方式</p>
+        <input
+          ref={input => (this.email = input)}
+          type="email"
+          placeholder="非必填 请输入你的联系方式"
+        />
+        <p>留言内容</p>
+        <textarea
+          ref={input => (this.message = input)}
+          placeholder="必填 请输入留言内容"
+          required
+        />
+        <button onClick={this.submit}>发送留言</button>
       </div>
     )
   }

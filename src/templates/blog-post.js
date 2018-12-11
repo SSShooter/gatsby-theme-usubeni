@@ -9,6 +9,8 @@ import Layout from '../components/Layout'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
+    const comments = this.props.data.allCommentsYaml
+    console.log(comments)
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { slug, previous, next } = this.props.pageContext
@@ -81,6 +83,16 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+      }
+    }
+    allCommentsYaml(filter: { url: { eq: $slug } }) {
+      edges {
+        node {
+          id
+          name
+          message
+          date
+        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

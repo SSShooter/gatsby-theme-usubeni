@@ -39,11 +39,32 @@ blockquote {
   color: $fontColor !important;
   border-left: 0.32813rem solid $titleColor !important;
 }
-h1 .website-name{
+h1 .website-name {
   padding: 0;
   left: 0;
   font-family: source-han-sans-simplified-c, sans-serif;
   color: $titleColor;
   font-weight: 400;
   margin: 0;
+}
+
+.css-comment {
+  h3 {
+    span {
+      font-size: 0.5em;
+    }
+  }
+  p {
+    margin: 8px 0;
+  }
+  input,
+  textarea,
+  button {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+  }
+  button {
+    margin: 16px 0;
+  }
 }
