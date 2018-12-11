@@ -3,13 +3,14 @@ import Helmet from 'react-helmet'
 import { Link, graphql, navigate } from 'gatsby'
 
 import Bio from '../components/Bio'
-import Comment from '../components/Comment'
+import CommentSubmit from '../components/CommentSubmit'
+import CommentDisplay from '../components/CommentDisplay'
 import Layout from '../components/Layout'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const comments = this.props.data.allCommentsYaml
+    const comments = this.props.data.allCommentsYaml.edges
     console.log(comments)
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
@@ -43,7 +44,8 @@ class BlogPostTemplate extends React.Component {
             marginBottom: '1rem',
           }}
         />
-        <Comment url={slug} />
+        {comments.map(comment=><CommentDisplay data={comment.node} />)}
+        <CommentSubmit url={slug} />
         {/* <Bio /> */}
         <div id="commento" />
         <ul

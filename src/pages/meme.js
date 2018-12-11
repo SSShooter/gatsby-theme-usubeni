@@ -6,7 +6,6 @@ import { graphql } from 'gatsby'
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
-    console.log(data)
     const meme = data.allFile.edges
     return (
       <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="沙雕表情库" pageDescript="点击图片，大图带走">

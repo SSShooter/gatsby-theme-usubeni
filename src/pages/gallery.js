@@ -6,7 +6,6 @@ import { graphql } from 'gatsby'
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
-    console.log(data)
     const gallery = data.allFile.edges
     return (
       <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="Gallery" pageDescript="试验性摄影区">

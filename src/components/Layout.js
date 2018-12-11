@@ -6,7 +6,6 @@ import './global.scss'
 
 class Layout extends React.Component {
   render() {
-    console.log(this.props)
     const { pageName,pageDescript, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     // This is the website name
