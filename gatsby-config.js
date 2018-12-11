@@ -35,6 +35,14 @@ module.exports = {
         path: `${__dirname}/src/assets/`,
       },
     },
+    'gatsby-transformer-yaml',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/_data/comments`,
+        name: 'comments',
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

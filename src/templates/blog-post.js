@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { Link, graphql, navigate } from 'gatsby'
 
 import Bio from '../components/Bio'
+import Comment from '../components/Comment'
 import Layout from '../components/Layout'
 
 class BlogPostTemplate extends React.Component {
@@ -10,7 +11,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
-    const { previous, next } = this.props.pageContext
+    const { slug, previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -40,6 +41,7 @@ class BlogPostTemplate extends React.Component {
             marginBottom: '1rem',
           }}
         />
+        <Comment url={slug} />
         {/* <Bio /> */}
         <div id="commento" />
         <ul
