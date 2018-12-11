@@ -27,7 +27,6 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
-          <script defer src="https://cdn.commento.io/js/commento.js" />
         </body>
       </html>
     )

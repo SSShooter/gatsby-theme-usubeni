@@ -1,7 +1,7 @@
 ---
 path: "/gatsby-blog-2"
 date: "2018-12-10T21:16:11.388Z"
-title: "使用 Gatsby.js 搭建静态博客 2"
+title: "使用 Gatsby.js 搭建静态博客 2 实现分页"
 tags: ["coding"]
 ---
 可以先复习 -> [使用 Gatsby.js 搭建静态博客 1 关键文件](/2018-12-09-gatsby-blog-1/) <-
@@ -111,9 +111,11 @@ Array.from({ length: numPages }).forEach((_, i) => {
 功能实现了，但是这里有一个突发事件：
 
 原来的页面是这样的：
+
 ![](./1.png)
 
 我什么都没修改怎么就变成这样了？
+
 ![](./2.png)
 
 ![](./3.png)
