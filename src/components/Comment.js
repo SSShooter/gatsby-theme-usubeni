@@ -20,11 +20,11 @@ export default class Comment extends Component {
         url: this.props.url,
         name: this.name.value,
         email: this.email.value,
-        comment: this.comment.value,
+        message: this.message.value,
       },
     }
     console.log(data)
-    xhr.send(data)
+    xhr.send(JSON.stringify(data))
   }
   render() {
     return (
@@ -44,11 +44,11 @@ export default class Comment extends Component {
             required
           />
           <textarea
-            ref={input => (this.comment = input)}
-            placeholder="Comment"
+            ref={input => (this.message = input)}
+            placeholder="message"
             required
           />
-          <button onClick={this.submit}>Submit Comment</button>
+          <button onClick={this.submit}>Submit message</button>
         </form>
       </div>
     )
