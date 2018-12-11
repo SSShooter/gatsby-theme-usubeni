@@ -10,7 +10,9 @@ import Layout from '../components/Layout'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const comments = this.props.data.allCommentsYaml.edges
+    const comments = this.props.data.allCommentsYaml
+      ? this.props.data.allCommentsYaml.edges
+      : []
     console.log(comments)
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
@@ -44,7 +46,9 @@ class BlogPostTemplate extends React.Component {
             marginBottom: '1rem',
           }}
         />
-        {comments.map(comment=><CommentDisplay data={comment.node} />)}
+        {comments.map(comment => (
+          <CommentDisplay data={comment.node} />
+        ))}
         <CommentSubmit url={slug} />
         {/* <Bio /> */}
         <div id="commento" />
