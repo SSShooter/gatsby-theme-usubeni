@@ -16,7 +16,7 @@ comments:
   branch: 'master'
 
   # Text to use as the commit message or pull request title. Accepts placeholders.
-  commitMessage: ':speech_balloon: [skip ci] Add Staticman data'
+  commitMessage: ':speech_balloon: Add Staticman data'
 
   # (*) REQUIRED
   #
@@ -40,7 +40,7 @@ comments:
   # Whether entries need to be appproved before they are published to the main
   # branch. If set to `true`, a pull request will be created for your approval.
   # Otherwise, entries will be published to the main branch automatically.
-  moderation: true
+  moderation: false
 
   # Name of the site. Used in notification emails.
   name: 'eduardoboucas.com'

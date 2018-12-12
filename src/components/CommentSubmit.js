@@ -13,6 +13,10 @@ export default class Comment extends Component {
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {
         console.log(xhr.responseText)
+        this.name.value = ''
+        this.email.value = ''
+        this.message.value = ''
+        alert('留言已发送，将在数分钟后显示')
       }
     }
     let data = {
@@ -27,8 +31,10 @@ export default class Comment extends Component {
   }
   render() {
     return (
-      <div className="css-comment">
-        <h3>留言<span>（留言将在数分钟后显示）</span></h3>
+      <div className="css-comment-submit">
+        <h3>
+          留言<span>（将在数分钟后显示）</span>
+        </h3>
         <p>昵称</p>
         <input
           ref={input => (this.name = input)}
