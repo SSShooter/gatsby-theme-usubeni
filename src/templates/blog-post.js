@@ -47,7 +47,7 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         {comments.map(comment => (
-          <CommentDisplay data={comment.node} />
+          <CommentDisplay key={comment.node.id} data={comment.node} />
         ))}
         <CommentSubmit url={slug} />
         {/* <Bio /> */}

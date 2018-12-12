@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 export default class Comment extends Component {
+  state = {
+    submitState: '发送留言',
+  }
   submit = () => {
     var xhr = new XMLHttpRequest()
     xhr.open(
@@ -10,13 +13,26 @@ export default class Comment extends Component {
     )
     // 添加http头，发送信息至服务器时内容编码类型
     xhr.setRequestHeader('Content-Type', 'application/json')
+    // onreadystatechange change 次数研究
     xhr.onreadystatechange = () => {
-      if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {
-        console.log(xhr.responseText)
-        this.name.value = ''
-        this.email.value = ''
-        this.message.value = ''
-        alert('留言已发送，将在数分钟后显示')
+      if (xhr.readyState == 4) {
+        if (xhr.status == 200 || xhr.status == 304) {
+          console.log(xhr.responseText)
+          this.name.value = ''
+          this.email.value = ''
+          this.message.value = ''
+          alert('留言已发送，将在数分钟后显示')
+          this.setState({
+            submitState: '已发送',
+          })
+        } else {
+          const response = JSON.parse(xhr.responseText)
+          if (response.errorCode) alert(response.errorCode)
+          this.button.disabled = false
+          this.setState({
+            submitState: '发送留言',
+          })
+        }
       }
     }
     let data = {
@@ -28,6 +44,10 @@ export default class Comment extends Component {
       },
     }
     xhr.send(JSON.stringify(data))
+    this.setState({
+      submitState: '发送中',
+    })
+    this.button.disabled = true
   }
   render() {
     return (
@@ -54,7 +74,7 @@ export default class Comment extends Component {
           placeholder="必填 请输入留言内容"
           required
         />
-        <button onClick={this.submit}>发送留言</button>
+        <button ref={button => (this.button = button)} onClick={this.submit}>{this.state.submitState}</button>
       </div>
     )
   }
