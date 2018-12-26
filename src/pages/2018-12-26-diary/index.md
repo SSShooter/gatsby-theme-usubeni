@@ -1,8 +1,8 @@
 ---
-path: "/diary"
+path: "/diary1226"
 date: "2018-12-26T21:29:32.385Z"
 title: "12-26"
-tags: []
+tags: ["diary"]
 ---
 
 # 上次碧蓝漫画的后续
