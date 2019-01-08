@@ -1,7 +1,7 @@
 ---
 path: "/understand-mvvm"
 date: "2019-01-04T13:52:54.104Z"
-title: "浅析 MVVM“
+title: "浅析 web 前端 MVVM"
 tags: ["coding","MVVM"]
 ---
 
