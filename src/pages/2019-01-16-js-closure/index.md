@@ -5,25 +5,15 @@ title: "【译】从实现理解闭包（复盘校对版）"
 tags: ["coding","翻译"]
 ---
 > 来源于 [现代JavaScript教程](https://github.com/iliakan/javascript-tutorial-en)
-
 [闭包章节](https://javascript.info/closure)
-
 [中文翻译计划](https://github.com/iliakan/javascript-tutorial-cn)
-
 本文很清晰地解释了闭包是什么，以及闭包如何产生，相信你看完也会有所收获
 
-
-
 **关键字**
-
 **Closure** 闭包
-
 **Lexical Environment** 词法环境
-
 **Environment Record** 环境记录
-
 **outer Lexical Environment** 外部词法环境
-
 **global Lexical Environment** 全局语法环境
 
 # 闭包（Closure）
@@ -38,88 +28,90 @@ JavaScript 是一个 function-oriented（直译：面向函数）的语言，这
 
 不同语言的表现有所不同，下面我们研究一下 JavaScript 中的表现。
 
+
 ## 两个问题
 
 我们先思考下面两种情况，看完这篇文章你就可以回答这两个问题，更复杂的问题也不在话下。
 
 1. `sayHi` 函数使用了外部变量 `name`。函数运行时，会使用两个值中的哪个？
 
-```JavaScript
-let name = "John";
+   ```JavaScript
+   let name = "John";
 
-function sayHi() {
-alert("Hi, " + name);
-}
+   function sayHi() {
+     alert("Hi, " + name);
+   }
 
-name = "Pete";
+   name = "Pete";
 
-sayHi(); // "John" 还是 "Pete"？
-```
+   sayHi(); // "John" 还是 "Pete"？
+   ```
 
-这个情况不论是浏览器端还是服务器端都很常见。函数很可能在它创建一段时间后才执行，例如等待用户操作或者网络请求。
+   这个情况不论是浏览器端还是服务器端都很常见。函数很可能在它创建一段时间后才执行，例如等待用户操作或者网络请求。
 
-问题是：函数是否会选择变量最新的值呢？
+   问题是：函数是否会选择变量最新的值呢？
 
-1. `makeWorker` 函数创建并返回了另一个函数。这个新函数可以在任何地方调用。他会访问创建时的变量还是调用时的变量呢？
 
-```JavaScript
-function makeWorker() {
-let name = "Pete";
+2. `makeWorker` 函数创建并返回了另一个函数。这个新函数可以在任何地方调用。他会访问创建时的变量还是调用时的变量呢？
 
-return function() {
-alert(name);
-};
-}
+   ```JavaScript
+   function makeWorker() {
+     let name = "Pete";
 
-let name = "John";
+     return function() {
+       alert(name);
+     };
+   }
 
-// 创建函数
-let work = makeWorker();
+   let name = "John";
 
-// 调用函数
-work(); // "Pete"（创建时）还是 "John"（调用时）？
-```
+   // 创建函数
+   let work = makeWorker();
+
+   // 调用函数
+   work(); // "Pete"（创建时）还是 "John"（调用时）？
+   ```
+
 
 ## Lexical Environment（词法环境）
 
 要理解里面发生了什么，必须先明白“变量”到底是什么。
 
-在 JavaScript 里，任何运行的函数、代码块、整个 script 都会关联一个被称为 _Lexical Environment （词法环境）_ 的对象。
+在 JavaScript 里，任何运行的函数、代码块、整个 script 都会关联一个被称为 **Lexical Environment （词法环境）** 的对象。
 
 Lexical Environment 对象包含两个部分：（译者：这里是重点）
 
-1. **Environment Record（环境记录）**全部局部变量**为属性的对象（以及其他如 `this` 值的信息）。
-1. 对 **outer lexical environment（外部词法环境）**的引用，通常关联词法上的外面一层代码（花括号外一层）。
+1. **Environment Record（环境记录）**是一个以**全部局部变量**为属性的对象（以及其他如 `this` 值的信息）。
+2. 对 **outer lexical environment（外部词法环境）**的引用，通常关联词法上的外面一层代码（花括号外一层）。 
 
 所以，“变量”就是内部对象 Environment Record 的一个属性。要获取或改变一个对象，意味着获取改变 Lexical Environment 的属性。
 
 例如在这段简单的代码中，只有一个 Lexical Environment：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-f0d631b73683bb4a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=74&linkTarget=_blank&originHeight=74&originWidth=448&width=448)
+![lexical environment](http://upload-images.jianshu.io/upload_images/3020281-f0d631b73683bb4a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 这就是所谓 global Lexical Environment（全局语法环境），对应整个 script。对于浏览端，整个 `<script>` 标签共享一个全局环境。
 
 （译者：这里是重点）
-
 上图中，正方形代表 Environment Record（变量储存点），箭头代表一个**外部引用**。global Lexical Environment 没有外部引用，所以指向 `null`。
 
 下图展示 `let` 变量的工作机制：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-b47b3eb8188852ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=135&linkTarget=_blank&originHeight=135&originWidth=445&width=445)
+![lexical environment](http://upload-images.jianshu.io/upload_images/3020281-b47b3eb8188852ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 右边的正方形描述 global Lexical Environment 在执行中如何改变：
 
 1. 脚本开始运行，Lexical Environment 为空。
-1. `let phrase` 定义出现了。因为没有赋值所以储存为 `undefined` 。
-1. `phrase` 被赋值。
-1. `phrase` 被赋新值。
+2. `let phrase` 定义出现了。因为没有赋值所以储存为 `undefined` 。
+3. `phrase` 被赋值。
+4. `phrase` 被赋新值。
 
 看起来很简单对不对？
 
 总结：
 
-* 变量是一个特殊内部对象的属性，关联于执行时的块、函数、script 。
-* 对变量的操作实际上是对这个对象属性的操作。
+- 变量是一个特殊内部对象的属性，关联于执行时的块、函数、script 。
+- 对变量的操作实际上是对这个对象属性的操作。
 
 ### Function Declaration（函数声明）
 
@@ -129,24 +121,24 @@ Function Declaration 与 `let` 不同，并非处理于被执行的时候，而�
 
 以下代码 Lexical Environment 开始时非空。因为有 `say` 函数声明，之后又有了 `let` 声明的 `phrase`：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-da91d2a884d085a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=132&linkTarget=_blank&originHeight=132&originWidth=506&width=506)
+![lexical environment](http://upload-images.jianshu.io/upload_images/3020281-da91d2a884d085a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ### Inner and outer Lexical Environment（内部词法环境和外部词法环境）
 
 调用 `say()` 的过程中，它使用了外部变量，一起看看这里面发生了什么。
 
 （译者：这里是重点）
-
 函数运行时会自动创建一个新的函数 Lexical Environment。这是所有函数的通用规则。这个新的 Lexical Environment 用于当前运行函数的存放局部变量和形参。
 
 箭头标记的是执行 `say("John")` 时的 Lexical Environment ：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-b1168f32539c4985.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=127&linkTarget=_blank&originHeight=127&originWidth=709&width=709)
+![lexical environment](http://upload-images.jianshu.io/upload_images/3020281-b1168f32539c4985.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 函数调用过程中，可以看到两个 Lexical Environment（译者注：就是两个长方形）：里面的是函数调用产生的，外面的是全局的：
 
-* 内层 Lexical Environment 对应当前执行的 `say`。它只有一个变量：函数实参 `name`。我们调用了 `say("John")`，所以 `name` 的值是 `"John"`。
-* 外层 Lexical Environment 是 global Lexical Environment。
+- 内层 Lexical Environment 对应当前执行的 `say`。它只有一个变量：函数实参 `name`。我们调用了 `say("John")`，所以 `name` 的值是 `"John"`。
+- 外层 Lexical Environment 是 global Lexical Environment。
 
 内层 Lexical Environment 的 `outer` 属性指向外层 Lexical Environment。
 
@@ -156,10 +148,10 @@ Function Declaration 与 `let` 不同，并非处理于被执行的时候，而�
 
 下面一起看看变量搜索如何处理：
 
-* `say` 里的 `alert` 想要访问 `name`，立即就能在当前函数的 Lexical Environment 找到。
-* 而局部变量不存在 `phrase`，所以要循着 `outer` 在全局变量里找到。
+- `say` 里的 `alert` 想要访问 `name`，立即就能在当前函数的 Lexical Environment 找到。
+- 而局部变量不存在 `phrase`，所以要循着 `outer` 在全局变量里找到。
 
-![](http://upload-images.jianshu.io/upload_images/3020281-26e026dca28ff797.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=131&linkTarget=_blank&originHeight=131&originWidth=680&width=680)
+![lexical environment lookup](http://upload-images.jianshu.io/upload_images/3020281-26e026dca28ff797.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 现在我们可以回答本章开头的第一个问题了。
 
@@ -173,7 +165,7 @@ Function Declaration 与 `let` 不同，并非处理于被执行的时候，而�
 let name = "John";
 
 function sayHi() {
-alert("Hi, " + name);
+ alert("Hi, " + name);
 }
 
 name = "Pete"; // (*)
@@ -184,20 +176,17 @@ sayHi(); // Pete
 上述代码的执行流：
 
 1. global Lexical Environment 存在 `name: "John"` 。
-1. `(*)` 行中，全局变量修改了，现在成了这样 `name: "Pete"` 。
-1. `say()` 执行的时候，取外部 `name`。此时在 global Lexical Environment 中已经是 `"Pete"`。
+2. `(*)` 行中，全局变量修改了，现在成了这样 `name: "Pete"` 。
+3. `say()` 执行的时候，取外部 `name`。此时在 global Lexical Environment 中已经是 `"Pete"`。
+
 
 > **一次调用，一个 Lexical Environment**
-
 请注意，每当一个函数运行，就会创建一个新的 function Lexical Environment。
-
 如果一个函数被多次调用，那么每次调用都会生成一个属于当前调用的全新 Lexical Environment，里面装载着当前调用的变量和实参。
 
 
 > **Lexical Environment 是一个标准对象（specification object）**
-
 "Lexical Environment" 是一个标准对象（specification object），不能直接获取或设置它，JavaScript 引擎也可能优化它，抛弃未使用的变量来节省内存或者作其他优化，但是可见行为应该如上面所述。
-
 
 ## 嵌套函数
 
@@ -206,13 +195,13 @@ sayHi(); // Pete
 ```JavaScript
 function sayHiBye(firstName, lastName) {
 
-// helper nested function to use below
-function getFullName() {
-return firstName + " " + lastName;
-}
+ // helper nested function to use below
+ function getFullName() {
+   return firstName + " " + lastName;
+ }
 
-alert( "Hello, " + getFullName() );
-alert( "Bye, " + getFullName() );
+ alert( "Hello, " + getFullName() );
+ alert( "Bye, " + getFullName() );
 
 }
 ```
@@ -227,10 +216,10 @@ alert( "Bye, " + getFullName() );
 // 构造函数返回一个新对象
 function User(name) {
 
-// 嵌套函数创造对象方法
-this.sayHi = function() {
-alert(name);
-};
+ // 嵌套函数创造对象方法
+ this.sayHi = function() {
+   alert(name);
+ };
 }
 
 let user = new User("John");
@@ -241,11 +230,11 @@ user.sayHi(); // 方法返回外部 "name"
 
 ```javascript
 function makeCounter() {
-let count = 0;
+ let count = 0;
 
-return function() {
-return count++; // has access to the outer counter
-};
+ return function() {
+   return count++; // has access to the outer counter
+ };
 }
 
 let counter = makeCounter();
@@ -261,18 +250,18 @@ counter 内部如何工作？
 
 内部函数运行， `count++` 中的变量由内到外搜索：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-4516c2310a985575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=145&linkTarget=_blank&originHeight=145&originWidth=306&width=306)
+![image](http://upload-images.jianshu.io/upload_images/3020281-4516c2310a985575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 1. 嵌套函数局部变量……
-1. 外层函数……
-1. 直到全局变量。
+2. 外层函数……
+3. 直到全局变量。
 
 第 2 步我们找到了 `count`。外部变量会直接在其所在的地方被修改。所以 `count++` 检索外部变量，并在该变量自己的 Lexical Environment 进行 +1 操作。就像操作了 `let count = 1` 一样。
 
 这里需要思考两个问题：
 
 1. 我们能通过 `makeCounter` 以外的方法重置 `counter` 吗？
-1. 如果我们可以多次调用 `makeCounter()` ，返回了很多 `counter` 函数，他们的 `count` 是独立的还是共享的？
+2. 如果我们可以多次调用 `makeCounter()` ，返回了很多 `counter` 函数，他们的 `count` 是独立的还是共享的？
 
 继续阅读前可以先尝试思考一下。
 
@@ -283,16 +272,16 @@ ok ？
 那我们开始揭晓谜底：
 
 1. 没门。`counter` 是局部变量，不可能在外部直接访问。
-1. 每次调用 `makeCounter()` 都会新建 Lexical Environment，每一个环境都有自己的 `counter`。所以不同 counter 里的 `count` 是独立的。
+2. 每次调用 `makeCounter()` 都会新建 Lexical Environment，每一个环境都有自己的 `counter`。所以不同 counter 里的 `count` 是独立的。
 
 一个 demo ：
 
 ```JavaScript
 function makeCounter() {
-let count = 0;
-return function() {
-return count++;
-};
+ let count = 0;
+ return function() {
+   return count++;
+ };
 }
 
 let counter1 = makeCounter();
@@ -314,85 +303,80 @@ alert( counter2() ); // 0 （独立）
 
 1. 脚本开始运行，此时只存在 global Lexical Environment ：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-26e63e33e38a5d08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=140&linkTarget=_blank&originHeight=140&originWidth=646&width=646)
+   ![image](http://upload-images.jianshu.io/upload_images/3020281-26e63e33e38a5d08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-这时候只有 `makeCounter` 一个函数，这是函数声明，**还未被调用**。
+   这时候只有 `makeCounter` 一个函数，这是函数声明，**还未被调用**。
 
-所有函数都带着一个隐藏属性 `[[Environment]]` “诞生”。`[[Environment]]` 指向它们**创建者**的 Lexical Environment。是`[[Environment]]` 让函数知道它“诞生”于什么环境。
+   所有函数都带着一个隐藏属性 `[[Environment]]` “诞生”。`[[Environment]]` 指向它们**创建者**的 Lexical Environment。是`[[Environment]]` 让函数知道它“诞生”于什么环境。
 
-`makeCounter` 创建于 global Lexical Environment，所以 `[[Environment]]` 指向它。
+   `makeCounter` 创建于 global Lexical Environment，所以 `[[Environment]]` 指向它。
 
-换句话说，Lexical Environment 在函数诞生时就“铭刻”在这个函数中。`[[Environment]]` 是指向 Lexical Environment 的隐藏函数属性。
+   换句话说，Lexical Environment 在函数诞生时就“铭刻”在这个函数中。`[[Environment]]` 是指向 Lexical Environment 的隐藏函数属性。
 
-1. 代码继续执行，`makeCounter()` 登场。这是代码运行到 `makeCounter()` 瞬间的快照：
+2. 代码继续执行，`makeCounter()` 登场。这是代码运行到 `makeCounter()` 瞬间的快照：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-7ff771b4d5000edf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=155&linkTarget=_blank&originHeight=155&originWidth=696&width=696)
+   ![image](http://upload-images.jianshu.io/upload_images/3020281-7ff771b4d5000edf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-`makeCounter()` 调用时，保存当前变量和实参的 Lexical Environment 已经被创建。
+   `makeCounter()` 调用时，保存当前变量和实参的 Lexical Environment 已经被创建。
 
-Lexical Environment 储存 2 个东西：
+   Lexical Environment 储存 2 个东西：
 
-1. 带有局部变量的 Environment Record。例子中 `count` 是唯一的局部变量（`let count` 被执行的时候记录）。
-1. 被绑定到函数 `[[Environment]]` 的外部词法引用。例子里 `makeCounter` 的 `[[Environment]]` 指向 global Lexical Environment。
+   1. 带有局部变量的 Environment Record。例子中 `count` 是唯一的局部变量（`let count` 被执行的时候记录）。
+   2. 被绑定到函数 `[[Environment]]` 的外部词法引用。例子里 `makeCounter` 的 `[[Environment]]` 指向 global Lexical Environment。
 
-所以这里有两个 Lexical Environment：全局，和 `makeCounter`（它的 outer 指向全局）。
+   所以这里有两个 Lexical Environment：全局，和 `makeCounter`（它的 outer 指向全局）。
 
-1. 在 `makeCounter()` 执行的过程中，创建了一个嵌套函数。
+3. 在 `makeCounter()` 执行的过程中，创建了一个嵌套函数。
 
-这无关于函数创建使用的是 Function Declaration（函数声明）还是 Function Expression（函数表达式）。所有函数都会得到一个指向他们创建时 Lexical Environment 的 `[[Environment]]` 属性。
+   这无关于函数创建使用的是 Function Declaration（函数声明）还是 Function Expression（函数表达式）。所有函数都会得到一个指向他们创建时 Lexical Environment 的 `[[Environment]]` 属性。
 
-这个嵌套函数的 `[[Environment]]` 是 `makeCounter()`（它的诞生地）的 Lexical Environment：
+   这个嵌套函数的 `[[Environment]]` 是 `makeCounter()`（它的诞生地）的 Lexical Environment：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-4fab9b862b3c1b9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=153&linkTarget=_blank&originHeight=153&originWidth=736&width=736)
+   ![image](http://upload-images.jianshu.io/upload_images/3020281-4fab9b862b3c1b9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-同样注意，这一步是函数声明而非调用。
+   同样注意，这一步是函数声明而非调用。
 
-1. 代码继续执行，`makeCounter()` 调用结束，内嵌函数被赋值到全局变量 `counter`：
+4. 代码继续执行，`makeCounter()` 调用结束，内嵌函数被赋值到全局变量 `counter`：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-d6be8283ac553ebd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=184&linkTarget=_blank&originHeight=184&originWidth=671&width=671)
+   ![image](http://upload-images.jianshu.io/upload_images/3020281-d6be8283ac553ebd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-这个函数只有一行：`return count++`。
+   这个函数只有一行：`return count++`。
 
-1. `counter()` 被调用，自动创建一个空的 Lexical Environment。此函数无局部变量，但是 `[[Environment]]` 引用了外面一层，所以它可以访问 `makeCounter()` 的变量。
+5. `counter()` 被调用，自动创建一个空的 Lexical Environment。此函数无局部变量，但是 `[[Environment]]` 引用了外面一层，所以它可以访问 `makeCounter()` 的变量。
 
-![](http://upload-images.jianshu.io/upload_images/3020281-64599df5bc1ddf2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=184&linkTarget=_blank&originHeight=184&originWidth=734&width=734)
+   ![image](http://upload-images.jianshu.io/upload_images/3020281-64599df5bc1ddf2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-要访问变量，先检索自己的 Lexical Environment（空），然后是 `makeCounter()` 的，最后是全局的。例子中在外层一层 Lexical Environment `makeCounter` 中发现了 `count`。
+   要访问变量，先检索自己的 Lexical Environment（空），然后是 `makeCounter()` 的，最后是全局的。例子中在外层一层 Lexical Environment `makeCounter` 中发现了 `count`。
 
-重点来了，内存在这里是怎么管理的？尽管 `makeCounter()` 调用结束了，它的 Lexical Environment 依然保存在内存中，这是因为嵌套函数的 `[[Environment]]` 引用了它。
+   重点来了，内存在这里是怎么管理的？尽管 `makeCounter()` 调用结束了，它的 Lexical Environment 依然保存在内存中，这是因为嵌套函数的 `[[Environment]]` 引用了它。
 
-通常，Lexical Environment 对象随着使用它的函数的存在而存在。没有函数引用它的时候，它才会被清除。
+   通常，Lexical Environment 对象随着使用它的函数的存在而存在。没有函数引用它的时候，它才会被清除。
 
-1. `counter()` 函数不只是返回 `count`，还会对其 +1 操作。这个修改已经在“适当的位置”完成了。`count` 的值在它的当前环境中被修改。
+6. `counter()` 函数不只是返回 `count`，还会对其 +1 操作。这个修改已经在“适当的位置”完成了。`count` 的值在它的当前环境中被修改。
 
-![](http://upload-images.jianshu.io/upload_images/3020281-63a5e3db65c2f3c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=201&linkTarget=_blank&originHeight=201&originWidth=734&width=734)
+   ![image](http://upload-images.jianshu.io/upload_images/3020281-63a5e3db65c2f3c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-这一步再次调用 `count`，原理完全相同。
+   这一步再次调用 `count`，原理完全相同。
+   
+   （译者：总结一下，声明时记录环境 [[Environment]]（函数所在环境），执行时创建词法环境（局部+ outer 就是引用 [[Environment]]），而**闭包就是函数 + 它的词法环境**，所以定义上来说所有函数都是闭包，但是**之后被返回出来可以使用的闭包才是“实用意义”上的闭包**）
 
-（译者：总结一下，声明时记录环境 [[Environment]]（函数所在环境），执行时创建词法环境（局部+ outer 就是引用 [[Environment]]），而**闭包就是函数 + 它的词法环境**之后被返回出来可以使用的闭包才是“实用意义”上的闭包**）
-
-1. 下一个 `counter()` 调用操作同上。
+7. 下一个 `counter()` 调用操作同上。
 
 本章开头第二个问题的答案现在显而易见了。
 
 以下代码的 `work()` 函数通过外层 lexical environment 引用了它原地点的 `name` ：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-ff72221b17875892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=206&linkTarget=_blank&originHeight=208&originWidth=754&width=746)
+![image](http://upload-images.jianshu.io/upload_images/3020281-ff72221b17875892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 所以这里的答案是 `"Pete"`。
 
 但是如果 `makeWorker()` 没了 `let name` ，如我们所见，作用域搜索会到达外层，获取全局变量。这个情况下答案会是 `"John"` 。
 
 > **闭包（Closure）**
-
 开发者们都应该知道编程领域的通用名词闭包（closure）。
-
 [闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming)是一个记录并可访问外层变量的函数。在一些编程语言中是不存在的，或者要以一种特殊的方式书写以实现这个功能。但是如上面解释的，JavaScript 的所有函数都个闭包。
-
 这就是闭包：它们使用 `[[Environment]]` 属性自动记录各自的创建地点，然后由此访问外部变量。
-
 在前端面试中，如果面试官问你什么是闭包，正确答案应该包括闭包的定义，以及解释为何 JavaScript 的所有函数都是闭包，最好可以再简单说说里面的技术细节：`[[Environment]]` 属性和 Lexical Environments 的原理。
-
 
 ## 代码块、循环、 IIFE
 
@@ -404,7 +388,7 @@ Lexical Environment 储存 2 个东西：
 
 下例中，当执行到 `if` 块，会为这个块创建新的 "if-only" Lexical Environment ：
 
-![](http://upload-images.jianshu.io/upload_images/3020281-797e21619a187e2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240#align=left&display=inline&height=168&linkTarget=_blank&originHeight=168&originWidth=689&width=689)
+![image](http://upload-images.jianshu.io/upload_images/3020281-797e21619a187e2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 与函数同样原理，块内可以找到 `phrase`，但是块外不能使用块内的变量和函数。如果执意在 `if` 外面用 `user`，那只能得到一个报错了。
 
@@ -414,8 +398,8 @@ Lexical Environment 储存 2 个东西：
 
 ```JavaScript
 for (let i = 0; i < 10; i++) {
-// Each loop has its own Lexical Environment
-// {i: value}
+ // Each loop has its own Lexical Environment
+ // {i: value}
 }
 
 alert(i); // Error, no such variable
@@ -433,11 +417,11 @@ alert(i); // Error, no such variable
 
 ```JavaScript
 {
-// do some job with local variables that should not be seen outside
+ // do some job with local variables that should not be seen outside
 
-let message = "Hello";
+ let message = "Hello";
 
-alert(message); // Hello
+ alert(message); // Hello
 }
 
 alert(message); // Error: message is not defined
@@ -452,9 +436,9 @@ alert(message); // Error: message is not defined
 ```JavaScript
 (function() {
 
-let message = "Hello";
+ let message = "Hello";
 
-alert(message); // Hello
+ alert(message); // Hello
 
 })();
 ```
@@ -467,9 +451,9 @@ alert(message); // Hello
 // Error: Unexpected token (
 function() { // <-- JavaScript cannot find function name, meets ( and gives error
 
-let message = "Hello";
+ let message = "Hello";
 
-alert(message); // Hello
+ alert(message); // Hello
 
 }();
 ```
@@ -491,19 +475,19 @@ function go() {
 // 创建 IIFE 的方法
 
 (function() {
-alert("Brackets around the function");
+ alert("Brackets around the function");
 })();
 
 (function() {
-alert("Brackets around the whole thing");
+ alert("Brackets around the whole thing");
 }());
 
 !function() {
-alert("Bitwise NOT operator starts the expression");
+ alert("Bitwise NOT operator starts the expression");
 }();
 
 +function() {
-alert("Unary plus starts the expression");
+ alert("Unary plus starts the expression");
 }();
 ```
 
@@ -511,64 +495,64 @@ alert("Unary plus starts the expression");
 
 Lexical Environment 对象与普通的值的内存管理规则是一样的。
 
-* 通常 Lexical Environment 在函数运行完毕就会被清理：
+- 通常 Lexical Environment 在函数运行完毕就会被清理：
 
-```javascript
-function f() {
-let value1 = 123;
-let value2 = 456;
-}
+   ```js
+   function f() {
+     let value1 = 123;
+     let value2 = 456;
+   }
 
-f();
-```
+   f();
+   ```
+   
+   这两个值是 Lexical Environment 的属性，但是 `f()` 执行完后，这个 Lexical Environment 无任何变量引用（unreachable），所以它会从内存删除。
 
-这两个值是 Lexical Environment 的属性，但是 `f()` 执行完后，这个 Lexical Environment 无任何变量引用（unreachable），所以它会从内存删除。
+- ...但是如果有内嵌函数，它的 `[[Environment]]` 会引用 `f` 的 Lexical Environment（reachable）：
 
-* ...但是如果有内嵌函数，它的 `[[Environment]]` 会引用 `f` 的 Lexical Environment（reachable）：
+   ```js
+   function f() {
+     let value = 123;
 
-```javascript
-function f() {
-let value = 123;
+     function g() { alert(value); }
 
-function g() { alert(value); }
+     return g;
+   }
 
-return g;
-}
+   let g = f(); // g is reachable, and keeps the outer lexical environment in memory
+   ```
 
-let g = f(); // g is reachable, and keeps the outer lexical environment in memory
-```
+- 注意，`f()` 如果被多次调用，返回的函数都被保存，相应的 Lexical Environment 会分别保存在内存：
 
-* 注意，`f()` 如果被多次调用，返回的函数都被保存，相应的 Lexical Environment 会分别保存在内存：
+   ```JavaScript
+   function f() {
+     let value = Math.random();
 
-```JavaScript
-function f() {
-let value = Math.random();
+     return function() { alert(value); };
+   }
 
-return function() { alert(value); };
-}
+   // 3 functions in array, every one of them links to Lexical Environment
+   // from the corresponding f() run
+   //         LE   LE   LE
+   let arr = [f(), f(), f()];
+   ```
 
-// 3 functions in array, every one of them links to Lexical Environment
-// from the corresponding f() run
-//         LE   LE   LE
-let arr = [f(), f(), f()];
-```
+- Lexical Environment 对象在不可触及（unreachable）后被清除：无嵌套函数引用它。下例中， `g` 自身不被引用后， `value` 也会被清除：
 
-* Lexical Environment 对象在不可触及（unreachable）后被清除：无嵌套函数引用它。下例中， `g` 自身不被引用后， `value` 也会被清除：
+    ```js
+   function f() {
+     let value = 123;
 
-```javascript
-function f() {
-let value = 123;
+     function g() { alert(value); }
 
-function g() { alert(value); }
+     return g;
+   }
 
-return g;
-}
+   let g = f(); // while g is alive
+   // there corresponding Lexical Environment lives
 
-let g = f(); // while g is alive
-// there corresponding Lexical Environment lives
-
-g = null; // ...and now the memory is cleaned up
-```
+   g = null; // ...and now the memory is cleaned up
+   ```
 
 ### 实践中的优化
 
@@ -582,13 +566,13 @@ g = null; // ...and now the memory is cleaned up
 
 ```JavaScript
 function f() {
-let value = Math.random();
+ let value = Math.random();
 
-function g() {
-debugger; // 在 console 输入 alert( value ); 发现无此变量！
-}
+ function g() {
+   debugger; // 在 console 输入 alert( value ); 发现无此变量！
+ }
 
-return g;
+ return g;
 }
 
 let g = f();
@@ -603,13 +587,13 @@ g();
 let value = "Surprise!";
 
 function f() {
-let value = "the closest value";
+ let value = "the closest value";
 
-function g() {
-debugger; // in console: type alert( value ); Surprise!
-}
+ function g() {
+   debugger; // in console: type alert( value ); Surprise!
+ }
 
-return g;
+ return g;
 }
 
 let g = f();
@@ -617,8 +601,5 @@ g();
 ```
 
 > **再会！**
-
 如果你用 Chrome/Opera 来debug ，很快就能发现这个 V8 feature。
-
 这不是 bug 而是 V8 feature，或许将来会被修改。至于改没改，运行一下上面的例子就能判断啦。
-
