@@ -6,11 +6,13 @@ Wordpress2016.overrideThemeStyles = () => ({
     boxShadow: 'none',
   },
   'h1, h2, h3, h4, h5, h6': {
-    fontWeight: 100
+    fontWeight: 100,
   },
-  'h1':{
-    
-  }
+  h1: {},
+  img: {
+    background: '#fff',
+    padding: '5px',
+  },
 })
 
 delete Wordpress2016.googleFonts
