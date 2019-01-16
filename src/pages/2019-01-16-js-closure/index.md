@@ -10,10 +10,15 @@ tags: ["coding","翻译"]
 本文很清晰地解释了闭包是什么，以及闭包如何产生，相信你看完也会有所收获
 
 **关键字**
+
 **Closure** 闭包
+
 **Lexical Environment** 词法环境
+
 **Environment Record** 环境记录
+
 **outer Lexical Environment** 外部词法环境
+
 **global Lexical Environment** 全局语法环境
 
 # 闭包（Closure）
@@ -35,7 +40,7 @@ JavaScript 是一个 function-oriented（直译：面向函数）的语言，这
 
 1. `sayHi` 函数使用了外部变量 `name`。函数运行时，会使用两个值中的哪个？
 
-   ```JavaScript
+   ```javascript
    let name = "John";
 
    function sayHi() {
@@ -54,7 +59,7 @@ JavaScript 是一个 function-oriented（直译：面向函数）的语言，这
 
 2. `makeWorker` 函数创建并返回了另一个函数。这个新函数可以在任何地方调用。他会访问创建时的变量还是调用时的变量呢？
 
-   ```JavaScript
+   ```javascript
    function makeWorker() {
      let name = "Pete";
 
@@ -161,7 +166,7 @@ Function Declaration 与 `let` 不同，并非处理于被执行的时候，而�
 
 所以第一个问题的答案是 `Pete`：
 
-```JavaScript
+```javascript
 let name = "John";
 
 function sayHi() {
@@ -192,7 +197,7 @@ sayHi(); // Pete
 
 在一个函数中创建另一个函数，称为“嵌套”。这在 JavaScript 很容易实现：
 
-```JavaScript
+```javascript
 function sayHiBye(firstName, lastName) {
 
  // helper nested function to use below
@@ -276,7 +281,7 @@ ok ？
 
 一个 demo ：
 
-```JavaScript
+```javascript
 function makeCounter() {
  let count = 0;
  return function() {
@@ -396,7 +401,7 @@ alert( counter2() ); // 0 （独立）
 
 对于循环，每一次迭代都会有自己的 Lexical Environment，在 `for` 里定义的变量，也是块的局部变量，也属于块的 Lexical Environment ：
 
-```JavaScript
+```javascript
 for (let i = 0; i < 10; i++) {
  // Each loop has its own Lexical Environment
  // {i: value}
@@ -415,7 +420,7 @@ alert(i); // Error, no such variable
 
 为了避免这种情况我们可以使用代码块隔离自己的代码：
 
-```JavaScript
+```javascript
 {
  // do some job with local variables that should not be seen outside
 
@@ -433,7 +438,7 @@ alert(message); // Error: message is not defined
 
 以前没有代码块，要实现上述效果要依靠所谓的“立即执行函数表达式”（immediately-invoked function expressions ，缩写 IIFE）：
 
-```JavaScript
+```javascript
 (function() {
 
  let message = "Hello";
@@ -447,7 +452,7 @@ alert(message); // Error: message is not defined
 
 函数表达式需要被括号包裹。JavaScript 执行时遇到 `"function"` 会理解为一个函数声明，函数声明必须有名称，没有就会报错：
 
-```JavaScript
+```javascript
 // Error: Unexpected token (
 function() { // <-- JavaScript cannot find function name, meets ( and gives error
 
@@ -460,7 +465,7 @@ function() { // <-- JavaScript cannot find function name, meets ( and gives erro
 
 你可能会说：“那我给他加个名字咯”，但这依然行不通，JavaScript 不允许函数声明立刻被执行：
 
-```JavaScript
+```javascript
 // syntax error because of brackets below
 function go() {
 
@@ -471,7 +476,7 @@ function go() {
 
 也有其他方法告诉 JavaScript 我们需要的是函数表达式：
 
-```JavaScript
+```javascript
 // 创建 IIFE 的方法
 
 (function() {
@@ -524,7 +529,7 @@ Lexical Environment 对象与普通的值的内存管理规则是一样的。
 
 - 注意，`f()` 如果被多次调用，返回的函数都被保存，相应的 Lexical Environment 会分别保存在内存：
 
-   ```JavaScript
+   ```javascript
    function f() {
      let value = Math.random();
 
@@ -564,7 +569,7 @@ Lexical Environment 对象与普通的值的内存管理规则是一样的。
 
 尝试在 Chrome Developer Tools 运行以下代码：
 
-```JavaScript
+```javascript
 function f() {
  let value = Math.random();
 
@@ -583,7 +588,7 @@ g();
 
 还有一个有趣的 debug 问题。下面的代码 alert 出外面的同名变量而不是里面的：
 
-```JavaScript
+```javascript
 let value = "Surprise!";
 
 function f() {
@@ -600,6 +605,6 @@ let g = f();
 g();
 ```
 
-> **再会！**
+> **再会！**     
 如果你用 Chrome/Opera 来debug ，很快就能发现这个 V8 feature。
 这不是 bug 而是 V8 feature，或许将来会被修改。至于改没改，运行一下上面的例子就能判断啦。
