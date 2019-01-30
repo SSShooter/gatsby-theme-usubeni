@@ -8,7 +8,7 @@ class Layout extends React.Component {
   render() {
     const { pageName, pageDescript, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    // This is the website name
+    
     const websiteName = (
       <div>
         <Link
