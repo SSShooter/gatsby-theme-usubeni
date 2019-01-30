@@ -38,6 +38,20 @@ export default class HTML extends React.Component {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
+          <script
+            async
+            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-5174204966769125",
+      enable_page_level_ads: true
+    });
+        `,
+            }}
+          />
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
