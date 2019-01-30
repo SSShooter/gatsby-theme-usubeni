@@ -13,7 +13,6 @@ class BlogPostTemplate extends React.Component {
     const comments = this.props.data.allCommentsYaml
       ? this.props.data.allCommentsYaml.edges
       : []
-    console.log(comments)
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { slug, previous, next } = this.props.pageContext
@@ -26,24 +25,36 @@ class BlogPostTemplate extends React.Component {
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
         <h1 className="css-title">{post.frontmatter.title}</h1>
-        <div className="css-date">{post.frontmatter.date}</div>
-        {post.frontmatter.tags ? (
-          <div className="css-tags">
-            {post.frontmatter.tags.map(tag => (
-              <div
-                key={tag}
-                onClick={() => navigate(`/tags/${tag.toLowerCase()}`)}
-                className="css-tag"
-              >
-                {tag}
-              </div>
-            ))}
-          </div>
+        <div className="css-info">
+          {post.frontmatter.date}
+          {post.frontmatter.tags ? (
+            <React.Fragment>
+              <span className="css-tag">Tags:</span>
+              {post.frontmatter.tags.map((tag, index) => (
+                <span
+                  key={tag}
+                  onClick={() => navigate(`/tag/${tag.toLowerCase()}`)}
+                  className="css-tag"
+                >
+                  {tag}
+                  {index + 1 === post.frontmatter.tags.length ? null : ','}
+                </span>
+              ))}
+            </React.Fragment>
+          ) : null}
+        </div>
+        {post.tableOfContents ? (
+          <div
+            className="css-toc"
+            dangerouslySetInnerHTML={{
+              __html: '<div>目录</div>' + post.tableOfContents,
+            }}
+          />
         ) : null}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
-            marginBottom: '1rem',
+            margin: '3rem 0',
           }}
         />
         {comments.map(comment => (
@@ -105,6 +116,7 @@ export const pageQuery = graphql`
       id
       excerpt
       html
+      tableOfContents
       frontmatter {
         title
         tags

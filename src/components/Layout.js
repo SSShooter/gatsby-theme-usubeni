@@ -1,35 +1,50 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import 'prismjs/themes/prism-twilight.css'
+import 'prismjs/themes/prism-coy.css'
 
 import './global.scss'
 
 class Layout extends React.Component {
   render() {
-    const { pageName,pageDescript, title, children } = this.props
+    const { pageName, pageDescript, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     // This is the website name
     const websiteName = (
-      <h1>
+      <div>
         <Link
           style={{
             boxShadow: 'none',
             textDecoration: 'none',
             color: 'inherit',
             fontSize: '2rem',
+            fontWeight: 200,
+            paddingRight: '0.2rem',
           }}
           to={'/'}
         >
           {title}
         </Link>
-      </h1>
+        {pageName ? (
+          <span
+            style={{
+              verticalAlign: 'top',
+            }}
+          >
+            {'# ' + pageName}
+          </span>
+        ) : null}
+      </div>
     )
-    const name = <h2>{pageName}</h2>
-    const descript = <h3 style={{
-      marginBottom:'3rem'
-    }}>{pageDescript}</h3>
+    const descript = (
+      <div
+        style={{
+          marginBottom: '3rem',
+        }}
+      >
+        {pageDescript}
+      </div>
+    )
     return (
-      // TODO add page name
       <div
         style={{
           margin: 'auto',
@@ -38,10 +53,10 @@ class Layout extends React.Component {
         }}
       >
         {websiteName}
-        {name}
-        {descript}
+        {pageDescript ? descript : null}
         {children}
       </div>
+      // TODO: add footer
     )
   }
 }

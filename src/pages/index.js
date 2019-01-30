@@ -2,13 +2,15 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 class IndexPage extends React.Component {
   render() {
     return (
       <div style={{
         maxWidth:'900px',
-        margin:'auto'
+        margin:'auto',
+        fontWeight:200,
       }}>
       <Img
         fluid={this.props.data.file.childImageSharp.fluid}

@@ -1,4 +1,5 @@
 ---
+path: 'departure'
 title: Departure
 date: "2018-12-06T01:47:11.495Z"
 tags: ["tag测试"]

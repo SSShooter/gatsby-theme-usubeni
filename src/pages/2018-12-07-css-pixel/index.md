@@ -1,4 +1,5 @@
 ---
+path: 'css-pixel'
 title: 只用 CSS 就能做到的像素画/像素动画
 date: "2018-12-07T21:22:37.121Z"
 tags: ["coding","CSS","翻译"]

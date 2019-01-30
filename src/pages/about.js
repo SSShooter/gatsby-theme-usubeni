@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 class IndexPage extends React.Component {
   render() {

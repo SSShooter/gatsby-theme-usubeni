@@ -1,54 +1,32 @@
-$backgroundColor: #231c2f;
-// $backgroundColor: #434343;
+$backgroundColor: #fcfaf2;
 $titleColor: #e87a90;
-$dateColor: #fcfaf2;
-$fontColor: #fedfe1;
+$dateColor: #b19693;
+$fontColor: #533d5b;
 
-body {
-  background-color: $backgroundColor !important;
-  color: $fontColor !important;
-  font-family: source-han-sans-simplified-c, sans-serif !important;
-  font-weight: 200 !important;
-  font-style: normal !important;
-}
-
-hr {
-  background: #fcfaf2 !important;
-}
 // article title
 .css-title {
-  font-family: source-han-sans-simplified-c, sans-serif;
+  font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif !important;
+  margin-bottom: 0.5rem;
   color: $titleColor;
   font-weight: 400;
-  margin: 0;
 }
 
-.css-date {
-  color: $dateColor;
-}
-.css-tags {
-  display: inline-flex;
-}
-.css-tag {
-  background-color: $titleColor;
-  border-radius: 5px;
-  padding: 0 0.5rem;
-  margin: 0.5rem 0.5rem 0.8rem 0;
-}
 a {
-  color: $titleColor !important;
-}
-blockquote {
-  color: $fontColor !important;
-  border-left: 0.32813rem solid $titleColor !important;
-}
-h1 .website-name {
-  padding: 0;
-  left: 0;
-  font-family: source-han-sans-simplified-c, sans-serif;
   color: $titleColor;
-  font-weight: 400;
-  margin: 0;
+  box-shadow: none;
+}
+a:hover,
+a:active {
+  box-shadow: 0 1px 0 0 currentColor;
+}
+.css-info {
+  color: $dateColor;
+  margin-bottom: 3rem;
+}
+
+.css-tag {
+  color: $fontColor;
+  padding: 0 0 0 0.5rem;
 }
 
 .css-comment-submit {
@@ -59,6 +37,13 @@ h1 .website-name {
   }
   p {
     margin: 8px 0;
+  }
+  textarea {
+    resize: none;
+  }
+  input,
+  textarea {
+    border: none;
   }
   input,
   textarea,
@@ -83,5 +68,48 @@ h1 .website-name {
     padding: 0 0 0 15px;
   }
   .message {
+  }
+}
+
+.css-toc {
+  color: $titleColor;
+  padding: 15px;
+  background: #fcfaf2;
+  margin-bottom: 25px;
+  > ul {
+    padding-left: 16px;
+  }
+  ul {
+    list-style-type: square;
+    list-style-position: outside;
+    margin-bottom: 0;
+    p {
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  li {
+    margin-bottom: 0;
+  }
+  li > p {
+    margin-bottom: 0;
+  }
+  li > ul {
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1045px) {
+  .css-toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    max-height: 400px;
+    overflow: scroll;
+    font-size: 14px;
+    li > ul {
+      margin-left: 1rem;
+    }
   }
 }

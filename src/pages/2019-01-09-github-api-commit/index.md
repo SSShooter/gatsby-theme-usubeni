@@ -147,7 +147,9 @@ tags: ["coding","github","api"]
 ### 5.1 文档地址
 [https://developer.github.com/v3/git/commits/#create-a-commit](https://developer.github.com/v3/git/commits/#create-a-commit)
 ### 5.2 请求地址
-`POST https://api.github.com/repos/ssshooter/test/git/commits`
+```
+POST https://api.github.com/repos/ssshooter/test/git/commits
+```
 ### 5.3 请求参数
 ```
 {
