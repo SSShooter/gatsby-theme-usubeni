@@ -1,7 +1,7 @@
 ---
 path: "/gatsby-blog-7"
 date: "2019-01-30T17:51:39.952Z"
-title: "使用 Gatsby.js 搭建静态博客 7 添加目录"
+title: "使用 Gatsby.js 搭建静态博客 7 文章目录"
 tags: ["coding","gatsby"]
 ---
 
