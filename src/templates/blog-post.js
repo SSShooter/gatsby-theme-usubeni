@@ -57,17 +57,19 @@ class BlogPostTemplate extends React.Component {
             margin: '3rem 0',
           }}
         />
+        {/* 谷歌广告 */}
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block', textAlign: 'center' }}
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-5174204966769125"
+          data-ad-slot="5098541959"
+        />
         {comments.map(comment => (
           <CommentDisplay key={comment.node.id} data={comment.node} />
         ))}
         <CommentSubmit url={slug} />
-        {/* 底部谷歌广告 */}
-        <ins
-          class="adsbygoogle"
-          style="display:inline-block;width:970px;height:90px"
-          data-ad-client="ca-pub-5174204966769125"
-          data-ad-slot="7868175527"
-        />
         <ul
           style={{
             display: 'flex',
