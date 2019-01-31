@@ -49,7 +49,7 @@ class Layout extends React.Component {
         style={{
           margin: 'auto',
           maxWidth: '672px',
-          padding: '1.2rem 1.1rem',
+          padding: '1.2rem 3rem',
         }}
       >
         {websiteName}
