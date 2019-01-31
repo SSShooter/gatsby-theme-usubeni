@@ -12,13 +12,14 @@ $fontColor: #533d5b;
 }
 
 a {
-  color: $titleColor;
-  box-shadow: none;
+  color: $titleColor !important;
+  box-shadow: none !important;
 }
 a:hover,
 a:active {
-  box-shadow: 0 1px 0 0 currentColor;
+  box-shadow: 0 1px 0 0 currentColor !important;
 }
+
 .css-info {
   color: $dateColor;
   margin-bottom: 3rem;
