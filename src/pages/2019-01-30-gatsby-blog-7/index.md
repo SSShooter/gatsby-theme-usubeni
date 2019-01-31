@@ -1,8 +1,8 @@
 ---
-path: "/gatsby-blog-7"
-date: "2019-01-30T17:51:39.952Z"
-title: "使用 Gatsby.js 搭建静态博客 7 文章目录"
-tags: ["coding","gatsby"]
+path: '/gatsby-blog-7'
+date: '2019-01-30T17:51:39.952Z'
+title: '使用 Gatsby.js 搭建静态博客 7 文章目录'
+tags: ['coding', 'gatsby']
 ---
 
 前面说过基本功能已经添加完了，但是生成目录依然是我 TODO 的头号问题。今天终于把这个问题解决了，本来以为要自己解释 md 文件，没想到自带的插件就有这个功能我却没发现。
@@ -14,7 +14,6 @@ tags: ["coding","gatsby"]
 生成目录首先要获取目录数据，此功能由插件 `gatsby-transformer-remark` 提供，请务必先安装。
 
 安装后在你需要获取目录的页面的 graphQL 查询代码中添加 `tableOfContents`。`tableOfContents` 后面的 pathToSlugField 用于生成锚点链接地址，默认值为当前文章的 `slug`。在例子中就把地址的前缀改成 md 文件提供的 path 了。这个位置就看你本来的地址怎么配置，如果本来就是 slug 则不用修改，直接写 tableOfContents 不用后面括号的部分。(不过我在实践中发现改了之后地址也不会变，原因未明，谷歌也搜索不到类似的情况)
-
 
 ```javascript
   {
@@ -52,7 +51,6 @@ tags: ["coding","gatsby"]
 ```
 
 参考链接：https://www.gatsbyjs.org/packages/gatsby-transformer-remark/
-
 
 ## 注入锚点
 

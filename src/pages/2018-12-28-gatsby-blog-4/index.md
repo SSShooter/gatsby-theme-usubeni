@@ -1,8 +1,8 @@
 ---
-path: "/gatsby-blog-4"
-date: "2018-12-28T08:43:39.412Z"
-title: "使用 Gatsby.js 搭建静态博客 4 标签系统"
-tags: ["coding"]
+path: '/gatsby-blog-4'
+date: '2018-12-28T08:43:39.412Z'
+title: '使用 Gatsby.js 搭建静态博客 4 标签系统'
+tags: ['coding', 'gatsby']
 ---
 
 官方自带标签系统教程，英语过关可以直接阅读[官方教程](https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/)。

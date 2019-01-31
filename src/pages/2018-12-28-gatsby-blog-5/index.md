@@ -1,8 +1,8 @@
 ---
-path: "/gatsby-blog-5"
-date: "2018-12-28T10:47:58.876Z"
-title: "使用 Gatsby.js 搭建静态博客 5 博客上线"
-tags: ["coding"]
+path: '/gatsby-blog-5'
+date: '2018-12-28T10:47:58.876Z'
+title: '使用 Gatsby.js 搭建静态博客 5 博客上线'
+tags: ['coding', 'gatsby']
 ---
 
 这真的是最简单的一步啦～
