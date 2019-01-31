@@ -58,14 +58,14 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         {/* 谷歌广告 */}
-        <ins
+        {/*<ins
           className="adsbygoogle"
           style={{ display: 'block', textAlign: 'center' }}
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-5174204966769125"
           data-ad-slot="5098541959"
-        />
+        />*/}
         {comments.map(comment => (
           <CommentDisplay key={comment.node.id} data={comment.node} />
         ))}
