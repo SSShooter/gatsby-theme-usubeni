@@ -1,8 +1,8 @@
 ---
 path: '/gatsby-tutorial'
 date: '2019-02-11T10:53:34.804Z'
-title: 'gatsby-tutorial'
-tags: ['tag']
+title: '创造属于自己的静态博客 —— gatsby 博客教程'
+tags: ['coding', 'gatsby']
 ---
 
 ## 0 前言
