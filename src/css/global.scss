@@ -203,10 +203,39 @@ button:hover {
   color: white;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .css-toc {
     li > ul {
       margin-left: -1rem;
     }
   }
+  .css-main {
+    display: block;
+    max-width: 1000px;
+  }
+  .css-post {
+    margin: auto;
+    margin-top: 90px;
+    padding: 10px;
+  }
+  .css-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+  }
+  .css-aside{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -200px;
+    background-color: #fff;
+
+  }
+  .open{
+    right: 0;
+  }
 }
+
