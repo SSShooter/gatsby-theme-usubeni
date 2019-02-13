@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Bio from './bio'
-import Menu from './menu'
+import Bio from './Bio'
+import Menu from './Menu'
 import 'prismjs/themes/prism.css'
 
 import '../css/global.scss'
