@@ -1,0 +1,215 @@
+$backgroundColor: #fcfaf2;
+$mainColor: #e87a90;
+$mainDerive1: #68565a;
+$mainDerive2: #b55f70;
+$mainDerive3: #ecc3cb;
+$mainDerive4: #683741;
+$dateColor: #b19693;
+$fontColor: #533d5b;
+
+@import './toc.scss';
+@import './blockquote.scss';
+@import './h.scss';
+@import './list.scss';
+@import './balloon.scss';
+@import './tag.scss';
+
+@font-face {
+  font-family: 'iconfont'; /* project id 1042209 */
+  src: url('https://at.alicdn.com/t/font_1042209_ar6e391436f.eot');
+  src: url('https://at.alicdn.com/t/font_1042209_ar6e391436f.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.woff2')
+      format('woff2'),
+    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.woff') format('woff'),
+    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.ttf')
+      format('truetype'),
+    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.svg#iconfont')
+      format('svg');
+}
+
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  color: $fontColor;
+}
+
+img {
+  background: #fff;
+}
+
+hr {
+  border: none;
+  color: #eee;
+  height: 1px;
+  width: 100%;
+  background: #eee;
+}
+// article title
+.css-title {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  color: $fontColor;
+}
+
+.css-main {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.css-post {
+  flex-grow: 1;
+  max-width: 578px;
+  margin: 32px;
+  line-height: 1.75;
+  img {
+    width: 100%;
+  }
+}
+
+.css-aside {
+  margin-top: 30px;
+  width: 200px;
+  @import './menu.scss';
+  .css-bio {
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+    color: $mainDerive1;
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+    .author {
+      font-weight: 200;
+      font-size: 1.5rem;
+    }
+    .social-media {
+      padding-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      a {
+        box-shadow: none;
+      }
+      .iconfont {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+.css-header {
+  font-weight: 200;
+}
+
+p {
+  line-height: 2;
+}
+
+a {
+  color: $mainColor;
+  text-decoration: none;
+  box-shadow: 0 1px 0 0 currentColor;
+}
+a:hover,
+a:active {
+  box-shadow: none;
+}
+
+.gatsby-resp-image-link {
+  box-shadow: none;
+}
+.anchor {
+  box-shadow: none;
+  opacity: 0;
+}
+footer {
+  font-family: monospace;
+  font-size: 15px;
+  padding: 30px 0;
+  text-align: center;
+}
+.css-info {
+  color: $dateColor;
+  margin-bottom: 3rem;
+}
+
+.css-tag {
+  color: $fontColor;
+  padding: 0 0 0 0.5rem;
+}
+
+.css-comment-submit {
+  max-width: 400px;
+  margin: 40px auto;
+  input {
+    height: 2rem;
+    margin: 1rem 0;
+    border: none;
+    margin: 10px 0;
+    padding: 0 10px;
+    outline: none;
+    border: solid 1px $mainDerive4;
+  }
+  input,
+  button {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  button {
+    margin: 16px 0;
+  }
+  .row {
+    display: flex;
+    justify-content: space-around;
+    p {
+      flex-basis: 200px;
+    }
+  }
+}
+.css-comment-display {
+  padding: 12px;
+  .name {
+    color: $mainColor;
+    font-weight: 300;
+  }
+  .date {
+    color: $dateColor;
+    font: 0.8rem;
+    padding: 0 0 0 15px;
+  }
+}
+
+button {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: $mainDerive4;
+  border: solid 1px $mainDerive4;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+button:hover {
+  background: $mainDerive4;
+  color: white;
+}
+
+@media screen and (min-width: 1000px) {
+  .css-toc {
+    li > ul {
+      margin-left: -1rem;
+    }
+  }
+}

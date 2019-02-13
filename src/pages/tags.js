@@ -17,10 +17,10 @@ const TagsPage = ({
   },
 }) => (
   <div>
-    <Layout title="Usubeni Fantasy"  pageName="标签库">
-      <ul>
+    <Layout title="Usubeni Fantasy" pageName="标签库">
+      <ul class="tags">
         {group.map(tag => (
-          <li key={tag.fieldValue}>
+          <li key={tag.fieldValue} class="tag">
             <Link to={`/tag/${kebabCase(tag.fieldValue)}/`}>
               {tag.fieldValue} ({tag.totalCount})
             </Link>
@@ -58,9 +58,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      limit: 2000
-    ) {
+    allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

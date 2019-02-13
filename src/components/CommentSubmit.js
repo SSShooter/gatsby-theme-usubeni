@@ -52,29 +52,26 @@ export default class Comment extends Component {
   render() {
     return (
       <div className="css-comment-submit">
-        <h3>
-          留言<span>（将在数分钟后显示）</span>
-        </h3>
-        <p>昵称</p>
-        <input
-          ref={input => (this.name = input)}
-          type="text"
-          placeholder="必填 请输入你的昵称"
-          required
-        />
-        <p>联系方式</p>
-        <input
-          ref={input => (this.email = input)}
-          type="email"
-          placeholder="非必填 请输入你的联系方式"
-        />
-        <p>留言内容</p>
-        <textarea
-          ref={input => (this.message = input)}
-          placeholder="必填 请输入留言内容"
-          required
-        />
-        <button ref={button => (this.button = button)} onClick={this.submit}>{this.state.submitState}</button>
+        <span className="box-title">留言（将在数分钟后显示）</span>
+          <input
+            ref={input => (this.name = input)}
+            type="text"
+            placeholder="必填 请输入你的昵称"
+            required
+          />
+          <input
+            ref={input => (this.email = input)}
+            type="email"
+            placeholder="非必填 请输入你的联系方式"
+          />
+          <input
+            ref={input => (this.message = input)}
+            placeholder="必填 请输入留言内容"
+            required
+          />
+        <button ref={button => (this.button = button)} onClick={this.submit}>
+          {this.state.submitState}
+        </button>
       </div>
     )
   }

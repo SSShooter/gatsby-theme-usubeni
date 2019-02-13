@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 
 class BlogIndex extends React.Component {
@@ -20,7 +19,6 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {/* <Bio /> */}
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -32,7 +30,6 @@ class BlogIndex extends React.Component {
                 }}
               >
                 <Link
-                  className="css-title"
                   style={{ boxShadow: 'none' }}
                   to={node.fields.slug}
                 >

@@ -8,14 +8,12 @@ export default class HTML extends React.Component {
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-          />
+          <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
           <meta
             name="google-site-verification"
             content="ebowurt3yvxVX2IhEbMGgmpbNBQIHYxRwVNbxuIx58s"
           />
+          <meta name="format-detection" content="email=no,telephone=no,address=no" />
           <meta name="baidu-site-verification" content="rVEuQMP8C6" />
           <link
             rel="apple-touch-icon"

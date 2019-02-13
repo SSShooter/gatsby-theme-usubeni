@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import 'prismjs/themes/prism-coy.css'
+import Bio from './bio'
+import Menu from './menu'
+import 'prismjs/themes/prism.css'
 
-import './global.scss'
+import '../css/global.scss'
 
 class Layout extends React.Component {
   render() {
-    const { pageName, pageDescript, title, children } = this.props
+    const { pageName, pageDescript, title, children, aside } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    
+
     const websiteName = (
       <div>
         <Link
@@ -18,45 +20,54 @@ class Layout extends React.Component {
             color: 'inherit',
             fontSize: '2rem',
             fontWeight: 200,
-            paddingRight: '0.2rem',
           }}
-          to={'/'}
+          to={'/tag/coding/'}
         >
           {title}
         </Link>
-        {pageName ? (
-          <span
-            style={{
-              verticalAlign: 'top',
-            }}
-          >
-            {'# ' + pageName}
-          </span>
-        ) : null}
+        {pageName ? <div>{'# ' + pageName}</div> : null}
       </div>
     )
     const descript = (
       <div
         style={{
-          marginBottom: '3rem',
+          marginBottom: '2rem',
         }}
       >
         {pageDescript}
       </div>
     )
     return (
-      <div
-        style={{
-          margin: 'auto',
-          maxWidth: '672px',
-          padding: '1.2rem 3rem',
-        }}
-      >
-        {websiteName}
-        {pageDescript ? descript : null}
-        {children}
+      <div>
+        <div className="css-main">
+          <article className="css-post">{children}</article>
+          <aside className="css-aside">
+            <header className="css-header">
+              {websiteName}
+              {pageDescript ? descript : null}
+            </header>
+            {aside ? (
+              <div
+                className="css-toc"
+                dangerouslySetInnerHTML={{
+                  __html: '<div class="box-title">TOC</div>' + aside,
+                }}
+              />
+            ) : (
+              <React.Fragment>
+                <Bio className="css-bio" />
+                <Menu />
+              </React.Fragment>
+            )}
+          </aside>
+        </div>
+        <footer>
+          <div>theme UsubeniFantasy</div>
+          <div>
+            © 2018-{new Date().getFullYear()} SSShooter, powered by Gatsbyjs
+          </div>
+        </footer>
       </div>
-      // TODO: add footer
     )
   }
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql, navigate } from 'gatsby'
 
-import Bio from '../components/Bio'
 import CommentSubmit from '../components/CommentSubmit'
 import CommentDisplay from '../components/CommentDisplay'
 import Layout from '../components/Layout'
@@ -18,7 +17,11 @@ class BlogPostTemplate extends React.Component {
     const { slug, previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        aside={post.tableOfContents}
+      >
         <Helmet
           htmlAttributes={{ lang: 'zh' }}
           meta={[{ name: 'description', content: siteDescription }]}
@@ -43,20 +46,8 @@ class BlogPostTemplate extends React.Component {
             </React.Fragment>
           ) : null}
         </div>
-        {post.tableOfContents ? (
-          <div
-            className="css-toc"
-            dangerouslySetInnerHTML={{
-              __html: '<div>目录</div>' + post.tableOfContents,
-            }}
-          />
-        ) : null}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            margin: '3rem 0',
-          }}
-        />
+        <hr />
         {/* 谷歌广告 */}
         {/*<ins
           className="adsbygoogle"
@@ -66,10 +57,10 @@ class BlogPostTemplate extends React.Component {
           data-ad-client="ca-pub-5174204966769125"
           data-ad-slot="5098541959"
         />*/}
+        <CommentSubmit url={slug} />
         {comments.map(comment => (
           <CommentDisplay key={comment.node.id} data={comment.node} />
         ))}
-        <CommentSubmit url={slug} />
         <ul
           style={{
             display: 'flex',

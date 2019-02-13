@@ -1,0 +1,54 @@
+.css-toc {
+  display: block;
+  position: sticky;
+  top: 30px;
+  font-weight: 200;
+  color: $mainColor;
+  padding: 15px;
+  margin-top: 25px;
+  > ul {
+    padding-left: 16px;
+  }
+  ul {
+    list-style-type: none;
+    margin-bottom: 0;
+    p {
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  li {
+    margin-bottom: 12px;
+  }
+  li > p {
+    line-height: 1;
+    margin: 0;
+  }
+  li > ul {
+    margin-top: 12px;
+  }
+}
+
+.css-toc {
+  margin: 2em 0;
+  padding: 25px 10px 7px;
+  border: solid 1px $mainColor;
+}
+.css-toc .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -2px;
+  left: -2px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  font-size: 17px;
+  background: $mainColor;
+  color: #ffffff;
+  font-weight: bold;
+}
+.css-toc p {
+  margin: 0; 
+  padding: 0;
+}

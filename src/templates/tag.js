@@ -9,13 +9,18 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const siteDescription = data.site.siteMetadata.description
     const posts = data.allMarkdownRemark.edges
-    const { totalPage, currentPage,tag } = this.props.pageContext
+    const { totalPage, currentPage, tag } = this.props.pageContext
     const tagMap = {
-      diary:'生活分享（自言自语）',
-      coding:'技术分享与踩坑经验，前端为主，安利跨平台框架'
+      diary: '生活分享（自言自语）',
+      coding: '技术分享与踩坑经验，前端为主，安利跨平台框架',
     }
     return (
-      <Layout location={this.props.location} title={siteTitle}  pageName={tag} pageDescript={tagMap[tag]}>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        pageName={tag}
+        pageDescript={tagMap[tag]}
+      >
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
@@ -25,22 +30,22 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <h3
+            <div className="list-item" key={node.fields.slug}>
+              <div
+                className="list-title"
                 style={{
                   marginBottom: '0.24rem',
                 }}
               >
-                <Link
-                  className="css-title"
-                  style={{ boxShadow: 'none' }}
-                  to={node.fields.slug}
-                >
+                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
                   {title}
                 </Link>
-              </h3>
-              <small className="css-date">{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              </div>
+              <div className="list-date">{node.frontmatter.date}</div>
+              <p
+                className="list-excerpt"
+                dangerouslySetInnerHTML={{ __html: node.excerpt }}
+              />
             </div>
           )
         })}
@@ -56,7 +61,9 @@ class BlogIndex extends React.Component {
           <div>
             {currentPage - 1 > 0 && (
               <Link
-                to={`tag/${tag}/` + (currentPage - 1 === 1 ? '' : currentPage - 1)}
+                to={
+                  `tag/${tag}/` + (currentPage - 1 === 1 ? '' : currentPage - 1)
+                }
                 rel="prev"
               >
                 ← 上一页
@@ -79,7 +86,7 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query($tag: String!,$skip: Int!, $limit: Int!) {
+  query($tag: String!, $skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
