@@ -167,9 +167,6 @@ footer {
     box-sizing: border-box;
     width: 100%;
   }
-  button {
-    margin: 16px 0;
-  }
   .row {
     display: flex;
     justify-content: space-around;
@@ -192,12 +189,12 @@ footer {
 }
 
 button {
+  background: #fff;
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
   color: $mainDerive4;
   border: solid 1px $mainDerive4;
-  border-radius: 3px;
   transition: 0.4s;
 }
 

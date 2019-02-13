@@ -28,24 +28,18 @@ class BlogPostTemplate extends React.Component {
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
         <h1 className="css-title">{post.frontmatter.title}</h1>
-        <div className="css-info">
-          {post.frontmatter.date}
-          {post.frontmatter.tags ? (
-            <React.Fragment>
-              <span className="css-tag">Tags:</span>
-              {post.frontmatter.tags.map((tag, index) => (
-                <span
-                  key={tag}
-                  onClick={() => navigate(`/tag/${tag.toLowerCase()}`)}
-                  className="css-tag"
-                >
+        {post.frontmatter.tags ? (
+          <React.Fragment>
+            {post.frontmatter.tags.map((tag, index) => (
+              <span key={tag} className="tag" style={{}}>
+                <Link to={`/tag/${tag.toLowerCase()}`}>
                   {tag}
-                  {index + 1 === post.frontmatter.tags.length ? null : ','}
-                </span>
-              ))}
-            </React.Fragment>
-          ) : null}
-        </div>
+                </Link>
+              </span>
+            ))}
+          </React.Fragment>
+        ) : null}
+        <div className="css-info">{post.frontmatter.date}</div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
         {/* 谷歌广告 */}
