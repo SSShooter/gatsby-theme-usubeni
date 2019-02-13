@@ -11,7 +11,7 @@ tags: ["diary","music"]
 
 高能预警----------------首先我没有看过原作...------------------------
 
-# foreword
+## Foreword
 
 在我模糊的记忆里，一天在逛微博，看到一段宣传片，那是一部名字很长的动画**《末日时在做什么？有没有空？可以来拯救吗？》**。
 
@@ -27,9 +27,13 @@ tags: ["diary","music"]
 
 咳咳，强调一下这是一个音乐推荐文。
 
-# Scarborough Fair
-> https://music.163.com/song?id=489970551
+## Scarborough Fair
 
+<iframe frameborder="0" border="1" 
+    marginwidth="0" marginheight="0" 
+    width=333 height=66
+    src="//music.163.com/outchain/player?type=2&id=489970551&auto=0&height=66">
+</iframe>
 
 以下是来自维基的简介
 > 斯卡伯勒市集 又叫“史卡博罗市集” 又或者叫做 “斯卡布罗市集”（Scarborough Fair）是一首英国传统民歌。
@@ -53,8 +57,13 @@ PS. 维基提及到这个民谣可能来自于《精灵骑士》，欸还别说�
 刚好还有“精灵”这个关键词，这个版本有没有感觉请自行判断（
 评论里的珂学家存在感很强，怕了（
 
-# 小さな恋心
-> https://music.163.com/song?id=489970555
+## 小さな恋心
+
+<iframe frameborder="0" border="1" 
+    marginwidth="0" marginheight="0" 
+    width=333 height=66
+    src="//music.163.com/outchain/player?type=2&id=489970555&auto=0&height=66">
+</iframe>
 
 开头是某神曲的变奏，但是一种日常温馨的感觉让人心酸（为什么心酸作者心里没点 B 数吗哭了）。
 
@@ -62,21 +71,31 @@ PS. 维基提及到这个民谣可能来自于《精灵骑士》，欸还别说�
 
 顺便在这里插入一下我为什么吹爆すかすか吧，1、画风细腻。2、动画真的把珂朵莉表现得很好，稚气未脱又郁郁寡欢233，年纪轻轻的女孩却背负着沉重的宿命，动画都把这两面都表现得很好，特别是对恋爱期待的那种可爱！简直写在脸上~不过这个过程的心理变化还要靠观众脑补一部分，我相信小说会在这方面细致很多。3、还有一个原因是：男主身边明明充满妹子，但是为什么没有发生后宫剧情呢？！为什么男主这么强，也没有给人装 B 的感觉呢？！为什么呢，写一个爱一个的川原砾，嘻嘻嘻（涉及个人恩怨）
 
-# Call you
-> https://music.163.com/song?id=489970553&userid=48288605
+## Call you
+
+<iframe frameborder="0" border="1" 
+    marginwidth="0" marginheight="0" 
+    width=333 height=66
+    src="//music.163.com/outchain/player?type=2&id=489970553&auto=0&height=66">
+</iframe>
 
 在看完动画之后我回忆起那段宣传片，我一度以为印象中的那段让我入坑的音乐是这首，不过不是（
 
 我个人给四首填词曲排位的话这首应该是我最没有感觉的...所以我选择不评论，但推荐（
 
-# Ever be my love
-> https://music.163.com/song?id=489970554&userid=48288605
+## Ever be my love
+
+<iframe frameborder="0" border="1" 
+    marginwidth="0" marginheight="0" 
+    width=333 height=66
+    src="//music.163.com/outchain/player?type=2&id=489970554&auto=0&height=66">
+</iframe>
 
 这是战争结束，日后谈的 BGM，在沉浸在悲伤之后，听到这个曲风是一种重新开始的感觉。
 
 歌词
 
-```css
+```
 When we've done it all, Besides,
 当一切都已结束
 we've ever given all each other heart and faith
@@ -101,11 +120,15 @@ I'll love you more
 
 这很自然能想到威廉和珂朵莉两人的感情，完全贴合本片，算是神曲其二。嗯，人可以死！真爱永存！而且最后一幕也算是给我最后的安慰了（然而在查阅资料之后发现那并不是转生）
 
-# Always in my heart
+## Always in my heart
 
 是**神曲**！！真正的首位**神曲**！！啊我死了！！
 
-> https://music.163.com/song?id=489970550&userid=48288605
+<iframe frameborder="0" border="1" 
+    marginwidth="0" marginheight="0" 
+    width=333 height=66
+    src="//music.163.com/outchain/player?type=2&id=489970550&auto=0&height=66">
+</iframe>
 
 当之无愧的神曲，本作灵魂音乐，跟 Scarborough Fair 一样是民谣风（所以我才说 Scarborough Fair 的作用之一是奠定风格），你可以看不懂这部片子，但是只要听了这首歌，简直就是明示，不多说，歌词解释一切
 
@@ -163,7 +186,7 @@ Thus the grace I would had will always in my heart.
 她一直都明白她的命运，但是她从遇到威廉开始就变了，心里多了一份前所未见的感情，她不知道生命的意义，但是领悟了真正的爱，为了救威廉，同时也是完成自己的宿命，舍弃了最后的自我，最后一根蓝毛的消失，意味着这位自称最幸福的女孩已经不存在了（此时的 BGM 就是神曲，珂朵莉在想什么，全都包含在歌词中）（我TM哭爆）。
 
 
-# 后话
+## 后话
 
 总的来说珂朵莉的心路历程是这样的：
 
