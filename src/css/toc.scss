@@ -26,6 +26,7 @@
   }
   li > ul {
     margin-top: 12px;
+    margin-left: -1rem;
   }
 }
 
@@ -37,8 +38,8 @@
 .css-toc .box-title {
   position: absolute;
   display: inline-block;
-  top: -2px;
-  left: -2px;
+  top: -1px;
+  left: -1px;
   padding: 0 9px;
   height: 25px;
   line-height: 25px;

@@ -7,7 +7,16 @@ import 'prismjs/themes/prism.css'
 import '../css/global.scss'
 
 class Layout extends React.Component {
+  state = {
+    menuState: false, // false for close, true for open
+  }
+  toggleMenuState = () => {
+    this.setState({
+      menuState: !this.state.menuState,
+    })
+  }
   render() {
+    const { menuState } = this.state
     const { pageName, pageDescript, title, children, aside } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
 
@@ -25,26 +34,26 @@ class Layout extends React.Component {
         >
           {title}
         </Link>
-        {pageName ? <div>{'# ' + pageName}</div> : null}
+        {pageName ? <div className="page-name">{'# ' + pageName}</div> : null}
       </div>
     )
-    const descript = (
-      <div
-        style={{
-          marginBottom: '2rem',
-        }}
-      >
-        {pageDescript}
-      </div>
-    )
+    const descript = <div className="page-description">{pageDescript}</div>
     return (
       <div>
         <div className="css-main">
           <article className="css-post">{children}</article>
-          <aside className="css-aside">
+          <aside className={'css-aside ' + (menuState ? 'open' : 'close')}>
             <header className="css-header">
               {websiteName}
               {pageDescript ? descript : null}
+              <div className="menu-button" onClick={this.toggleMenuState}>
+                <span
+                  className="iconfont"
+                  dangerouslySetInnerHTML={{
+                    __html: menuState ? '&#xe7fc;' : '&#xe7f4;',
+                  }}
+                />
+              </div>
             </header>
             {aside ? (
               <div

@@ -15,19 +15,22 @@ $fontColor: #533d5b;
 @import './tag.scss';
 
 @font-face {
-  font-family: 'iconfont'; /* project id 1042209 */
-  src: url('https://at.alicdn.com/t/font_1042209_ar6e391436f.eot');
-  src: url('https://at.alicdn.com/t/font_1042209_ar6e391436f.eot?#iefix')
-      format('embedded-opentype'),
-    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.woff2')
-      format('woff2'),
-    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.woff') format('woff'),
-    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.ttf')
-      format('truetype'),
-    url('https://at.alicdn.com/t/font_1042209_ar6e391436f.svg#iconfont')
-      format('svg');
+  font-family: 'iconfont';  /* project id 1042209 */
+  src: url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.eot');
+  src: url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.woff2') format('woff2'),
+  url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.svg#iconfont') format('svg');
 }
 
+header,
+footer,
+div,
+aside,
+p {
+  box-sizing: border-box;
+}
 .iconfont {
   font-family: 'iconfont' !important;
   font-size: 16px;
@@ -148,7 +151,9 @@ footer {
   color: $fontColor;
   padding: 0 0 0 0.5rem;
 }
-
+.menu-button{
+  display: none;
+}
 .css-comment-submit {
   max-width: 400px;
   margin: 40px auto;
@@ -158,7 +163,6 @@ footer {
     border: none;
     margin: 10px 0;
     padding: 0 10px;
-    outline: none;
     border: solid 1px $mainDerive4;
   }
   input,
@@ -166,6 +170,7 @@ footer {
     display: block;
     box-sizing: border-box;
     width: 100%;
+    outline: none;
   }
   .row {
     display: flex;
@@ -187,7 +192,9 @@ footer {
     padding: 0 0 0 15px;
   }
 }
-
+.page-description {
+  margin-bottom: 2rem;
+}
 button {
   background: #fff;
   display: inline-block;
@@ -204,38 +211,63 @@ button:hover {
 }
 
 @media screen and (max-width: 1000px) {
-  .css-toc {
-    li > ul {
-      margin-left: -1rem;
-    }
-  }
   .css-main {
     display: block;
     max-width: 1000px;
   }
   .css-post {
     margin: auto;
-    margin-top: 90px;
+    margin-top: 50px;
     padding: 10px;
   }
-  .css-header{
+  .css-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 10px;
     background-color: #fff;
+    box-shadow: #bbb 0 0 5px;
+    .page-description {
+      display: none;
+    }
+    .page-name {
+      display: inline;
+    }
+    .menu-button {
+      display: block;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      user-select: none;
+      .iconfont {
+        font-size: 30px;
+      }
+    }
   }
-  .css-aside{
+  .css-aside {
     position: fixed;
+    z-index: 9;
     top: 0;
     bottom: 0;
-    right: -200px;
+    right: -255px;
+    padding: 50px 20px 0;
+    width: 250px;
     background-color: #fff;
-
+    box-shadow: #bbb 0 0 5px;
+    transition: all 1s;
   }
-  .open{
+  .open {
     right: 0;
   }
 }
 
+@keyframes showMenu {
+  from {
+    right: -255px;
+  }
+  to {
+    right: 0;
+  }
+}
