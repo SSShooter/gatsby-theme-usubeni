@@ -21,7 +21,7 @@ tags: ["coding","翻译"]
 
 **global Lexical Environment** 全局语法环境
 
-# 闭包（Closure）
+## 闭包（Closure）
 
 JavaScript 是一个 function-oriented（直译：面向函数）的语言，这个特性为我们带来了很大的操作自由。函数只需创建一次，赋值到一个变量，或者作为参数传入另一个函数然后在一个全新的环境调用。
 
