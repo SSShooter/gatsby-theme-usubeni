@@ -1,0 +1,53 @@
+@media screen and (max-width: 1000px) {
+  .css-main {
+    display: block;
+    width: 100%;
+  }
+  .css-post {
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px;
+    width: 100%;
+  }
+  .css-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: #bbb 0 0 5px;
+    .page-description {
+      display: none;
+    }
+    .page-name {
+      display: inline;
+    }
+    .menu-button {
+      display: block;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      user-select: none;
+      .iconfont {
+        font-size: 30px;
+      }
+    }
+  }
+  .css-aside {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    right: -255px;
+    padding: 50px 20px 0;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: #bbb 0 0 5px;
+    transition: all 0.6s ease-in-out;
+  }
+  .open {
+    right: 0;
+  }
+}

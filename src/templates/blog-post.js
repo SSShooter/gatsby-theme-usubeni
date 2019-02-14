@@ -73,9 +73,11 @@ class BlogPostTemplate extends React.Component {
           data-ad-slot="5098541959"
         />*/}
         <CommentSubmit url={slug} />
-        {comments.map(comment => (
-          <CommentDisplay key={comment.node.id} data={comment.node} />
-        ))}
+        {comments.length > 0
+          ? comments.map(comment => (
+              <CommentDisplay key={comment.node.id} data={comment.node} />
+            ))
+          : '暂时没有留言，要抢沙发吗？'}
         <ul
           style={{
             display: 'flex',

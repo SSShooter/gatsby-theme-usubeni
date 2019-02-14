@@ -1,0 +1,38 @@
+.css-comment-submit {
+  max-width: 400px;
+  margin: 40px auto;
+  input {
+    height: 2rem;
+    margin: 1rem 0;
+    border: none;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: solid 1px $mainDerive4;
+  }
+  input,
+  button {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+  }
+  .row {
+    display: flex;
+    justify-content: space-around;
+    p {
+      flex-basis: 200px;
+    }
+  }
+}
+.css-comment-display {
+  padding: 12px;
+  .name {
+    color: $mainColor;
+    font-weight: 300;
+  }
+  .date {
+    color: $dateColor;
+    font: 0.8rem;
+    padding: 0 0 0 15px;
+  }
+}
