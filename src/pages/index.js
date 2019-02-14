@@ -7,42 +7,14 @@ import { graphql } from 'gatsby'
 class IndexPage extends React.Component {
   render() {
     return (
-      <div style={{
-        maxWidth:'900px',
-        margin:'auto',
-        fontWeight:200,
-      }}>
-      <Img
-        fluid={this.props.data.file.childImageSharp.fluid}
-      />
-        <Layout location={this.props.location} title="Usubeni Fantasy">
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}
-          >
-            <a style={{ fontSize: '1.5rem' }} href="/tag/coding/">
-              技术
-            </a>
-            <a style={{ fontSize: '1.5rem' }} href="/tag/diary/">
-              生活
-            </a>
-            <a style={{ fontSize: '1.5rem' }} href="/tags">
-              标签
-            </a>
-            <a style={{ fontSize: '1.5rem' }} href="/gallery">
-              摄影
-            </a>
-            <a style={{ fontSize: '1.5rem' }} href="/meme">
-              表情
-            </a>
-            <a style={{ fontSize: '1.5rem' }} href="/about">
-              关于
-            </a>
-          </div>
-        </Layout>
-      </div>
+      <Layout location={this.props.location} title="Usubeni Fantasy">
+        <Img
+          style={{
+            marginTop: '30px',
+          }}
+          fluid={this.props.data.file.childImageSharp.fluid}
+        />
+      </Layout>
     )
   }
 }

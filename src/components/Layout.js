@@ -18,7 +18,7 @@ class Layout extends React.Component {
   render() {
     const { menuState } = this.state
     const { pageName, pageDescript, title, children, aside } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
+    // const rootPath = `${__PATH_PREFIX__}/`
 
     const websiteName = (
       <div>
@@ -26,10 +26,10 @@ class Layout extends React.Component {
           style={{
             boxShadow: 'none',
             textDecoration: 'none',
-            color: 'inherit',
             fontSize: '2rem',
             fontWeight: 200,
           }}
+          className="usubeni"
           to={'/tag/coding/'}
         >
           {title}
@@ -71,9 +71,17 @@ class Layout extends React.Component {
           </aside>
         </div>
         <footer>
-          <div>theme UsubeniFantasy</div>
           <div>
-            © 2018-{new Date().getFullYear()} SSShooter, powered by Gatsbyjs
+            theme <span className="usubeni">UsubeniFantasy</span>
+          </div>
+          <div>
+            © 2018-{new Date().getFullYear()} SSShooter, powered by{' '}
+            <a
+              style={{ color: 'rgb(102, 51, 153)', boxShadow: 'none' }}
+              href="https://www.gatsbyjs.org/"
+            >
+              Gatsbyjs
+            </a>
           </div>
         </footer>
       </div>
