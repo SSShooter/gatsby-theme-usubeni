@@ -1,4 +1,4 @@
-# gatsby-starter-blog
+# UsubeniFantasy
 
 Gatsby starter for creating a blog
 
@@ -16,6 +16,8 @@ Or [view the live demo here](https://gatsby-starter-blog-demo.netlify.com/).
 
 `node createPost post-title 2017-07-26`
 
-## thanks
+## Thanks
 
 https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647
+
+https://saruwakakun.com/html-css/reference/css-sample#section1

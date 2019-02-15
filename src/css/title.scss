@@ -1,0 +1,113 @@
+.title1 {
+  /*線の種類（実線） 太さ 色*/
+  border-bottom: solid 3px black;
+}
+
+.title2 {
+  color: #364e96; /*文字色*/
+  padding: 0.5em 0; /*上下の余白*/
+  border-top: solid 3px #364e96; /*上線*/
+  border-bottom: solid 3px #364e96; /*下線*/
+}
+
+.title3 {
+  padding: 0.25em 0.5em; /*上下 左右の余白*/
+  color: #494949; /*文字色*/
+  background: transparent; /*背景透明に*/
+  border-left: solid 5px #7db4e6; /*左線*/
+}
+
+.title4 {
+  padding: 0.4em 0.5em; /*文字の上下 左右の余白*/
+  color: #494949; /*文字色*/
+  background: #f4f4f4; /*背景色*/
+  border-left: solid 5px #7db4e6; /*左線*/
+  border-bottom: solid 3px #d7d7d7; /*下線*/
+}
+
+.title5 {
+  color: #505050; /*文字色*/
+  padding: 0.5em; /*文字周りの余白*/
+  display: inline-block; /*おまじない*/
+  line-height: 1.3; /*行高*/
+  background: #dbebf8; /*背景色*/
+  vertical-align: middle; /*上下中央*/
+  border-radius: 25px 0px 0px 25px; /*左側の角を丸く*/
+}
+
+.title5:before {
+  content: '●';
+  color: white;
+  margin-right: 8px;
+}
+
+.title6 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+.title6:before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  display: inline-block;
+  width: 60px;
+  height: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: black;
+  border-radius: 2px;
+}
+
+.title7 {
+  position: relative;
+  display: inline-block;
+  padding: 0 45px;
+}
+.title7:before,
+.title7:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 44px;
+  height: 2px;
+  background-color: black;
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+.title7:before {
+  left: 0;
+}
+.title7:after {
+  right: 0;
+}
+
+.title8 {
+  position: relative;
+  padding: 0.25em 0;
+}
+.title8:after {
+  content: '';
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
+  background: linear-gradient(to right, rgb(230, 90, 90), transparent);
+}
+
+.title9 {
+  font-weight: 200;
+  font-size: 26px;
+  line-height: 2;
+  border-bottom: solid 3px $mainDerive3;
+  position: relative;
+  &:after {
+    position: absolute;
+    content: ' ';
+    display: block;
+    border-bottom: solid 3px $mainColor;
+    bottom: -3px;
+    width: 20%;
+  }
+}

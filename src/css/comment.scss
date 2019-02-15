@@ -1,20 +1,11 @@
 .css-comment-submit {
   max-width: 400px;
   margin: 40px auto;
-  input {
-    height: 2rem;
-    margin: 1rem 0;
-    border: none;
-    margin: 10px 0;
-    padding: 0 10px;
-    border: solid 1px $mainDerive4;
-  }
   input,
   button {
     display: block;
     box-sizing: border-box;
     width: 100%;
-    outline: none;
   }
   .row {
     display: flex;

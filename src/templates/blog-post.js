@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <h1 className="css-title">{post.frontmatter.title}</h1>
+        <h1>{post.frontmatter.title}</h1>
         <div className="css-info">
           <span
             className="iconfont"

@@ -16,18 +16,17 @@ $fontColor: #533d5b;
 @import './mobile.scss';
 @import './comment.scss';
 
+@import './title.scss';
+@import './boxes.scss';
+
 @font-face {
-  font-family: 'iconfont'; /* project id 1042209 */
-  src: url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.eot');
-  src: url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.eot?#iefix')
-      format('embedded-opentype'),
-    url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.woff2')
-      format('woff2'),
-    url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.woff') format('woff'),
-    url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.ttf')
-      format('truetype'),
-    url('https://at.alicdn.com/t/font_1042209_qmktal0dhyg.svg#iconfont')
-      format('svg');
+  font-family: 'iconfont';  /* project id 1042209 */
+  src: url('https:////at.alicdn.com/t/font_1042209_6pn9q6w6kkl.eot');
+  src: url('https:////at.alicdn.com/t/font_1042209_6pn9q6w6kkl.eot?#iefix') format('embedded-opentype'),
+  url('https:////at.alicdn.com/t/font_1042209_6pn9q6w6kkl.woff2') format('woff2'),
+  url('https:////at.alicdn.com/t/font_1042209_6pn9q6w6kkl.woff') format('woff'),
+  url('https:////at.alicdn.com/t/font_1042209_6pn9q6w6kkl.ttf') format('truetype'),
+  url('https:////at.alicdn.com/t/font_1042209_6pn9q6w6kkl.svg#iconfont') format('svg');
 }
 
 .usubeni {
@@ -105,6 +104,20 @@ button {
 button:hover {
   background: $mainDerive4;
   color: white;
+}
+
+input,
+button {
+  outline: none;
+}
+
+input {
+  height: 2rem;
+  margin: 1rem 0;
+  border: none;
+  margin: 10px 0;
+  padding: 0 10px;
+  border: solid 1px $mainDerive4;
 }
 
 // overwrite prism.js

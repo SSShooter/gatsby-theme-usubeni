@@ -9,11 +9,25 @@ import '../css/global.scss'
 class Layout extends React.Component {
   state = {
     menuState: false, // false for close, true for open
+    keyword: '',
   }
   toggleMenuState = () => {
     this.setState({
       menuState: !this.state.menuState,
     })
+  }
+  change = e => {
+    console.log(e)
+    this.setState({
+      keyword: e.target.value,
+    })
+  }
+  search = () => {
+    console.log('sousuo')
+    window.open(
+      'https://www.google.co.jp/search?q=site%3Assshooter.com+' +
+        this.state.keyword
+    )
   }
   render() {
     const { menuState } = this.state
@@ -66,6 +80,10 @@ class Layout extends React.Component {
               <React.Fragment>
                 <Bio className="css-bio" />
                 <Menu />
+                <div style={{ textAlign: 'center' }}>
+                  <input onChange={this.change} />
+                  <button onClick={this.search}>搜索</button>
+                </div>
               </React.Fragment>
             )}
           </aside>
