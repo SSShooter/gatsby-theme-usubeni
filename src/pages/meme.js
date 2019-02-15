@@ -8,23 +8,30 @@ class NotFoundPage extends React.Component {
     const { data } = this.props
     const meme = data.allFile.edges
     return (
-      <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="沙雕表情库" pageDescript="点击图片，大图带走">
-        {meme.map(img => (
-          <a
-            href={img.node.publicURL}
-            key={img.node.relativePath}
-            style={{
-              boxShadow: 'none',
-            }}
-          >
-            <Img
+      <Layout
+        location={this.props.location}
+        title="Usubeni Fantasy"
+        pageName="沙雕表情库"
+        pageDescript="点击图片，大图带走"
+      >
+        <div class="css-meme">
+          {meme.map(img => (
+            <a
+              href={img.node.publicURL}
+              key={img.node.relativePath}
               style={{
-                margin: '12px',
+                boxShadow: 'none',
               }}
-              fixed={img.node.childImageSharp.fixed}
-            />
-          </a>
-        ))}
+            >
+              <Img
+                style={{
+                  margin: '12px',
+                }}
+                fixed={img.node.childImageSharp.fixed}
+              />
+            </a>
+          ))}
+        </div>
       </Layout>
     )
   }

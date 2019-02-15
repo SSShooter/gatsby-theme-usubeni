@@ -17,13 +17,11 @@ class Layout extends React.Component {
     })
   }
   change = e => {
-    console.log(e)
     this.setState({
       keyword: e.target.value,
     })
   }
   search = () => {
-    console.log('sousuo')
     window.open(
       'https://www.google.co.jp/search?q=site%3Assshooter.com+' +
         this.state.keyword
@@ -79,7 +77,7 @@ class Layout extends React.Component {
             ) : (
               <React.Fragment>
                 <Bio className="css-bio" />
-                <Menu />
+                <Menu direction="column"/>
                 <div style={{ textAlign: 'center' }}>
                   <input onChange={this.change} />
                   <button onClick={this.search}>搜索</button>

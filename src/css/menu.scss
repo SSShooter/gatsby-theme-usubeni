@@ -1,8 +1,17 @@
+.column {
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .css-menu {
   margin: 20px auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   a {
     color: inherit;
     font-weight: 200;
@@ -11,26 +20,26 @@
     position: relative;
     display: inline-block;
     padding: 0 55px;
-    padding:0.25em 1em;
+    padding: 0.25em 1em;
     line-height: 1.4;
-    &:hover{
-        opacity: 0.5;
+    &:hover {
+      opacity: 0.5;
     }
   }
-  
-  a:before, a:after { 
+
+  a:before,
+  a:after {
     position: relative;
-    font-family: "Font Awesome 5 Free";
     display: inline-block;
-    font-size: 1.0em;
+    font-size: 1em;
     color: inherit;
   }
   a:before {
-    content:"<";/*アイコン種類*/
-    padding-right: 0.5em
+    content: '<'; /*アイコン種類*/
+    padding-right: 0.5em;
   }
   a:after {
-    content:">";/*アイコン種類*/
-    padding-left: 0.5em
+    content: '>'; /*アイコン種類*/
+    padding-left: 0.5em;
   }
 }

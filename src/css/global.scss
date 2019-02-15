@@ -13,7 +13,6 @@ $fontColor: #533d5b;
 @import './list.scss';
 @import './balloon.scss';
 @import './tag.scss';
-@import './mobile.scss';
 @import './comment.scss';
 
 @import './title.scss';
@@ -171,7 +170,21 @@ input {
   margin: auto;
   max-width: 1000px;
 }
-
+.css-gallery{
+  margin: auto;
+  max-width: 1000px;
+  @import './menu.scss';
+  header{
+    margin: 40px 0 20px;
+    span{
+      vertical-align: super;
+      padding-left: 5px;
+    }
+    div{line-height: 2rem;
+      font-size: 1.2rem;
+    }
+  }
+}
 .css-post {
   flex-grow: 1;
   max-width: 578px;
@@ -195,9 +208,17 @@ input {
   color: $fontColor;
   padding: 0 0 0 0.5rem;
 }
+
+.css-meme{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .menu-button {
   display: none;
 }
 .page-description {
   margin-bottom: 2rem;
 }
+
+@import './mobile.scss';

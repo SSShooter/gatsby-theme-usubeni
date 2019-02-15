@@ -1,31 +1,49 @@
 import React from 'react'
-import Layout from '../components/Layout'
-import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
+import Menu from '../components/Menu'
+import { Link, graphql } from 'gatsby'
+
+import '../css/global.scss'
 
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
     const gallery = data.allFile.edges
     return (
-      <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="Gallery" pageDescript="试验性摄影区">
-        <div className="masonry">
-          {gallery.map(img => (
-            <a
-              href={img.node.publicURL}
-              key={img.node.relativePath}
-              style={{
-                display: 'block',
-                boxShadow: 'none',
-                width: '100%',
-                marginBottom:'10px'
-              }}
-            >
-              <img style={{width:'100%'}} src={img.node.publicURL} />
-            </a>
-          ))}
-        </div>
-      </Layout>
+      // <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="Gallery" pageDescript="试验性摄影区">
+      <div className="css-gallery">
+        <header>
+          <Link
+            style={{
+              boxShadow: 'none',
+              textDecoration: 'none',
+              fontSize: '2rem',
+              fontWeight: 200,
+            }}
+            className="usubeni"
+            to={'/tag/coding/'}
+          >
+            Usubeni Fantasy
+          </Link>
+          <span>#Gallery</span>
+          <div>试验性 修图/摄影区</div>
+        </header>
+        <Menu direaction="row"/>
+        {gallery.map(img => (
+          <a
+            href={img.node.publicURL}
+            key={img.node.relativePath}
+            style={{
+              display: 'block',
+              boxShadow: 'none',
+              width: '100%',
+              marginBottom: '10px',
+            }}
+          >
+            <img style={{ width: '100%' }} src={img.node.publicURL} />
+          </a>
+        ))}
+      </div>
+      // </Layout>
     )
   }
 }
