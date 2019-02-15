@@ -129,7 +129,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt
+      excerpt(truncate:true,pruneLength:100)
       html
       tableOfContents
       frontmatter {

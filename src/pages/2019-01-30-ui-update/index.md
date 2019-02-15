@@ -2,7 +2,7 @@
 path: "/ui-update"
 date: "2019-01-30T15:31:43.302Z"
 title: "UI 更新啦！"
-tags: ["diary"]
+tags: ["UI 更新"]
 ---
 
 夜樱 UI 暂时退役了，换回正常一点的白底深色字。

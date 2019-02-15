@@ -30,3 +30,11 @@ https://github.com/ssshooter/canvas-img-process
 ![nippon color](nippon-color.png)
 
 https://ssshooter.github.io/nippon-color/#/
+
+## Translation
+
+可以在[翻译](/tag/翻译/)标签查看我的翻译
+
+### mongoose 中文文档
+
+http://mongoosedoc.top/docs/guide.html
