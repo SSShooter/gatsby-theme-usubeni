@@ -3,13 +3,13 @@ import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
 
 import '../css/global.scss'
+import { hidden } from '_ansi-colors@3.2.3@ansi-colors'
 
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
     const gallery = data.allFile.edges
     return (
-      // <Layout location={this.props.location} title="Usubeni Fantasy"  pageName="Gallery" pageDescript="试验性摄影区">
       <div className="css-gallery">
         <header>
           <Link
@@ -27,23 +27,18 @@ class NotFoundPage extends React.Component {
           <span>#Gallery</span>
           <div>试验性 修图/摄影区</div>
         </header>
-        <Menu direaction="row"/>
+        <Menu direaction="row" />
         {gallery.map(img => (
           <a
+            className="img-box"
             href={img.node.publicURL}
             key={img.node.relativePath}
-            style={{
-              display: 'block',
-              boxShadow: 'none',
-              width: '100%',
-              marginBottom: '10px',
-            }}
           >
+            <div className="overlay">{img.node.name}</div>
             <img style={{ width: '100%' }} src={img.node.publicURL} />
           </a>
         ))}
       </div>
-      // </Layout>
     )
   }
 }
@@ -52,7 +47,7 @@ export default NotFoundPage
 
 export const query = graphql`
   query {
-    allFile(filter: { sourceInstanceName: { eq: "gallery" } }) {
+    allFile(sort: {fields: [birthTime], order: DESC},filter: { sourceInstanceName: { eq: "gallery" } }) {
       edges {
         node {
           id
