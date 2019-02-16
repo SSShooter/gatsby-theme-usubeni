@@ -3,7 +3,6 @@ import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
 
 import '../css/global.scss'
-import { hidden } from '_ansi-colors@3.2.3@ansi-colors'
 
 class NotFoundPage extends React.Component {
   render() {
@@ -47,7 +46,10 @@ export default NotFoundPage
 
 export const query = graphql`
   query {
-    allFile(sort: {fields: [birthTime], order: DESC},filter: { sourceInstanceName: { eq: "gallery" } }) {
+    allFile(
+      sort: { fields: [birthTime], order: DESC }
+      filter: { sourceInstanceName: { eq: "gallery" } }
+    ) {
       edges {
         node {
           id
