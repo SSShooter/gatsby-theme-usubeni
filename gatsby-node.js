@@ -116,11 +116,25 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-  if (node.sourceInstanceName === 'gallery') {
+  // node contain the folder, eliminate it using node.extension
+  if (node.extension && node.sourceInstanceName === 'gallery') {
     const absolutePath = node.absolutePath
     fastExif
       .read(absolutePath)
+      .catch(err =>
+        console.error(
+          '\n--------------\n' +
+            absolutePath +
+            node.extension +
+            '\n--------------\n' +
+            err +
+            '\n--------------\n'
+        )
+      )
       .then(exifData => {
+        if (!exifData) {
+          return
+        }
         const { Make, Model, Software, ModifyDate } = exifData.image
         const { ExposureTime, FNumber, ISO, FocalLength } = exifData.exif
         createNodeField({
@@ -140,6 +154,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
           },
         })
       })
-      .catch(err => console.error(err))
+      .catch(err =>
+        console.error(
+          '\n--------------\n' +
+            absolutePath +
+            node.extension +
+            '\n--------------\n' +
+            err +
+            '\n--------------\n'
+        )
+      )
   }
 }

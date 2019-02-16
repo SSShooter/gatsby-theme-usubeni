@@ -30,7 +30,6 @@ class Gallery extends React.Component {
         </header>
         <Menu direaction="row" />
         <Masonry
-          className={'my-gallery-class'} // default ''
           disableImagesLoaded={false} // default false
           updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         >
