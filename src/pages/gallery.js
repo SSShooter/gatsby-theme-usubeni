@@ -1,13 +1,15 @@
 import React from 'react'
 import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
+import Masonry from 'react-masonry-component'
 
 import '../css/global.scss'
 
-class NotFoundPage extends React.Component {
+class Gallery extends React.Component {
   render() {
     const { data } = this.props
     const gallery = data.allFile.edges
+    
     return (
       <div className="css-gallery">
         <header>
@@ -27,22 +29,35 @@ class NotFoundPage extends React.Component {
           <div>试验性 修图/摄影区</div>
         </header>
         <Menu direaction="row" />
-        {gallery.map(img => (
-          <a
-            className="img-box"
-            href={img.node.publicURL}
-            key={img.node.relativePath}
-          >
-            <div className="overlay">{img.node.name}</div>
-            <img style={{ width: '100%' }} src={img.node.publicURL} />
-          </a>
-        ))}
+        <Masonry
+          className={'my-gallery-class'} // default ''
+          disableImagesLoaded={false} // default false
+          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+        >
+          {gallery.map(img => (
+            <a
+              className="img-box"
+              href={img.node.publicURL}
+              key={img.node.relativePath}
+            >
+              <div className="overlay">
+                {img.node.name}
+                {img.node.fields
+                  ? Object.keys(img.node.fields.exifData).map((keyName, i) => (
+                      <div key={i}>{img.node.fields.exifData[keyName]}</div>
+                    ))
+                  : null}
+              </div>
+              <img style={{ width: '100%' }} src={img.node.publicURL} />
+            </a>
+          ))}
+        </Masonry>
       </div>
     )
   }
 }
 
-export default NotFoundPage
+export default Gallery
 
 export const query = graphql`
   query {
@@ -58,6 +73,18 @@ export const query = graphql`
           relativeDirectory
           publicURL
           sourceInstanceName
+          fields {
+            exifData {
+              Make
+              Model
+              Software
+              ModifyDate
+              FocalLength
+              ISO
+              FNumber
+              ExposureTime
+            }
+          }
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.

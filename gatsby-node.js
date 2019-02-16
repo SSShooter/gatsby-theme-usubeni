@@ -1,13 +1,15 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const _ = require('lodash')
+const get = _.get
+const fastExif = require('fast-exif')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
-    const homePaginate = path.resolve('./src/templates/index.js')
+    // const homePaginate = path.resolve('./src/templates/index.js')
     const tagTemplate = path.resolve('./src/templates/tag.js')
     resolve(
       graphql(
@@ -113,5 +115,31 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+  }
+  if (node.sourceInstanceName === 'gallery') {
+    const absolutePath = node.absolutePath
+    fastExif
+      .read(absolutePath)
+      .then(exifData => {
+        const { Make, Model, Software, ModifyDate } = exifData.image
+        const { ExposureTime, FNumber, ISO, FocalLength } = exifData.exif
+        createNodeField({
+          node,
+          name: 'exifData',
+          value: {
+            Make,
+            Model,
+            Software,
+            ModifyDate: ModifyDate ? String(ModifyDate).substr(0, 10) : null,
+            FocalLength,
+            ISO: `ISO-${ISO}`,
+            FNumber: `f/${FNumber}`,
+            ExposureTime: ExposureTime
+              ? `1/${(1 / ExposureTime).toFixed(0)} s`
+              : null,
+          },
+        })
+      })
+      .catch(err => console.error(err))
   }
 }
