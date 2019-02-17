@@ -145,7 +145,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             Model,
             Software,
             ModifyDate: ModifyDate ? String(ModifyDate).substr(0, 10) : null,
-            FocalLength,
+            FocalLength: `${FocalLength + ' mm'}`,
             ISO: `ISO-${ISO}`,
             FNumber: `f/${FNumber}`,
             ExposureTime: ExposureTime

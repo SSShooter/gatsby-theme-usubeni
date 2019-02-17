@@ -4,8 +4,9 @@ $mainDerive1: #68565a;
 $mainDerive2: #b55f70;
 $mainDerive3: #ecc3cb;
 $mainDerive4: #683741;
-$dateColor: #b19693;
 $fontColor: #533d5b;
+
+@import './sakura.scss';
 
 @import './toc.scss';
 @import './blockquote.scss';
@@ -46,6 +47,7 @@ article,
 p {
   box-sizing: border-box;
 }
+
 .iconfont {
   font-family: 'iconfont' !important;
   font-size: 16px;
@@ -56,7 +58,6 @@ p {
 }
 
 body {
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   color: $fontColor;
 }
 
@@ -145,7 +146,7 @@ input {
     box-sizing: border-box;
     padding: 15px;
     text-align: center;
-    color: $mainDerive1;
+    color: $mainDerive4;
     img {
       width: 100%;
       border-radius: 50%;
@@ -162,6 +163,7 @@ input {
         box-shadow: none;
       }
       .iconfont {
+        color: $mainDerive4;
         font-size: 1.6rem;
       }
     }
@@ -201,6 +203,7 @@ input {
     &:hover .overlay {
       left: 0;
       top: 0;
+      opacity: 1;
     }
     .overlay {
       position: absolute;
@@ -209,12 +212,13 @@ input {
       width: 100%;
       height: 100%;
       padding: 20px;
+      opacity: 0;
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
       flex-direction: column;
-      background-color: rgba(255, 255, 255, 0.5);
-      color: #232323;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fefefe;
       font-weight: 200;
       transition: all 0.5s;
     }
@@ -235,7 +239,7 @@ input {
 }
 
 .css-info {
-  color: $dateColor;
+  color: $mainDerive1;
   margin-bottom: 3rem;
 }
 

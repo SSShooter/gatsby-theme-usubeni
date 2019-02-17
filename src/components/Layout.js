@@ -52,6 +52,20 @@ class Layout extends React.Component {
     const descript = <div className="page-description">{pageDescript}</div>
     return (
       <div>
+        <div class="sakura-box">
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+          <div class="petal" />
+        </div>
         <div className="css-main">
           <article className="css-post">{children}</article>
           <aside className={'css-aside ' + (menuState ? 'open' : 'close')}>
