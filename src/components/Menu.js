@@ -20,8 +20,11 @@ export default class Menu extends Component {
         <a href="/gallery">
           <i className="iconfont">&#xe7de;</i> 摄影
         </a>
-        <a href="/meme">
+        {/* <a href="/meme">
           <i className="iconfont">&#xe780;</i> 表情
+        </a> */}
+        <a href="/links">
+          <i className="iconfont">&#xe7e2;</i> 友链
         </a>
         <a href="/about">
           <i className="iconfont">&#xe7ae;</i> 关于
