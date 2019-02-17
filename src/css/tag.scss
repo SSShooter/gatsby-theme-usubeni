@@ -1,5 +1,5 @@
 
-.tags {
+.css-tags {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -9,7 +9,7 @@
   padding: 0;
 }
 
-.tag {
+.css-tag {
   background: #eee;
   border-radius: 3px 0 0 3px;
   display: inline-block;
@@ -26,7 +26,7 @@
   }
 }
 
-.tag::before {
+.css-tag::before {
   background: #fff;
   border-radius: 10px;
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
@@ -38,7 +38,7 @@
   top: 10px;
 }
 
-.tag::after {
+.css-tag::after {
   background: #fff;
   border-bottom: 13px solid transparent;
   border-left: 10px solid #eee;
@@ -49,13 +49,13 @@
   top: 0;
 }
 
-.tag:hover {
+.css-tag:hover {
   background-color: $mainColor;
   a{
     color: #fff;
   }
 }
 
-.tag:hover::after {
+.css-tag:hover::after {
   border-left-color: $mainColor;
 }

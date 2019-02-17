@@ -2,10 +2,6 @@ import React from 'react'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
 
-// Utilities
-import kebabCase from 'lodash/kebabCase'
-
-// Components
 import { Link, graphql } from 'gatsby'
 
 const TagsPage = ({
@@ -18,9 +14,9 @@ const TagsPage = ({
 }) => (
   <div>
     <Layout title="Usubeni Fantasy" pageName="标签库">
-      <ul class="tags">
+      <ul className="css-tags">
         {group.map(tag => (
-          <li key={tag.fieldValue} class="tag">
+          <li key={tag.fieldValue} className="css-tag">
             <Link to={`/tag/${tag.fieldValue}/`}>
               {tag.fieldValue} ({tag.totalCount})
             </Link>
