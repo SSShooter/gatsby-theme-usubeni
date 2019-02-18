@@ -52,19 +52,12 @@ class Layout extends React.Component {
     const descript = <div className="page-description">{pageDescript}</div>
     return (
       <div>
-        <div class="sakura-box">
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
-          <div class="petal" />
+        <div className="sakura-box">
+          {Array(12)
+            .fill(0)
+            .map((v, i) => (
+              <div key={i} className="petal" />
+            ))}
         </div>
         <div className="css-main">
           <article className="css-post">{children}</article>
@@ -91,7 +84,7 @@ class Layout extends React.Component {
             ) : (
               <React.Fragment>
                 <Bio className="css-bio" />
-                <Menu direction="column"/>
+                <Menu direction="column" />
                 <div style={{ textAlign: 'center' }}>
                   <input onChange={this.change} />
                   <button onClick={this.search}>搜索</button>

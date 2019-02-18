@@ -12,7 +12,7 @@
 
 .petal {
   margin: 1px;
-  animation: fall1 10s linear infinite;
+  animation: fall1 15s linear infinite;
   position: absolute;
   top: 0;
   left: 0;
@@ -62,7 +62,7 @@
 }
 .petal:nth-child(6) {
   animation-name: fall6;
-  animation-delay: 1.25s;
+  animation-delay: 6s;
   top: 75%;
 }
 
@@ -83,7 +83,7 @@
 }
 .petal:nth-child(10) {
   animation-name: fall5;
-  animation-delay: 1.25s;
+  animation-delay: 7.25s;
   top: 50%;
 }
 .petal:nth-child(11) {

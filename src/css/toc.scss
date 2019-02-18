@@ -2,10 +2,12 @@
   display: block;
   position: sticky;
   top: 30px;
+  max-height: 80vh;
   font-weight: 200;
   color: $mainColor;
   padding: 15px;
   margin-top: 25px;
+  overflow: scroll;
   > ul {
     padding-left: 16px;
   }
@@ -21,7 +23,7 @@
     margin-bottom: 12px;
   }
   li > p {
-    line-height: 1;
+    line-height: 1.5;
     margin: 0;
   }
   li > ul {

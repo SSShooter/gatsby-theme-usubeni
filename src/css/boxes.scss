@@ -259,7 +259,7 @@
   position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
-  border: solid 3px #62c1ce;
+  border: solid 3px $mainColor;
 }
 .box27 .box-title {
   position: absolute;
@@ -271,9 +271,8 @@
   line-height: 25px;
   vertical-align: middle;
   font-size: 17px;
-  background: #62c1ce;
+  background: $mainColor;
   color: #ffffff;
-  font-weight: bold;
   border-radius: 5px 5px 0 0;
 }
 .box27 p {

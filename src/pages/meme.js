@@ -14,7 +14,7 @@ class NotFoundPage extends React.Component {
         pageName="沙雕表情库"
         pageDescript="点击图片，大图带走"
       >
-        <div class="css-meme">
+        <div className="css-meme">
           {meme.map(img => (
             <a
               href={img.node.publicURL}

@@ -24,6 +24,16 @@ tags: ['coding']
 
 ## 第三步 安装 shadowsocks
 
+### 先来一个一句命令搞定的方法！不行再接着看！
+
+有可能需要先 `apt-get update`
+
+**`sudo yum install python-pip -y && sudo pip install shadowsocks && sudo /usr/local/bin/ssserver -p 8388 -k password123 -m rc4-md5 --user nobody -d start`**
+
+**`sudo apt-get update && sudo apt-get install python-pip -y && sudo pip install shadowsocks && sudo /usr/local/bin/ssserver -p 9001 -k password123 -m rc4-md5 --user nobody -d start`**
+
+#### 不行就接着看下面
+
 ### 安装 pip
 
 `apt-get install python-pip`或者`sudo yum install python-pip`
@@ -41,6 +51,8 @@ tags: ['coding']
 ### 注意
 
 如果上面出现找不到 ssserver 或者 pip 的话，用`whereis ssserver`就能得到程序的位置，在查询得到的位置运行即可
+例如我这边是  
+`sudo /usr/local/bin/ssserver -p 8388 -k password123 -m rc4-md5 --user nobody -d start`
 
 ## 第四步 在 aws 后台添加端口
 
@@ -50,8 +62,6 @@ tags: ['coding']
 
 ## 第五步 客户端连接
 
-`sudo sslocal -s 你的ip -p 你的端口 -k 你的密码 -m 你的加密方式`
-
-或使用图形客户端
-
 ## 第六步 去爽
+
+PS：停止操作 sudo ssserver -d stop
