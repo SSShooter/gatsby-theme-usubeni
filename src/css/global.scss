@@ -64,6 +64,30 @@ body {
   color: $fontColor;
 }
 
+.mask {
+  position: fixed;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0),rgba(255, 255, 255, 1) 50%);
+  height: 100%;
+  width: 200%;
+  top: 0;
+  right: 0;
+  animation: fade-out 2s ease-out;
+  animation-fill-mode: forwards;
+  z-index: 20;
+}
+
+@keyframes fade-out {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+  to {
+    right: -100%;
+    opacity: 0;
+    width: 0;
+  }
+}
+
 img {
   background: #fff;
 }
