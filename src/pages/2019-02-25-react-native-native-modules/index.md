@@ -2,7 +2,7 @@
 path: '/react-native-native-modules'
 date: '2019-02-24T10:24:04.286Z'
 title: 'react native 原生模块桥接的简单说明'
-tags: ['翻译','react native']
+tags: ['coding', '翻译', 'react native']
 ---
 
 > 原文出自：https://github.com/prscX/awesome-react-native-native-modules
@@ -81,7 +81,7 @@ public class MyNativeModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void Show(ReadableMap config, Callback successCallback, Callback cancelCallback) {
         Activity currentActivity = getCurrentActivity();
-    
+
         if (currentActivity == null) {
             cancelCallback.invoke("Activity doesn't exist");
             return;
@@ -93,19 +93,19 @@ public class MyNativeModule extends ReactContextBaseJavaModule {
 - 在 JavaScript 中调用模块方法
 
 ```javascript
-import { NativeModules } from "react-native";
+import { NativeModules } from 'react-native'
 
-const { MyNativeModule } = NativeModules;
+const { MyNativeModule } = NativeModules
 
 MyNativeModule.Show(
-    {}, //Config Parameters
-    () => {}, //Success Callback
-    () => {} //Cancel Callback
+  {}, //Config Parameters
+  () => {}, //Success Callback
+  () => {} //Cancel Callback
 )
-
 ```
 
 > **注意**:
+>
 > - 模块方法只提供静态引用，不包含于 react 树中。
 
 ### 创建原生 UI 组件
@@ -123,16 +123,16 @@ public class RNNativeComponent extends ViewGroupManager<ViewGroup> {
 - 覆盖 `getName` 方法：
 
 ```java
-@Override 
+@Override
 public String getName() {
     return REACT_CLASS;
-} 
+}
 ```
 
 - 覆盖 `createViewInstance` 方法，返回你的自定义原生组件
 
 ```java
-@Override 
+@Override
   protected FrameLayout createViewInstance(final ThemedReactContext reactContext) {
       return //用 FrameLayout 包裹的自定义原生组件
   }
@@ -141,11 +141,10 @@ public String getName() {
 - 创建原生 prop 方法
 
 ```java
-  @ReactProp(name = "prop_name") 
+  @ReactProp(name = "prop_name")
   public void setPropName(NativeComponent nativeComponent, propDataType prop) {
   }
 ```
-
 
 - JavaScript 中使用
 
@@ -160,7 +159,6 @@ const MyNativeComponent = requireNativeComponent("RNNativeComponent", RNNativeCo
 ```
 
 ## iOS
-
 
 ### Macro
 
@@ -181,8 +179,6 @@ RCT_EXPORT_METHOD(funcName:(NSString *)onlyString
 ### 创建原生模块包
 
 我们需要在项目中添加两个文件：头文件和源文件。
-
-
 
 ```objectivec
 - MyNativePackage.h
@@ -205,8 +201,6 @@ RCT_EXPORT_MODULE();
 
 ### 创建模块方法
 
-
-
 ```objectivec
 RCT_EXPORT_METHOD(Show:(RCTResponseSenderBlock)callback) {
 }
@@ -217,7 +211,7 @@ RCT_EXPORT_METHOD(Show:(RCTResponseSenderBlock)callback) {
 ```javascript
 import { NativeModules } from 'react-native'
 
-const MyNativeModule = NativeModules.MyNativeModule;
+const MyNativeModule = NativeModules.MyNativeModule
 MyNativeModule.Show(() => {})
 ```
 
@@ -237,7 +231,6 @@ MyNativeModule.Show(() => {})
 RCT_CUSTOM_VIEW_PROPERTY(prop, DATA_TYPE_OF_PROP, YOUR_NATIVE_COMPONENT_CLASS) {
 }
 ```
-
 
 - 在 JavaScript 中使用
 
