@@ -64,4 +64,19 @@ tags: ['coding']
 
 ## 第六步 去爽
 
-PS：停止操作 sudo ssserver -d stop
+## PS
+
+### 停止操作 
+
+sudo ssserver -d stop
+
+### 转换为 http 代理
+
+```bash
+# macos 就是 brew 了
+apt-get install polipo
+service polipo stop
+polipo socksParentProxy=localhost:1080
+```
+
+http 代理端口默认是 **8123**。
