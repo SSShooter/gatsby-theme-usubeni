@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
+import Info from '../components/PostInfo'
 
 class BlogIndex extends React.Component {
   render() {
@@ -41,7 +42,7 @@ class BlogIndex extends React.Component {
                   {title}
                 </Link>
               </div>
-              <div className="list-date">{node.frontmatter.date}</div>
+              <Info date={node.frontmatter.date} tags={node.frontmatter.tags} />
               <p
                 className="list-excerpt"
                 dangerouslySetInnerHTML={{ __html: node.excerpt }}
@@ -101,13 +102,14 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(truncate:true,pruneLength:100)
+          excerpt(truncate: true, pruneLength: 100)
           fields {
             slug
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            tags
           }
         }
       }

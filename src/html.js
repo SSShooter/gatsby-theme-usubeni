@@ -15,6 +15,7 @@ export default class HTML extends React.Component {
           />
           <meta name="format-detection" content="email=no,telephone=no,address=no" />
           <meta name="baidu-site-verification" content="rVEuQMP8C6" />
+          <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC" rel="stylesheet"></link>
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -52,6 +53,7 @@ export default class HTML extends React.Component {
           />
           {this.props.headComponents}
         </head>
+        <div className="mask"></div>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div

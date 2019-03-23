@@ -1,12 +1,13 @@
-
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-weight: 400;
-//   padding: 0.25em 0.5em; /*上下 左右の余白*/
-  color: #494949; /*文字色*/
-//   border-left: solid 5px $mainColor; /*左線*/
+  color: #494949;
 }
 
+h1 {
+  font-size: 26px;
+}
