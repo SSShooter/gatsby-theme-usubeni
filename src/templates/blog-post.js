@@ -1,10 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, graphql, navigate } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import CommentSubmit from '../components/CommentSubmit'
 import CommentDisplay from '../components/CommentDisplay'
 import Layout from '../components/Layout'
+import Info from '../components/PostInfo'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -28,40 +29,10 @@ class BlogPostTemplate extends React.Component {
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
         <h1>{post.frontmatter.title}</h1>
-        <div className="css-info">
-          <span
-            className="iconfont"
-            style={{
-              padding: '0 8px',
-            }}
-          >
-            &#xe7d3;
-          </span>
-          {post.frontmatter.date}
-          {post.frontmatter.tags ? (
-            <React.Fragment>
-              <span
-                className="iconfont"
-                style={{
-                  padding: '0 8px',
-                }}
-              >
-                &#xe7e5;
-              </span>
-              {post.frontmatter.tags.map((tag, index) => (
-                <span
-                  key={tag}
-                  style={{
-                    paddingRight: '8px',
-                  }}
-                >
-                  <Link to={`/tag/${tag.toLowerCase()}`}>{tag}</Link>
-                </span>
-              ))}
-            </React.Fragment>
-          ) : null}
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Info date={post.frontmatter.date} tags={post.frontmatter.tags} />
+        <div style={{
+          marginTop: '3rem'
+        }} dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
         {/* 谷歌广告 */}
         {/*<ins
