@@ -90,7 +90,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `UsubeniFantasy`,
-        icon: `src/assets/gatsby-icon.png`,
+        icon: `static/mstile-150x150.png`,
       },
     },
     `gatsby-plugin-offline`,
