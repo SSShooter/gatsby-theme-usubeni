@@ -66,7 +66,11 @@ body {
 
 .mask {
   position: fixed;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0),rgba(255, 255, 255, 1) 50%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 50%
+  );
   height: 100%;
   width: 200%;
   top: 0;
@@ -259,7 +263,9 @@ a,
   margin: 32px;
   line-height: 1.75;
   img {
-    width: 100%;
+    display: block;
+    max-width: 100%;
+    margin: auto;
   }
 }
 
