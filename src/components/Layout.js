@@ -87,6 +87,7 @@ class Layout extends React.Component {
                 <Menu direction="column" />
                 <div style={{ textAlign: 'center' }}>
                   <input onChange={this.change} />
+                  <br />
                   <button onClick={this.search}>搜索</button>
                 </div>
               </React.Fragment>

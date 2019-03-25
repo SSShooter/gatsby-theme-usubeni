@@ -20,9 +20,12 @@
   text-decoration: none;
   -webkit-transition: color 0.2s;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   a{
     color: #999;
     box-shadow: none;
+    &:hover{
+      color: $mainColor;
+    }
   }
 }
