@@ -272,6 +272,10 @@ a,
     box-shadow: none;
     // opacity: 0;
   }
+  // 修改预设
+  pre[class*='language-'] {
+    background: #fff !important;
+  }
 }
 
 .css-header {
