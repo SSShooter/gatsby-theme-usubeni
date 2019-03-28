@@ -14,9 +14,22 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 60px;
     padding: 10px;
     background-color: #fff;
     box-shadow: #bbb 0 0 5px;
+    a {
+      height: 100%;
+      width: 20%;
+      word-break: normal !important;
+      .logo-mobile {
+        display: inline;
+        font-size: 1.5rem,
+      }
+      .logo {
+        display: none;
+      }
+    }
     .page-description {
       display: none;
     }

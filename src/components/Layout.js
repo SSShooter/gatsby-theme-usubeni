@@ -33,21 +33,22 @@ class Layout extends React.Component {
     // const rootPath = `${__PATH_PREFIX__}/`
 
     const websiteName = (
-      <div>
+      <React.Fragment>
         <Link
           style={{
             boxShadow: 'none',
             textDecoration: 'none',
-            fontSize: '2rem',
             fontWeight: 200,
           }}
           className="usubeni"
           to={'/tag/coding/'}
         >
-          {title}
+          {/* <img className="logo-mobile" src="/logo.mobile.png" /> */}
+          <span className="logo-mobile">{title}</span>
+          <img className="logo" src="/logo.png" />
         </Link>
         {pageName ? <div className="page-name">{'# ' + pageName}</div> : null}
-      </div>
+      </React.Fragment>
     )
     const descript = <div className="page-description">{pageDescript}</div>
     return (

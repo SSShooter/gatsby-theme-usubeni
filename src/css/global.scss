@@ -282,6 +282,13 @@ a,
   font-weight: 200;
   a {
     word-break: normal !important;
+    .logo{
+      display: block;
+      width: 100%;
+    }
+    .logo-mobile{
+      display: none;
+    }
   }
 }
 
