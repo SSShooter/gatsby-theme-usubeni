@@ -29,9 +29,8 @@ tags: ['diary', '音乐推荐']
 
 ## Scarborough Fair
 
-<iframe frameborder="0" border="1" 
-    marginwidth="0" marginheight="0" 
-    width=333 height=66
+<iframe frameborder="0" border="0" 
+    width="100%" height=100
     src="//music.163.com/outchain/player?type=2&id=489970551&auto=0&height=66">
 </iframe>
 
@@ -61,9 +60,8 @@ PS. 维基提及到这个民谣可能来自于《精灵骑士》，欸还别说�
 
 ## 小さな恋心
 
-<iframe frameborder="0" border="1" 
-    marginwidth="0" marginheight="0" 
-    width=333 height=66
+<iframe frameborder="0" border="0" 
+    width="100%" height=100
     src="//music.163.com/outchain/player?type=2&id=489970555&auto=0&height=66">
 </iframe>
 
@@ -75,9 +73,8 @@ PS. 维基提及到这个民谣可能来自于《精灵骑士》，欸还别说�
 
 ## Call you
 
-<iframe frameborder="0" border="1" 
-    marginwidth="0" marginheight="0" 
-    width=333 height=66
+<iframe frameborder="0" border="0" 
+    width="100%" height=100
     src="//music.163.com/outchain/player?type=2&id=489970553&auto=0&height=66">
 </iframe>
 
@@ -87,9 +84,8 @@ PS. 维基提及到这个民谣可能来自于《精灵骑士》，欸还别说�
 
 ## Ever be my love
 
-<iframe frameborder="0" border="1" 
-    marginwidth="0" marginheight="0" 
-    width=333 height=66
+<iframe frameborder="0" border="0" 
+    width="100%" height=100
     src="//music.163.com/outchain/player?type=2&id=489970554&auto=0&height=66">
 </iframe>
 
@@ -126,9 +122,8 @@ I'll love you more
 
 是**神曲**！！真正的首位**神曲**！！AWSL！！
 
-<iframe frameborder="0" border="1" 
-    marginwidth="0" marginheight="0" 
-    width=333 height=66
+<iframe frameborder="0" border="0" 
+    width="100%" height=100
     src="//music.163.com/outchain/player?type=2&id=489970550&auto=0&height=66">
 </iframe>
 

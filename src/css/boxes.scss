@@ -260,7 +260,9 @@
   margin: 2em 0;
   padding: 0.5em 1em;
   border: solid 3px $mainColor;
-  overflow: scroll;
+  pre {
+    overflow-x: scroll;
+  }
 }
 .box27 .box-title {
   position: absolute;
