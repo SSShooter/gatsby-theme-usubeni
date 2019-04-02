@@ -1,0 +1,22 @@
+.link-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .image {
+    height: 100px;
+    width: 100px;
+  }
+  img {
+    height: 100px;
+    width: 100px;
+  }
+  .info {
+    flex-grow: 1;
+    .title {
+      font-size: 1.2rem;
+    }
+    .descript {
+      color: #aaa;
+    }
+  }
+}
