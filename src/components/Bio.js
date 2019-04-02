@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 
 class Bio extends Component {
   render() {
-    console.log(this.props)
     return (
       <StaticQuery
         query={graphql`
