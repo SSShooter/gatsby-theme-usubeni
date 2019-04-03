@@ -52,7 +52,7 @@ export default class Comment extends Component {
   render() {
     return (
       <div className="css-comment-submit">
-        <span className="box-title">留言（将在数分钟后显示）</span>
+        <span className="box-title">留言（受<a href="/2019-01-18-gatsby-blog-6/">实现原理</a>所限，留言将在数分钟后显示）</span>
           <input
             ref={input => (this.name = input)}
             type="text"

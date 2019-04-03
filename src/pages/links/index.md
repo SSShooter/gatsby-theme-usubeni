@@ -15,13 +15,6 @@ tags: ['导航']
 - 简介（非必要）
 - 网站地址
 
-## 我的信息
-
-- 名称：UsubeniFantasy
-- 头像：https://ssshooter.com/static/22e30c75525e05dc5a66a8f1a6aca473/fe107/avatar.png
-- 简介：射手的踩坑经历-相册-生活记录
-- 网址：https://ssshooter.com
-
 ## 推荐链接
 
 <a target="_blank" href="https://developers.google.com/web/updates/">
@@ -56,7 +49,6 @@ tags: ['导航']
 
 ## 友情链接
 
-
 <a target="_blank" href="http://skt-studio.com/">
     <div class="link-card">
         <img src="https://tva4.sinaimg.cn/crop.0.0.690.690.180/c1679d2ajw8epdaoxuxtmj20j60j6mzu.jpg">
@@ -76,3 +68,10 @@ tags: ['导航']
         </div>
     </div>
 </a>
+
+## 我的信息
+
+- 名称：UsubeniFantasy
+- 头像：https://ssshooter.com/static/22e30c75525e05dc5a66a8f1a6aca473/fe107/avatar.png
+- 简介：射手的踩坑经历-相册-生活记录
+- 网址：https://ssshooter.com
