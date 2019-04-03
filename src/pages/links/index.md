@@ -66,3 +66,13 @@ tags: ['导航']
         </div>
     </div>
 </a>
+
+<a target="_blank" href="https://imjad.cn/">
+    <div class="link-card">
+        <img src="https://secure.gravatar.com/avatar/1f1b82f7ab1429a50424ac18dce65e37?s=80&r=X&d=">
+        <div class="info">
+            <div class="title">猫与向日葵</div>
+            <div class="descript">浊以静之徐清，安以动之徐生。</div>
+        </div>
+    </div>
+</a>
