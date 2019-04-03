@@ -284,11 +284,11 @@ a,
   font-weight: 200;
   a {
     word-break: normal !important;
-    .logo{
+    .logo {
       display: block;
       width: 100%;
     }
-    .logo-mobile{
+    .logo-mobile {
       display: none;
     }
   }
@@ -314,7 +314,7 @@ a,
   display: none;
 }
 .page-description {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 @import './mobile.scss';
