@@ -86,7 +86,7 @@ class Layout extends React.Component {
               <React.Fragment>
                 <Bio className="css-bio" />
                 <Menu direction="column" />
-                <div style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                   <input onChange={this.change} />
                   <br />
                   <button onClick={this.search}>搜索</button>

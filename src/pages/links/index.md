@@ -73,5 +73,5 @@ tags: ['导航']
 
 - 名称：UsubeniFantasy
 - 头像：https://ssshooter.com/static/22e30c75525e05dc5a66a8f1a6aca473/fe107/avatar.png
-- 简介：射手的踩坑经历-相册-生活记录
+- 简介：踩坑+思考+相册
 - 网址：https://ssshooter.com
