@@ -2,7 +2,7 @@
 path: '/online-courses'
 date: '2019-02-24T14:06:55.742Z'
 title: '在线课程站点推荐'
-tags: ['书签']
+tags: ['导航']
 ---
 
 推荐几个在线课程网站！
@@ -32,6 +32,17 @@ https://www.edx.org/
 发起于麻省理工和哈佛大学，基本情况与 coursera 一致。
 
 - 字幕：跟 coursera 一样，但是有文字稿就在播放器右边，遇到听不清的地方可以多听几遍，对于顺便学英语的朋友们体验极佳
+- 推荐度：4.5
+
+## scrimba
+
+https://scrimba.com/
+
+神奇的编程学习网站，内容可能比较片面，前端课程为主，但是十分有特色的是，你可以一边上课一边敲代码，甚至可以和课程代码互动，学习效率 up。
+
+- 字幕：无字幕
+- 代码互动
+- 推荐度：4
 
 ## egghead.io
 
@@ -56,3 +67,17 @@ https://node.university/
 https://www.class-central.com/
 
 class central 之所以放在最后不是因为不推荐，而是因为这是一个网络课程搜索平台。在这里可以搜索到大部分网课网站的内容，有了 class central 在找特定课程的时候就不用每家都搜索一次啦。
+
+## 非技术
+
+### masterclass
+
+https://www.masterclass.com/
+
+现时只有 50+ 课程，但都是各行大师主讲。年费制，每年 \$180，竟然比上面蛋头全年费用便宜诶...所以这是侧面说明程序员工资高？
+
+### engvid
+
+https://www.engvid.com/
+
+最初是在 youtube 发现的，大量英语教程，而且有风格不同的老师，总有一位你喜欢！

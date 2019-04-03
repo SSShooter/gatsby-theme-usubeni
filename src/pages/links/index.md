@@ -1,6 +1,7 @@
 ---
 title: '链接'
 date: '2019-02-17T00:00:00.000Z'
+tags: ['导航']
 ---
 
 ## 添加方法
@@ -17,7 +18,7 @@ date: '2019-02-17T00:00:00.000Z'
 ## 我的信息
 
 - 名称：UsubeniFantasy
-- 头像：https://ssshooter.com/static/d7a853849a0b056bd47ee43513e1f100/8484e/yozakura.jpg
+- 头像：https://ssshooter.com/static/22e30c75525e05dc5a66a8f1a6aca473/fe107/avatar.png
 - 简介：射手的踩坑经历-相册-生活记录
 - 网址：https://ssshooter.com
 
@@ -29,6 +30,16 @@ date: '2019-02-17T00:00:00.000Z'
         <div class="info">
             <div class="title">Google Developers Web Updates</div>
             <div class="descript">The latest and freshest updates from the Web teams at Google. Chrome, V8, tooling, and more.</div>
+        </div>
+    </div>
+</a>
+
+<a target="_blank" href="https://www.webcreatorbox.com/">
+    <div class="link-card">
+        <img src="https://www.smashingmagazine.com/images/footer/tablet__left.svg">
+        <div class="info">
+            <div class="title">SMASHING MAGAZINE</div>
+            <div class="descript">Web 技术博客（英语）</div>
         </div>
     </div>
 </a>
