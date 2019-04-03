@@ -91,6 +91,9 @@ MVC 是由 M 通知 V，但 MVVM 是 M 通知 VM（M 和 V 没有直接关系）
 参考文献
 
 https://zh.wikipedia.org/wiki/MVVM
+
 https://russelleast.wordpress.com/2008/08/09/overview-of-the-modelview-viewmodel-mvvm-pattern-and-data-binding/
+
 https://web.archive.org/web/20150219153055/http://joel.inpointform.net/software-development/mvvm-vs-mvp-vs-mvc-the-differences-explained/
+
 https://medium.com/javascript-inside/what-if-react-was-really-only-the-v-in-mvc-5854fd6f601c
