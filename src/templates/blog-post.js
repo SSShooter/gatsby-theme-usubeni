@@ -36,7 +36,7 @@ class BlogPostTemplate extends React.Component {
       if (pre !== last.hash) {
         if (pre) {
           let preItem = document.querySelector(`.css-toc a[href*="${pre}"]`)
-          preItem.className = ''
+          if (preItem) preItem.className = ''
         }
         let menuItem = document.querySelector(
           `.css-toc a[href*="${encodeURIComponent(last.id)}"]`

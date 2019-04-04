@@ -170,7 +170,7 @@ a,
 
 .css-aside {
   margin-top: 30px;
-  width: 200px;
+  width: 240px;
   @import './menu.scss';
   .css-bio {
     box-sizing: border-box;
@@ -204,7 +204,7 @@ a,
   display: flex;
   justify-content: center;
   margin: auto;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 .css-gallery {
   margin: auto;
@@ -256,7 +256,7 @@ a,
 }
 .css-post {
   flex-grow: 1;
-  max-width: 578px;
+  max-width: 700px;
   margin: 32px;
   line-height: 1.8;
   p {
