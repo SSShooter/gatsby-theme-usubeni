@@ -3,7 +3,7 @@
   position: sticky;
   top: 30px;
   max-height: 80vh;
-  color: $mainColor;
+  color: $mainDerive1;
   padding: 15px;
   margin-top: 25px;
   overflow-y: auto;
@@ -35,7 +35,14 @@
 .css-toc {
   margin: 2em 0;
   padding: 25px 10px 7px;
-  border: solid 1px $mainColor;
+  border: solid 1px $mainDerive1;
+  a {
+    color: $mainDerive1;
+    box-shadow: none;
+  }
+  .active {
+    color: $mainColor;
+  }
 }
 .css-toc .box-title {
   position: absolute;
@@ -47,11 +54,11 @@
   line-height: 25px;
   vertical-align: middle;
   font-size: 17px;
-  background: $mainColor;
+  background: $mainDerive1;
   color: #ffffff;
   font-weight: bold;
 }
 .css-toc p {
-  margin: 0; 
+  margin: 0;
   padding: 0;
 }

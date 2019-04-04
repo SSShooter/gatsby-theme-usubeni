@@ -69,6 +69,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a target="_blank" href="https://heroyf.club/">
+    <div class="link-card">
+        <img src="https://file.heroyf.club/logo.jpg">
+        <div class="info">
+            <div class="title">萌萌哒の柯基</div>
+            <div class="descript">仰望大佬的菜鸡〒▽〒</div>
+        </div>
+    </div>
+</a>
+
 ## 我的信息
 
 - 名称：UsubeniFantasy

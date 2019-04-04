@@ -19,7 +19,9 @@ class Bio extends Component {
         `}
         render={data => (
           <div className="css-bio">
-            <Img fluid={data.file.childImageSharp.fluid} />
+            <div className="css-avatar">
+              <Img fluid={data.file.childImageSharp.fluid} />
+            </div>
             <div className="author">ssshooter</div>
             <div className="social-media">
               <a href="https://weibo.com/ariaqua">

@@ -93,7 +93,7 @@ Lexical Environment 对象包含两个部分：（译者：这里是重点）
 
 例如在这段简单的代码中，只有一个 Lexical Environment：
 
-![lexical environment](https://upload-images.jianshu.io/upload_images/3020281-f0d631b73683bb4a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![lexical environment](le1.png)
 
 这就是所谓 global Lexical Environment（全局语法环境），对应整个 script。对于浏览端，整个 `<script>` 标签共享一个全局环境。
 
@@ -102,7 +102,7 @@ Lexical Environment 对象包含两个部分：（译者：这里是重点）
 
 下图展示 `let` 变量的工作机制：
 
-![lexical environment](https://upload-images.jianshu.io/upload_images/3020281-b47b3eb8188852ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![lexical environment](le2.png)
 
 右边的正方形描述 global Lexical Environment 在执行中如何改变：
 
@@ -126,8 +126,7 @@ Function Declaration 与 `let` 不同，并非处理于被执行的时候，而�
 
 以下代码 Lexical Environment 开始时非空。因为有 `say` 函数声明，之后又有了 `let` 声明的 `phrase`：
 
-![lexical environment](https://upload-images.jianshu.io/upload_images/3020281-da91d2a884d085a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+![lexical environment](le3.png)
 
 ### Inner and outer Lexical Environment（内部词法环境和外部词法环境）
 
@@ -138,7 +137,7 @@ Function Declaration 与 `let` 不同，并非处理于被执行的时候，而�
 
 箭头标记的是执行 `say("John")` 时的 Lexical Environment ：
 
-![lexical environment](https://upload-images.jianshu.io/upload_images/3020281-b1168f32539c4985.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![lexical environment](le4.png)
 
 函数调用过程中，可以看到两个 Lexical Environment（译者注：就是两个长方形）：里面的是函数调用产生的，外面的是全局的：
 
@@ -156,7 +155,7 @@ Function Declaration 与 `let` 不同，并非处理于被执行的时候，而�
 - `say` 里的 `alert` 想要访问 `name`，立即就能在当前函数的 Lexical Environment 找到。
 - 而局部变量不存在 `phrase`，所以要循着 `outer` 在全局变量里找到。
 
-![lexical environment lookup](https://upload-images.jianshu.io/upload_images/3020281-26e026dca28ff797.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![lexical environment lookup](lelookup.png)
 
 现在我们可以回答本章开头的第一个问题了。
 
@@ -255,7 +254,7 @@ counter 内部如何工作？
 
 内部函数运行， `count++` 中的变量由内到外搜索：
 
-![image](https://upload-images.jianshu.io/upload_images/3020281-4516c2310a985575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](lookup.png)
 
 1. 嵌套函数局部变量……
 2. 外层函数……
@@ -308,7 +307,7 @@ alert( counter2() ); // 0 （独立）
 
 1. 脚本开始运行，此时只存在 global Lexical Environment ：
 
-   ![image](https://upload-images.jianshu.io/upload_images/3020281-26e63e33e38a5d08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+   ![](1.png)
 
    这时候只有 `makeCounter` 一个函数，这是函数声明，**还未被调用**。
 
@@ -320,7 +319,7 @@ alert( counter2() ); // 0 （独立）
 
 2. 代码继续执行，`makeCounter()` 登场。这是代码运行到 `makeCounter()` 瞬间的快照：
 
-   ![image](https://upload-images.jianshu.io/upload_images/3020281-7ff771b4d5000edf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+   ![](2.png)
 
    `makeCounter()` 调用时，保存当前变量和实参的 Lexical Environment 已经被创建。
 
@@ -337,19 +336,19 @@ alert( counter2() ); // 0 （独立）
 
    这个嵌套函数的 `[[Environment]]` 是 `makeCounter()`（它的诞生地）的 Lexical Environment：
 
-   ![image](https://upload-images.jianshu.io/upload_images/3020281-4fab9b862b3c1b9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+   ![](3.png)
 
    同样注意，这一步是函数声明而非调用。
 
 4. 代码继续执行，`makeCounter()` 调用结束，内嵌函数被赋值到全局变量 `counter`：
 
-   ![image](https://upload-images.jianshu.io/upload_images/3020281-d6be8283ac553ebd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+   ![](4.png)
 
    这个函数只有一行：`return count++`。
 
 5. `counter()` 被调用，自动创建一个空的 Lexical Environment。此函数无局部变量，但是 `[[Environment]]` 引用了外面一层，所以它可以访问 `makeCounter()` 的变量。
 
-   ![image](https://upload-images.jianshu.io/upload_images/3020281-64599df5bc1ddf2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+   ![](5.png)
 
    要访问变量，先检索自己的 Lexical Environment（空），然后是 `makeCounter()` 的，最后是全局的。例子中在外层一层 Lexical Environment `makeCounter` 中发现了 `count`。
 
@@ -359,7 +358,7 @@ alert( counter2() ); // 0 （独立）
 
 6. `counter()` 函数不只是返回 `count`，还会对其 +1 操作。这个修改已经在“适当的位置”完成了。`count` 的值在它的当前环境中被修改。
 
-   ![image](https://upload-images.jianshu.io/upload_images/3020281-63a5e3db65c2f3c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+   ![](6.png)
 
    这一步再次调用 `count`，原理完全相同。
    
@@ -371,7 +370,7 @@ alert( counter2() ); // 0 （独立）
 
 以下代码的 `work()` 函数通过外层 lexical environment 引用了它原地点的 `name` ：
 
-![image](https://upload-images.jianshu.io/upload_images/3020281-ff72221b17875892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](2019-04-04-15-31-55.png)
 
 所以这里的答案是 `"Pete"`。
 
@@ -379,7 +378,7 @@ alert( counter2() ); // 0 （独立）
 
 > **闭包（Closure）**
 开发者们都应该知道编程领域的通用名词闭包（closure）。
-[闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming)是一个记录并可访问外层变量的函数。在一些编程语言中是不存在的，或者要以一种特殊的方式书写以实现这个功能。但是如上面解释的，JavaScript 的所有函数都个闭包。
+[闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming))是一个记录并可访问外层变量的函数。在一些编程语言中是不存在的，或者要以一种特殊的方式书写以实现这个功能。但是如上面解释的，JavaScript 的所有函数都个闭包。
 这就是闭包：它们使用 `[[Environment]]` 属性自动记录各自的创建地点，然后由此访问外部变量。
 在前端面试中，如果面试官问你什么是闭包，正确答案应该包括闭包的定义，以及解释为何 JavaScript 的所有函数都是闭包，最好可以再简单说说里面的技术细节：`[[Environment]]` 属性和 Lexical Environments 的原理。
 
@@ -393,7 +392,7 @@ alert( counter2() ); // 0 （独立）
 
 下例中，当执行到 `if` 块，会为这个块创建新的 "if-only" Lexical Environment ：
 
-![image](https://upload-images.jianshu.io/upload_images/3020281-797e21619a187e2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](2019-04-04-15-33-35.png)
 
 与函数同样原理，块内可以找到 `phrase`，但是块外不能使用块内的变量和函数。如果执意在 `if` 外面用 `user`，那只能得到一个报错了。
 
