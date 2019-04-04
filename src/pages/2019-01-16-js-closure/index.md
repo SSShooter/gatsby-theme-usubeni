@@ -378,7 +378,7 @@ alert( counter2() ); // 0 （独立）
 
 > **闭包（Closure）**
 开发者们都应该知道编程领域的通用名词闭包（closure）。
-[闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming)是一个记录并可访问外层变量的函数。在一些编程语言中是不存在的，或者要以一种特殊的方式书写以实现这个功能。但是如上面解释的，JavaScript 的所有函数都个闭包。
+[闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming))是一个记录并可访问外层变量的函数。在一些编程语言中是不存在的，或者要以一种特殊的方式书写以实现这个功能。但是如上面解释的，JavaScript 的所有函数都个闭包。
 这就是闭包：它们使用 `[[Environment]]` 属性自动记录各自的创建地点，然后由此访问外部变量。
 在前端面试中，如果面试官问你什么是闭包，正确答案应该包括闭包的定义，以及解释为何 JavaScript 的所有函数都是闭包，最好可以再简单说说里面的技术细节：`[[Environment]]` 属性和 Lexical Environments 的原理。
 
