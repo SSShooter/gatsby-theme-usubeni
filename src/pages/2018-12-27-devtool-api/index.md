@@ -9,7 +9,7 @@ tags: ['coding']
 
 以下是几句话的简单总结。
 
-# 特殊变量
+## 特殊变量
 - `$_` 返回上一个表达式的返回值。
 
 ![](./$_.png)
@@ -18,7 +18,7 @@ tags: ['coding']
 
 ![](./$0.png)
 
-# 特殊方法
+## 特殊方法
 - `$()` 等同于 `document.querySelector()`
 - `$$()` 等同于 `document.querySelectorAll()` 
 - `$x()` 传入 XPath 获取 dom 元素，[XPath](https://en.wikipedia.org/wiki/XPath) 相关概念可以在这里了解。
