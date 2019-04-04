@@ -8,7 +8,10 @@ tags: ['coding', '翻译']
 > 来源于 [现代 JavaScript 教程](https://github.com/iliakan/javascript-tutorial-en)  
 > [垃圾回收章节](https://javascript.info/garbage-collection)
 
-<div class="balloon2-left">虽然在 JavaScript 中不用自己管理内存，但是了解原理可以在关键时候快速搜索到解决办法，毕竟很多时候遇到问题是连搜索什么关键词都想不起来呀 😂</div>
+<div class="say">
+  <div class="avatar"></div>
+  <div class="balloon2-left">虽然在 JavaScript 中不用自己管理内存，但是了解原理可以在关键时候快速搜索到解决办法，毕竟很多时候遇到问题是连搜索什么关键词都想不起来呀 😂</div>
+</div>
 
 JavaScript 内存管理于我们来说是自动的、不可见的。我们创建的原始类型、对象、函数等等，都会占用内存。
 
