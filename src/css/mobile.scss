@@ -18,6 +18,7 @@
     padding: 10px;
     background-color: #fff;
     box-shadow: #bbb 0 0 5px;
+    z-index: 9;
     a {
       height: 100%;
       width: 20%;
@@ -54,7 +55,7 @@
     top: 0;
     bottom: 0;
     right: -255px;
-    padding: 50px 20px 0;
+    padding: 30px 20px 0;
     width: 250px;
     background-color: #fff;
     box-shadow: #bbb 0 0 5px;
