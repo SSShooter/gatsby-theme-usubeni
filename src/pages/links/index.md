@@ -69,9 +69,19 @@ tags: ['导航']
     </div>
 </a>
 
+<a target="_blank" href="https://heroyf.club/">
+    <div class="link-card">
+        <img src="https://file.heroyf.club/logo.jpg">
+        <div class="info">
+            <div class="title">萌萌哒の柯基</div>
+            <div class="descript">仰望大佬的菜鸡〒▽〒</div>
+        </div>
+    </div>
+</a>
+
 ## 我的信息
 
 - 名称：UsubeniFantasy
-- 头像：https://ssshooter.com/static/22e30c75525e05dc5a66a8f1a6aca473/fe107/avatar.png
+- 头像：[链接](https://ssshooter.com/static/22e30c75525e05dc5a66a8f1a6aca473/fe107/avatar.png)
 - 简介：射手的踩坑经历-相册-生活记录
 - 网址：https://ssshooter.com
