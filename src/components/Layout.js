@@ -99,8 +99,9 @@ class Layout extends React.Component {
           <div>
             theme <span className="usubeni">UsubeniFantasy</span>
           </div>
+          <div>© 2018-{new Date().getFullYear()} SSShooter</div>
           <div>
-            © 2018-{new Date().getFullYear()} SSShooter, powered by{' '}
+            powered by{' '}
             <a
               style={{ color: 'rgb(102, 51, 153)', boxShadow: 'none' }}
               href="https://www.gatsbyjs.org/"
