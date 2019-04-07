@@ -79,6 +79,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a target="_blank" href="https://www.fghrsh.net/">
+    <div class="link-card">
+        <img src="https://gravatar.fghrsh.net/avatar/0c5d77513a08b8c3e38336859b53b027?s=80&d=mm&r=G">
+        <div class="info">
+            <div class="title">FGHRSH 的博客</div>
+            <div class="descript">FGHRSH 的博客</div>
+        </div>
+    </div>
+</a>
+
 ## 我的信息
 
 - 名称：UsubeniFantasy
