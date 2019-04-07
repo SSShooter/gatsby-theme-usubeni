@@ -2,7 +2,7 @@
 path: '/online-courses'
 date: '2019-02-24T14:06:55.742Z'
 title: '在线课程站点推荐'
-tags: ['导航']
+tags: ['导航','diary']
 ---
 
 推荐几个在线课程网站！
