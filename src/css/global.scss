@@ -38,16 +38,31 @@ $fontColor: #533d5b;
 ::-webkit-scrollbar {
   width: 5px;
 }
- 
+
 ::-webkit-scrollbar-track {
   background: #ddd;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-  background: $mainDerive1; 
+  background: $mainDerive1;
 }
 
-
+.night {
+  background: #231b30;
+  color: #ccc !important;
+  a {
+    color: #ccc !important;
+  }
+  .css-info {
+    color: #aaa !important;
+  }
+  h1,h2,h3,h4,h5,h6{
+    color: #ddd !important;
+  }
+  img {
+    filter: brightness(50%);
+  }
+}
 .usubeni {
   color: #e87a90;
 }
