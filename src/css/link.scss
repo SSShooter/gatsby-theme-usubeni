@@ -1,5 +1,6 @@
 .link-card {
-  display: flex;
+  width: 49%;
+  display: inline-flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 10px;
@@ -26,4 +27,7 @@
       color: #aaa;
     }
   }
+}
+.link-card-wrapper{
+  box-shadow: none;
 }
