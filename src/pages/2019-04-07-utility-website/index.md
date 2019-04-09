@@ -29,4 +29,42 @@ https://www.canva.com/
 
 http://fakeupdate.net/
 
---未完--
+## 图片压缩
+
+https://tinypng.com/
+
+https://img.top/
+
+## saucenao
+
+P 站（另外几个图站好像也可以）以图搜图工具
+
+https://saucenao.com/
+
+## 正则表达式测试站
+
+你可以直观地看到你的正则表达式匹配了什么，并且对表达式有详细解释（网站附带文档和 cheatsheet 哦！
+
+（两个网站功能基本一样）
+
+https://regex101.com/
+
+https://regexr.com/
+
+## yorg.io
+
+杀时间利器，塔防页游，入门简单！
+
+https://yorg.io/
+
+## what web can do today
+
+网页今天能干啥？其实不看不知道，现在的浏览器已经支持用 JavaScript 获取手机各种状态，做震动操作，虽然还未达到泛用水平，但是已经踏出了第一步！
+
+https://whatwebcando.today/
+
+## TIOBE Index
+
+本业是软件质量控制，估计是顺便也把网上的代码收集起来分析一番，做一个编程语言排行榜。经常在网上看到的编程语言热度排名基本都是来自这家公司了
+
+https://www.tiobe.com/tiobe-index/

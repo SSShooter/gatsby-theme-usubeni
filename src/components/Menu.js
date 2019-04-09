@@ -18,7 +18,7 @@ export default class Menu extends Component {
           <i className="iconfont">&#xe7e5;</i> 标签
         </a>
         <a href="/gallery">
-          <i className="iconfont">&#xe7de;</i> 摄影
+          <i className="iconfont">&#xe7de;</i> 相册
         </a>
         {/* <a href="/meme">
           <i className="iconfont">&#xe780;</i> 表情

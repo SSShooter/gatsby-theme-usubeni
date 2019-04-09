@@ -47,6 +47,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a class="link-card-wrapper" target="_blank" href="http://storeweb.cn/">
+    <div class="link-card">
+        <img src="http://storeweb.cn/html/img/store.png">
+        <div class="info">
+            <div class="title">个站商店</div>
+            <div class="descript">一个精致的，带社交元素的个人网站发布平台，博客收录网站</div>
+        </div>
+    </div>
+</a>
+
 ## 友情链接
 
 <a class="link-card-wrapper" target="_blank" href="http://skt-studio.com/">

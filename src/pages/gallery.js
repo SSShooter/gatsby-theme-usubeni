@@ -15,8 +15,8 @@ class Gallery extends React.Component {
       <div className="css-gallery">
         <Helmet
           htmlAttributes={{ lang: 'zh' }}
-          meta={[{ name: 'description', content: '试验性 修图/摄影区' }]}
-          title={'Usubeni Fantasy | 试验性 修图/摄影区'}
+          meta={[{ name: 'description', content: '定格的生活' }]}
+          title={'Usubeni Fantasy | 定格的生活'}
         />
         <header>
           <Link
@@ -32,7 +32,7 @@ class Gallery extends React.Component {
             Usubeni Fantasy
           </Link>
           <span>#Gallery</span>
-          <div>试验性 修图/摄影区</div>
+          <div>定格的生活</div>
         </header>
         <Menu direaction="row" />
         <Masonry
