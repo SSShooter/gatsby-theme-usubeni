@@ -3,11 +3,17 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
 import CommentSubmit from '../components/CommentSubmit'
-import CommentDisplay from '../components/CommentDisplay'
+// import CommentDisplay from '../components/CommentDisplay'
 import Layout from '../components/Layout'
 import Info from '../components/PostInfo'
+import axios from 'axios'
 
 class BlogPostTemplate extends React.Component {
+  state = {
+    comments: [],
+    parentId: null,
+    to: null,
+  }
   componentDidMount = () => {
     let pre = location.hash || ''
     if (pre)
@@ -45,12 +51,44 @@ class BlogPostTemplate extends React.Component {
         pre = menuItem.hash
       }
     })
+    this.getComment()
+  }
+  getComment = () => {
+    axios
+      .get(
+        'https://comment-sys.herokuapp.com/api/comment/' +
+          this.props.pageContext.slug.slice(1, -1)
+      )
+      .then(({ data }) => {
+        console.log(data.data)
+        this.setState({
+          comments: data.data,
+        })
+      })
+  }
+  cancelReply = () => {
+    this.setState({
+      parentId: null,
+      to: null,
+    })
+  }
+  reply = (parentId, to) => () => {
+    document.querySelector('#comment-input').scrollIntoView()
+    this.setState({
+      parentId,
+      to,
+    })
+  }
+  dateFormat = date => {
+    date = new Date(date)
+    let m = date.getMonth() + 1
+    m = m < 10 ? '0' + m : m
+    let d = date.getDate()
+    d = d < 10 ? '0' + d : d
+    return `${date.getFullYear()}-${m}-${d}`
   }
   render() {
     const post = this.props.data.markdownRemark
-    const comments = this.props.data.allCommentsYaml
-      ? this.props.data.allCommentsYaml.edges
-      : []
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { slug, previous, next } = this.props.pageContext
@@ -84,12 +122,61 @@ class BlogPostTemplate extends React.Component {
           data-ad-client="ca-pub-5174204966769125"
           data-ad-slot="5098541959"
         />*/}
-        <CommentSubmit url={slug} />
-        {comments.length > 0
-          ? comments.map(comment => (
-              <CommentDisplay key={comment.node.id} data={comment.node} />
-            ))
+        {this.state.comments.length > 0
+          ? this.state.comments.map(comment => {
+              const dateFormat = this.dateFormat(comment.date)
+              return (
+                <div className="css-comment-display" key={comment._id}>
+                  <div className="name">
+                    {comment.author}
+                    <span className="date">{dateFormat}</span>
+                    <span
+                      className="inline-button"
+                      onClick={this.reply(comment._id, comment.author)}
+                    >
+                      回复
+                    </span>
+                  </div>
+                  <div className="message">{comment.content}</div>
+                  {comment.replies.length > 0
+                    ? comment.replies.map(commentChild => {
+                        const dateFormat = this.dateFormat(comment.date)
+                        return (
+                          <div
+                            className="css-child-comment-display"
+                            key={commentChild._id}
+                          >
+                            <div className="name">
+                              {commentChild.author + ' -> ' + commentChild.to}
+                              <span className="date">{dateFormat}</span>
+                              <span
+                                className="inline-button"
+                                onClick={this.reply(
+                                  comment._id,
+                                  commentChild.author
+                                )}
+                              >
+                                回复
+                              </span>
+                            </div>
+                            <div className="message">
+                              {commentChild.content}
+                            </div>
+                          </div>
+                        )
+                      })
+                    : null}
+                </div>
+              )
+            })
           : '暂时没有留言，要抢沙发吗？'}
+        <CommentSubmit
+          url={slug}
+          parent={this.state.parentId}
+          to={this.state.to}
+          onCancel={this.cancelReply}
+          onSuccess={this.getComment}
+        />
         <ul
           style={{
             display: 'flex',

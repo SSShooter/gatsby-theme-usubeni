@@ -1,60 +1,73 @@
 import React, { Component } from 'react'
-
+import axios from 'axios'
 export default class Comment extends Component {
   state = {
     submitState: '发送留言',
   }
   submit = () => {
-    var xhr = new XMLHttpRequest()
-    xhr.open(
-      'POST',
-      'https://ufb-comment.herokuapp.com/v2/entry/ssshooter/usubeni-fantasy/master/comments',
-      true
-    )
-    // 添加http头，发送信息至服务器时内容编码类型
-    xhr.setRequestHeader('Content-Type', 'application/json')
-    // onreadystatechange change 次数研究
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState == 4) {
-        if (xhr.status == 200 || xhr.status == 304) {
-          localStorage.name = this.name.value
-          localStorage.email = this.email.value
-          this.message.value = ''
-          alert('留言已发送，将在数分钟后显示')
-          this.setState({
-            submitState: '已发送',
-          })
-        } else {
-          const response = JSON.parse(xhr.responseText)
-          if (response.errorCode) alert(response.errorCode)
-          this.button.disabled = false
-          this.setState({
-            submitState: '发送留言',
-          })
-        }
+    const author = this.name.value
+    const mail = this.email.value
+    const content = this.message.value
+    if (!author || !mail || !content) return
+    const { parent, to, url, onSuccess } = this.props
+    let data = undefined
+    if (parent) {
+      data = {
+        to,
+        parent: parent,
+        author,
+        mail,
+        content,
+      }
+    } else {
+      data = {
+        url: url.slice(1, -1),
+        author,
+        mail,
+        content,
       }
     }
-    let data = {
-      fields: {
-        url: this.props.url,
-        name: this.name.value,
-        email: this.email.value,
-        message: this.message.value,
-      },
-    }
-    xhr.send(JSON.stringify(data))
+    axios
+      .post('https://comment-sys.herokuapp.com/api/comment', data)
+      .then(res => {
+        localStorage.name = author
+        localStorage.email = mail
+        this.message.value = ''
+        onSuccess()
+        this.setState({
+          submitState: '已发送',
+        })
+      })
+      .catch(err => {
+        alert(err)
+        this.button.disabled = false
+        this.setState({
+          submitState: '发送留言',
+        })
+      })
     this.setState({
       submitState: '发送中',
     })
     this.button.disabled = true
   }
   render() {
+    const { parent, to, onCancel } = this.props
     return (
       <div className="css-comment-submit">
         <span className="box-title">
-          留言（受<a href="/2019-01-18-gatsby-blog-6/">实现原理</a>
-          所限，留言将在数分钟后显示）
+          留言（维修中！即将不再受<a href="/2019-01-18-gatsby-blog-6/">实现原理</a>
+          所限，立即更新！）
         </span>
+        {parent ? (
+          <div>
+            回复 {to}
+            <span className="inline-button" onClick={onCancel}>
+              取消回复
+            </span>
+          </div>
+        ) : (
+          <div>文章留言</div>
+        )}
         <input
           ref={input => {
             this.name = input
@@ -74,9 +87,10 @@ export default class Comment extends Component {
             }
           }}
           type="email"
-          placeholder="非必填 请输入你的联系方式"
+          placeholder="必填 请输入你邮箱，收到回复时推送提醒"
         />
         <input
+          id="comment-input"
           ref={input => (this.message = input)}
           placeholder="必填 请输入留言内容"
           required
