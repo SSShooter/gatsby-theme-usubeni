@@ -16,6 +16,12 @@
   }
 }
 .css-comment-display,.css-child-comment-display {
+  .css-reply{
+    opacity: 0;
+  }
+  &:hover .css-reply{
+    opacity: 1;
+  }
   .name {
     color: $mainColor;
     font-weight: 300;
@@ -27,9 +33,11 @@
   }
 }
 .css-comment-display{
-  padding: 12px;
+  padding: 20px;
   border-bottom: 1px solid #eee;
 }
 .css-child-comment-display {
-  padding: 0 0 0 20px;
+  padding: 20px;
+  margin-left: 30px;
+  border-bottom: 1px solid #eee;
 }

@@ -9,7 +9,7 @@ tags: ['diary']
 
 第一季度总结的 deadline 都来了，才回过神来 9102 又已经过了四分之一。
 
-<div class="box27">
+<div class="box27 inline-block">
     <span class="box-title">薄荷</span>
     <pre>神様がくれた時間は零れる
 あとどれくらいかな</pre>

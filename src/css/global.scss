@@ -71,6 +71,9 @@ $fontColor: #533d5b;
 .usubeni {
   color: #e87a90;
 }
+.inline-block {
+  display: inline-block;
+}
 
 // basic
 header,
@@ -115,6 +118,7 @@ body {
   right: 0;
   animation: fade-out 2s ease-out;
   animation-fill-mode: forwards;
+  animation-delay: 1s;
   z-index: 20;
 }
 

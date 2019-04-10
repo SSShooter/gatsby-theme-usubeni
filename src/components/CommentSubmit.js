@@ -55,8 +55,8 @@ export default class Comment extends Component {
     return (
       <div className="css-comment-submit">
         <span className="box-title">
-          留言（维修中！即将不再受<a href="/2019-01-18-gatsby-blog-6/">实现原理</a>
-          所限，立即更新！）
+          留言（不再受<a href="/2019-01-18-gatsby-blog-6/">实现原理</a>
+          所限，立即更新！回复功能现在可用，但邮箱提醒未完成）
         </span>
         {parent ? (
           <div>

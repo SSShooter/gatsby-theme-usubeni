@@ -126,18 +126,20 @@ class BlogPostTemplate extends React.Component {
           ? this.state.comments.map(comment => {
               const dateFormat = this.dateFormat(comment.date)
               return (
-                <div className="css-comment-display" key={comment._id}>
-                  <div className="name">
-                    {comment.author}
-                    <span className="date">{dateFormat}</span>
-                    <span
-                      className="inline-button"
-                      onClick={this.reply(comment._id, comment.author)}
-                    >
-                      回复
-                    </span>
+                <React.Fragment>
+                  <div className="css-comment-display" key={comment._id}>
+                    <div className="name">
+                      {comment.author}
+                      <span className="date">{dateFormat}</span>
+                      <span
+                        className="inline-button css-reply"
+                        onClick={this.reply(comment._id, comment.author)}
+                      >
+                        回复
+                      </span>
+                    </div>
+                    <div className="message">{comment.content}</div>
                   </div>
-                  <div className="message">{comment.content}</div>
                   {comment.replies.length > 0
                     ? comment.replies.map(commentChild => {
                         const dateFormat = this.dateFormat(comment.date)
@@ -150,7 +152,7 @@ class BlogPostTemplate extends React.Component {
                               {commentChild.author + ' -> ' + commentChild.to}
                               <span className="date">{dateFormat}</span>
                               <span
-                                className="inline-button"
+                                className="inline-button css-reply"
                                 onClick={this.reply(
                                   comment._id,
                                   commentChild.author
@@ -166,7 +168,7 @@ class BlogPostTemplate extends React.Component {
                         )
                       })
                     : null}
-                </div>
+                </React.Fragment>
               )
             })
           : '暂时没有留言，要抢沙发吗？'}
