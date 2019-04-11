@@ -18,6 +18,7 @@ export default class Comment extends Component {
         author,
         mail,
         content,
+        path: window.location.pathname,
       }
     } else {
       data = {
@@ -25,6 +26,7 @@ export default class Comment extends Component {
         author,
         mail,
         content,
+        path: window.location.pathname,
       }
     }
     axios
