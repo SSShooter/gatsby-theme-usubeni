@@ -219,15 +219,15 @@ a,
     color: $mainDerive4;
     .css-avatar {
       border-radius: 50%;
-      width: 80%;
+      width: 60%;
     }
     .author {
       font-weight: 200;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
     .social-media {
       width: 100%;
-      padding-top: 15px;
+      padding-top: 0.7rem;
       display: flex;
       justify-content: space-around;
       a {
@@ -235,7 +235,7 @@ a,
       }
       .iconfont {
         color: $mainDerive4;
-        font-size: 1.6rem;
+        font-size: 1.3rem;
       }
     }
   }

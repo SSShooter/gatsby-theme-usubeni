@@ -101,10 +101,20 @@ tags: ['导航']
 
 <a class="link-card-wrapper" target="_blank" href="https://daidr.me/">
     <div class="link-card">
-        <img src="https://cdn.daidr.me/wp-content/uploads/2017/11/5_a-e1515336786629.png">
+        <div class="noimage">兜</div>
         <div class="info">
             <div class="title">daidr.me</div>
             <div class="descript">在迷失中寻找自我</div>
+        </div>
+    </div>
+</a>
+
+<a class="link-card-wrapper" target="_blank" href="https://www.staro.info/">
+    <div class="link-card">
+        <div class="noimage">地</div>
+        <div class="info">
+            <div class="title">地球屋</div>
+            <div class="descript">staro.info</div>
         </div>
     </div>
 </a>
