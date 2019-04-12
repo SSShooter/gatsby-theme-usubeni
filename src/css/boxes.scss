@@ -259,7 +259,7 @@
   position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
-  border: solid 3px $mainColor;
+  border: solid 1px $mainColor;
   pre {
     overflow-x: auto;
   }
@@ -267,8 +267,8 @@
 .box27 .box-title {
   position: absolute;
   display: inline-block;
-  top: -27px;
-  left: -3px;
+  top: -25px;
+  left: -1px;
   padding: 0 9px;
   height: 25px;
   line-height: 25px;
