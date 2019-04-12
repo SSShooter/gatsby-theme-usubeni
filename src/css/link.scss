@@ -16,6 +16,8 @@
   img {
     height: 80px;
     width: 80px;
+    object-fit: cover;
+    object-position: left;
   }
   .info {
     flex-grow: 1;
