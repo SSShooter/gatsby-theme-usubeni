@@ -102,7 +102,8 @@ body {
   -webkit-touch-callout: none; // 长按链接不弹出菜单
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 去除点击高亮
   // font-family: 'Noto Serif SC', serif;
-  font-family: 'PingFang SC','Hiragino Sans GB','Microsoft Yahei','WenQuanYi Micro Hei',sans-serif;
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
+    'WenQuanYi Micro Hei', sans-serif;
   -webkit-font-smoothing: antialiased !important;
   color: $fontColor;
   font-size: 16px;
@@ -303,24 +304,29 @@ a,
   max-width: 700px;
   margin: 32px;
   line-height: 1.8;
-  p {
-    word-wrap: break-word;
-    word-break: break-word;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  img {
-    display: block;
-    max-width: 100%;
-    margin: auto;
-  }
-  .anchor {
-    box-shadow: none;
-    // opacity: 0;
-  }
-  // 修改预设
-  pre[class*='language-'] {
-    background: rgba(0, 0, 0, 0.01) !important;
+  .css-post-main {
+    margin-top: '3rem';
+    > p {
+      word-wrap: break-word;
+      word-break: break-word;
+      margin-top: 29px;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 30px auto;
+    }
+    .anchor {
+      box-shadow: none;
+      // opacity: 0;
+    }
+    // 修改预设
+    .gatsby-highlight {
+      margin-top: 29px;
+      pre[class*='language-'] {
+        background: rgba(0, 0, 0, 0.03);
+      }
+    }
   }
 }
 

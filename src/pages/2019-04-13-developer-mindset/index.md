@@ -113,7 +113,7 @@ Vue.prototype.$axios = Axios
 
 - 解决问题
 
-  > If you can’t explain something in simple terms, you don’t understand it. — Richard Feynman
+  > If you can't explain something in simple terms, you don’t understand it. — Richard Feynman
 
   如果你不能流利解释一个问题，那说明你还是没懂，也就是还没真正解决这个问题。若是没真正解决问题，便不能举一反三解决更多类似问题。
 

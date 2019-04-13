@@ -107,9 +107,7 @@ class BlogPostTemplate extends React.Component {
         <h1>{post.frontmatter.title}</h1>
         <Info date={post.frontmatter.date} tags={post.frontmatter.tags} />
         <div
-          style={{
-            marginTop: '3rem',
-          }}
+          className="css-post-main"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <hr />
