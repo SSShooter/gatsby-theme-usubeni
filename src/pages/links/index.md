@@ -4,17 +4,6 @@ date: '2019-02-17T00:00:00.000Z'
 tags: ['导航']
 ---
 
-## 添加方法
-
-可以在下面评论框提交评论，或者发送相关信息到邮箱（处理比较快）<br />ssshooterx@gmail.com
-
-友情链接必要内容为：
-
-- 网站名称
-- 头像/印象图（非必要）
-- 简介（非必要）
-- 网站地址
-
 ## 推荐链接
 
 <a class="link-card-wrapper" target="_blank" href="https://developers.google.com/web/updates/">
@@ -128,6 +117,17 @@ tags: ['导航']
         </div>
     </div>
 </a>
+
+## 添加方法
+
+可以在下面评论框提交评论，或者发送相关信息到邮箱（处理比较快）<br />ssshooterx@gmail.com
+
+友情链接必要内容为：
+
+- 网站名称
+- 头像/印象图（非必要）
+- 简介（非必要）
+- 网站地址
 
 ## 我的信息
 
