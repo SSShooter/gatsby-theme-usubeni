@@ -15,7 +15,7 @@ export default class HTML extends React.Component {
           />
           <meta name="format-detection" content="email=no,telephone=no,address=no" />
           <meta name="baidu-site-verification" content="rVEuQMP8C6" />
-          <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&subset=chinese-simplified" rel="stylesheet"></link>
+          {/* <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300&subset=chinese-simplified" rel="stylesheet"></link> */}
           <link
             rel="apple-touch-icon"
             sizes="180x180"
