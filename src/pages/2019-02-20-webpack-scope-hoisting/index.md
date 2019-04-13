@@ -118,4 +118,4 @@ export default {
 - 减少多个函数后内存占用减少
 - 不用多次使用 `__webpack_require__` 调用模块，运行速度也会得到提升
 
-当然几时你开启了 scope hoisting，webpack 也不会一股脑地把所有东西都堆砌到一个模块。[官网](https://webpack.js.org/plugins/module-concatenation-plugin/#optimization-bailouts)对这个问题也清楚地说明了，这里举个例子，在你**使用非 ES6 模块或使用异步 import()** 时，不会应用作用域提升，模块依然会拆分开，不过具体代码会跟正常的引入有一点差异。
+当然即使你开启了 scope hoisting，webpack 也不会一股脑地把所有东西都堆砌到一个模块。[官网](https://webpack.js.org/plugins/module-concatenation-plugin/#optimization-bailouts)对这个问题也清楚地说明了，这里举个例子，在你**使用非 ES6 模块或使用异步 import()** 时，不会应用作用域提升，模块依然会拆分开，不过具体代码会跟正常的引入有一点差异。
