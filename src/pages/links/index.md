@@ -118,6 +118,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a class="link-card-wrapper" target="_blank" href="https://lzyz.fun/">
+    <div class="link-card">
+        <img src="https://lzyz.fun/wp-content/uploads/headImg.jpg">
+        <div class="info">
+            <div class="title">惊鸿</div>
+            <div class="descript">Code a New World</div>
+        </div>
+    </div>
+</a>
+
 ## 添加方法
 
 可以在下面评论框提交评论，或者发送相关信息到邮箱（处理比较快）<br />ssshooterx@gmail.com
