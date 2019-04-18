@@ -123,19 +123,35 @@ Data Url 是一个前缀为 `data:` 的**协议**，你可以借助这个协议�
 data:[<mediatype>][;base64],<data>
 ```
 
+mediatype 填入[MIME 类型](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)，MIME 也用于服务器返回数据时指定数据类型；base64 是一种 encode 方式；后面接着就是数据本体。
+
 几个例子：
 
-普通文字：`data:,Hello%2C%20World!`
+- 普通文字：`data:,Hello%2C%20World!`
+- base64 处理的文字：`data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D`
+- html 文档：`data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E`
+- 执行 script 的 html 文档：`data:text/html,<script>alert('hi');</script>`
 
-base64 处理的文字：`data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D`
+### base64
 
-html 文档：`data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E`
+base64 不算是一种加密算法，它只是简单地将每 3 个 8bit 字符转换为 4 个 6Bit 字符，这样保证了传输中必定使用 ASCII 字符，不会出奇怪的字符错误，所以标准 base64 只有 2^6 = 64 个字符。
 
-执行 script 的 html 文档：`data:text/html,<script>alert('hi');</script>`
+由于是3个字符变4个，那么很明显了，base64编码后，编码对象的体积会变成原来的4/3倍。
 
-用每 6 位表示一个字符，标准 base64 只有 64 个字符
-base64（datauri）
+特别要注意的是如果bit数不能被3整除，需要在末尾添加1或2个byte（8或16bit），并且末尾的 0 不使用A而使用 =，这就是为什么base64有的编码结果后面会有一或两个等号。
 
+喜闻乐见的举例时间：
+
+你可以使用 charCodeAt() 获取一个字符的（什么）编码
+
+```javascript
+'A'.charCodeAt()
+// => 65
+'红'.charCodeAt()
+// => 32418
+```
+顺便可以做文字编码相关介绍
+[base64 算法参考](http://fm4dd.com/programming/base64/base64_algorithm.htm)
 url = URL.createObjectURL(blob);
 
 参考
