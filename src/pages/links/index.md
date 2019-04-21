@@ -128,6 +128,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a class="link-card-wrapper" target="_blank" href="https://2heng.xin">
+    <div class="link-card">
+        <img src="https://view.moezx.cc/images/2018/03/27/avatar.jpg">
+        <div class="info">
+            <div class="title">Mashiro</div>
+            <div class="descript">樱花庄的白猫</div>
+        </div>
+    </div>
+</a>
+
 ## 添加方法
 
 可以在下面评论框提交评论，或者发送相关信息到邮箱（处理比较快）<br />ssshooterx@gmail.com
