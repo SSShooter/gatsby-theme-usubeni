@@ -1,3 +1,7 @@
+.inline-block {
+  display: inline-block;
+}
+
 .box1 {
   padding: 0.5em 1em;
   margin: 2em 0;
@@ -233,10 +237,13 @@
 
 .box26 {
   position: relative;
-  margin: 2em 0;
-  padding: 0.5em 1em;
-  border: solid 3px #95ccff;
+  margin: 2em;
+  padding: 1em;
+  border: solid 3px #5d627b;
   border-radius: 8px;
+  a {
+    color: #5d627b;
+  }
 }
 .box26 .box-title {
   position: absolute;
@@ -247,7 +254,7 @@
   line-height: 1;
   font-size: 19px;
   background: #fff;
-  color: #95ccff;
+  color: #5d627b;
   font-weight: bold;
 }
 .box26 p {
