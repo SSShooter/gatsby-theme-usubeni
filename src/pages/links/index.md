@@ -6,12 +6,22 @@ tags: ['导航']
 
 ## 推荐链接
 
+<a class="link-card-wrapper" target="_blank" href="http://www.ecma-international.org/ecma-262/9.0/index.html">
+    <div class="link-card">
+        <img src="http://www.ecma-international.org/ecma-262/9.0/img/ecma-logo.svg">
+        <div class="info">
+            <div class="title">ECMA-262, 9th edition</div>
+            <div class="descript">ECMAScript 语言规范</div>
+        </div>
+    </div>
+</a>
+
 <a class="link-card-wrapper" target="_blank" href="https://developers.google.com/web/updates/">
     <div class="link-card">
         <img src="https://developers.google.cn/web/images/web-fundamentals-icon192x192.png">
         <div class="info">
             <div class="title">Google Developers Web Updates</div>
-            <div class="descript">在此关注 Chrome 和 V8 最新消息！</div>
+            <div class="descript">关注 Chrome 和 V8 最新消息</div>
         </div>
     </div>
 </a>
