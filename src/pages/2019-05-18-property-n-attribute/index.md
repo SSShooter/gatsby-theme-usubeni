@@ -31,4 +31,4 @@ tags: ['coding']
 
 （不过当然实际上这两者都是可以**被操作**，也是互通的，不过操作方法不同而已，下面是随便打几行例子，详情这个[教程](https://javascript.info/dom-attributes-and-properties)解释得很清楚啦）
 
-![](随便输出几行例子)
+![随便输出几行例子](./eg.png)
