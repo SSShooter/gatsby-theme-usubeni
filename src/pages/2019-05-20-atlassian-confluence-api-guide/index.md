@@ -26,6 +26,10 @@ headers = {
 
 GET /rest/api/space
 
+返回某空间所有页面，并且填充了 ancestors 字段，**你可以用这个接口构造一个 space 的结构树**。
+
+GET /rest/api/space/PUBLICSPACE/content?expand=ancestors&limit=999999
+
 **在创建页面的时候必须指定空间**
 
 ## 页面（page）相关
@@ -93,6 +97,45 @@ PUT /rest/api/content/{id}
 ```
 
 **version 是必须的**，版本错误会报错，所以必须先获取一次版本信息再更新内容。
+
+## 子页面相关
+
+### 创建子页面
+
+POST /rest/api/content
+
+```json
+{
+  "title": "create via api111",
+  "type": "page",
+  "space": {
+    "key": "PUBLICSPACE"
+  },
+  "ancestors": [
+    {
+      "id": 63680669
+    }
+  ],
+  "body": {
+    "storage": {
+      "value": "val",
+      "representation": "storage"
+    }
+  }
+}
+```
+
+与上面创建页面基本一样，就多出了一个 `ancestors` 字段，填上父节点 id 即可。
+
+### 查询子页面
+
+GET /rest/api/content/{id}/child?expand=page.body.VIEW
+
+返回子页面数组
+
+GET /rest/api/content/{id}/child/page?expand=children.page
+
+递归查找子页面
 
 ## 评论（comment）相关
 
