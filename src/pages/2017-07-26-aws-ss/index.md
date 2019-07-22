@@ -77,6 +77,9 @@ sudo ssserver -d stop
 apt-get install polipo
 service polipo stop
 polipo socksParentProxy=localhost:1080
+
+export http_proxy="http://localhost:8123"
+export https_proxy="http://localhost:8123"
 ```
 
 http 代理端口默认是 **8123**。
