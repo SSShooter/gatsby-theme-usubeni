@@ -121,7 +121,7 @@ a[2] = 233
 
 `ImageData.data` 就是一个 `Uint8ClampedArray`，里面顺序放着图片每一个像素的 rgba 值。你可以对这个 `Uint8ClampedArray` 进行一系列操作，再用 `canvas.toBlob` 这个 buffer 变回 Blob，就完成了图片编辑的操作。
 
-这样就可以完成类似这个[简单的卷积核图片修改器](https://github.com/ssshooter/canvas-img-process)的功能。
+通过这个操作，再结合一些卷积核相关知识，就能完成类似这个[卷积核图片修改器](https://github.com/ssshooter/canvas-img-process)的功能。
 
 ## Data Url
 
