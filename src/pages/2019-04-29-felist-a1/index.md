@@ -2,7 +2,7 @@
 path: '/felist-a1'
 date: '2019-04-29T14:00:00.718Z'
 title: 'felist-a1'
-tags: ['tag']
+tags: ['废弃']
 ---
 
 ## 一、JavaScript 基础
