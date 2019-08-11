@@ -2,7 +2,7 @@
 path: '/gundam-battle-mobile'
 date: '2019-05-09T21:09:44.065Z'
 title: '又进坑了一个辣鸡游戏'
-tags: ['diary']
+tags: ['diary','游戏']
 ---
 
 看完高达莫名想玩点游戏，PS4 的 gundam vs 风评好像不怎么样，也不想玩无双高破....
