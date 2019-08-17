@@ -17,6 +17,8 @@ chmod +x shadowsocksR.sh
 ./shadowsocksR.sh 2>&1 | tee shadowsocksR.log
 ```
 
+其他操作和细节可以看[这里](https://github.com/iMeiji/shadowsocks_install/wiki/shadowsocksR-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85)。
+
 当然你还要注意把防火墙相应端口开了（这里默认你们都知道怎么开啦）
 
 不过这段代码的作者似乎也放弃再搞这方面的事情...不过一位大佬倒下，还有...
