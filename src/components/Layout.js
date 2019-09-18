@@ -23,7 +23,7 @@ const keyframesGen = () => [
     )}px) rotate3d(${randomGen(0, 1)}, ${randomGen(0, 1)}, ${randomGen(
       0,
       1
-    )}, ${randomGen(-200, 200)}deg)`,
+    )}, ${randomGen(-2, 2)}turn)`,
   },
 ]
 
@@ -56,6 +56,11 @@ class Layout extends React.Component {
     )
   }
   componentDidMount() {
+    if (!document.body.animate) {
+      console.log('load animate css')
+      require('../css/sakura.animate.scss')
+      return
+    }
     let petal = document.querySelectorAll('.petal')
     for (let i = 0; i < petal.length; i++) {
       this.state.animation[i] = petal[i].animate(keyframesGen(), optionGen())
