@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
-    // const homePaginate = path.resolve('./src/templates/index.js')
+    const homePaginate = path.resolve('./src/templates/index.js')
     const tagTemplate = path.resolve('./src/templates/tag.js')
     resolve(
       graphql(
@@ -45,28 +45,29 @@ exports.createPages = ({ graphql, actions }) => {
         const tags = result.data.allMarkdownRemark.group
         const posts = result.data.allMarkdownRemark.edges
 
-        // create homepage pagination
-        const postsPerPage = 8
-        // const numPages = Math.ceil(posts.length / postsPerPage)
+        // Create archive pages
+        const postsPerPage = 50
+        const numPages = Math.ceil(posts.length / postsPerPage)
 
-        // Array.from({ length: numPages }).forEach((_, i) => {
-        //   createPage({
-        //     path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-        //     component: homePaginate,
-        //     context: {
-        //       currentPage: i + 1,
-        //       totalPage: numPages,
-        //       limit: postsPerPage,
-        //       skip: i * postsPerPage,
-        //     },
-        //   })
-        // })
+        Array.from({ length: numPages }).forEach((_, i) => {
+          createPage({
+            path: i === 0 ? `/archive` : `/archive/${i + 1}`,
+            component: homePaginate,
+            context: {
+              currentPage: i + 1,
+              totalPage: numPages,
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+            },
+          })
+        })
 
-        // Make tag pages
+        // Create tag pages
+        const TagsPostsPerPage = 8
         tags.forEach(tag => {
-          const total = tag.totalCount
-          const numPages = Math.ceil(total / postsPerPage)
-          Array.from({ length: numPages }).forEach((_, i) => {
+          const TagsTotal = tag.totalCount
+          const TagsPages = Math.ceil(TagsTotal / TagsPostsPerPage)
+          Array.from({ length: TagsPages }).forEach((_, i) => {
             createPage({
               path:
                 i === 0
@@ -76,9 +77,9 @@ exports.createPages = ({ graphql, actions }) => {
               context: {
                 tag: tag.fieldValue,
                 currentPage: i + 1,
-                totalPage: numPages,
-                limit: postsPerPage,
-                skip: i * postsPerPage,
+                totalPage: TagsPages,
+                limit: TagsPostsPerPage,
+                skip: i * TagsPostsPerPage,
               },
             })
           })

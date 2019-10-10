@@ -83,6 +83,14 @@ class Layout extends React.Component {
       this.state.animation[i].playbackRate = 1
     }
   }
+  formatTime = msTime => {
+    let time = msTime / 1000
+    let day = Math.floor(time / 60 / 60 / 24)
+    let hour = Math.floor(time / 60 / 60) % 24
+    let minute = Math.floor(time / 60) % 60
+    let second = Math.floor(time) % 60
+    return ` ${day} 天`
+  }
   render() {
     const { menuState } = this.state
     const { pageName, pageDescript, title, children, aside } = this.props
@@ -156,6 +164,10 @@ class Layout extends React.Component {
             theme <span className="usubeni">UsubeniFantasy</span>
           </div>
           <div>© 2018-{new Date().getFullYear()} SSShooter</div>
+          <div>
+            一转眼 已是
+            {this.formatTime(new Date() - new Date('2018-12-05 14:13:38'))}
+          </div>
           <div>
             powered by{' '}
             <a

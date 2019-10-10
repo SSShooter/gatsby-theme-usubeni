@@ -22,22 +22,29 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <h3
+            <div
+              style={{
+                marginTop: '1rem',
+              }}
+              key={node.fields.slug}
+            >
+              <span
                 style={{
-                  marginTop:'3rem',
-                  marginBottom: '0.25rem',
+                  display: 'inline-block',
+                  width: '7em',
+                  textAlign: 'right',
+                  marginRight: '20px',
+                  opacity: 0.6,
                 }}
               >
-                <Link
-                  style={{ boxShadow: 'none' }}
-                  to={node.fields.slug}
-                >
-                  {title}
-                </Link>
-              </h3>
-              <small className="css-date">{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                {node.frontmatter.date}
+              </span>
+              <Link
+                style={{ boxShadow: 'none', fontSize: '1.1em' }}
+                to={node.fields.slug}
+              >
+                {title}
+              </Link>
             </div>
           )
         })}
@@ -47,13 +54,15 @@ class BlogIndex extends React.Component {
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             listStyle: 'none',
-            padding: 0,
+            paddingTop: '30px',
           }}
         >
           <div>
             {currentPage - 1 > 0 && (
               <Link
-                to={'/blog/' + (currentPage - 1 === 1 ? '' : currentPage - 1)}
+                to={
+                  '/archive/' + (currentPage - 1 === 1 ? '' : currentPage - 1)
+                }
                 rel="prev"
               >
                 ← 上一页
@@ -62,7 +71,7 @@ class BlogIndex extends React.Component {
           </div>
           <div>
             {currentPage + 1 <= totalPage && (
-              <Link to={'/blog/' + (currentPage + 1)} rel="next">
+              <Link to={'/archive/' + (currentPage + 1)} rel="next">
                 下一页 →
               </Link>
             )}
@@ -90,12 +99,12 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(truncate:true)
+          excerpt(truncate: true)
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMM DD, YYYY")
             title
           }
         }
