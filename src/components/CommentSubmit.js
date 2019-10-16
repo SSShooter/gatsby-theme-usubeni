@@ -58,17 +58,15 @@ export default class Comment extends Component {
       <div className="css-comment-submit">
         <span className="box-title">
           留言（不再受<a href="/2019-01-18-gatsby-blog-6/">实现原理</a>
-          所限，立即更新！回复功能现在可用，但邮箱提醒未完成）
+          所限，立即更新！回复功能现在可用，但邮箱提醒未完成，急需回复的提问请直接邮件联系）
         </span>
-        {parent ? (
+        {parent && (
           <div>
             回复 {to}
             <span className="inline-button" onClick={onCancel}>
               取消回复
             </span>
           </div>
-        ) : (
-          <div>文章留言</div>
         )}
         <input
           ref={input => {
