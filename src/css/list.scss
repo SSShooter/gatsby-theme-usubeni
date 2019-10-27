@@ -4,9 +4,9 @@
     font-size: 26px;
     line-height: 1.3;
     a {
-      color: $fontColor;
+      color: $mainColor;
       &:hover {
-        color: $mainColor;
+        color: $mainDerive2;
       }
     }
   }
