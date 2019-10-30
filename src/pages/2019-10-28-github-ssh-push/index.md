@@ -34,3 +34,13 @@ git@github.com:node-modules/parameter.git
 如果你本来是以 https clone 的话要改成 ssh，只需要在本地仓库运行 `git remote set-url origin git@github.com:xxx/yyy.git` 即可。
 
 完事可以用 `git remote -v` 检查一下，接着就能免密操作了
+
+## PS
+
+顺便说说免密登远程服务器
+
+```
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@111.111.111.111
+```
+
+公钥上面已经生成了，直接运行上面的命令然后输入服务器密码，下次 ssh 登陆服务器就不需要密码了
