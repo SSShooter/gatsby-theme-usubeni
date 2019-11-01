@@ -48,6 +48,13 @@ export default class HTML extends React.Component {
       google_ad_client: "ca-pub-5174204966769125",
       enable_page_level_ads: true
     });
+    var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f0d372f52ceca5460b4187225904d16a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
         `,
             }}
           />
@@ -63,6 +70,7 @@ export default class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
         </body>
+        
       </html>
     )
   }
