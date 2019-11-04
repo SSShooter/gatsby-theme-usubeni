@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { apiUrl } from "../const";
 export default class Comment extends Component {
   state = {
     submitState: '发送留言',
@@ -30,7 +31,7 @@ export default class Comment extends Component {
       }
     }
     axios
-      .post('https://comment-sys.herokuapp.com/api/comment', data)
+      .post(apiUrl + '/api/comment', data)
       .then(res => {
         localStorage.name = author
         localStorage.email = mail

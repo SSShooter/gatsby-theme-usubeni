@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
+import { apiUrl } from "../const";
 
 import CommentSubmit from '../components/CommentSubmit'
 // import CommentDisplay from '../components/CommentDisplay'
@@ -56,7 +57,7 @@ class BlogPostTemplate extends React.Component {
   getComment = () => {
     axios
       .get(
-        'https://comment-sys.herokuapp.com/api/comment/' +
+        apiUrl + '/api/comment/' +
           this.props.pageContext.slug.slice(1, -1)
       )
       .then(({ data }) => {
