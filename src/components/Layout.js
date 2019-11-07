@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
 import 'prismjs/themes/prism.css'
-import '../sakura.TRHX.js'
+// import '../sakura.TRHX.js'
 import '../css/global.scss'
 
 class Layout extends React.Component {

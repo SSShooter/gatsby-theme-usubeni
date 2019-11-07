@@ -8,12 +8,18 @@ export default class HTML extends React.Component {
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+          />
           <meta
             name="google-site-verification"
             content="ebowurt3yvxVX2IhEbMGgmpbNBQIHYxRwVNbxuIx58s"
           />
-          <meta name="format-detection" content="email=no,telephone=no,address=no" />
+          <meta
+            name="format-detection"
+            content="email=no,telephone=no,address=no"
+          />
           <meta name="baidu-site-verification" content="rVEuQMP8C6" />
           {/* <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300&subset=chinese-simplified" rel="stylesheet"></link> */}
           <link
@@ -41,6 +47,7 @@ export default class HTML extends React.Component {
             async
             src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           />
+          <script src="/sakura.TRHX.js" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -60,7 +67,7 @@ export default class HTML extends React.Component {
           />
           {this.props.headComponents}
         </head>
-        <div className="mask"></div>
+        <div className="mask" />
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div
@@ -70,7 +77,6 @@ export default class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
         </body>
-        
       </html>
     )
   }
