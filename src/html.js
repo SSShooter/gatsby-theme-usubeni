@@ -47,7 +47,6 @@ export default class HTML extends React.Component {
             async
             src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           />
-          <script src="/sakura.TRHX.js" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -77,6 +76,7 @@ export default class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
         </body>
+        <script src="/sakura.TRHX.js" />
       </html>
     )
   }

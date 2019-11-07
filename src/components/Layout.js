@@ -6,6 +6,9 @@ import 'prismjs/themes/prism.css'
 // import '../sakura.TRHX.js'
 import '../css/global.scss'
 
+let footerStyle = {
+  marginBottom: '1rem',
+}
 class Layout extends React.Component {
   state = {
     menuState: false, // false for close, true for open
@@ -115,15 +118,17 @@ class Layout extends React.Component {
           </aside>
         </div>
         <footer>
-          <div>
+          <div style={footerStyle}>
             theme <span className="usubeni">UsubeniFantasy</span>
           </div>
-          <div>© 2018-{new Date().getFullYear()} SSShooter</div>
-          <div>
+          <div style={footerStyle}>
+            © 2018-{new Date().getFullYear()} SSShooter
+          </div>
+          <div style={footerStyle}>
             一转眼 已是
             {this.formatTime(new Date() - new Date('2018-12-05 14:13:38'))}
           </div>
-          <div>
+          <div style={footerStyle}>
             powered by{' '}
             <a
               style={{ color: 'rgb(102, 51, 153)', boxShadow: 'none' }}

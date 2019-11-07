@@ -61,7 +61,6 @@ class BlogPostTemplate extends React.Component {
           this.props.pageContext.slug.slice(1, -1)
       )
       .then(({ data }) => {
-        console.log(data.data)
         this.setState({
           comments: data.data,
         })
