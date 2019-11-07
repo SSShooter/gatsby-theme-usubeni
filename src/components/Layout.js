@@ -3,35 +3,8 @@ import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
 import 'prismjs/themes/prism.css'
-
+import '../sakura.TRHX.js'
 import '../css/global.scss'
-
-const randomGen = (min, max) => {
-  return Math.random() * (max - min) + min
-}
-const keyframesGen = () => [
-  {
-    transform: 'translateY(0) translateX(0) translateZ(0) rotate3d(0, 0, 0, 0)',
-  },
-  {
-    transform: `translateY(${randomGen(
-      0,
-      400
-    )}px) translateX(2560px) translateZ(${randomGen(
-      0,
-      200
-    )}px) rotate3d(${randomGen(0, 1)}, ${randomGen(0, 1)}, ${randomGen(
-      0,
-      1
-    )}, ${randomGen(-2, 2)}turn)`,
-  },
-]
-
-const optionGen = () => ({
-  iterations: Infinity,
-  delay: randomGen(-4000, 4000),
-  duration: randomGen(14000, 22000),
-})
 
 class Layout extends React.Component {
   state = {
@@ -54,24 +27,6 @@ class Layout extends React.Component {
       'https://www.google.co.jp/search?q=site%3Assshooter.com+' +
         this.state.keyword
     )
-  }
-  componentDidMount() {
-    if (!document.body.animate) {
-      console.log('load animate css')
-      require('../css/sakura.animate.scss')
-      return
-    }
-    let petal = document.querySelectorAll('.petal')
-    for (let i = 0; i < petal.length; i++) {
-      this.state.animation[i] = petal[i].animate(keyframesGen(), optionGen())
-    }
-    let a = document.querySelectorAll('a')
-
-    for (let i = 0; i < a.length; i++) {
-      a[i].onmouseenter = this.slowMotion
-      a[i].onmouseleave = this.backNormal
-      // 移动端用 touchstart touchend
-    }
   }
   slowMotion = () => {
     for (let i = 0; i < this.state.animation.length; i++) {
@@ -117,13 +72,13 @@ class Layout extends React.Component {
     const descript = <div className="page-description">{pageDescript}</div>
     return (
       <div>
-        <div className="sakura-box">
+        {/* <div className="sakura-box">
           {Array(12)
             .fill(0)
             .map((v, i) => (
               <div key={i} className="petal" />
             ))}
-        </div>
+        </div> */}
         <div className="css-main">
           <article className="css-post">{children}</article>
           <aside className={'css-aside ' + (menuState ? 'open' : 'close')}>
