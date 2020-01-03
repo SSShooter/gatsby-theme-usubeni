@@ -158,6 +158,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a class="link-card-wrapper" target="_blank" href="https://hiwannz.com/">
+    <div class="link-card">
+        <div class="noimage">见</div>
+        <div class="info">
+            <div class="title">见字如面</div>
+            <div class="descript">别再烦我，你别说话</div>
+        </div>
+    </div>
+</a>
+
 ## 添加方法
 
 可以在下面评论框提交评论，或者发送相关信息到邮箱（处理比较快）<br />ssshooterx@gmail.com
