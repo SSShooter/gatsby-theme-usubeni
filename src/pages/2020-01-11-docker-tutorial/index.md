@@ -3,6 +3,7 @@ path: '/docker-tutorial'
 date: '2020-01-11T10:08:00.022Z'
 title: 'docker 简单入门'
 tags: ['coding', 'docker']
+released: false
 ---
 
 简单来说，docker 可以给你的应用创造一个“镜像”，之后你带着这个镜像就可以在其他主机、甚至其他系统轻松以原来的配置运行你的应用。使用 docker 会比直接使用虚拟机所需的性能需求要少很多，因此你可以在主机运行多个容器并保证性能。
