@@ -22,14 +22,13 @@ $fontColor: #533d5b;
 @import './link.scss';
 
 @font-face {
-  font-family: 'iconfont'; /* project id 1042209 */
-  src: url('https://at.alicdn.com/t/font_1042209_csqigu2hy8a.eot');
-  src: url('https://at.alicdn.com/t/font_1042209_csqigu2hy8a.eot?#iefix')
-      format('embedded-opentype'),
-    url('https://at.alicdn.com/t/font_1042209_csqigu2hy8a.woff2') format('woff2'),
-    url('https://at.alicdn.com/t/font_1042209_csqigu2hy8a.woff') format('woff'),
-    url('https://at.alicdn.com/t/font_1042209_csqigu2hy8a.ttf') format('truetype'),
-    url('https://at.alicdn.com/t/font_1042209_csqigu2hy8a.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 1042209 */
+  src: url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.eot');
+  src: url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff2') format('woff2'),
+  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.svg#iconfont') format('svg');
 }
 
 ::-webkit-scrollbar {
