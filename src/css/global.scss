@@ -110,26 +110,26 @@ body {
   position: fixed;
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 1) 50%
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 
   );
   height: 100%;
-  width: 200%;
+  width: 300%;
   top: 0;
-  right: 0;
-  animation: fade-out 2s ease-out;
+  left: 0;
+  animation: fade-out 4s linear;
   animation-fill-mode: forwards;
-  animation-delay: 1s;
   z-index: 20;
 }
 
 @keyframes fade-out {
   from {
-    right: 0;
+    left: 0;
     opacity: 1;
   }
   to {
-    right: -100%;
+    left: -300%;
     opacity: 0;
     width: 0;
   }

@@ -147,7 +147,9 @@ window.onresize = function() {
   var canvasSnow = document.getElementById('canvas_snow')
 }
 img.onload = function() {
-  startSakura()
+  setTimeout(() => {
+    startSakura()
+  }, 100)
 }
 function stopp() {
   if (staticx) {

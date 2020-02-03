@@ -49,6 +49,11 @@ class Layout extends React.Component {
     let second = Math.floor(time) % 60
     return ` ${day} 天`
   }
+  handleEnter = e => {
+    if (e.keyCode === 13) {
+      this.search()
+    }
+  }
   render() {
     const { menuState } = this.state
     const { pageName, pageDescript, title, children, aside } = this.props
@@ -109,7 +114,7 @@ class Layout extends React.Component {
                 <Bio className="css-bio" />
                 <Menu direction="column" />
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                  <input onChange={this.change} />
+                  <input onChange={this.change} onKeyUp={this.handleEnter} />
                   <br />
                   <button onClick={this.search}>搜索</button>
                 </div>
