@@ -13,7 +13,7 @@ tags: ['coding', 'docker']
 
 ![docker 架构](architecture.svg)
 
-最左侧的客户端（client）是一个命令行客户端，可以通过 api 控制 docker 守护进程（daemon）。这个守护进程可以是本机的，也可以是其他服务器的，守护进程管理着属于他的镜像（image）和容器（container）。右侧指的是你可以在远程获取各式各样已经做好的镜像，站在巨人的肩膀上，让你的开发变得更轻松！这些获取镜像的源最常用的肯定是 Docker Hub，他是 docker 官方镜像储存中心。
+[上图](https://docs.docker.com/engine/images/architecture.svg)来自[官方文档](https://docs.docker.com/engine/docker-overview/)。最左侧的客户端（client）是一个命令行客户端，可以通过 api 控制 docker 守护进程（daemon）。这个守护进程可以是本机的，也可以是其他服务器的，守护进程管理着属于他的镜像（image）和容器（container）。右侧指的是你可以在远程获取各式各样已经做好的镜像，站在巨人的肩膀上，让你的开发变得更轻松！这些获取镜像的源最常用的肯定是 Docker Hub，他是 docker 官方镜像储存中心。
 
 下面的重点是镜像和容器。
 
@@ -50,6 +50,8 @@ CMD ["npm", "run", "build"]
 - RUN 执行在容器创建前，也就是 RUN 产生的结果包含在镜像中
 - CMD 执行在容器创建后，一般用于启动服务。只能存在一句 CMD 命令
 
+如果要对本地工程构建镜像，可以在 Dockerfile 所在文件夹运行 `docker image build .`。
+
 一句话总结：**工程 + dockerfile = 镜像**
 
 更多配置请参考 [dockerfile 文档](https://docs.docker.com/engine/reference/builder/)。
@@ -79,7 +81,7 @@ docker image rm
 docker container run hello-world
 ```
 
-一句话总结：**运行镜像 -> 容器**
+一句话总结：**运行镜像 → 容器**
 
 其他常用操作还有：
 
@@ -95,6 +97,10 @@ docker container rm
 使用 compose，你可以在容器的基础上相互搭配其他容器。
 
 运行 `docker-compose up` 会直接下载当前文件夹 `docker-compose.yaml` 中用到的所有镜像，下载完毕后一起运行。（在 linux 的话 docker-compose 应该要另外安装）
+
+当然你也可能不方便每次都使用 `docker-compose.yaml` 这个文件名，例如需要通过文件名区分几个不同的工程，所以如果不使用默认文件名，可以使用 `-f` 参数运行 compose，后面跟上文件名即可：
+
+`docker-compose -f docker-compose.projectName.yml up`
 
 更多配置请参考 [compose-file 文档](https://docs.docker.com/compose/compose-file/)，确实，配置 `docker-compose.yaml` 也是一门学问。
 
