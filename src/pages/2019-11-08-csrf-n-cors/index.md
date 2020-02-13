@@ -1,7 +1,7 @@
 ---
 path: '/csrf-n-cors'
 date: '2019-11-08T10:30:40.839Z'
-title: '前端网络安全必修 1'
+title: '前端网络安全必修 1 SOP、CSRF 和 CORS'
 tags: ['coding', '网络安全']
 ---
 
@@ -76,7 +76,7 @@ CSRF（Cross-site request forgery）跨站请求伪造，是一种常见的攻�
 
 **所以 SOP 不能作为防范 CSRF 的方法**。
 
-对于 GET 请求，直接放到`<img>`就能神不知鬼不觉地请求跨域接口。
+对于 GET 请求，直接放到 `<img>` 就能神不知鬼不觉地请求跨域接口。
 
 对于 POST 请求，很多例子都使用 form 提交：
 
