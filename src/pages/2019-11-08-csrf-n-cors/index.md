@@ -189,6 +189,8 @@ Content-Length: 423
 
 暂时先说到这，若有疑问请在评论区提出，以后应该会讲讲 XSS、CSP 和 http/https 相关的主题。
 
+2020-02-13 更新 [前端网络安全必修 2 XSS 和 CSP](/2019-11-10-csp-n-xss/)
+
 ## 参考
 
 **重点推荐** [Whitepaper: The Definitive Guide to Same-origin Policy](https://www.netsparker.com/whitepaper-same-origin-policy/)

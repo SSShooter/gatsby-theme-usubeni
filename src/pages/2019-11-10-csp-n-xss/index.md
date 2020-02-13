@@ -5,6 +5,8 @@ title: '前端网络安全必修 2 XSS 和 CSP'
 tags: ['coding', '网络安全']
 ---
 
+回顾上一篇：[前端网络安全必修 1 SOP、CSRF 和 CORS](/2019-11-08-csrf-n-cors/)
+
 本文主要涉及内容为：
 
 - 跨站脚本攻击（Cross-site scripting，简称 XSS）
