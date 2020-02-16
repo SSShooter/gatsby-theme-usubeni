@@ -5,7 +5,7 @@ $mainDerive2: #b55f70;
 $mainDerive3: #ecc3cb;
 $mainDerive4: #683741;
 $fontColor: #533d5b;
-// @import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC:400&display=swap&subset=chinese-simplified');
 @import './sakura.base.scss';
 
 @import './toc.scss';
@@ -22,13 +22,17 @@ $fontColor: #533d5b;
 @import './link.scss';
 
 @font-face {
-  font-family: 'iconfont';  /* project id 1042209 */
+  font-family: 'iconfont'; /* project id 1042209 */
   src: url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.eot');
-  src: url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.eot?#iefix') format('embedded-opentype'),
-  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff2') format('woff2'),
-  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff') format('woff'),
-  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.ttf') format('truetype'),
-  url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.svg#iconfont') format('svg');
+  src: url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff2')
+      format('woff2'),
+    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff') format('woff'),
+    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.ttf')
+      format('truetype'),
+    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.svg#iconfont')
+      format('svg');
 }
 
 ::-webkit-scrollbar {
@@ -83,7 +87,6 @@ p {
 
 .iconfont {
   font-family: 'iconfont' !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
@@ -97,12 +100,12 @@ body {
   outline: none; // 去除点击外边框,点击无轮廓
   -webkit-touch-callout: none; // 长按链接不弹出菜单
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 去除点击高亮
-  // font-family: 'Noto Serif SC', serif;
-  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
-    'WenQuanYi Micro Hei', sans-serif;
+  font-family: 'Noto Serif SC', serif;
+  // font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
+  //   'WenQuanYi Micro Hei', sans-serif;
   -webkit-font-smoothing: antialiased !important;
   color: $fontColor;
-  font-size: 16px;
+  font-size: 19px;
 }
 
 .mask {
@@ -111,7 +114,7 @@ body {
     to right,
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 0) 
+    rgba(255, 255, 255, 0)
   );
   height: 100%;
   width: 300%;
@@ -303,6 +306,10 @@ a,
   max-width: 700px;
   margin: 32px;
   line-height: 1.8;
+  // 防止加粗文字粘太近
+  strong {
+    margin: 3px;
+  }
   .css-post-main {
     margin-top: '3rem';
     > p {
