@@ -1,9 +1,11 @@
 ---
 path: '/title-style-demo'
 date: '2019-02-15T17:52:50.470Z'
-title: 'title-style-demo'
+title: '[css demo] 标题样式'
 tags: ['样式']
 ---
+
+> 样式来源于：https://saruwakakun.com/
 
 ## 下划线
 

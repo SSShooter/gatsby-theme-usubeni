@@ -1,5 +1,5 @@
 ---
-title: '链接'
+title: '链接库'
 date: '2019-02-17T00:00:00.000Z'
 tags: ['导航']
 ---
@@ -170,9 +170,7 @@ tags: ['导航']
 
 ## 添加方法
 
-可以在下面评论框提交评论，或者发送相关信息到邮箱（处理比较快）<br />ssshooterx@gmail.com
-
-友情链接必要内容为：
+发送相关信息到邮箱<br />ssshooterx@gmail.com
 
 - 网站名称
 - 头像/印象图（非必要）
@@ -182,6 +180,6 @@ tags: ['导航']
 ## 我的信息
 
 - 名称：UsubeniFantasy
-- 头像：[复制此链接](https://ssshooter.com/static/22e30c75525e05dc5a66a8f1a6aca473/fe107/avatar.png)
-- 简介：踩坑+思考+相册
+- 头像：[复制此链接](https://i.loli.net/2020/02/17/jrcMkuQxz6Z98H1.png)
+- 简介：Let the joy of life give you an answer
 - 网址：https://ssshooter.com
