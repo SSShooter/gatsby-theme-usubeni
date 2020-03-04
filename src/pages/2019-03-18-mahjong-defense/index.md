@@ -1,15 +1,17 @@
 ---
 path: '/mahjong-defense'
 date: '2019-03-18T09:11:30.115Z'
-title: '转载|日麻基礎講座—牌安全度'
-tags: ['日麻']
+title: '日麻基礎講座—牌安全度'
+tags: ['转载', '日麻']
 ---
 
-原文链接：https://jpmj.nagchan.com/2018/10/17/%E6%97%A5%E9%BA%BB%E5%9F%BA%E7%A4%8E%E8%AC%9B%E5%BA%A710-%E7%89%8C%E5%AE%89%E5%85%A8%E5%BA%A6/
-
-原文作者：Allen（エレン）
-
-已允许转载
+<div class="box26">
+<span class="box-title">转载信息</span>
+<div>
+    作者：Allen（エレン）<br>
+    原文链接：<a target="_blank" href="https://jpmj.nagchan.com/2018/10/17/%E6%97%A5%E9%BA%BB%E5%9F%BA%E7%A4%8E%E8%AC%9B%E5%BA%A710-%E7%89%8C%E5%AE%89%E5%85%A8%E5%BA%A6/">日麻基礎講座—牌安全度</a>
+</div>
+</div>
 
 上一篇提到防守的基礎概念。
 
