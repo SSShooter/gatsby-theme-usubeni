@@ -66,7 +66,7 @@ export default class HTML extends React.Component {
           />
           {this.props.headComponents}
         </head>
-        <div className="mask" />
+        {/* <div className="mask" /> */}
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div
