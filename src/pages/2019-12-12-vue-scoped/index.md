@@ -1,8 +1,8 @@
 ---
 path: '/vue-scoped'
 date: '2019-12-12T16:36:19.816Z'
-title: 'vue 单文件 scoped 样式简析'
-tags: ['coding', 'vue']
+title: 'Vue 单文件 scoped 样式简析'
+tags: ['coding', 'Vue']
 ---
 
 ## 如何使用
