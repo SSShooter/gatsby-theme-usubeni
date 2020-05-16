@@ -17,7 +17,21 @@ chmod +x shadowsocksR.sh
 ./shadowsocksR.sh 2>&1 | tee shadowsocksR.log
 ```
 
-其他操作和细节可以看[这里](https://github.com/iMeiji/shadowsocks_install/wiki/shadowsocksR-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85)。
+启动：`/etc/init.d/shadowsocks start`
+
+停止：`/etc/init.d/shadowsocks stop`
+
+重启：`/etc/init.d/shadowsocks restart`
+
+状态：`/etc/init.d/shadowsocks status`
+
+配置文件路径：`/etc/shadowsocks.json`
+
+日志文件路径：`/var/log/shadowsocks.log`
+
+代码安装目录：`/usr/local/shadowsocks`
+
+其他细节可以看[这里](https://github.com/iMeiji/shadowsocks_install/wiki/shadowsocksR-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85)。
 
 当然你还要注意把防火墙相应端口开了（这里默认你们都知道怎么开啦）
 
