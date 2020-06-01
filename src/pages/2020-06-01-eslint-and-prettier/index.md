@@ -21,7 +21,7 @@ tags: ['coding', 'ESLint', 'Prettier']
 
 ### 如何配置
 
-用脚手架生产的配置可能会在 package.json 里面，个人建议拆成单独的 `.eslintrc.json` 文件，另外也可以使用 js 文件 export 或者 yaml 格式。
+用脚手架生产的配置可能会在 `package.json` 里面，个人建议拆成单独的 `.eslintrc.json` 文件，另外也可以使用 js 文件 export 或者 yaml 格式。
 
 默认 ESLint 不会有任何规则，不过你可以直接用 `"eslint:recommended"` 套用一些常用规则（包括上面 rules 页面打了勾的选项）。
 
@@ -86,7 +86,7 @@ tags: ['coding', 'ESLint', 'Prettier']
 
 毕竟是只管代码格式，Prettier 的选项本来就比 ESLint 少多了，而且即使只在样式上，prettier 也不倾向于乱加选项，这一点还专门在[选项的哲学](https://prettier.io/docs/en/option-philosophy.html)里说明了 Prettier 选项精简的原因。
 
-说回配置方式，Prettier 与 ESLint 同样可用 js、json、yaml 格式，下面举例依然使用惯用的 json。
+说回配置方式，Prettier 与 ESLint 同样可用 js、json、yaml 格式，下面举例依然使用惯用的 `.prettierrc.json`。
 
 https://prettier.io/docs/en/options.html
 
@@ -123,7 +123,7 @@ https://prettier.io/docs/en/options.html
 }
 ```
 
-很久以前依稀记得 vetur 需要像上面的配置一样嵌套在 vetur 里，但是现在的环境下这个配置倒是失效了，估计是终于明白在 vetur 里面还要配置一套 Prettier 实在是无用功吧。
+很久以前依稀记得 vetur 需要像上面的配置一样嵌套在 vetur 里，现在查了资料才发现配置了 `.prettierrc.json` 的话一切以配置文件为准，直接无视这里的配置。还记得当年用 vetur 不知道要在里面套 prettier 属性，还折腾了一些时间呢。
 
 ```json
 {
@@ -133,8 +133,7 @@ https://prettier.io/docs/en/options.html
 }
 ```
 
-又或者像上面的配置一样配置整个 vscode 的风格，实测在现在也是不能用的，官网现在也没有提到这种配置方法。
+又像上面的配置一样配置整个 vscode 的风格，实测现在是不能用的，即使没有 `.prettierrc.json` 这样配置也不生效，官网现在也没有提到这种配置方法。
 
-上面两个配置不是本文主要内容，只是突然想起来好像有这回事。而现在，可能已经成为时代眼泪吧，还记得当年用 vetur 不知道要在里面套 prettier 属性，还折腾了一些时间呢。
+上面两个配置不是本文主要内容，只是突然想起来好像有这回事，而现在，可能已经成为了时代眼泪吧。
 
-关于上面两点这只是猜测未考究其真实性。
