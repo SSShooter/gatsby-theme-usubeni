@@ -92,7 +92,7 @@ class Layout extends React.Component {
           <aside className={'css-aside ' + (menuState ? 'open' : 'close')}>
             <header className="css-header">
               {websiteName}
-              {pageDescript ? descript : null}
+              {/* {pageDescript ? descript : null} */}
               <div className="menu-button" onClick={this.toggleMenuState}>
                 <span
                   className="iconfont"

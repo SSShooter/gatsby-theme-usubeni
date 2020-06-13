@@ -120,7 +120,7 @@ tags: ['导航']
 
 <a class="link-card-wrapper" target="_blank" href="https://nine-lie.com/">
     <div class="link-card">
-        <img src="https://9inelie.files.wordpress.com/2019/03/nine-lie-logo-3.png?w=300 300w">
+        <div class="noimage">N</div>
         <div class="info">
             <div class="title">nine-lie.com</div>
             <div class="descript">Lin's blog</div>
