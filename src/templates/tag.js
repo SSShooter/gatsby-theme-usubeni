@@ -63,7 +63,7 @@ class BlogIndex extends React.Component {
             {currentPage - 1 > 0 && (
               <Link
                 to={
-                  `tag/${tag}/` + (currentPage - 1 === 1 ? '' : currentPage - 1)
+                  `/tag/${tag}/` + (currentPage - 1 === 1 ? '' : currentPage - 1)
                 }
                 rel="prev"
               >
@@ -73,7 +73,7 @@ class BlogIndex extends React.Component {
           </div>
           <div>
             {currentPage + 1 <= totalPage && (
-              <Link to={`tag/${tag}/` + (currentPage + 1)} rel="next">
+              <Link to={`/tag/${tag}/` + (currentPage + 1)} rel="next">
                 <button>下一页 {'>'}</button>
               </Link>
             )}
