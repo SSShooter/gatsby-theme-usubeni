@@ -1,6 +1,6 @@
 ---
 path: '/tyrano-tutorial-3'
-date: '2020-04-25T20:20:35.350Z'
+date: '2020-06-21T11:04:35.350Z'
 title: 'TyranoScript 从入门到魔改 2 启动器'
 tags: ['TyranoScript', 'coding']
 ---
@@ -13,7 +13,7 @@ TyranoScript 这个框架其实是很耿直的，这个框架**基本上**没有
 
 那么我们可以替换这个启动器吗？
 
-当然可以，我这里用的是现在比较靠谱的 [Electron](https://www.electronjs.org/#get-started)。我不选新版 NW.js 而选 Electron 的原因十分肤浅，单纯因为 star 更多，官网更好看😂
+当然可以，我这里用的是现在比较靠谱的 [Electron](https://www.electronjs.org/#get-started)。我不选新版 NW.js 而选 Electron 的原因十分肤浅，单纯因为 star 更多，官网更好看 😂
 
 Electron 和 NW.js 一样，基本就等于一个浏览器，不过他会给你一些 API 让你实现正常浏览器不能做，但原生程序又比较常用的功能。然后把你的 html 文件塞进去打包，就成了一个桌面应用。
 
@@ -98,4 +98,29 @@ npm i -D electron-builder
 
 更换启动器和打包相关问题就到这啦，其他配置问题都可以在官网找到答案，一般来说不会太坑~
 
-下期见！
+2020-06-21 更新
+
+首先推荐一个工具——
+
+Electron DevTool 拓展：https://www.electronjs.org/devtron
+
+用这个工具可以查看依赖和 IPC 往来信息
+
+```
+npm install --save-dev devtron
+require('devtron').install() // 安装后在 DevTool 运行
+```
+
+然后简单讲讲怎么修复原本的全屏功能——
+
+要实现玩家全屏操作的本质就是，解决在**渲染进程**拿到窗口对象的问题。最初以为要用到 IPC 交流，查资料后发现是不用的。
+
+借助 `require('electron').remote` 可以调用**主进程**对象的方法：
+
+```javascript
+screenFull: function() {
+    require('electron').remote.getCurrentWindow().setFullScreen(true)
+}
+```
+
+一个重点，即使在渲染进程也可以直接用 require 拿到 npm 安装的依赖
