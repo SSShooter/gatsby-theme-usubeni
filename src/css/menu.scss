@@ -33,11 +33,11 @@
     color: inherit;
   }
   a:before {
-    content: '<'; /*アイコン種類*/
+    content: '<';
     padding-right: 0.5em;
   }
   a:after {
-    content: '/>'; /*アイコン種類*/
+    content: '/>';
     padding-left: 0.5em;
   }
 }
