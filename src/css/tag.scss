@@ -18,14 +18,14 @@
   position: relative;
   margin: 0 10px 20px 0;
   text-decoration: none;
-  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
   font-weight: 300;
   font-size: 1.1rem;
   a{
     color: #999;
     box-shadow: none;
     &:hover{
-      color: $mainColor;
+      color: --mainColor;
     }
   }
 }

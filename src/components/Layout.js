@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
-import 'prismjs/themes/prism.css'
+// import 'prismjs/themes/prism.css'
+// import 'prismjs/themes/prism-TWILIGHT.css'
 // import '../sakura.TRHX.js'
 import '../css/global.scss'
 
@@ -56,7 +57,14 @@ class Layout extends React.Component {
   }
   render() {
     const { menuState } = this.state
-    const { pageName, pageDescript, title, children, aside } = this.props
+    const {
+      pageName,
+      pageDescript,
+      title,
+      children,
+      aside,
+      className,
+    } = this.props
     // const rootPath = `${__PATH_PREFIX__}/`
 
     const websiteName = (
@@ -78,8 +86,10 @@ class Layout extends React.Component {
       </React.Fragment>
     )
     const descript = <div className="page-description">{pageDescript}</div>
+    // if (className === 'night') import('prismjs/themes/prism-TWILIGHT.css').then(res=>{console.log(res,'css file?')})
+    // else import('prismjs/themes/prism.css')
     return (
-      <div>
+      <div className={className}>
         {/* <div className="sakura-box">
           {Array(12)
             .fill(0)

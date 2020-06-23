@@ -1,10 +1,35 @@
-$backgroundColor: #fcfaf2;
-$mainColor: #e87a90;
-$mainDerive1: #68565a;
-$mainDerive2: #b55f70;
-$mainDerive3: #ecc3cb;
-$mainDerive4: #683741;
-$fontColor: #533d5b;
+:root {
+  --backgroundColor: #fcfaf2;
+  --mainColor: #e87a90;
+  --mainDerive1: #68565a;
+  --mainDerive2: #b55f70;
+  --mainDerive3: #ecc3cb;
+  --linkColor: #683741;
+  --fontColor: hsl(284, 20%, 30%);
+  --codeBlock: #3c495b;
+  --code: #c3c7cb;
+  --divider: #eee;
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --backgroundColor: #231b30;
+    --mainColor: #e87a90;
+    --mainDerive1: #b4989e;
+    --mainDerive2: #b55f70;
+    --mainDerive3: #ecc3cb;
+    --linkColor: #ec9bab;
+    --fontColor: #ecc3cb;
+    --codeBlock: #3c495b;
+    --code: #c3c7cb;
+    --divider: #3e4b5e;
+  }
+  img {
+    filter: brightness(80%);
+  }
+  #canvas_sakura {
+    display: none;
+  }
+}
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC:400&display=swap&subset=chinese-simplified');
 @import './sakura.base.scss';
 
@@ -20,6 +45,7 @@ $fontColor: #533d5b;
 @import './boxes.scss';
 
 @import './link.scss';
+@import './prism.scss';
 
 @font-face {
   font-family: 'iconfont'; /* project id 1042209 */
@@ -34,9 +60,9 @@ $fontColor: #533d5b;
     url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.svg#iconfont')
       format('svg');
 }
-
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,30 +70,9 @@ $fontColor: #533d5b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $mainDerive1;
+  background: var(--mainDerive1);
 }
 
-.night {
-  background: #231b30;
-  color: #ccc !important;
-  a {
-    color: #ccc !important;
-  }
-  .css-info {
-    color: #aaa !important;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #ddd !important;
-  }
-  img {
-    filter: brightness(50%);
-  }
-}
 .usubeni {
   color: #e87a90;
 }
@@ -104,8 +109,10 @@ body {
   // font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
   //   'WenQuanYi Micro Hei', sans-serif;
   -webkit-font-smoothing: antialiased !important;
-  color: $fontColor;
   font-size: 19px;
+  background-color: var(--backgroundColor);
+  color: var(--fontColor);
+  transition: all 0.5s;
 }
 
 .mask {
@@ -147,21 +154,21 @@ code {
 
 hr {
   border: none;
-  color: #eee;
+  color: var(--fontColor);
   height: 1px;
   width: 100%;
-  background: #eee;
+  background: var(--fontColor);
   margin-top: 40px;
 }
 
 a {
-  color: $mainDerive4;
+  color: var(--linkColor);
   text-decoration: none;
   box-shadow: 0 1px 0 0 currentColor;
-}
-a:hover,
-a:active {
-  box-shadow: none;
+  &:hover,
+  &:active {
+    box-shadow: none;
+  }
 }
 
 footer {
@@ -172,18 +179,19 @@ footer {
 }
 
 button {
+  cursor: pointer;
   background: #fff;
   display: inline-block;
   padding: 0.3rem 1rem;
   margin-bottom: 0.3rem;
   text-decoration: none;
-  color: $mainDerive4;
-  border: solid 1px $mainDerive4;
+  color: var(--linkColor);
+  border: solid 1px var(--linkColor);
   transition: 0.4s;
 }
 
 button:hover {
-  background: $mainDerive4;
+  background: var(--linkColor);
   color: white;
 }
 
@@ -198,20 +206,14 @@ input {
   border: none;
   margin: 0 0 10px 0;
   padding: 0 10px;
-  border: solid 1px $mainDerive4;
-}
-
-// overwrite prism.js
-a,
-.language-text {
-  word-break: break-all !important;
+  border: solid 1px var(--linkColor);
 }
 
 // overwrite gatsby plug-in style
 .gatsby-resp-image-link {
   box-shadow: none;
 }
-.page-name{
+.page-name {
   text-align: center;
 }
 .css-aside {
@@ -224,13 +226,13 @@ a,
     box-sizing: border-box;
     padding: 15px 15px 0;
     text-align: center;
-    color: $mainDerive4;
+    color: --linkColor;
     .css-avatar {
       border-radius: 50%;
       width: 60px;
       margin-right: 12px;
     }
-    .author-wrapper{
+    .author-wrapper {
       flex-grow: 1;
     }
     .author {
@@ -246,7 +248,7 @@ a,
         box-shadow: none;
       }
       .iconfont {
-        color: $mainDerive4;
+        color: --linkColor;
         font-size: 1.3rem;
       }
     }
@@ -335,9 +337,6 @@ a,
     // 修改预设
     .gatsby-highlight {
       margin-top: 29px;
-      pre[class*='language-'] {
-        background: rgba(0, 0, 0, 0.03);
-      }
     }
   }
 }
@@ -356,7 +355,7 @@ a,
 }
 
 .css-info {
-  color: $mainDerive1;
+  color: var(--mainDerive1);
   margin-bottom: 1rem;
   .iconfont {
     &:first-of-type {
@@ -381,11 +380,11 @@ a,
 .inline-button {
   cursor: pointer;
   margin-left: 1rem;
-  color: $mainDerive4;
+  color: --linkColor;
   transition: 0.4s;
 }
 .inline-button:hover {
-  color: $mainColor;
+  color: --mainColor;
 }
 :root {
   animation-name: fade-in;
@@ -394,11 +393,11 @@ a,
 @keyframes fade-in {
   from {
     opacity: 0;
-    filter: blur(8px); 
+    filter: blur(8px);
   }
   to {
     opacity: 1;
-    filter: blur(0px); 
+    filter: blur(0px);
   }
 }
 @import './mobile.scss';

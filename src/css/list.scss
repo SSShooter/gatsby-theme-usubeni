@@ -4,9 +4,9 @@
     font-size: 26px;
     line-height: 1.3;
     a {
-      color: $mainColor;
+      color: --mainColor;
       &:hover {
-        color: $mainDerive2;
+        color: --mainDerive2;
       }
     }
   }
@@ -14,13 +14,13 @@
   .list-date {
     margin-top: 6px;
     margin-bottom: 16px;
-    color: $mainDerive1;
+    color: --mainDerive1;
   }
   .list-excerpt {
     margin-top: 10px;
     line-height: 1.6;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--divider);
     word-break: break-all;
   }
 }

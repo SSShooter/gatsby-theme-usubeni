@@ -100,12 +100,6 @@ function getRandom(option) {
   return ret
 }
 function startSakura() {
-  requestAnimationFrame =
-    window.requestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.msRequestAnimationFrame ||
-    window.oRequestAnimationFrame
   var canvas = document.createElement('canvas'),
     cxt
   staticx = true
@@ -116,7 +110,7 @@ function startSakura() {
     'position: fixed;left: 0;top: 0;pointer-events: none;'
   )
   canvas.setAttribute('id', 'canvas_sakura')
-  document.getElementsByTagName('body')[0].appendChild(canvas)
+  document.querySelector('.css-main').appendChild(canvas)
   cxt = canvas.getContext('2d')
   var sakuraList = new SakuraList()
   for (var i = 0; i < 25; i++) {
@@ -150,14 +144,4 @@ img.onload = function() {
   setTimeout(() => {
     startSakura()
   }, 100)
-}
-function stopp() {
-  if (staticx) {
-    var child = document.getElementById('canvas_sakura')
-    child.parentNode.removeChild(child)
-    window.cancelAnimationFrame(stop)
-    staticx = false
-  } else {
-    startSakura()
-  }
 }

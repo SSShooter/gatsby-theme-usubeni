@@ -23,11 +23,11 @@
     opacity: 1;
   }
   .name {
-    color: $mainColor;
+    color: --mainColor;
     font-weight: 300;
   }
   .date {
-    color: $mainDerive1;
+    color: --mainDerive1;
     font: 0.8rem;
     padding: 0 0 0 15px;
   }
