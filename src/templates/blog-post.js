@@ -92,7 +92,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { slug, previous, next } = this.props.pageContext
-    const isCoding = post.frontmatter.tags.includes('coding')
+    // const isCoding = post.frontmatter.tags.includes('coding')
     return (
       <Layout
         location={this.props.location}
