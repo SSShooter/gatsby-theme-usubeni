@@ -7,7 +7,7 @@ function Sakura(x, y, s, r, fn) {
   this.r = r
   this.fn = fn
 }
-Sakura.prototype.draw = function(cxt) {
+Sakura.prototype.draw = function(cxt, img) {
   cxt.save()
   var xc = (40 * this.s) / 4
   cxt.translate(this.x, this.y)
@@ -50,9 +50,9 @@ SakuraList.prototype.update = function() {
     this.list[i].update()
   }
 }
-SakuraList.prototype.draw = function(cxt) {
+SakuraList.prototype.draw = function(cxt, img) {
   for (var i = 0, len = this.list.length; i < len; i++) {
-    this.list[i].draw(cxt)
+    this.list[i].draw(cxt, img)
   }
 }
 SakuraList.prototype.get = function(i) {
@@ -135,13 +135,13 @@ export default function startSakura() {
       y: randomFny,
       r: randomFnR,
     })
-    sakura.draw(cxt)
+    sakura.draw(cxt, img)
     sakuraList.push(sakura)
   }
   let fly = function() {
     cxt.clearRect(0, 0, canvas.width, canvas.height)
     sakuraList.update()
-    sakuraList.draw(cxt)
+    sakuraList.draw(cxt, img)
     requestAnimationFrame(fly)
   }
   stop = requestAnimationFrame(fly)
