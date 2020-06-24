@@ -144,7 +144,7 @@ export default function startSakura() {
     sakuraList.draw(cxt)
     requestAnimationFrame(fly)
   }
-  let stop = requestAnimationFrame(fly)
+  stop = requestAnimationFrame(fly)
 }
 window.onresize = function() {
   var canvasSnow = document.getElementById('canvas_snow')
