@@ -146,9 +146,6 @@ export default function startSakura() {
   }
   stop = requestAnimationFrame(fly)
 }
-window.onresize = function() {
-  var canvasSnow = document.getElementById('canvas_snow')
-}
 // img.onload = function() {
 //   setTimeout(() => {
 //     startSakura()
