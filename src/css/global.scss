@@ -1,5 +1,5 @@
 :root {
-  --backgroundColor: #fcfaf2;
+  --backgroundColor: #ffffff;
   --mainColor: #e87a90;
   --mainDerive1: #68565a;
   --mainDerive2: #b55f70;
@@ -10,26 +10,41 @@
   --code: #c3c7cb;
   --divider: #eee;
 }
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    --backgroundColor: #231b30;
-    --mainColor: #e87a90;
-    --mainDerive1: #b4989e;
-    --mainDerive2: #b55f70;
-    --mainDerive3: #ecc3cb;
-    --linkColor: #ec9bab;
-    --fontColor: #ecc3cb;
-    --codeBlock: #3c495b;
-    --code: #c3c7cb;
-    --divider: #3e4b5e;
-  }
+
+#canvas_sakura {
+  transition: opacity 0.5s ease-in-out;
+}
+
+// @media screen and (prefers-color-scheme: light) {
+.light-theme {
+  // html {
+  //   animation-name: fade-in;
+  //   animation-duration: 3s;
+  // }
+}
+
+// @media screen and (prefers-color-scheme: dark) {
+.dark-theme {
+  --backgroundColor: #231b30;
+  --mainColor: #e87a90;
+  --mainDerive1: #b4989e;
+  --mainDerive2: #b55f70;
+  --mainDerive3: #ecc3cb;
+  --linkColor: #ec9bab;
+  --fontColor: #ecc3cb;
+  --codeBlock: #3c495b;
+  --code: #c3c7cb;
+  --divider: #3e4b5e;
+
   img {
     filter: brightness(80%);
   }
+
   #canvas_sakura {
-    display: none;
+    filter: brightness(80%);
   }
 }
+
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC:400&display=swap&subset=chinese-simplified');
 @import './sakura.base.scss';
 
@@ -48,18 +63,23 @@
 @import './prism.scss';
 
 @font-face {
-  font-family: 'iconfont'; /* project id 1042209 */
-  src: url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.eot');
-  src: url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.eot?#iefix')
-      format('embedded-opentype'),
-    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff2')
-      format('woff2'),
-    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.woff') format('woff'),
-    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.ttf')
-      format('truetype'),
-    url('https://at.alicdn.com/t/font_1042209_c26a0c4ez8a.svg#iconfont')
-      format('svg');
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+      url('iconfont.woff2') format('woff2'),
+      url('iconfont.woff') format('woff'),
+      url('iconfont.ttf') format('truetype'),
+      url('iconfont.svg#iconfont') format('svg');
 }
+
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -90,14 +110,6 @@ p {
   box-sizing: border-box;
 }
 
-.iconfont {
-  font-family: 'iconfont' !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
   // user-select: none; // 禁止文字被选中
   margin: 0;
@@ -112,7 +124,7 @@ body {
   font-size: 19px;
   background-color: var(--backgroundColor);
   color: var(--fontColor);
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
 }
 
 .mask {
@@ -145,7 +157,7 @@ body {
 }
 
 img {
-  background: #fff;
+  background: var(--backgroundColor);
 }
 
 code {
@@ -387,18 +399,33 @@ input {
 .inline-button:hover {
   color: var(--mainColor);
 }
-// :root {
-//   animation-name: fade-in;
-//   animation-duration: 3s;
-// }
-// @keyframes fade-in {
-//   from {
-//     opacity: 0;
-//     filter: blur(8px);
-//   }
-//   to {
-//     opacity: 1;
-//     filter: blur(0px);
-//   }
-// }
+
+.theme-toggle{
+  position: fixed;
+  cursor: pointer;
+  font-size: 28px;
+  bottom: 12px;
+  right: 12px;
+  font-weight: bolder;
+}
+
+.flower-toggle{
+  position: fixed;
+  cursor: pointer;
+  font-size: 28px;
+  bottom: 62px;
+  right: 12px;
+  font-weight: bolder;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
 @import './mobile.scss';

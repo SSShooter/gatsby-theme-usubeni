@@ -41,7 +41,7 @@ Sakura.prototype.update = function() {
     }
   }
 }
-SakuraList = function() {
+let SakuraList = function() {
   this.list = []
 }
 SakuraList.prototype.push = function(sakura) {
@@ -99,7 +99,7 @@ function getRandom(option) {
   }
   return ret
 }
-function startSakura() {
+export default function startSakura() {
   var canvas = document.createElement('canvas'),
     cxt
   staticx = true
@@ -114,7 +114,7 @@ function startSakura() {
   cxt = canvas.getContext('2d')
   var sakuraList = new SakuraList()
   for (var i = 0; i < 25; i++) {
-    var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny
+    var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny, randomFnR
     randomX = getRandom('x')
     randomY = getRandom('y')
     randomR = getRandom('r')
@@ -130,18 +130,20 @@ function startSakura() {
     sakura.draw(cxt)
     sakuraList.push(sakura)
   }
-  stop = requestAnimationFrame(function() {
+  let fly = function() {
     cxt.clearRect(0, 0, canvas.width, canvas.height)
     sakuraList.update()
     sakuraList.draw(cxt)
-    stop = requestAnimationFrame(arguments.callee)
-  })
+    requestAnimationFrame(fly)
+  }
+  let stop = requestAnimationFrame(fly)
 }
 window.onresize = function() {
   var canvasSnow = document.getElementById('canvas_snow')
 }
-img.onload = function() {
-  setTimeout(() => {
-    startSakura()
-  }, 100)
-}
+// img.onload = function() {
+//   setTimeout(() => {
+//     startSakura()
+//   }, 100)
+// }
+
