@@ -229,6 +229,7 @@ input {
     color: --linkColor;
     .css-avatar {
       border-radius: 50%;
+      overflow: hidden;
       width: 60px;
       margin-right: 12px;
     }
@@ -248,7 +249,7 @@ input {
         box-shadow: none;
       }
       .iconfont {
-        color: --linkColor;
+        color: var(--linkColor);
         font-size: 1.3rem;
       }
     }
@@ -380,24 +381,24 @@ input {
 .inline-button {
   cursor: pointer;
   margin-left: 1rem;
-  color: --linkColor;
+  color: var(--linkColor);
   transition: 0.4s;
 }
 .inline-button:hover {
-  color: --mainColor;
+  color: var(--mainColor);
 }
-:root {
-  animation-name: fade-in;
-  animation-duration: 3s;
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0px);
-  }
-}
+// :root {
+//   animation-name: fade-in;
+//   animation-duration: 3s;
+// }
+// @keyframes fade-in {
+//   from {
+//     opacity: 0;
+//     filter: blur(8px);
+//   }
+//   to {
+//     opacity: 1;
+//     filter: blur(0px);
+//   }
+// }
 @import './mobile.scss';
