@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
-// import 'prismjs/themes/prism.css'
-// import 'prismjs/themes/prism-TWILIGHT.css'
 import startSakura from '../sakura.TRHX.js'
 import '../css/global.scss'
 
