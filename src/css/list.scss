@@ -4,9 +4,9 @@
     font-size: 26px;
     line-height: 1.3;
     a {
-      color: --mainColor;
+      color: var(--mainColor);
       &:hover {
-        color: --mainDerive2;
+        color: var(--mainDerive2);
       }
     }
   }
@@ -14,7 +14,7 @@
   .list-date {
     margin-top: 6px;
     margin-bottom: 16px;
-    color: --mainDerive1;
+    color: var(--mainDerive1);
   }
   .list-excerpt {
     margin-top: 10px;

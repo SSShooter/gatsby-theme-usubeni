@@ -41,7 +41,7 @@
     box-shadow: none;
   }
   .active {
-    color: --mainColor;
+    color: var(--mainColor);
   }
 }
 .css-toc .box-title {

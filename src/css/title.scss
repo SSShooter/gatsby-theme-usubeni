@@ -101,13 +101,13 @@
   font-weight: 200;
   font-size: 26px;
   line-height: 2;
-  border-bottom: solid 3px --mainDerive3;
+  border-bottom: solid 3px var(--mainDerive3);
   position: relative;
   &:after {
     position: absolute;
     content: ' ';
     display: block;
-    border-bottom: solid 3px --mainColor;
+    border-bottom: solid 3px var(--mainColor);
     bottom: -3px;
     width: 20%;
   }

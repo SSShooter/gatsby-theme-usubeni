@@ -267,7 +267,7 @@
   position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
-  border: solid 1px --mainColor;
+  border: solid 1px var(--mainColor);
   pre {
     overflow-x: auto;
   }
@@ -282,7 +282,7 @@
   line-height: 25px;
   vertical-align: middle;
   font-size: 17px;
-  background: --mainColor;
+  background: var(--mainColor);
   color: #ffffff;
   border-radius: 5px 5px 0 0;
 }
