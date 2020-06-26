@@ -22,3 +22,13 @@ tags: ['本站历史']
 gcp 主要使用方法是直接网页连接，要用 ssh 连接还要攻克不少麻烦，感谢[这篇文章](https://qiita.com/igrep/items/3a3ba8e9089885c3c9f6)让我的 VScode 顺利连上 gcp 啦。
 
 加上 GitHub 之前发布的新功能，感觉 VScode 远程开发在未来说不定是主流了。
+
+6.26 更新，顺便把 logo 也换了，主要是因为第一版的白色背景换不掉 😂
+
+before
+
+![before](logo.bg.png)
+
+after
+
+![after](logo.png)
