@@ -149,7 +149,9 @@ class BlogPostTemplate extends React.Component {
                         key={commentChild._id}
                       >
                         <div className="name">
-                          {commentChild.author + ' -> ' + commentChild.to}
+                          {commentChild.site ? <a target="_blank" href={commentChild.site}>{commentChild.author}</a> :
+                            <span>{commentChild.author}</span>}
+                          {' -> ' + commentChild.to}
                           <span className="date">{dateFormat}</span>
                           <span
                             className="inline-button css-reply"

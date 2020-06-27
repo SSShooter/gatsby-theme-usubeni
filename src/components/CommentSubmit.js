@@ -29,6 +29,7 @@ export default class Comment extends Component {
         author,
         mail,
         content,
+        site,
         path: window.location.pathname,
       }
     }
@@ -37,6 +38,7 @@ export default class Comment extends Component {
       .then(res => {
         localStorage.name = author
         localStorage.email = mail
+        localStorage.site = site
         this.message.value = ''
         onSuccess()
         this.setState({
@@ -55,7 +57,7 @@ export default class Comment extends Component {
     })
     this.button.disabled = true
   }
-  render() {
+  render () {
     const { parent, to, onCancel } = this.props
     return (
       <div className="css-comment-submit">
@@ -93,7 +95,12 @@ export default class Comment extends Component {
         />
         <input
           id="comment-input"
-          ref={input => (this.site = input)}
+          ref={input => {
+            this.site = input
+            if (this.site && localStorage.site) {
+              this.site.value = localStorage.site
+            }
+          }}
           placeholder="选填 输入你的博客地址方便串门"
           required
         />
