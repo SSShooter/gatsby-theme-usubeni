@@ -1,6 +1,6 @@
 ---
 path: '/ui-update-4'
-date: '2020-06-25T13:33:42.966Z'
+date: '2020-06-27T21:33:42.966Z'
 title: 'UI 4.0'
 tags: ['本站历史']
 ---
@@ -32,3 +32,5 @@ before
 after
 
 ![after](logo.png)
+
+6.27 更新，评论可以添加回访地址啦

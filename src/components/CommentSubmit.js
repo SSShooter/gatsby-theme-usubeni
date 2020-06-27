@@ -101,7 +101,7 @@ export default class Comment extends Component {
               this.site.value = localStorage.site
             }
           }}
-          placeholder="选填 输入你的博客地址方便串门"
+          placeholder="选填 输入你的博客地址 带上 http(s)"
           required
         />
         <input
