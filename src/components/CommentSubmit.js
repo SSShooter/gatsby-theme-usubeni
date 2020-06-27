@@ -8,6 +8,7 @@ export default class Comment extends Component {
   submit = () => {
     const author = this.name.value
     const mail = this.email.value
+    const site = this.site.value || null
     const content = this.message.value
     if (!author || !mail || !content) return
     const { parent, to, url, onSuccess } = this.props
@@ -19,6 +20,7 @@ export default class Comment extends Component {
         author,
         mail,
         content,
+        site,
         path: window.location.pathname,
       }
     } else {
@@ -88,6 +90,12 @@ export default class Comment extends Component {
           }}
           type="email"
           placeholder="必填 请输入你邮箱，收到回复时推送提醒"
+        />
+        <input
+          id="comment-input"
+          ref={input => (this.site = input)}
+          placeholder="选填 输入你的博客地址方便串门"
+          required
         />
         <input
           id="comment-input"
