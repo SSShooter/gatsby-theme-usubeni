@@ -83,7 +83,7 @@ module.exports = {
 
 接着就打包，放到 nginx 的服务位置：
 
-```sh
+```
 npm run build
 sudo cp -r ./dist/* /usr/local/nginx/html
 ```

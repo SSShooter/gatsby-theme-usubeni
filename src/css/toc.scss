@@ -3,7 +3,7 @@
   position: sticky;
   top: 30px;
   max-height: 80vh;
-  color: --mainDerive1;
+  color: var(--mainDerive1);
   padding: 15px;
   margin-top: 25px;
   overflow-y: auto;
@@ -35,13 +35,13 @@
 .css-toc {
   margin: 2em 0;
   padding: 25px 10px 7px;
-  border: solid 1px --mainDerive1;
+  border: solid 1px var(--mainDerive1);
   a {
-    color: --mainDerive1;
+    color: var(--mainDerive1);
     box-shadow: none;
   }
   .active {
-    color: --mainColor;
+    color: var(--mainColor);
   }
 }
 .css-toc .box-title {
@@ -54,7 +54,7 @@
   line-height: 25px;
   vertical-align: middle;
   font-size: 17px;
-  background: --mainDerive1;
+  background: var(--mainDerive1);
   color: #ffffff;
   font-weight: bold;
 }

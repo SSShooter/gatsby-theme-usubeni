@@ -2,9 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
-// import 'prismjs/themes/prism.css'
-// import 'prismjs/themes/prism-TWILIGHT.css'
-// import '../sakura.TRHX.js'
+import startSakura from '../sakura.TRHX.js'
 import '../css/global.scss'
 
 let footerStyle = {
@@ -15,6 +13,73 @@ class Layout extends React.Component {
     menuState: false, // false for close, true for open
     keyword: '',
     animation: [],
+    year: '',
+    days: '',
+    theme: 'light',
+    flowerDance: false,
+  }
+  componentDidMount() {
+    // avoid flash
+    document.documentElement.style.display = 'none'
+    startSakura()
+    this.setState({
+      year: new Date().getFullYear(),
+      days: this.formatTime(new Date() - new Date('2018-12-05 14:13:38')),
+    })
+    let localFlowerDance = localStorage.getItem('flowerDance')
+    this.setFlowerDance(localFlowerDance)
+    let localTheme = localStorage.getItem('theme')
+    if (localTheme) {
+      if (localTheme === 'dark') {
+        this.setTheme('dark')
+      } else {
+        this.setTheme('light')
+      }
+    } else if (window.matchMedia) {
+      if (window.matchMedia('(prefers-color-scheme: dark)')) {
+        this.setTheme('dark')
+      } else {
+        this.setTheme('light')
+      }
+    } else {
+      // default light
+      this.setTheme('light')
+    }
+    document.documentElement.style.display = 'block'
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    darkModeMediaQuery.addListener(e => {
+      const darkModeOn = e.matches
+      if (darkModeOn) {
+        this.setTheme('dark')
+      } else {
+        this.setTheme('light')
+      }
+    })
+  }
+  toggleTheme = () => {
+    if (this.state.theme === 'light') {
+      this.setTheme('dark')
+    } else {
+      this.setTheme('light')
+    }
+  }
+  toggleFlowerDance = () => {
+    if (this.state.flowerDance == 1) this.setFlowerDance(0)
+    else this.setFlowerDance(1)
+  }
+  setTheme = themeName => {
+    localStorage.setItem('theme', themeName)
+    document.documentElement.className = themeName + '-theme'
+    this.setState({
+      theme: themeName,
+    })
+  }
+  setFlowerDance = n => {
+    localStorage.setItem('flowerDance', n)
+    document.querySelector('#canvas_sakura').style.opacity = Number(n)
+    this.setState({
+      flowerDance: n == 1 ? true : false,
+    })
   }
   toggleMenuState = () => {
     this.setState({
@@ -56,7 +121,7 @@ class Layout extends React.Component {
     }
   }
   render() {
-    const { menuState } = this.state
+    const { menuState, days, year, theme, flowerDance } = this.state
     const {
       pageName,
       pageDescript,
@@ -86,8 +151,6 @@ class Layout extends React.Component {
       </React.Fragment>
     )
     const descript = <div className="page-description">{pageDescript}</div>
-    // if (className === 'night') import('prismjs/themes/prism-TWILIGHT.css').then(res=>{console.log(res,'css file?')})
-    // else import('prismjs/themes/prism.css')
     return (
       <div className={className}>
         {/* <div className="sakura-box">
@@ -136,12 +199,10 @@ class Layout extends React.Component {
           <div style={footerStyle}>
             theme <span className="usubeni">UsubeniFantasy</span>
           </div>
-          <div style={footerStyle}>
-            © 2018-{new Date().getFullYear()} SSShooter
-          </div>
+          <div style={footerStyle}>© 2018-{year} SSShooter</div>
           <div style={footerStyle}>
             一转眼 已是
-            {this.formatTime(new Date() - new Date('2018-12-05 14:13:38'))}
+            {days}
           </div>
           <div style={footerStyle}>
             powered by{' '}
@@ -153,6 +214,12 @@ class Layout extends React.Component {
             </a>
           </div>
         </footer>
+        <div className="flower-toggle" onClick={this.toggleFlowerDance}>
+          {flowerDance ? '隐' : '樱'}
+        </div>
+        <div className="theme-toggle" onClick={this.toggleTheme}>
+          {theme === 'light' ? '日' : '夜'}
+        </div>
       </div>
     )
   }

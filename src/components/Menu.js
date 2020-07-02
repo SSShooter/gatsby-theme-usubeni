@@ -21,7 +21,7 @@ export default class Menu extends Component {
           <i className="iconfont">&#xe7de;</i> 相册
         </a>
         <a href="/archive">
-          <i className="iconfont">&#xe608;</i> 归档
+          <i className="iconfont">&#xe734;</i> 归档
         </a>
         {/* <a href="/meme">
           <i className="iconfont">&#xe780;</i> 表情

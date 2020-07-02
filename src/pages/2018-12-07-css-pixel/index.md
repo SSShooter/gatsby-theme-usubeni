@@ -47,7 +47,7 @@ https://jsfiddle.net/bc_rikko/0b9cgtx8
 ## 基础：描绘一个像素点
 `box-shadow` 基础都明白了，就可以进入下一步：描绘一个像素点。
 对一个边长 100px 的正方形使用 `box-shadow`：
-```html5
+```html
 <div class="container">
     <div class="box"></div>
 </div>

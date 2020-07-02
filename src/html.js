@@ -76,7 +76,6 @@ export default class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
         </body>
-        {/* <script src="/sakura.TRHX.js" /> */}
       </html>
     )
   }
