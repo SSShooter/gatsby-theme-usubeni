@@ -168,6 +168,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a class="link-card-wrapper" target="_blank" href="https://tajoy.net/">
+    <div class="link-card">
+        <img src="https://raw.githubusercontent.com/tajoy/tajoy.github.io/src/static/profile.jpg">
+        <div class="info">
+            <div class="title">Tajoy's blog</div>
+            <div class="descript">一个不会摄影的程序猿, 不是一个好的艺术家</div>
+        </div>
+    </div>
+</a>
+
 ## 添加方法
 
 发送相关信息到邮箱<br />ssshooterx@gmail.com
