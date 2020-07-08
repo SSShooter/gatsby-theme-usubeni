@@ -36,7 +36,7 @@ class BlogPostTemplate extends React.Component {
       let passedList = []
       for (let item of list) {
         let top = item.getBoundingClientRect().top
-        if (top < 0) passedList.push(item)
+        if (top <= 0) passedList.push(item)
       }
       if (!passedList.length) return // 第一条的情况
       let last = passedList[passedList.length - 1]
