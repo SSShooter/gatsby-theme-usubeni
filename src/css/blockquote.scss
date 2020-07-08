@@ -5,7 +5,7 @@ blockquote {
   margin: 40px 20px;
   box-sizing: border-box;
   color: #777777;
-  border-left: 4px solid --mainDerive2;
+  border-left: 4px solid var(--mainDerive2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
 }
 
@@ -17,7 +17,7 @@ blockquote:before {
   vertical-align: middle;
   content: '\e66c';
   font-family: iconfont;
-  color: --mainDerive2;
+  color: var(--mainDerive2);
   font-size: 35px;
   line-height: 1;
 }

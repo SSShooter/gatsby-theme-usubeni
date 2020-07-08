@@ -25,7 +25,7 @@
     color: #999;
     box-shadow: none;
     &:hover{
-      color: --mainColor;
+      color: var(--mainColor);
     }
   }
 }

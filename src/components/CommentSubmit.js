@@ -8,6 +8,7 @@ export default class Comment extends Component {
   submit = () => {
     const author = this.name.value
     const mail = this.email.value
+    const site = this.site.value || null
     const content = this.message.value
     if (!author || !mail || !content) return
     const { parent, to, url, onSuccess } = this.props
@@ -19,6 +20,7 @@ export default class Comment extends Component {
         author,
         mail,
         content,
+        site,
         path: window.location.pathname,
       }
     } else {
@@ -27,6 +29,7 @@ export default class Comment extends Component {
         author,
         mail,
         content,
+        site,
         path: window.location.pathname,
       }
     }
@@ -35,6 +38,7 @@ export default class Comment extends Component {
       .then(res => {
         localStorage.name = author
         localStorage.email = mail
+        localStorage.site = site
         this.message.value = ''
         onSuccess()
         this.setState({
@@ -53,7 +57,7 @@ export default class Comment extends Component {
     })
     this.button.disabled = true
   }
-  render() {
+  render () {
     const { parent, to, onCancel } = this.props
     return (
       <div className="css-comment-submit">
@@ -88,6 +92,17 @@ export default class Comment extends Component {
           }}
           type="email"
           placeholder="必填 请输入你邮箱，收到回复时推送提醒"
+        />
+        <input
+          id="comment-input"
+          ref={input => {
+            this.site = input
+            if (this.site && localStorage.site) {
+              this.site.value = localStorage.site
+            }
+          }}
+          placeholder="选填 输入你的博客地址 带上 http(s)"
+          required
         />
         <input
           id="comment-input"

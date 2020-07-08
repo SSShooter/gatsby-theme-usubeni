@@ -1,16 +1,3 @@
-:root {
-  --backgroundColor: #ffffff;
-  --mainColor: #e87a90;
-  --mainDerive1: #68565a;
-  --mainDerive2: #b55f70;
-  --mainDerive3: #ecc3cb;
-  --linkColor: #683741;
-  --fontColor: hsl(284, 20%, 30%);
-  --codeBlock: #3c495b;
-  --code: #c3c7cb;
-  --divider: #eee;
-}
-
 #canvas_sakura {
   transition: opacity 0.5s ease-in-out;
 }
@@ -21,6 +8,16 @@
   //   animation-name: fade-in;
   //   animation-duration: 3s;
   // }
+  --backgroundColor: #ffffff;
+  --mainColor: #e87a90;
+  --mainDerive1: #68565a;
+  --mainDerive2: #b55f70;
+  --mainDerive3: #ecc3cb;
+  --linkColor: #683741;
+  --fontColor: hsl(284, 20%, 30%);
+  --codeBlock: #3c495b;
+  --code: #c3c7cb;
+  --divider: #eee;
 }
 
 // @media screen and (prefers-color-scheme: dark) {
@@ -37,7 +34,7 @@
   --divider: #3e4b5e;
 
   img {
-    filter: brightness(80%);
+    // filter: brightness(80%);
   }
 
   #canvas_sakura {
@@ -66,10 +63,9 @@
   font-family: 'iconfont';
   src: url('iconfont.eot');
   src: url('iconfont.eot?#iefix') format('embedded-opentype'),
-      url('iconfont.woff2') format('woff2'),
-      url('iconfont.woff') format('woff'),
-      url('iconfont.ttf') format('truetype'),
-      url('iconfont.svg#iconfont') format('svg');
+    url('iconfont.woff2') format('woff2'), url('iconfont.woff') format('woff'),
+    url('iconfont.ttf') format('truetype'),
+    url('iconfont.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -238,7 +234,7 @@ input {
     box-sizing: border-box;
     padding: 15px 15px 0;
     text-align: center;
-    color: --linkColor;
+    color: var(--linkColor);
     .css-avatar {
       border-radius: 50%;
       overflow: hidden;
@@ -400,16 +396,16 @@ input {
   color: var(--mainColor);
 }
 
-.theme-toggle{
+.theme-toggle {
   position: fixed;
   cursor: pointer;
   font-size: 28px;
-  bottom: 12px;
+  bottom: 18px;
   right: 12px;
   font-weight: bolder;
 }
 
-.flower-toggle{
+.flower-toggle {
   position: fixed;
   cursor: pointer;
   font-size: 28px;
