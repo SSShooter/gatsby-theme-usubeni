@@ -65,19 +65,25 @@ display 为 none 的元素会返回 0
 
 ## 其他相关
 
+### 事件属性
+
 MouseEvent.screenX/Y **屏幕**坐标系，也！包！含！滚！动！
 
-MouseEvent.clientX/Y **视窗**坐标系，无论如何滚动，视窗的左上角就是(0,0)，这个值就是相对于客户端（终于有一个 client 是代表客户端了）窗口大小的数值
+MouseEvent.clientX/Y **视窗**坐标系，无论如何滚动，视窗的左上角就是(0,0)（注意 iframe 的特殊情况），这个值就是相对于客户端（终于有一个 client 是代表客户端了）窗口大小的数值
 
 MouseEvent.pageX/Y **视窗**坐标系，相对于整个页面（包括滚动）的坐标，在没有滚动的情况下，client 和 page 是一样的
 
-[mdn](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/screenX)，上面两个都是左上角为 0
+MouseEvent.offsetX/Y 鼠标与 target node 的填充边的距离
 
-getComputedStyle
+MouseEvent.movementX currentEvent.movementX = currentEvent.screenX - previousEvent.screenX
+
+UIEvent.layerX/Y 非标准
+
+### getComputedStyle
 
 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle)
 
-getBoundingClientRect
+### getBoundingClientRect
 
 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
 
@@ -87,6 +93,12 @@ getBoundingClientRect
 
 ![](element-box-diagram.png)
 
-IntersectionObserver
+### IntersectionObserver
 
 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+
+### elementFromPoint
+
+[mdn](https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/elementsFromPoint)
+
+输入 xy 坐标，返回该位置最顶层元素
