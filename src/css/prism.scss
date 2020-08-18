@@ -28,7 +28,7 @@ pre[class*='language-'] {
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
-  background: var(--codeBlock); 
+  background: var(--codeBlock);
 }
 
 /* Code blocks */
@@ -199,5 +199,8 @@ pre[data-line] {
 a,
 .language-text {
   word-break: break-all !important;
+}
+
+.language-text {
   padding: 2px 12px !important;
 }
