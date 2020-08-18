@@ -186,6 +186,20 @@ footer {
   text-align: center;
 }
 
+table {
+  font-size: 15px;
+  background-color: #f8f9fa;
+  color: #202122;
+  margin: 1em 0;
+  border: 1px solid #a2a9b1;
+  border-collapse: collapse;
+  tr > th,
+  tr > td {
+    border: 1px solid #a2a9b1;
+    padding: 0.2em 0.4em;
+  }
+}
+
 button {
   cursor: pointer;
   background: #fff;
@@ -356,6 +370,7 @@ input {
     .logo {
       display: block;
       width: 100%;
+      transition: background 0.5s ease-in-out;
     }
     .logo-mobile {
       display: none;
