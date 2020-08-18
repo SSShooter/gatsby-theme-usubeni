@@ -178,6 +178,16 @@ tags: ['导航']
     </div>
 </a>
 
+<a class="link-card-wrapper" target="_blank" href="https://kalasearch.cn/blog">
+    <div class="link-card">
+        <div class="noimage">卡</div>
+        <div class="info">
+            <div class="title">卡拉搜索</div>
+            <div class="descript">elastic search 替代方案</div>
+        </div>
+    </div>
+</a>
+
 ## 添加方法
 
 发送相关信息到邮箱<br />ssshooterx@gmail.com
