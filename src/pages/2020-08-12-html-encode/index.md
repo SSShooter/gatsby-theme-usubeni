@@ -1,18 +1,17 @@
 ---
 path: '/html-encode'
-date: '2020-08-12T18:27:39.444Z'
-title: '字符编码与前端使用'
+date: '2020-08-19T18:27:39.444Z'
+title: '字符编码与在 Web 前端的应用'
 tags: ['coding']
-released: false
 ---
 
-阅读本文前，请先熟悉各进制间的转换，否则看起来会有点懵。
+阅读本文前，请先熟悉各进制间的转换，否则看起来会有点懵 😂
 
 ## Unicode
 
 相关：[UCS](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)（Universal Character Set）原本标准不同，但现在已经与 Unicode 统一
 
-[Unicode](https://en.wikipedia.org/wiki/Unicode) 就是一种世界统一的字符编码集合，在这个集合里，世界上每一个字符——任何语言的文字、符号甚至 emoji，都有自己的编号，称为 code point（码点）。这样的编号从 0000 开始，到 10FFFF，可以容纳大于一百万个不重复的字符。
+[Unicode](https://en.wikipedia.org/wiki/Unicode) 就是一种世界统一的字符编码集合，在这个集合里，世界上每一个字符——任何语言的文字、符号甚至 emoji，都有自己的编号，称为 **code point（码点）**。这样的编号从 0000 开始，到 10FFFF，可以容纳大于一百万个不重复的字符。
 
 <table class="wikitable navbox mw-collapsible mw-made-collapsible" style="table-layout:fixed;">
 <tbody>
@@ -167,9 +166,9 @@ F0000–&#8203;FFFFF<br>
 </p>
 </td></tr></tbody></table>
 
-点击表中链接可以查看某段位置包含的字符。其中，从 0000 到 ffff 是最常用是平面 0，也称作 Basic Multilingual Plane（BMP），大多数常用汉字都包含在其中。
+点击表中链接可以查看某段位置包含的字符。其中，从 0000 到 ffff 是最常用是平面 0，也称作 **Basic Multilingual Plane（BMP）**，大多数常用汉字都包含在其中。
 
-我们用 Unicode 表示一个字符，约定俗成地 `U+` 加上这个字的 16 进制**码点（codepoint）**，例如“汉”就是 `U+6C49`。
+我们用 Unicode 表示一个字符，约定俗成地 `U+` 加上这个字的 16 进制码点，例如“汉”就是 `U+6C49`。
 
 但是 Unicode 虽然给字符编码了，但是在数据传输时，仅仅是给数据一个号码是不够的，还要想出一种让计算机看懂这个号码的方法，这就引出了 UTF（Unicode Transformation Format），也就是 Unicode 的传输格式。
 
@@ -183,7 +182,7 @@ F0000–&#8203;FFFFF<br>
 
 ### UTF-32
 
-一种空间效率极低、长度不变的编码方式，码元长度为 32-bit，意思就是编码一个字符至少要 32 位，举个例子：
+UTF-32（UCS-4）是一种空间效率极低、长度不变的编码方式，码元长度为 32-bit，意思就是编码一个字符至少要 32 位，举个例子：
 
 `a` 的 UTF-32 编码是 `00000061`（16 进制）`0000 0000 0000 0000 0000 0000 0110 0001`（2 进制，为了方便阅读，添加了空格）
 
@@ -271,7 +270,11 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 <td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">10xxxxxx</span>
 </td></tr></tbody></table>
 
-下面是具体的编码例子，基本套路就是写成二进制，然后在特定的位置拆分开，再添加标志拼接起来：
+下面是具体的编码例子，基本套路就是：
+
+1. 写成二进制
+2. 在特定的位置拆分开（表中紫、蓝、绿、红数字）
+3. 添加标志拼接起来（表中黑色数字）
 
 <table class="wikitable">
 <tbody><tr>
@@ -379,15 +382,13 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 
 ### UTF-16
 
-UTF-16 即便没有 UTF-8 使用得广泛，仍是一个比较常用的编码方式。
+UTF-16（UCS-2）即便没有 UTF-8 使用得广泛，仍是一个比较常用的编码方式。
 
-下表是 UTF-16 的编码方式，可以说与 UTF-8 大同小异。
+以 UTF-16 16-bit 的码元长度，BMP 字符可以统一用一个码元表示，但是这样 `a` 就会被编码为 `0000 0000 0110 0001`，因此不兼容 ASCII。
 
-首先是码元长度，16-bit，BMP 平面的字符统一用一个码元表示，BMP 以外的字符分割后分别添加 `110110` 和 `110111` 提示计算机两个码元组成一个字符。
+但是对于 BMP 后排大户——汉字，UTF-8 会将 U+0800 到 U+FFFF 字符编码为 3 byte，UTF-16 则是稳定的 2 byte，所以如果文件内包含大量中文文本，编码为 UTF-16 会比 UTF-8 的体积会显著缩小。
 
-但是这样 `a` 就会被编码为 `0000 0000 0110 0001`，因此不兼容 ASCII。
-
-但是对于 BMP 后排大户——汉字，UTF-8 会将后面的字符编码为 3 byte，UTF-16 则是稳定的 2byte，体积会显著缩小。
+下表是 UTF-16 的编码方式，可以说与 UTF-8 大同小异。BMP 以外的字符分割后分别添加 `110110` 和 `110111` 提示计算机两个码元组成一个字符。
 
 <table class="wikitable">
 <tbody><tr>
@@ -462,21 +463,25 @@ UTF-16 即便没有 UTF-8 使用得广泛，仍是一个比较常用的编码方
 
 ## html
 
-| 格式       | 描述     |
-| ---------- | -------- |
-| `&#x20AC;` | 十六进制 |
-| `&#8364;`  | 十进制   |
-| `&euro;`   | 名称     |
+| 格式       | 描述               |
+| ---------- | ------------------ |
+| `&#x20AC;` | &#x + 十六进制 + ; |
+| `&#8364;`  | &# + 十进制 + ;    |
+| `&euro;`   | & + 名称 + ;       |
 
-转义标志是 `&`，**用的是 Unicode 码点位置**
+转义标志是 `&`，不管你的 html 文件使用何种编码方式（例如这里写成 `<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">`），转义使用的都是**Unicode 码点**。
 
-用于代替 < > & " 等 html 里有功能的字符
+使用名称的话可以看这个[可以转义的名称列表](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)。
 
-https://www.w3.org/International/questions/qa-escapes
+这样的 html 文档内的转义常用于代替空格、`<`、`>`、`&`、`"` 等 html 里有功能的字符，但是当然不止如此。
+
+iconfont 应该是前端开发者很熟悉的一个平台，这个平台可以把图标做成字体，引入这个字体，然后每个图标有一个特定的 Unicode 码位，只要使用转义字符，就能顺利显示该图标。
+
+利用同样的原理，你也可以[在 React Native 使用阿里 iconfont 图标](https://ssshooter.com/2020-08-19-react-native-iconfont/)。
 
 https://en.wikipedia.org/wiki/Numeric_character_reference
 
-https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+[Character entity references in HTML](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)
 
 ## CSS
 
@@ -493,14 +498,14 @@ https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
 
 ## 字符串
 
-字符串转移大家都很熟悉了，最常用的有 `\'` `\"` `\n` `\t` 等
+大家熟悉字符串转义应该有这些：处理字符串引号冲突的 `\'` `\"` 换行和拉开距离的 `\n` `\t`。
 
-其他的通用的转义还有
+下面是使用 Unicode 码点转义成字符的四种方法（使用场景一般也是上面提到的插入 iconfont）：
 
 | 格式                   | 描述                                                                       |
 | ---------------------- | -------------------------------------------------------------------------- |
 | `\XXX`                 | 仅限 ISO-8859-1 范围（Unicode U+0000 到 U+00FF），1~3 位奇葩的**八进制**数 |
-| `\uXXXX`               | Unicode U+0000 到 U+FFFF（BMP），4 位十六进制                                     |
+| `\uXXXX`               | Unicode U+0000 到 U+FFFF（BMP），4 位十六进制                              |
 | `\u{X} ... \u{XXXXXX}` | Unicode U+0000 到 U+10FFFF，1 到 6 位十六进制                              |
 | `\xXX`                 | 仅限 ISO-8859-1 范围（Unicode U+0000 到 U+00FF），2 位十六进制             |
 
@@ -515,21 +520,49 @@ console.log('\xea')
 // => ê
 ```
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+说到 JavaScript 便顺带一提 codePointAt() 和 charCodeAt()的区别：
 
-说到 JavaScript 便顺带一提：
+```javascript
+console.log('吉'.charCodeAt().toString(2))
+console.log('吉'.codePointAt().toString(2))
+// => 101010000001001
+```
 
-codePointAt()
+在 **BMP** 内，`charCodeAt` 和 `codePointAt` 返回的结果相等。
 
-https://stackoverflow.com/questions/36527642/difference-between-codepointat-and-charcodeat
+```javascript
+console.log('𠮷'.charCodeAt(0).toString(2))
+// => 1101100001000010
+console.log('𠮷'.charCodeAt(1).toString(2))
+// => 1101111110110111
+console.log('𠮷'.codePointAt(0).toString(2))
+// => 100000101110110111
+console.log('𠮷'.codePointAt(1).toString(2))
+// => 1101111110110111
+```
 
-## 拓展阅读
+在 **BMP** 外，字符被分成两块，`charCodeAt` 的两个结果中明显看到 `110110` 和 `110111`，便能推测出这是 UTF-16。
 
-[字符编码](https://en.wikipedia.org/wiki/Character_encoding#Terminology)
+而 `codePointAt` 如其名，拿到的直接就是 Unicode 码点，也不用分两位来取了，`codePointAt(1)` 是没有意义的。
 
-https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme
+还原方法如下：
 
-https://deliciousbrains.com/how-unicode-works/
+```javascript
+console.log('\ud842\udfb7') //𠮷,
+console.log('\u{20bb7}') //𠮷
+```
+
+## 参考与拓展
+
+[Using character escapes in markup and CSS](https://www.w3.org/International/questions/qa-escapes)
+
+[MDN String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+[Difference between codePointAt and charCodeAt](https://stackoverflow.com/questions/36527642/difference-between-codepointat-and-charcodeat)
+
+[字符编码 wikipedia](https://en.wikipedia.org/wiki/Character_encoding#Terminology)
+
+[What's the difference between a character, a code point, a glyph and a grapheme?](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme)
 
 <style>
 .wikitable{
