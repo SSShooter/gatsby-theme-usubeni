@@ -6,187 +6,184 @@ tags: ['导航']
 
 ## 推荐链接
 
-<a class="link-card-wrapper" target="_blank" href="https://www.ecma-international.org/ecma-262/9.0/index.html">
-    <div class="link-card">
-        <img src="https://www.ecma-international.org/ecma-262/9.0/img/ecma-logo.svg">
-        <div class="info">
-            <div class="title">ECMA-262, 9th edition</div>
-            <div class="descript">ECMAScript 语言规范</div>
+<div class="wrapper-wrapper">
+    <a class="link-card-wrapper" target="_blank" href="https://www.ecma-international.org/ecma-262/9.0/index.html">
+        <div class="link-card">
+            <img src="https://www.ecma-international.org/ecma-262/9.0/img/ecma-logo.svg">
+            <div class="info">
+                <div class="title">ECMA-262, 9th edition</div>
+                <div class="descript">ECMAScript 语言规范</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://developers.google.com/web/updates/">
-    <div class="link-card">
-        <img src="https://developers.google.cn/web/images/web-fundamentals-icon192x192.png">
-        <div class="info">
-            <div class="title">Google Developers Web Updates</div>
-            <div class="descript">关注 Chrome 和 V8 最新消息</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://developers.google.com/web/updates/">
+        <div class="link-card">
+            <img src="https://developers.google.cn/web/images/web-fundamentals-icon192x192.png">
+            <div class="info">
+                <div class="title">Google Developers Web Updates</div>
+                <div class="descript">关注 Chrome 和 V8 最新消息</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://www.webcreatorbox.com/">
-    <div class="link-card">
-        <img src="https://www.smashingmagazine.com/images/footer/tablet__left.svg">
-        <div class="info">
-            <div class="title">SMASHING MAGAZINE</div>
-            <div class="descript">Web 技术博客（英语）</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://www.webcreatorbox.com/">
+        <div class="link-card">
+            <img src="https://www.smashingmagazine.com/images/footer/tablet__left.svg">
+            <div class="info">
+                <div class="title">SMASHING MAGAZINE</div>
+                <div class="descript">Web 技术博客（英语）</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://www.webcreatorbox.com/">
-    <div class="link-card">
-        <div class="noimage">W</div>
-        <div class="info">
-            <div class="title">web creator box</div>
-            <div class="descript">网页创造者的工具箱（日语）</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://www.webcreatorbox.com/">
+        <div class="link-card">
+            <div class="noimage">W</div>
+            <div class="info">
+                <div class="title">web creator box</div>
+                <div class="descript">网页创造者的工具箱（日语）</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://storeweb.cn/">
-    <div class="link-card">
-        <div class="noimage">个</div>
-        <div class="info">
-            <div class="title">个站商店</div>
-            <div class="descript">一个精致的，带社交元素的个人网站发布平台，博客收录网站</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://storeweb.cn/">
+        <div class="link-card">
+            <div class="noimage">个</div>
+            <div class="info">
+                <div class="title">个站商店</div>
+                <div class="descript">一个精致的，带社交元素的个人网站发布平台，博客收录网站</div>
+            </div>
         </div>
-    </div>
-</a>
+    </a>
+</div>
 
 ## 友情链接
 
-<a class="link-card-wrapper" target="_blank" href="http://skt-studio.com/">
-    <div class="link-card">
-        <img src="https://tva4.sinaimg.cn/crop.0.0.690.690.180/c1679d2ajw8epdaoxuxtmj20j60j6mzu.jpg">
-        <div class="info">
-            <div class="title">毕业后咖啡时间</div>
-            <div class="descript">佛系游戏制作组</div>
+<div class="wrapper-wrapper">
+    <a class="link-card-wrapper" target="_blank" href="http://skt-studio.com/">
+        <div class="link-card">
+            <img src="https://tva4.sinaimg.cn/crop.0.0.690.690.180/c1679d2ajw8epdaoxuxtmj20j60j6mzu.jpg">
+            <div class="info">
+                <div class="title">毕业后咖啡时间</div>
+                <div class="descript">佛系游戏制作组</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://imjad.cn/">
-    <div class="link-card">
-        <img src="https://secure.gravatar.com/avatar/1f1b82f7ab1429a50424ac18dce65e37?s=80&r=X&d=">
-        <div class="info">
-            <div class="title">猫与向日葵</div>
-            <div class="descript">浊以静之徐清，安以动之徐生。</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://imjad.cn/">
+        <div class="link-card">
+            <img src="https://secure.gravatar.com/avatar/1f1b82f7ab1429a50424ac18dce65e37?s=80&r=X&d=">
+            <div class="info">
+                <div class="title">猫与向日葵</div>
+                <div class="descript">浊以静之徐清，安以动之徐生。</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://heroyf.club/">
-    <div class="link-card">
-        <img src="https://file.heroyf.club/logo.jpg">
-        <div class="info">
-            <div class="title">萌萌哒の柯基</div>
-            <div class="descript">仰望大佬的菜鸡〒▽〒</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://heroyf.club/">
+        <div class="link-card">
+            <img src="https://file.heroyf.club/logo.jpg">
+            <div class="info">
+                <div class="title">萌萌哒の柯基</div>
+                <div class="descript">仰望大佬的菜鸡〒▽〒</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://www.fghrsh.net/">
-    <div class="link-card">
-        <img src="https://gravatar.fghrsh.net/avatar/0c5d77513a08b8c3e38336859b53b027?s=80&d=mm&r=G">
-        <div class="info">
-            <div class="title">FGHRSH 的博客</div>
-            <div class="descript">FGHRSH 的博客</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://www.fghrsh.net/">
+        <div class="link-card">
+            <img src="https://gravatar.fghrsh.net/avatar/0c5d77513a08b8c3e38336859b53b027?s=80&d=mm&r=G">
+            <div class="info">
+                <div class="title">FGHRSH 的博客</div>
+                <div class="descript">FGHRSH 的博客</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://daidr.me/">
-    <div class="link-card">
-        <div class="noimage">兜</div>
-        <div class="info">
-            <div class="title">daidr.me</div>
-            <div class="descript">在迷失中寻找自我</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://daidr.me/">
+        <div class="link-card">
+            <div class="noimage">兜</div>
+            <div class="info">
+                <div class="title">daidr.me</div>
+                <div class="descript">在迷失中寻找自我</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://www.staro.info/">
-    <div class="link-card">
-        <div class="noimage">地</div>
-        <div class="info">
-            <div class="title">地球屋</div>
-            <div class="descript">staro.info</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://www.staro.info/">
+        <div class="link-card">
+            <div class="noimage">地</div>
+            <div class="info">
+                <div class="title">地球屋</div>
+                <div class="descript">staro.info</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://nine-lie.com/">
-    <div class="link-card">
-        <div class="noimage">N</div>
-        <div class="info">
-            <div class="title">nine-lie.com</div>
-            <div class="descript">Lin's blog</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://nine-lie.com/">
+        <div class="link-card">
+            <div class="noimage">N</div>
+            <div class="info">
+                <div class="title">nine-lie.com</div>
+                <div class="descript">Lin's blog</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://lzyz.fun/">
-    <div class="link-card">
-        <img src="https://lzyz.fun/wp-content/uploads/headImg.jpg">
-        <div class="info">
-            <div class="title">惊鸿</div>
-            <div class="descript">Code a New World</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://lzyz.fun/">
+        <div class="link-card">
+            <img src="https://lzyz.fun/wp-content/uploads/headImg.jpg">
+            <div class="info">
+                <div class="title">惊鸿</div>
+                <div class="descript">Code a New World</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://2heng.xin">
-    <div class="link-card">
-        <img src="https://view.moezx.cc/images/2018/03/27/avatar.jpg">
-        <div class="info">
-            <div class="title">Mashiro</div>
-            <div class="descript">樱花庄的白猫</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://2heng.xin">
+        <div class="link-card">
+            <img src="https://view.moezx.cc/images/2018/03/27/avatar.jpg">
+            <div class="info">
+                <div class="title">Mashiro</div>
+                <div class="descript">樱花庄的白猫</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://mikukonai.com/#/index">
-    <div class="link-card">
-        <div class="noimage">初</div>
-        <div class="info">
-            <div class="title">Project Aurora</div>
-            <div class="descript">- 仁者心动 -</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://mikukonai.com/#/index">
+        <div class="link-card">
+            <div class="noimage">初</div>
+            <div class="info">
+                <div class="title">Project Aurora</div>
+                <div class="descript">- 仁者心动 -</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://hiwannz.com/">
-    <div class="link-card">
-        <div class="noimage">见</div>
-        <div class="info">
-            <div class="title">见字如面</div>
-            <div class="descript">别再烦我，你别说话</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://hiwannz.com/">
+        <div class="link-card">
+            <div class="noimage">见</div>
+            <div class="info">
+                <div class="title">见字如面</div>
+                <div class="descript">别再烦我，你别说话</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://tajoy.net/">
-    <div class="link-card">
-        <img src="https://raw.githubusercontent.com/tajoy/tajoy.github.io/src/static/profile.jpg">
-        <div class="info">
-            <div class="title">Tajoy's blog</div>
-            <div class="descript">一个不会摄影的程序猿, 不是一个好的艺术家</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://tajoy.net/">
+        <div class="link-card">
+            <img src="https://raw.githubusercontent.com/tajoy/tajoy.github.io/src/static/profile.jpg">
+            <div class="info">
+                <div class="title">Tajoy's blog</div>
+                <div class="descript">一个不会摄影的程序猿, 不是一个好的艺术家</div>
+            </div>
         </div>
-    </div>
-</a>
-
-<a class="link-card-wrapper" target="_blank" href="https://kalasearch.cn/blog">
-    <div class="link-card">
-        <div class="noimage">卡</div>
-        <div class="info">
-            <div class="title">卡拉搜索</div>
-            <div class="descript">elastic search 替代方案</div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://kalasearch.cn/blog">
+        <div class="link-card">
+            <div class="noimage">卡</div>
+            <div class="info">
+                <div class="title">卡拉搜索</div>
+                <div class="descript">elastic search 替代方案</div>
+            </div>
         </div>
-    </div>
-</a>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://blog.skk.moe">
+        <div class="link-card">
+            <img src="https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/144x144.png">
+            <div class="info">
+                <div class="title">Sukka's Blog</div>
+                <div class="descript">童话只美在真实却从不续写</div>
+            </div>
+        </div>
+    </a>
+</div>
 
 ## 添加方法
 

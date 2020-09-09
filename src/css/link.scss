@@ -1,5 +1,4 @@
 .link-card {
-  width: 49%;
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -27,10 +26,18 @@
       font-size: 1.2rem;
     }
     .descript {
+      font-size: 0.9rem;
       color: #aaa;
     }
   }
 }
-.link-card-wrapper{
+.link-card-wrapper {
   box-shadow: none;
+  float: left;
+  width: 50%;
+  padding:6px;
+  box-sizing: border-box;
+}
+.wrapper-wrapper {
+  overflow: hidden;
 }
