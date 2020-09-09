@@ -27,7 +27,11 @@ class Layout extends React.Component {
       days: this.formatTime(new Date() - new Date('2018-12-05 14:13:38')),
     })
     let localFlowerDance = localStorage.getItem('flowerDance')
-    this.setFlowerDance(localFlowerDance)
+    if(!localFlowerDance){
+      this.setFlowerDance(0)
+    }else{
+      this.setFlowerDance(localFlowerDance)
+    }
     let localTheme = localStorage.getItem('theme')
     if (localTheme) {
       if (localTheme === 'dark') {
@@ -78,7 +82,7 @@ class Layout extends React.Component {
     localStorage.setItem('flowerDance', n)
     document.querySelector('#canvas_sakura').style.opacity = Number(n)
     this.setState({
-      flowerDance: n == 1 ? true : false,
+      flowerDance: n,
     })
   }
   toggleMenuState = () => {
@@ -215,7 +219,7 @@ class Layout extends React.Component {
           </div>
         </footer>
         <div className="flower-toggle" onClick={this.toggleFlowerDance}>
-          {flowerDance ? '隐' : '樱'}
+          {flowerDance == 0 ? '隐' : '樱'}
         </div>
         <div className="theme-toggle" onClick={this.toggleTheme}>
           {theme === 'light' ? '日' : '夜'}
