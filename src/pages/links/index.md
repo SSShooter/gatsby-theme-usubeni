@@ -198,5 +198,5 @@ tags: ['导航']
 
 - 名称：UsubeniFantasy
 - 头像：[复制此链接](https://i.loli.net/2020/02/17/jrcMkuQxz6Z98H1.png)
-- 简介：Let the joy of life give you an answer.
+- 简介：Write like you're running out of time.
 - 网址：https://ssshooter.com
