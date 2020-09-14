@@ -22,12 +22,16 @@
   .info {
     flex-grow: 1;
     padding-left: 10px;
+    min-width: 0; // 加了才能用溢出省略号
     .title {
       font-size: 1.2rem;
     }
     .descript {
       font-size: 0.9rem;
       color: #aaa;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }

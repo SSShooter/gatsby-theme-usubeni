@@ -102,15 +102,6 @@ tags: ['导航']
             </div>
         </div>
     </a>
-    <a class="link-card-wrapper" target="_blank" href="https://www.staro.info/">
-        <div class="link-card">
-            <div class="noimage">地</div>
-            <div class="info">
-                <div class="title">地球屋</div>
-                <div class="descript">staro.info</div>
-            </div>
-        </div>
-    </a>
     <a class="link-card-wrapper" target="_blank" href="https://nine-lie.com/">
         <div class="link-card">
             <div class="noimage">N</div>
