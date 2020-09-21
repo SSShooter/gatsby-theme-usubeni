@@ -174,6 +174,15 @@ tags: ['导航']
             </div>
         </div>
     </a>
+    <a class="link-card-wrapper" target="_blank" href="https://v3u.cn">
+        <div class="link-card">
+            <img src="https://v3u.cn/v3u/Public/images/logo_dark.png">
+            <div class="info">
+                <div class="title">刘悦的技术博客</div>
+                <div class="descript">Python 编程实践</div>
+            </div>
+        </div>
+    </a>
 </div>
 
 ## 添加方法
