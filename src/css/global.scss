@@ -443,3 +443,7 @@ input {
   }
 }
 @import './mobile.scss';
+
+.gatsby-resp-image-wrapper {
+  max-width: 100% !important;
+}
