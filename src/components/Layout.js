@@ -40,7 +40,7 @@ class Layout extends React.Component {
         this.setTheme('light')
       }
     } else if (window.matchMedia) {
-      if (window.matchMedia('(prefers-color-scheme: dark)')) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         this.setTheme('dark')
       } else {
         this.setTheme('light')
