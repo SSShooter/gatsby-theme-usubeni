@@ -10,7 +10,11 @@ released: false
 
 **HTTP 缓存的核心是 header 的 Cache-Control 属性。**
 
-这个属性请求和响应都可用，不过请求头的 Cache-Control 一般只用于阻止 proxy 缓存（[相关问题](https://stackoverflow.com/questions/14541077/why-is-cache-control-attribute-sent-in-request-header-client-to-server)），因此我们可以重点关注响应头。
+这个属性请求和响应都可用，不过请求头的 Cache-Control 一般只用于阻止代理（proxy）缓存（[相关问题](https://stackoverflow.com/questions/14541077/why-is-cache-control-attribute-sent-in-request-header-client-to-server)），因此我们可以重点关注响应头。
+
+其中代理（proxy）是指客户端到服务器中间的可能经过的地方，有可能用于数据转发和缓存。
+
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Client-server-chain.png)
 
 **HTTP 缓存有两个关键字：新鲜度（Freshness），校验（Validation）**
 
