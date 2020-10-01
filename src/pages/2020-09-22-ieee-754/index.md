@@ -261,3 +261,5 @@ console.log(Math.pow(2, 53) + 4)
 [IEEE-754 转十进制](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
 
 [自己动手的十进制转 IEEE-754](https://www.wikihow.com/Convert-a-Number-from-Decimal-to-IEEE-754-Floating-Point-Representation)
+
+[What's Up With Floating Point?](https://timroderick.com/floating-point-introduction/)
