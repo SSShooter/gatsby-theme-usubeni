@@ -363,6 +363,11 @@ input {
       margin-top: 29px;
     }
   }
+  table {
+    display: block;
+    overflow: auto;
+    border: none;
+  }
 }
 
 .css-header {

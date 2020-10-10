@@ -6,9 +6,9 @@ tags: ['coding', '翻译']
 released: false
 ---
 
-https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/#benefits
+> 原文地址：[Understanding Semantic Commit Messages Using Git and Angular](https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular)
 
-很多项目都会选择订立这样那样的 commit 提交约定，这不是什么新鲜的设定，只不过在近年来越来越多地被应用起来，很可能你已经遇到过使用着某种约定的项目。
+很多项目都会选择定下这样那样的 commit 提交约定，这不是什么新鲜的设定，只不过在近年来越来越多地被应用起来，很可能你已经遇到过使用着某种约定的项目。
 
 最初提出 commit 约定的项目之一是 AngularJS。团队建立了详尽的文档说明成员们应该如何进行 commit。后来，commit 约定火起来了，或者大家接触到他们是在 Karma 的指引中。另外 jQuery、JSHint、Ember、Angular（AngularJS 约定的增强版）等，都有着各自不同的约定。
 
@@ -76,7 +76,7 @@ git commit -m "fix(core): remove deprecated and defunct wtf* apis" -m "These api
 - 我们使用多个 `-m` 分段，而不是单行信息
 - header 和 body 中间应有空行（上述做法自带空行）
 
-注意：虽然分行不只有这种方法，但是我们后面为了方便会继续使用 `-m`（同时这样做肯定适配各种 shell）。
+**注意：**虽然分行不只有这种方法，但是我们后面为了方便会继续使用 `-m`（同时这样做肯定适配各种 shell）。
 
 ### Footer
 
@@ -94,57 +94,68 @@ git commit -m "fix(core): remove deprecated and defunct wtf* apis" -m "These api
 
 ## 常用类型
 
+不止定义了 commit 信息的格式，Angular 还约定了一系列实用的类型。
+
+在继续之前，我们先区分他们为两个大类：
+
+- 开发型 - 维护用的类型，面向开发者，实际上不影响生产代码，但是会影响开发坏境和开发工作流
+- 生产型 - 增强用的类型，面向用户，影响生产代码
+
+下面开始介绍这些实用类型。
+
+**注意：**下面的例子都直接使用 Angular 仓库的 commit。
+
 ### 👷 build
 
-`build`（也常称为 `chore`）是**开发**修改，这些修改常包含构建系统（引入脚本、配置、工具）和依赖。
+`build`（也常称为 `chore`），**开发型**，这些修改常包含构建系统（引入脚本、配置、工具）和依赖。
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-build-type.png)
 
 ### 💚 ci
 
-`ci` 是**开发**修改，持续集成相关。
+`ci`，**开发型**，持续集成相关。
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-ci-type.png)
 
 ### 📝 docs
 
-`docs` 是项目文档修改，包括面向用户和开发者的文档。
+`docs`，**开发型**，项目文档相关，包括面向用户和开发者的文档。
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-docs-type.png)
 
 ### ✨ feat
 
-`feat` 是生产修改，是一些向后兼容的新功能。
+`feat`，**生产型**，向后兼容的新功能。
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-feat-type.png)
 
 ### 🐛 fix
 
-`fix` 是生产修改，是一些向后兼容的 bug 修复。
+`fix`，**生产型**，向后兼容的 bug 修复。
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-fix-type.png)
 
 ### ⚡️ perf
 
-生产，向后兼容的性能提升
+`perf`，**生产型**，向后兼容的性能提升
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-perf-type.png)
 
 ### ♻️ refactor
 
-开发，修改代码库，但不是添加新功能或修复 bug，而是移除多余代码、简化代码、重命名变量等操作。
+`refactor`，**开发型**，修改代码库，但不是添加新功能或修复 bug，而是移除多余代码、简化代码、重命名变量等操作。
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-refactor-type.png)
 
 ### 🎨 style
 
-开发，代码格式化相关
+**开发型**，代码格式化相关
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-style-type.png)
 
 ### ✅ test
 
-开发，重构测试或新增测试
+**开发型**，重构测试或新增测试
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-test-type.png)
 
@@ -154,23 +165,49 @@ git commit -m "fix(core): remove deprecated and defunct wtf* apis" -m "These api
 
 ### 历史浏览
 
+git 为我们提供了浏览提交历史的功能，因此我们可以查询到每条提交发生了什么，提交人是谁等信息。
+
+我们看看上面的约定如何让我们更方便地浏览记录：
+
 ```
 git log --oneline --grep "^feat\|^fix\|^perf"
 ```
+
+我们使用 commit 信息类型过滤，只显示生产型的修改（类型为 `feat`、`fix` 和 `perf`）。
+
+另一个例子：
 
 ```
 git log --oneline --grep "^feat" | wc -l
 ```
 
+我们打印 `feat` 类型提交的总数。
+
+我想表达的是，约定的提交格式是十分结构化的，我们可以高效地浏览和过滤提交历史。
+
+总之，非常地快！💪🏻
+
 ### 自动发布
+
+
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/example-of-release-note.png)
 
 ## 杂项
 
+顺便看看其他让语义化 commit 更物尽其用的玩意。
+
+### 使用 Emoji
+
+### CLI 工具
+
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/commitlint-example.png)
 
+### Linter
+
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/commitizen-example.png)
+
+### VSCode 插件
 
 ## 总结
 
@@ -178,4 +215,9 @@ git log --oneline --grep "^feat" | wc -l
 
 总结起来有这些点：
 
-- 
+- 语义化 commit 是依照某种约定填写的“有意义的” commit 信息，开发者可以轻易理解这些信息，开发工具也可以利用这种约定方便查找信息
+- 语义化 commit 有更高可读性，更高效，更自动
+- 约定 commit 
+- Angular 的指引
+- 约定后我们可以更方便地浏览 commit 历史
+- 约定后我们可以更方便地处理发布信息
