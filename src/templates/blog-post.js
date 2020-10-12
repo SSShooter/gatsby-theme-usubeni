@@ -62,7 +62,9 @@ class BlogPostTemplate extends React.Component {
       )
       .then(({ data }) => {
         this.setState({
-          comments: data.data,
+          comments: data.data.filter(comment => {
+            return !comment.content.match(/快递|单号|www|com|空包/)
+          }),
         })
       })
   }
