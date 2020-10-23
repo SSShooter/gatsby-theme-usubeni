@@ -1,0 +1,85 @@
+let函数
+
+r3=0
+r0=0
+r1=1
+#Loop2
+r4=CurrentContext
+Context.push(CreateBlockContext)
+CurrentContextSlot[2]=theHole
+CurrentContextSlot[2]=r0
+if(1===r1){
+    r1=0
+}else{
+    CurrentContextSlot[2]+=1
+}
+r2=1
+r5=CurrentContextSlot[2]
+if(r5<10){
+    #Loop
+    if(1===r2){
+        r5=setTimeout
+        r6=CreateClosure
+        r7=10
+        CallUndefinedReceiver2 r5, r6, r7
+        r2=0
+        r0=CurrentContextSlot[2]
+        goto Loop
+    }else{
+        if(1===r2){
+            Context.pop()
+            CurrentContext = r4
+            return 
+        }else{
+            PopCurrentContext
+            CurrentContext = r4
+            goto Loop2
+        }
+    }
+}else{
+    PopCurrentContext
+    CurrentContext = r4
+    return 
+}
+
+let函数人看版
+
+r3=0
+r0=-1
+r1=1
+#Loop2
+r4=CurrentContext
+CurrentContext=CreateBlockContext
+CurrentContextSlot[2]=r0
+CurrentContextSlot[2]+=1
+r2=1
+r5=CurrentContextSlot[2]
+if(r5<10){
+    setTimeout(CreateClosure)
+    r2=0
+    r0=CurrentContextSlot[2]
+    PopCurrentContext
+    CurrentContext = r4
+    goto Loop2
+}else{
+    PopCurrentContext
+    CurrentContext = r4
+    return 
+}
+
+var函数
+
+r0.push(CreateFunctionContext)
+CurrentContextSlot[2]=0
+#Loop
+r1=CurrentContextSlot[2]
+if(r1<10){
+    r1=setTimeout
+    r2=CreateClosure
+    r3=10
+    CallUndefinedReceiver2 r1, r2, r3
+    CurrentContextSlot[2]+=1
+    goto Loop
+}else{
+    return 
+}

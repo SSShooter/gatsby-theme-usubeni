@@ -1,0 +1,42 @@
+[generating bytecode for function: ]
+--- AST ---
+FUNC at 0
+. KIND 0
+. LITERAL ID 0
+. SUSPEND COUNT 0
+. NAME ""
+. INFERRED NAME ""
+. DECLS
+. . FUNCTION "a" = function a
+. . VARIABLE (0x7fe5b400bd50) (mode = VAR, assigned = true) "god"
+. EXPRESSION STATEMENT at 36
+. . ASSIGN at -1
+. . . VAR PROXY local[0] (0x7fe5b400be60) (mode = TEMPORARY, assigned = true) ".result"
+. . . CALL
+. . . . VAR PROXY unallocated (0x7fe5b400bc80) (mode = VAR, assigned = true) "a"
+. BLOCK NOCOMPLETIONS at -1
+. . EXPRESSION STATEMENT at 51
+. . . INIT at 51
+. . . . VAR PROXY unallocated (0x7fe5b400bd50) (mode = VAR, assigned = true) "god"
+. . . . LITERAL null
+. RETURN at -1
+. . VAR PROXY local[0] (0x7fe5b400be60) (mode = TEMPORARY, assigned = true) ".result"
+
+[generating bytecode for function: a]
+--- AST ---
+FUNC at 11
+. KIND 0
+. LITERAL ID 1
+. SUSPEND COUNT 0
+. NAME "a"
+. PARAMS
+. . VAR (0x7fe5b400bce8) (mode = VAR, assigned = false) "b"
+. . VAR (0x7fe5b400bd90) (mode = VAR, assigned = false) "c"
+. DECLS
+. . VARIABLE (0x7fe5b400bce8) (mode = VAR, assigned = false) "b"
+. . VARIABLE (0x7fe5b400bd90) (mode = VAR, assigned = false) "c"
+. RETURN at 22
+. . ADD at 30
+. . . VAR PROXY parameter[0] (0x7fe5b400bce8) (mode = VAR, assigned = false) "b"
+. . . VAR PROXY parameter[1] (0x7fe5b400bd90) (mode = VAR, assigned = false) "c"
+
