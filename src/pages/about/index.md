@@ -29,6 +29,12 @@ Github 地址： https://github.com/ssshooter/mind-elixir-core
 
 试用地址： https://mindelixir.ink/
 
+### syncHime
+
+https://github.com/ssshooter/syncHime
+
+一个让你更方便地异地同步看视频的 Chrome 插件，[webstore 传送门](https://chrome.google.com/webstore/detail/synchime/emjmcfhchipmaflddbmkoojhecpfpjmo)。
+
 ### img-vuer
 
 [> live demo <](https://ssshooter.github.io/img-vuer/index.html)

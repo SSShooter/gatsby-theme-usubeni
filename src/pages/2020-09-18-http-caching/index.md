@@ -100,3 +100,11 @@ ETag 属性是请求指向的资源的**指纹**，如果资源被修改，那�
 第二，依赖的 JavaScript 和 css 文件设置长时间的 `max-age`，且不校验。但是不校验怎么更新版本呢？我们可以在**文件名上带上哈希值**（一般依赖内容由构建工具生成，不用手动地加哈希值），这样每次版本更新后，请求的都**不是同一个文件**
 
 通过上面两个设置的配合，就能同时实现长时间缓存和版本更新。
+
+## 附录
+
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/serverToClientFlowchart.png)
+
+上图来源于 [Server to Client](https://alistapart.com/article/server-to-client/) 这篇文章，看不清请右键新建页面浏览图片。
+
+此图清晰说明了客户端输入地址后，整个获取资源的流程。值得注意的是，Service Worker 在此占有一席之地，说明我们可以借助他的力量代替传统的缓存操作，不过相关问题，就留到下次再做研究了。
