@@ -8,19 +8,14 @@ tags: ['coding']
 
 **未完成，长期更新**
 
-## Engine
-
-处理代码的机器。
-
-- V8 是一个 JavaScript 引擎
-- WebKit 是一个浏览器引擎
-
 ## Runtime
 
-运行环境，如：
+常指 Runtime system（区别于程序生命周期的 Runtime），也叫作 runtime environment。
+
+> Most programming languages have some form of runtime system that provides an environment in which programs run. This environment may address a number of issues including the management of application memory, how the program accesses variables, mechanisms for passing parameters between procedures, interfacing with the operating system, and otherwise. The compiler makes assumptions depending on the specific runtime system to generate correct code. Typically the runtime system will have some responsibility for setting up and managing the stack and heap, and may include features such as garbage collection, threads or other dynamic features built into the language.
 
 - 浏览器提供的 window 对象，DOM API
-- NodeJS 提供系统和网络访问能力
+- Node.js 提供系统和网络访问能力
 - Electron 提供 UI 相关 API
 - setTimeout 等函数由运行时提供
 
@@ -33,6 +28,8 @@ JavaScript 引擎，用于 Chrome，但与浏览器引擎区别的是 JavaScript
 - Chakra —— Edge
 
 2017 年 5 月 15 日，V8 团队发布 [Launching Ignition and TurboFan](https://v8.dev/blog/launching-ignition-and-turbofan)，宣布新 pipeline 更换为 [Ignition](https://v8.dev/docs/ignition)(interpreter) 和 [TurboFan](https://v8.dev/docs/turbofan)(compiler)
+
+[JavaScript引擎、虚拟机、运行时环境是一回事儿吗？](https://www.zhihu.com/question/39499036)
 
 ### Ignition
 
@@ -72,19 +69,29 @@ Compiler 是将一种语言（通常是高等语言）处理为另一种语言�
 
 - 前端：源代码转换为 intermediate representation(IR)
 - 中端：优化 IR
-- 后端：根据 CPU 再次优化 IR，生成目标架构可运行的代码
+- 后端：根据 CPU 再次优化 IR，生成**目标架构可运行的代码**
 
-AOT 提前编译，然后运行
+### 编译策略
 
-JIT 运行前编译，造成 overhead，[V8 会缓存多次使用的代码的编译结果](https://v8.dev/blog/code-caching)
+#### AOT
 
-## interpreter
+Ahead-of-time，提前根据架构编译为可运行代码。
+
+#### JIT
+
+Just-in-time，运行前编译，造成 overhead，[V8 会缓存多次使用的代码的编译结果](https://v8.dev/blog/code-caching)
+
+## Interpreter
 
 interpreter 可以直接执行脚本语言或编程语言而不用事先编译。
 
-但是事实上，interpreter 内部依然有一个 compiler。只不过流程连贯了起来，compiler 生成代码后，interpreter 立即执行。
+三种 interpreter：
 
-## 区别
+- parse 源码，并运行
+- translate 源码为 IR，并运行
+- interpreter 内部依然有一个 compiler。只不过流程连贯了起来，compiler 生成代码后，interpreter 立即执行。
+
+## Compiler 和 Interpreter 的区别
 
 相对于 compile 的原意是编撰，compiler 就是编撰者；
 
@@ -100,9 +107,23 @@ interpret 是口译，interpreter 就是口译者；
 - compiler 做的是：源代码 -> 机器码 字节码
 - interpreter 做的是：字节码 -> 机器码，并运行
 
+一种语言是编译型或解释型的定义由官方实现决定，事实上一种语言是编译型或是解释型不是绝对的。
+
+## Intermediate representation
+
+compiler 或 virtual machine 使用的一种数据结构或代码。
+
+V8 的 IR 是 Sea-of-Nodes。
+
 ## Virtual Machine
 
-虚拟机
+分为系统虚拟机和进程虚拟机，系统虚拟机模拟整个计算机，此处主要讨论进程虚拟机。
+
+进程虚拟机也叫 application virtual machine 或 Managed Runtime Environment (MRE)（重点，运行时环境）。
+
+进程虚拟机建立在真实系统上，为高级语言提供运行环境，例如 JVM。
+
+> A process VM provides a high-level abstraction – that of a high-level programming language (compared to the low-level ISA abstraction of the system VM). Process VMs are implemented using an interpreter; performance comparable to compiled programming languages can be achieved by the use of just-in-time compilation.
 
 ## Assembly Code
 
@@ -110,15 +131,15 @@ interpret 是口译，interpreter 就是口译者；
 
 ## WebAssembly
 
-## bytecode
+## Bytecode
 
-字节码，虽然也是处理成一堆 0 和 1，但是 CPU 根本看不懂，不过，虚拟机倒是懂。
+字节码，虽然和机器码一样都是处理成一堆 0 和 1，但是 CPU 根本看不懂，不过，虚拟机倒是懂。
 
-例如 Java class 文件，JavaScript 的 bytecode
+例如 Java class 文件、JavaScript 的 bytecode
 
 ## Machine Code
 
-一堆 0 和 1，计算机真正的母语，可以直接运行。
+一堆 0 和 1，计算机真正的母语，可以直接运行每一条指令，例如 store、load、jump、ALU 操作。
 
 - [The JavaScript runtime environment](http://dolszewski.com/javascript/javascript-runtime-environment/)
 - [What is the difference between JavaScript Engine and JavaScript Runtime Environment](https://stackoverflow.com/questions/29027845/- what-is-the-difference-between-javascript-engine-and-javascript-runtime-environm)
