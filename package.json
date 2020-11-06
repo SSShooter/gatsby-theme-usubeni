@@ -46,6 +46,7 @@
     "@dschau/create-gatsby-blog-post": "^1.1.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
+    "gatsby-remark-prismjs-title": "^1.0.0",
     "gh-pages": "^1.2.0",
     "prettier": "^1.14.2"
   },

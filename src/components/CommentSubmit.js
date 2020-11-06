@@ -104,7 +104,7 @@ export default class Comment extends Component {
           placeholder="选填 输入你的博客地址 带上 http(s)"
           required
         />
-        <input
+        <textarea
           id="comment-input"
           ref={input => (this.message = input)}
           placeholder="必填 请输入留言内容"

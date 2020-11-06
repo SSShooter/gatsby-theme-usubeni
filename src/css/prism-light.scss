@@ -36,22 +36,15 @@
   }
   pre[class*='language-'] > code {
     position: relative;
-    border-left: 10px solid #68565a;
-    box-shadow: -1px 0px 0px 0px #68565a, 0px 0px 0px 1px #dfdfdf;
-    background-color: #fdfdfd;
-    background-image: linear-gradient(
-      transparent 50%,
-      rgba(69, 142, 209, 0.04) 50%
-    );
-    background-size: 3em 3em;
-    background-origin: content-box;
-    background-attachment: local;
+    // border: solid 1px var(--mainDerive1);
   }
 
   code[class*='language'] {
+    border-radius: 3px;
+    background: #faf8f5;
     max-height: inherit;
     height: inherit;
-    padding: 0 1em;
+    padding: 1em;
     display: block;
     overflow: auto;
   }
@@ -59,52 +52,18 @@
   /* Margin bottom to accomodate shadow */
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background-color: #fdfdfd;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin-bottom: 1em;
   }
 
   /* Inline code */
   :not(pre) > code[class*='language-'] {
-    position: relative;
-    padding: 0.2em;
-    border-radius: 0.3em;
-    color: #c92c2c;
-    border: 1px solid rgba(0, 0, 0, 0.1);
     display: inline;
+    position: relative;
+    color: #c92c2c;
+    // border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.15em ;
     white-space: normal;
-  }
-
-  pre[class*='language-']:before,
-  pre[class*='language-']:after {
-    content: '';
-    z-index: -2;
-    display: block;
-    position: absolute;
-    bottom: 0.75em;
-    left: 0.18em;
-    width: 40%;
-    height: 20%;
-    max-height: 13em;
-    box-shadow: 0px 13px 8px #979797;
-    -webkit-transform: rotate(-2deg);
-    -moz-transform: rotate(-2deg);
-    -ms-transform: rotate(-2deg);
-    -o-transform: rotate(-2deg);
-    transform: rotate(-2deg);
-  }
-
-  :not(pre) > code[class*='language-']:after,
-  pre[class*='language-']:after {
-    right: 0.75em;
-    left: auto;
-    -webkit-transform: rotate(2deg);
-    -moz-transform: rotate(2deg);
-    -ms-transform: rotate(2deg);
-    -o-transform: rotate(2deg);
-    transform: rotate(2deg);
   }
 
   .token.comment,

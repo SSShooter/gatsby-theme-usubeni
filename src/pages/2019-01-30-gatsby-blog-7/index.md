@@ -25,7 +25,7 @@ tags: ['coding', 'gatsby']
       frontmatter {
         title
         tags
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
       }
     }
   }

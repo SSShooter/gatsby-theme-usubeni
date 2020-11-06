@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-export default function(props) {
+export default function (props) {
   return (
     <div className="css-info">
       <span className="iconfont">&#xe7d3;</span>
-      {props.date}
+      <span style={{
+        paddingRight: '12px'
+      }}>{props.date}</span>
       {props.tags ? (
         <React.Fragment>
           <span className="iconfont">&#xe7e5;</span>

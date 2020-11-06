@@ -13,12 +13,13 @@
   --mainDerive1: #68565a;
   --mainDerive2: #b55f70;
   --mainDerive3: #ecc3cb;
-  --linkColor: #683741;
+  --linkColor: #c92f4e;
   --fontColor: hsl(284, 20%, 30%);
   --codeBlock: #3c495b;
   --code: #c3c7cb;
   --divider: #eee;
   --buttonColor: #683741;
+  --hrColor: #dfdfdf;
 }
 
 // @media screen and (prefers-color-scheme: dark) {
@@ -30,10 +31,11 @@
   --mainDerive3: #ecc3cb;
   --linkColor: #ecbcc6;
   --fontColor: #e5e5e5;
-  --codeBlock: #3c495b;
+  --codeBlock: #2d2d2d;
   --code: #c3c7cb;
   --divider: #3e4b5e;
-  --buttonColor: #683741;
+  --buttonColor: #ecbcc6;
+  --hrColor: #5c5c5c;
 
   img {
     // filter: brightness(80%);
@@ -80,8 +82,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -120,7 +122,7 @@ body {
   // font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
   //   'WenQuanYi Micro Hei', sans-serif;
   -webkit-font-smoothing: antialiased !important;
-  font-size: 19px;
+  font-size: 16px;
   background-color: var(--backgroundColor);
   color: var(--fontColor);
   transition: all 0.5s ease-in-out;
@@ -165,26 +167,27 @@ code {
 
 hr {
   border: none;
-  color: var(--fontColor);
+  color: var(--hrColor);
   height: 1px;
   width: 100%;
-  background: var(--fontColor);
+  background: var(--hrColor);
   margin-top: 40px;
 }
 
 a {
   color: var(--linkColor);
   text-decoration: none;
-  box-shadow: 0 1px 0 0 currentColor;
+  // box-shadow: 0 1px 0 0 currentColor;
   &:hover,
   &:active {
-    box-shadow: none;
+    // box-shadow: none;
+    box-shadow: 0 1px 0 0 currentColor;
   }
 }
 
 footer {
   font-family: sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   padding: 30px 0;
   text-align: center;
 }
@@ -205,35 +208,34 @@ table {
 
 button {
   cursor: pointer;
-  background: #fff;
+  background: rgba(0, 0, 0, 0);
   display: inline-block;
   padding: 0.3rem 1rem;
   margin-bottom: 0.3rem;
   text-decoration: none;
   color: var(--buttonColor);
-  border: solid 1px var(--buttonColor);
+  border: none;
   transition: 0.4s;
 }
 
-button:hover {
-  background: var(--buttonColor);
-  color: white;
+// button:hover {
+//   background: var(--buttonColor);
+//   color: white;
+// }
+
+input,
+button,
+textarea {
+  color: var(--fontColor);
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+  border: none;
 }
 
 input,
 button {
-  outline: none;
+  text-align: center;
 }
-
-input {
-  height: 2rem;
-  margin: 1rem 0;
-  border: none;
-  margin: 0 0 10px 0;
-  padding: 0 10px;
-  border: solid 1px var(--buttonColor);
-}
-
 // overwrite gatsby plug-in style
 .gatsby-resp-image-link {
   box-shadow: none;
@@ -265,19 +267,21 @@ input {
       font-size: 1.2rem;
       text-align: left;
     }
-    .social-media {
-      width: 100%;
-      padding-top: 0.5rem;
-      display: flex;
-      justify-content: space-around;
-      a {
-        box-shadow: none;
-      }
-      .iconfont {
-        color: var(--linkColor);
-        font-size: 1.3rem;
-      }
-    }
+  }
+}
+
+.social-media {
+  margin: auto;
+  width: 200px;
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  a {
+    box-shadow: none;
+  }
+  .iconfont {
+    color: var(--linkColor);
+    font-size: 1.3rem;
   }
 }
 
@@ -389,9 +393,9 @@ input {
   margin-bottom: 1rem;
   .iconfont {
     &:first-of-type {
-      padding: 0 8px 0 0;
+      padding: 0 5px 0 0;
     }
-    padding: 0 8px;
+    padding: 0 5px;
   }
 }
 
@@ -449,4 +453,24 @@ input {
 
 .gatsby-resp-image-wrapper {
   max-width: 100% !important;
+}
+
+.code-title {
+  display: block;
+  position: relative;
+  width: 100%;
+  top: 10px;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  margin-bottom: 0;
+}
+
+.code-title span {
+  display: inline;
+  position: relative;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  border-top-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  padding: 3px;
+  top: 1px;
 }

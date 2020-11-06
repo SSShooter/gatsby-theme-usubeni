@@ -4,7 +4,7 @@ blockquote {
   padding: 35px 15px 10px 15px;
   margin: 40px 20px;
   box-sizing: border-box;
-  color: #777777;
+  color: var(--fontColor);
   border-left: 4px solid var(--mainDerive2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
 }

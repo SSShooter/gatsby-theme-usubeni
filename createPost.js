@@ -28,6 +28,6 @@ fs.appendFile(
   template,
   err => {
     if (err) throw err
-    console.log('数据已追加到文件')
+    console.log('New file is created')
   }
 )

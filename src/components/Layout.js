@@ -6,7 +6,7 @@ import startSakura from '../sakura.TRHX.js'
 import '../css/global.scss'
 
 let footerStyle = {
-  marginBottom: '1rem',
+  marginBottom: '0.3rem',
 }
 class Layout extends React.Component {
   state = {
@@ -27,9 +27,9 @@ class Layout extends React.Component {
       days: this.formatTime(new Date() - new Date('2018-12-05 14:13:38')),
     })
     let localFlowerDance = localStorage.getItem('flowerDance')
-    if(!localFlowerDance){
+    if (!localFlowerDance) {
       this.setFlowerDance(0)
-    }else{
+    } else {
       this.setFlowerDance(localFlowerDance)
     }
     let localTheme = localStorage.getItem('theme')
@@ -98,7 +98,7 @@ class Layout extends React.Component {
   search = () => {
     window.open(
       'https://www.google.co.jp/search?q=site%3Assshooter.com+' +
-        this.state.keyword
+      this.state.keyword
     )
   }
   slowMotion = () => {
@@ -137,7 +137,7 @@ class Layout extends React.Component {
     // const rootPath = `${__PATH_PREFIX__}/`
 
     const websiteName = (
-      <React.Fragment>
+      <div>
         <Link
           style={{
             boxShadow: 'none',
@@ -152,7 +152,7 @@ class Layout extends React.Component {
           <img className="logo" src="/logo.png" />
         </Link>
         {pageName ? <div className="page-name">{'# ' + pageName}</div> : null}
-      </React.Fragment>
+      </div>
     )
     const descript = <div className="page-description">{pageDescript}</div>
     return (
@@ -187,19 +187,39 @@ class Layout extends React.Component {
                 }}
               />
             ) : (
-              <React.Fragment>
-                <Bio className="css-bio" />
-                <Menu direction="column" />
-                <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                  <input onChange={this.change} onKeyUp={this.handleEnter} />
-                  <br />
-                  <button onClick={this.search}>搜索</button>
-                </div>
-              </React.Fragment>
-            )}
+                <React.Fragment>
+                  {/* <Bio className="css-bio" /> */}
+                  <Menu direction="column" />
+                  <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+                    <input placeholder="输入关键字搜索" onChange={this.change} onKeyUp={this.handleEnter} />
+                    <br />
+                    {/* <button onClick={this.search}>搜索</button> */}
+                  </div>
+                </React.Fragment>
+              )}
           </aside>
         </div>
         <footer>
+          <div className="social-media" style={footerStyle}>
+            <a target="_blank" href="https://weibo.com/ariaqua">
+              <i className="iconfont">&#xe883;</i>
+            </a>
+            <a target="_blank" href="https://twitter.com/zhoudejie">
+              <i className="iconfont">&#xe882;</i>
+            </a>
+            <a target="_blank" href="https://github.com/ssshooter">
+              <i className="iconfont">&#xe885;</i>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.zhihu.com/people/ssshooter"
+            >
+              <i className="iconfont">&#xe87c;</i>
+            </a>
+            <a target="_blank" href="https://ssshooter.com/rss.xml">
+              <i className="iconfont">&#xe604;</i>
+            </a>
+          </div>
           <div style={footerStyle}>
             theme <span className="usubeni">UsubeniFantasy</span>
           </div>

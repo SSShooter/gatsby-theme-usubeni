@@ -2,11 +2,28 @@
   max-width: 400px;
   margin: 40px auto;
   input,
-  button {
+  button,
+  textarea {
     display: block;
     box-sizing: border-box;
     width: 100%;
   }
+
+  input,
+  textarea {
+    height: 2rem;
+    line-height: 2rem;
+    margin: 1rem 0;
+    border: none;
+    margin: 0 0 10px 0;
+    padding: 0 10px;
+    border: solid 1px var(--buttonColor);
+    border-radius: 3px;
+  }
+  textarea {
+    height: 6rem;
+  }
+
   .row {
     display: flex;
     justify-content: space-around;
@@ -15,11 +32,12 @@
     }
   }
 }
-.css-comment-display,.css-child-comment-display {
-  .css-reply{
+.css-comment-display,
+.css-child-comment-display {
+  .css-reply {
     opacity: 0;
   }
-  &:hover .css-reply{
+  &:hover .css-reply {
     opacity: 1;
   }
   .name {
@@ -32,7 +50,7 @@
     padding: 0 0 0 15px;
   }
 }
-.css-comment-display{
+.css-comment-display {
   padding: 20px;
   border-bottom: 1px solid #eee;
 }
