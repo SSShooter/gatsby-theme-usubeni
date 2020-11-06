@@ -19,11 +19,11 @@ class Bio extends Component {
         `}
         render={data => (
           <div className="css-bio">
-            <div className="css-avatar">
+            {/* <div className="css-avatar">
               <Img fluid={data.file.childImageSharp.fluid} />
-            </div>
+            </div> */}
             <div className="author-wrapper">
-              <div className="author">SSShooter</div>
+              {/* <div className="author">SSShooter</div> */}
               <div className="social-media">
                 <a target="_blank" href="https://weibo.com/ariaqua">
                   <i className="iconfont">&#xe883;</i>
