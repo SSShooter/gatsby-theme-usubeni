@@ -44,3 +44,13 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@111.111.111.111
 ```
 
 公钥上面已经生成了，直接运行上面的命令然后输入服务器密码，下次 ssh 登陆服务器就不需要密码了
+
+pps 编辑 .ssh 文件夹下的 config 文件：
+
+```
+Host alias
+  HostName 111.111.111.111
+  User root
+```
+
+之后运行 `ssh alias` 就能连结服务器，避免忘记 IP 的麻烦。

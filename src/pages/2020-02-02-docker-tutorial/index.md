@@ -105,3 +105,17 @@ docker container rm
 更多配置请参考 [compose-file 文档](https://docs.docker.com/compose/compose-file/)，确实，配置 `docker-compose.yaml` 也是一门学问。
 
 另外，[docker compose 文档](https://docs.docker.com/compose/reference/overview/)有 `docker-compose` 命令相关的文档。
+
+## 换镜像
+
+对于国内各种云，例如我一直在用的腾讯云，docker 下载实在龟速，时间就是生命，非常有必要通过修改镜像提速。
+
+```json:name=/etc/docker/daemon.json
+{
+   "registry-mirrors": [
+       "https://mirror.ccs.tencentyun.com"
+  ]
+}
+```
+
+运行 `service docker restart` 重启，运行 `docker info` 检查是否生效。
