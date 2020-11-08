@@ -5,6 +5,9 @@
  * @author Remy Bach
  */
 .dark-theme {
+  .gatsby-code-title {
+    background: var(--codeBlock);
+  }
   code[class*='language-'],
   pre[class*='language-'] {
     color: var(--code);

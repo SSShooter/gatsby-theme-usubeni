@@ -362,10 +362,6 @@ button {
       box-shadow: none;
       // opacity: 0;
     }
-    // 修改预设
-    .gatsby-highlight {
-      margin-top: 29px;
-    }
   }
   table {
     display: block;
@@ -471,6 +467,7 @@ button {
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   border-top-left-radius: 0.3em;
   border-bottom-right-radius: 0.3em;
-  padding: 3px;
+  padding: 3px 12px;
   top: 1px;
+  opacity: 0.7;
 }

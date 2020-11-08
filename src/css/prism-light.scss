@@ -5,6 +5,9 @@
  */
 
 .light-theme {
+  .gatsby-code-title {
+    background: #faf8f5;
+  }
   code[class*='language-'],
   pre[class*='language-'] {
     color: black;
@@ -47,13 +50,7 @@
     padding: 1em;
     display: block;
     overflow: auto;
-  }
-
-  /* Margin bottom to accomodate shadow */
-  :not(pre) > code[class*='language-'],
-  pre[class*='language-'] {
-    box-sizing: border-box;
-    margin-bottom: 1em;
+    margin: 0;
   }
 
   /* Inline code */
@@ -62,7 +59,7 @@
     position: relative;
     color: #c92c2c;
     // border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 0.15em ;
+    padding: 0.15em;
     white-space: normal;
   }
 

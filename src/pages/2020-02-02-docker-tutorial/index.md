@@ -90,6 +90,22 @@ docker container ls
 docker container rm
 ```
 
+### 进入容器
+
+方法 1
+
+```bash
+docker attach containerId
+```
+
+方法 2
+
+```bash
+docker exec -i containerId bash
+```
+
+因为发现 -d 运行的 container 运行 attach 后会没反应，所以感觉还是推荐使用 exec bash。
+
 ## docker compose
 
 顺便简单提一下 docker compose。
@@ -110,11 +126,9 @@ docker container rm
 
 对于国内各种云，例如我一直在用的腾讯云，docker 下载实在龟速，时间就是生命，非常有必要通过修改镜像提速。
 
-```json:name=/etc/docker/daemon.json
+```json:title=/etc/docker/daemon.json
 {
-   "registry-mirrors": [
-       "https://mirror.ccs.tencentyun.com"
-  ]
+  "registry-mirrors": ["https://mirror.ccs.tencentyun.com"]
 }
 ```
 
