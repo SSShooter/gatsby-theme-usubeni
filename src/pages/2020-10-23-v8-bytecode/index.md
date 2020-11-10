@@ -29,7 +29,7 @@ JavaScript 引擎，用于 Chrome，但与浏览器引擎区别的是 JavaScript
 
 2017 年 5 月 15 日，V8 团队发布 [Launching Ignition and TurboFan](https://v8.dev/blog/launching-ignition-and-turbofan)，宣布新 pipeline 更换为 [Ignition](https://v8.dev/docs/ignition)(interpreter) 和 [TurboFan](https://v8.dev/docs/turbofan)(compiler)
 
-[JavaScript引擎、虚拟机、运行时环境是一回事儿吗？](https://www.zhihu.com/question/39499036)
+[JavaScript 引擎、虚拟机、运行时环境是一回事儿吗？](https://www.zhihu.com/question/39499036)
 
 ### Ignition
 
@@ -75,11 +75,15 @@ Compiler 是将一种语言（通常是高等语言）处理为另一种语言�
 
 #### AOT
 
-Ahead-of-time，提前根据架构编译为可运行代码。
+Ahead-of-time compilation，提前将高级语言（如 C）或 IR（如 Java bytecode）**根据架构**编译为可运行代码。（不需要 Interpreter）
 
 #### JIT
 
-Just-in-time，运行前编译，造成 overhead，[V8 会缓存多次使用的代码的编译结果](https://v8.dev/blog/code-caching)
+Just-in-time compilation（也称为 dynamic translation 或 run-time compilations），是 **ahead-of-time compilation (AOT) 和 interpretation 的组合**。（可以看出 JIT 和 Interpreter 的奇妙关系）
+
+在运行时（而不是执行之前）编译，这个过程包括把源代码或 bytecode 转换成机器码并立即运行。JIT 会造成 overhead，但 compile 和 recompile 带来的速度提升可以弥补 overhead。
+
+[V8 会缓存多次使用的代码的编译结果](https://v8.dev/blog/code-caching)
 
 ## Interpreter
 
@@ -105,7 +109,7 @@ interpret 是口译，interpreter 就是口译者；
 一般来说：
 
 - compiler 做的是：源代码 -> 机器码 字节码
-- interpreter 做的是：字节码 -> 机器码，并运行
+- interpreter 做的是：源代码 字节码 -> 机器码，并运行
 
 一种语言是编译型或解释型的定义由官方实现决定，事实上一种语言是编译型或是解释型不是绝对的。
 
