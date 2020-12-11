@@ -111,7 +111,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
-        display: `UsubeniFantasy`,
+        display: `standalone`,
         icon: `static/mstile-150x150.png`,
       },
     },
