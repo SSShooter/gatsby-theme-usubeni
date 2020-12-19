@@ -14,6 +14,7 @@ date: '2019-02-14T00:00:00.000Z'
 - 希望能正确调整兴趣和时间的平衡
 - 已经不是[骑空士](http://game.granbluefantasy.jp/)了
 - 已经没有研究 RN 和连带的 iOS、android 原生
+- Email ssshooterx@gmail.com
 - NS SW-3824-2959-2096
 - PSN usubenifantasy
 
