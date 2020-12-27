@@ -19,21 +19,35 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {posts.map(({ node }) => {
+        {posts.map(({ node }, index) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div
               style={{
-                marginTop: '1rem',
+                marginTop: '0.5rem',
               }}
               key={node.fields.slug}
             >
+              {(index === 0 ||
+                (index > 0 &&
+                  posts[index - 1].node.frontmatter.year !==
+                    node.frontmatter.year)) && (
+                <div
+                  style={{
+                    fontSize: '1.8em',
+                    marginTop: index === 0?'0rem':'2rem',
+                    marginBottom: '1.5rem',
+                  }}
+                >
+                  {node.frontmatter.year}
+                </div>
+              )}
               <span
                 style={{
                   display: 'inline-block',
-                  width: '7em',
-                  textAlign: 'right',
-                  marginRight: '20px',
+                  width: '4em',
+                  textAlign: 'left',
+                  marginRight: '10px',
                   opacity: 0.6,
                 }}
               >
@@ -93,7 +107,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter:{ frontmatter: { released: { ne: false } } }
+      filter: { frontmatter: { released: { ne: false } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
@@ -105,7 +119,8 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "YYYY-MM-DD")
+            year: date(formatString: "YYYY")
+            date(formatString: "MM-DD")
             title
           }
         }
