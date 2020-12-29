@@ -6,7 +6,7 @@ import startSakura from '../sakura.TRHX.js'
 import '../css/global.scss'
 
 let footerStyle = {
-  marginBottom: '0.3rem',
+  marginBottom: '1rem',
 }
 class Layout extends React.Component {
   state = {
@@ -98,7 +98,7 @@ class Layout extends React.Component {
   search = () => {
     window.open(
       'https://www.google.co.jp/search?q=site%3Assshooter.com+' +
-      this.state.keyword
+        this.state.keyword
     )
   }
   slowMotion = () => {
@@ -187,16 +187,20 @@ class Layout extends React.Component {
                 }}
               />
             ) : (
-                <React.Fragment>
-                  {/* <Bio className="css-bio" /> */}
-                  <Menu direction="column" />
-                  <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                    <input placeholder="输入关键字搜索" onChange={this.change} onKeyUp={this.handleEnter} />
-                    <br />
-                    {/* <button onClick={this.search}>搜索</button> */}
-                  </div>
-                </React.Fragment>
-              )}
+              <React.Fragment>
+                {/* <Bio className="css-bio" /> */}
+                <Menu direction="column" />
+                <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+                  <input
+                    placeholder="输入关键字搜索"
+                    onChange={this.change}
+                    onKeyUp={this.handleEnter}
+                  />
+                  <br />
+                  {/* <button onClick={this.search}>搜索</button> */}
+                </div>
+              </React.Fragment>
+            )}
           </aside>
         </div>
         <footer>
@@ -210,10 +214,7 @@ class Layout extends React.Component {
             <a target="_blank" href="https://github.com/ssshooter">
               <i className="iconfont">&#xe885;</i>
             </a>
-            <a
-              target="_blank"
-              href="https://www.zhihu.com/people/ssshooter"
-            >
+            <a target="_blank" href="https://www.zhihu.com/people/ssshooter">
               <i className="iconfont">&#xe87c;</i>
             </a>
             <a target="_blank" href="https://ssshooter.com/rss.xml">
@@ -221,21 +222,15 @@ class Layout extends React.Component {
             </a>
           </div>
           <div style={footerStyle}>
-            theme <span className="usubeni">UsubeniFantasy</span>
+            © 2018-{year} SSShooter • theme{' '}
+            <span className="usubeni">UsubeniFantasy</span> • powered by{' '}
+            <a style={{ boxShadow: 'none' }} href="https://www.gatsbyjs.org/">
+              Gatsbyjs
+            </a>
           </div>
-          <div style={footerStyle}>© 2018-{year} SSShooter</div>
           <div style={footerStyle}>
             一转眼 已是
             {days}
-          </div>
-          <div style={footerStyle}>
-            powered by{' '}
-            <a
-              style={{ color: 'rgb(102, 51, 153)', boxShadow: 'none' }}
-              href="https://www.gatsbyjs.org/"
-            >
-              Gatsbyjs
-            </a>
           </div>
         </footer>
         <div className="flower-toggle" onClick={this.toggleFlowerDance}>
