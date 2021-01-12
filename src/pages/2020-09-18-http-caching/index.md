@@ -110,4 +110,5 @@ ETag 属性是请求指向的资源的**指纹**，如果资源被修改，那�
 
 ## 其他参考文章
 
-[Caching best practices & max-age gotchas](https://jakearchibald.com/2016/caching-best-practices/)
+- [Caching best practices & max-age gotchas](https://jakearchibald.com/2016/caching-best-practices/)
+- [Server to Client](https://alistapart.com/article/server-to-client/)

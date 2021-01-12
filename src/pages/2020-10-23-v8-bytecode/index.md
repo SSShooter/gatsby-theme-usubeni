@@ -73,6 +73,12 @@ Compiler 是将一种语言（通常是高等语言）处理为另一种语言�
 
 ### 编译策略
 
+#### overhead
+
+进行某个操作时，需要先准备好某些资源，这一步骤占用的时间或资源就是 overhead。
+
+举个例子，开车去某个地方，去停车场把车开出来就是 overhead，如果你去小区不远处的小卖部，就完全没必要开车，因为这个 overhead 对这件事来说成本太高了。
+
 #### AOT
 
 Ahead-of-time compilation，提前将高级语言（如 C）或 IR（如 Java bytecode）**根据架构**编译为可运行代码。（不需要 Interpreter）
@@ -145,8 +151,12 @@ V8 的 IR 是 Sea-of-Nodes。
 
 一堆 0 和 1，计算机真正的母语，可以直接运行每一条指令，例如 store、load、jump、ALU 操作。
 
+## 参考
+
 - [The JavaScript runtime environment](http://dolszewski.com/javascript/javascript-runtime-environment/)
-- [What is the difference between JavaScript Engine and JavaScript Runtime Environment](https://stackoverflow.com/questions/29027845/- what-is-the-difference-between-javascript-engine-and-javascript-runtime-environm)
+- [What is the difference between JavaScript Engine and JavaScript Runtime Environment](https://stackoverflow.com/questions/29027845/-what-is-the-difference-between-javascript-engine-and-javascript-runtime-environm)
 - [The Javascript Runtime Environment](https://medium.com/@olinations/the-javascript-runtime-environment-d58fa2e60dd0)
 - [Machine code vs. Byte code vs. Object code vs. Source code vs. Assembly code vs. Executable code](https://medium.com/@rahul77349/machine-code-vs-byte-code-vs-object-code-vs-source-code-vs-assembly-code-812c9780f24c)
 - [Ignition 指令注释](https://github.com/v8/v8/blob/master/src/interpreter/interpreter-generator.cc)
+- [What is “overhead”?](https://stackoverflow.com/questions/2860234/what-is-overhead)
+- [What is the difference between assembly code and bytecode?](https://stackoverflow.com/questions/1782415/what-is-the-difference-between-assembly-code-and-bytecode)
