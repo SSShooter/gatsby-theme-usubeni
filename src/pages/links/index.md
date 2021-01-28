@@ -43,6 +43,15 @@ tags: ['导航']
             </div>
         </div>
     </a>
+    <a class="link-card-wrapper" target="_blank" href="https://storeweb.cn/">
+        <div class="link-card">
+            <div class="noimage">个</div>
+            <div class="info">
+                <div class="title">个站商店</div>
+                <div class="descript">一个精致的，带社交元素的个人网站发布平台，博客收录网站</div>
+            </div>
+        </div>
+    </a>
 </div>
 
 ## 友情链接
@@ -171,6 +180,15 @@ tags: ['导航']
             <div class="info">
                 <div class="title">刘悦的技术博客</div>
                 <div class="descript">Python 编程实践</div>
+            </div>
+        </div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://go123.live">
+        <div class="link-card">
+            <div class="noimage">G</div>
+            <div class="info">
+                <div class="title">Go123 的博客</div>
+                <div class="descript">告诉你一些好玩软件和网站，纯干货、0水分、快乐多O(∩_∩)O</div>
             </div>
         </div>
     </a>
