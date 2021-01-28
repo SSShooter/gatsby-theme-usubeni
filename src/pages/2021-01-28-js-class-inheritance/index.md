@@ -15,7 +15,7 @@ class 可以 extends 自另一个 class。这是一个不错的语法，技术�
 
 这个 `Rabbit` 继承自 `Animal`：
 
-```js run
+```javascript
 class Animal {
   constructor(name) {
     this.speed = 0
@@ -52,13 +52,13 @@ rabbit.hide() // White Rabbit hides!
 
 所以现在 `rabbit` 既可以访问它自己的方法，也可以访问 `Animal` 的方法。
 
-### `extends` 后可跟表达式
+## `extends` 后可跟表达式
 
 Class 语法的 `extends` 后接的不限于指定一个类，更可以是表达式。
 
 例如一个生成父类的函数：
 
-```js run
+```javascript
 function f(phrase) {
   return class {
     sayHi() {
@@ -99,7 +99,7 @@ Class 为此提供 `super`关键字。
 
 例如，让兔子在 `stop` 时自动隐藏：
 
-```js run
+```javascript
 class Animal {
   constructor(name) {
     this.speed = 0
@@ -182,7 +182,7 @@ class Rabbit extends Animal {
 
 现在我们将一个自定义构造函数添加到 `Rabbit` 中。除了`name`，我们还会设置 `earLength`：
 
-```js run
+```javascript
 class Animal {
   constructor(name) {
     this.speed = 0
@@ -224,7 +224,7 @@ let rabbit = new Rabbit('White Rabbit', 10) // Error: this is not defined.
 
 对于 `Rabbit` 来说，我们需要在使用 `this` 之前调用 `super()`，如下所示：
 
-```js run
+```javascript
 class Animal {
   constructor(name) {
     this.speed = 0
@@ -264,7 +264,7 @@ alert(rabbit.earLength) // 10
 
 在这里，`rabbit.eat()` 调用父对象的 `animal.eat()` 方法：
 
-```js run
+```javascript
 let animal = {
   name: 'Animal',
   eat() {
@@ -290,7 +290,7 @@ rabbit.eat() // Rabbit eats.
 
 但是现在让我们再添加一个对象到原型链中，就要出事了：
 
-```js run
+```javascript
 let animal = {
   name: 'Animal',
   eat() {
@@ -355,7 +355,7 @@ longEar.eat() // Error: Maximum call stack size exceeded
 
 让我们来看看它是如何在 `super` 中运作的：
 
-```js run
+```javascript
 let animal = {
   name: 'Animal',
   eat() {
@@ -391,7 +391,7 @@ longEar.eat() // Long Ear eats.
 
 在下面的例子中，使用非方法语法（non-method syntax）进行比较。这么做没有设置 `[[HomeObject]]` 属性，继承也不起作用：
 
-```js run
+```javascript
 let animal = {
   eat: function() {
     // should be the short syntax: eat() {...}
@@ -415,7 +415,7 @@ rabbit.eat() // Error calling super (because there's no [[HomeObject]])
 
 例如：
 
-```js run
+```javascript
 class Animal {
   constructor(name, speed) {
     this.speed = speed
@@ -456,7 +456,7 @@ rabbits[0].run() // Black Rabbit runs with speed 5.
 
 看看这里：
 
-```js run
+```javascript
 class Animal {}
 class Rabbit extends Animal {}
 
@@ -490,7 +490,7 @@ Array，Map 等内置类也可以扩展。
 
 举个例子，`PowerArray` 继承自原生 `Array`：
 
-```js run
+```javascript
 // add one more method to it (can do more)
 class PowerArray extends Array {
   isEmpty() {
@@ -520,7 +520,7 @@ arr.constructor === PowerArray
 
 下面的例子中，由于 `Symbol.species` 的存在，`map`，`filter`等内置方法将返回普通的数组：
 
-```js run
+```ja v a s c ri p t
 class PowerArray extends Array {
   isEmpty() {
     return this.length === 0
