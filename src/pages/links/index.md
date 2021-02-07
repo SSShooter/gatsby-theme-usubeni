@@ -129,11 +129,11 @@ tags: ['导航']
             </div>
         </div>
     </a>
-    <a class="link-card-wrapper" target="_blank" href="https://mikukonai.com/#/index">
+    <a class="link-card-wrapper" target="_blank" href="https://bd4sur.com">
         <div class="link-card">
-            <div class="noimage">初</div>
+            <img src="https://avatars.githubusercontent.com/u/20069428?s=460&u=3ded739ffbd6d3076d43152e3001c1024a6a1ef9&v=4">
             <div class="info">
-                <div class="title">Project Aurora</div>
+                <div class="title">业余无线电台BD4SUR</div>
                 <div class="descript">- 仁者心动 -</div>
             </div>
         </div>
