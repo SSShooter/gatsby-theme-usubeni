@@ -27,7 +27,6 @@ clientHeight = 本身高度 + padding - 滚动条宽度（如果有）
 
 ![clientHeight](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Dimensions-client.png)
 
-
 ## offsetTop
 
 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop)
@@ -47,7 +46,6 @@ offsetHeight = 本身高度 + padding + border + 滚动条宽度（如果有）
 display 为 none 的元素会返回 0
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Dimensions-offset.png)
-
 
 ## scrollTop
 
@@ -85,6 +83,8 @@ UIEvent.layerX/Y 非标准
 
 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle)
 
+通过 style 属性拿到的样式有时候有一点差异，例如 transform 的矩阵
+
 ### getBoundingClientRect
 
 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
@@ -92,6 +92,8 @@ UIEvent.layerX/Y 非标准
 - 相对于 **viewport**
 - height = 本身高度 + padding + border（**没有滚动条**）
 - left/x，top/y 等价
+
+注意：offsetWidth 和 offsetHeight 计算的大小是原始大小，scale 后不变，getBoundingClientRect 是真实大小，反映 scale 后的变化
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/element-box-diagram.png)
 

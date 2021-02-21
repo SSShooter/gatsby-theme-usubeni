@@ -174,6 +174,8 @@ Array.from(new TextEncoder().encode('碧蓝幻想'))
 
 [base64 算法参考](http://fm4dd.com/programming/base64/base64_algorithm.htm)
 
+PS：不包含汉字的话可以直接用浏览器的 btoa 和 atob，a 和 b 分别代表 ASCII 和二进制。
+
 ## blob url 与 Data Url 对比
 
 blob url
@@ -187,21 +189,16 @@ Data Url
 
 - 需要编码，且体积变大 1.3 倍
 - 容易删除
-- 链接不变，保存了可以以后使用
+- 链接不变，可以保存下来以后使用
 
-参考
+## 参考
 
-[mdn Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
-
-[mdn FileReader](https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader)
-
-[mdn HTMLCanvasElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement)
-
-[阮一峰 ES6 arraybuffer](http://es6.ruanyifeng.com/#docs/arraybuffer)
-
-[进阶 FileAPI 实现标准](https://www.w3.org/TR/2018/WD-FileAPI-20181106/#readOperation)
-
-[javascript info - blob](https://javascript.info/blob)
+- [mdn Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
+- [mdn FileReader](https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader)
+- [mdn HTMLCanvasElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement)
+- [阮一峰 ES6 arraybuffer](http://es6.ruanyifeng.com/#docs/arraybuffer)
+- [进阶 FileAPI 实现标准](https://www.w3.org/TR/2018/WD-FileAPI-20181106/#readOperation)
+- [javascript info - blob](https://javascript.info/blob)
 
 ## 附录
 
