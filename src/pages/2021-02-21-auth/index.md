@@ -1,7 +1,7 @@
 ---
 path: '/auth'
 date: '2021-02-21T11:29:07.785Z'
-title: '接口鉴权全解'
+title: '前后端接口鉴权全解'
 tags: ['coding', '网络安全']
 released: false
 ---
@@ -159,11 +159,11 @@ session 说完了，那么出现频率超高的 token 又是什么？
 
 所以 Token 很重要，不可泄漏，谁拿到 token，谁就是“主人”。所以要做一个 Token 系统，刷新或删除 Token 是必须要的，这样在尽快弥补 token 泄漏的问题。
 
-下面我们**正式**开始说“用户登陆”相关的知识。在此之前，再说一遍！注意 Authentication 和 Authorization 都是 Auth 开头，但不是一个意思，前者是验证，后者是授权。
+在理解了三个关键字和两种储存方式之后，下面我们**正式**开始说“用户登陆”相关的知识。在此之前，再说一遍！注意 Authentication 和 Authorization 都是 Auth 开头，但不是一个意思，前者是验证，后者是授权。
 
 ## JWT
 
-全称 JSON Web Token，是的，JWT 就是一个 token。
+全称 JSON Web Token（[RFC 7519](https://tools.ietf.org/html/rfc7519)），是的，JWT 就是一个 token。
 
 ### 如何使用 JWT？
 
@@ -193,7 +193,58 @@ Bearer 是 OAuth 2.0 相关，接着往下说。
 
 ## OAuth 2.0
 
+OAuth 2.0 也是用 token 登陆的一种。
+
 很多大公司都提供 OAuth 2.0 第三方登陆，这里就拿小聋哥的微信举例吧——
+
+### 准备
+
+一般来说，首先要在登陆平台申请好 AppID 和 AppSecret。
+
+### 获取 code
+
+> 什么是授权临时票据（code）？ 答：第三方通过 code 进行获取 access_token 的时候需要用到，code 的超时时间为 10 分钟，一个 code 只能成功换取一次 access_token 即失效。code 的临时性和一次保障了微信授权登录的安全性。第三方可通过使用 https 和 state 参数，进一步加强自身授权登录的安全性。
+
+https://open.weixin.qq.com/connect/qrconnect?
+appid=APPID&
+redirect_uri=REDIRECT_URI&
+response_type=code&
+scope=SCOPE&
+state=STATE
+#wechat_redirect
+
+成功时，跳转到
+
+redirect_uri?code=CODE&state=STATE
+
+失败时，跳转到
+
+redirect_uri?state=STATE
+
+也就是失败时没 code
+
+### 获取 token
+
+https://api.weixin.qq.com/sns/oauth2/access_token?
+appid=APPID&
+secret=SECRET&
+code=CODE&
+grant_type=authorization_code
+
+authorization_code 是其中一种授权模式，微信现在只支持这一种
+
+### 使用 token 调用微信接口
+
+| 授权作用域（scope） | 接口                      | 接口说明                                                  |
+| ------------------- | ------------------------- | --------------------------------------------------------- |
+| snsapi_base         | /sns/oauth2/access_token  | 通过 code 换取 access_token、refresh_token 和已授权 scope |
+| snsapi_base         | /sns/oauth2/refresh_token | 刷新或续期 access_token 使用                              |
+| snsapi_base         | /sns/auth                 | 检查 access_token 有效性                                  |
+| snsapi_userinfo     | /sns/userinfo             | 获取用户个人信息                                          |
+
+### 后续使用
+
+在使用 token 获取用户个人信息后，你可以接着用微信用户的唯一标志码结合 session 技术实现在自己服务器登陆。
 
 ## 参考
 
@@ -203,4 +254,4 @@ Bearer 是 OAuth 2.0 相关，接着往下说。
 - [OAuth access-token](https://www.oauth.com/oauth2-servers/access-tokens/)
 - [MDN HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
 - [JWT introduction](https://jwt.io/introduction)
-- [微信 OAuth2.0 登陆](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)
+- [微信 OAuth2.0 登陆](https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html)
