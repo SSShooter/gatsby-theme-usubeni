@@ -1,0 +1,23 @@
+const express = require('express')
+var cookieSession = require('cookie-session')
+const app = express()
+app.use(
+  cookieSession({
+    name: 'session',
+    keys: [
+      /* secret keys */
+      'key',
+    ],
+
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  })
+)
+app.get('/', function(req, res) {
+  req.session.test = 'hey'
+  res.json({
+    wow: 'crazy',
+  })
+})
+
+app.listen(3001)
