@@ -6,33 +6,25 @@ tags: ['coding', '网络安全']
 released: false
 ---
 
-不知不觉也写得比较长了，一次看不完建议收藏夹！😊
+不知不觉也写得比较长了，一次看不完建议收藏夹！
 
 ## Cookie
 
-众所周知，http 是无状态协议，浏览器和服务器不可能凭协议的实现辨别任何连接。
+众所周知，http 是无状态协议，浏览器和服务器不可能凭协议的实现辨别请求的上下文。
 
-于是 cookie 登场，既然协议本身不能分辨链接，那就在头部手动带上可以识别的暗号吧。
+于是 cookie 登场，既然协议本身不能分辨链接，那就在请求头部手动带着上下文信息吧。
 
 举个例子，以前去旅游的时候，到了景区可能会需要存放行李，被大包小包压着，旅游也不开心啦。在存放行李后，服务员会给你一个牌子，上面写着你的行李放在哪个格子，离开时，你就能凭这个牌子和上面的数字成功取回行李。
 
 cookie 做的正是这么一件事，旅客就像客户端，寄存处就像服务器，凭着写着数字的牌子，寄存处（服务器）就能分辨出不同旅客（客户端）。
 
-你会不会想到，如果牌子被偷了怎么办，cookie 也会被偷吗？确实会，这就是一个很常被提到的网络安全问题了，起名为 CSRF。可以在[这篇文章](https://ssshooter.com/2019-11-08-csrf-n-cors/#%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0-csrf)了解关于 CSRF 的成因和应对方法。
+你会不会想到，如果牌子被偷了怎么办，cookie 也会被偷吗？确实会，这就是一个很常被提到的网络安全问题——CSRF。可以在[这篇文章](https://ssshooter.com/2019-11-08-csrf-n-cors/#%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0-csrf)了解关于 CSRF 的成因和应对方法。
 
-cookie 以前会用于存放一些用户数据，但现在前端拥有两个 storage，两种数据库，根本不愁存放问题，所以现在基本上 100% 都是在连接上**证明客户端的身份**。例如登录之后，服务器给你一个标志，就存在 cookie 里，之后再连接时，都会**自动**带上 cookie，服务器便分清谁是谁。另外，cookie 还可以用于跟踪一个用户，这就产生了隐私问题，于是也就有了“禁用 cookie”这个选项（然而现在这个时代禁用 cookie 是挺麻烦的事情）。
+cookie 诞生初似乎是用于电商存放用户购物车一类的数据，但现在前端拥有两个 storage（local、session），两种数据库（websql、IndexedDB），根本不愁信息存放问题，所以现在基本上 100% 都是在连接上**证明客户端的身份**。例如登录之后，服务器给你一个标志，就存在 cookie 里，之后再连接时，都会**自动**带上 cookie，服务器便分清谁是谁。另外，cookie 还可以用于跟踪一个用户，这就产生了隐私问题，于是也就有了“禁用 cookie”这个选项（然而现在这个时代禁用 cookie 是挺麻烦的事情）。
 
-参考 MDN，cookie 的格式如下（其中 PHPSESSID 相关内容下面会提到）：
+### 设置方式
 
-```
-Cookie: <cookie-list>
-Cookie: name=value
-Cookie: name=value; name2=value2; name3=value3
-
-Cookie: PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1
-```
-
-知道了 cookie 的格式，那么怎么才能设置 cookie 呢？一般来说，安全起见，cookie 都是依靠 `set-cookie` 头设置，且不允许 JavaScript 设置。
+现实世界的例子知道了，在电脑中怎么才能设置 cookie 呢？一般来说，安全起见，cookie 都是依靠 `set-cookie` 头设置，且不允许 JavaScript 设置。
 
 ```
 Set-Cookie: <cookie-name>=<cookie-value>
@@ -51,7 +43,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; SameSite=None; Secure
 Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnly
 ```
 
-其中 `<cookie-name>=<cookie-value>` 这样的 kv 对随你定，另外还有 HttpOnly、SameSite 等配置，一条 `Set-Cookie` 只配置一项 cookie。
+其中 `<cookie-name>=<cookie-value>` 这样的 kv 对，内容随你定，另外还有 HttpOnly、SameSite 等配置，一条 `Set-Cookie` 只配置一项 cookie。
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/devtools_cookies.png)
 
@@ -67,21 +59,29 @@ Secure 和 HttpOnly 是强烈建议开启的。SameSite 选项需要根据实际
 
 其实因为 Chrome 在某一次更新后把没设置 `SameSite` 默认为 `Lax`，你不在服务器手动把 `SameSite` 设置为 `None` 就不会自动带 cookie 了。
 
-说到证明身份，终于引出了现在十分常见的登录问题。
+## 发送方式
 
-Authentication 就是验证身份的意思，是网络技术上比较常见的一个词。读完上面的大家都想到啦，验证身份不就是用 cookie 嘛！对（其中一个方法）就是这样，下面来粗略看看实现——
+参考 MDN，cookie 的发送格式如下（其中 PHPSESSID 相关内容下面会提到）：
 
-注意 Authentication 和 Authorization 都是 Auth 开头，但不是一个意思，前者是验证，后者是授权。
+```
+Cookie: <cookie-list>
+Cookie: name=value
+Cookie: name=value; name2=value2; name3=value3
+
+Cookie: PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1
+```
+
+在发送 cookie 时，并不会传上面看到的诸多信息回服务器，因为服务器在设置后就不需要关心这些信息了，只要现代浏览器运作正常，收到的 cookie 就是没问题的。
 
 ## Session
 
-为什么说到 session 呢，因为 session 才是真正的“信息”，如上面提到的，cookie 是容器，里面装着 `PHPSESSID=298zf09hf012fh2;`，这就是一个 session ID。
+从 cookie 说到 session，是因为 session 才是真正的“信息”，如上面提到的，cookie 是容器，里面装着 `PHPSESSID=298zf09hf012fh2;`，这就是一个 session ID。
 
 不知道 session 和 session id 会不会让你看得有点头晕？
 
 当初 session 的存在就是要为客户端和服务器连接提供的信息，所以我将 session 理解为信息，而 session id 是获取信息的钥匙，通常是一串唯一的哈希码。
 
-接下来分析两个 express 的中间件，理解两种 session 的实现方式。
+接下来分析两个 node.js express 的中间件，理解两种 session 的实现方式。
 
 session 信息可以储存在客户端，如 [cookie-session](https://github.com/expressjs/cookie-session)，也可以储存在服务器，如 [express-session](https://github.com/expressjs/session)。使用 session ID 就是把 session 放在服务器里，用 cookie 里的 id 寻找服务器的信息。
 
@@ -246,7 +246,11 @@ Token 在权限证明上真的很重要，不可泄漏，谁拿到 token，谁�
 
 在理解了三个关键字和两种储存方式之后，下面我们**正式**开始说“用户登录”相关的知识和几种**登录规范**。
 
-在此之前，再说一遍！注意 Authentication 和 Authorization 都是 Auth 开头，但不是一个意思，前者是验证，后者是授权。
+说到证明身份，终于引出了现在十分常见的登录问题。
+
+Authentication 就是验证身份的意思，是网络技术上比较常见的一个词。读完上面的大家都想到啦，验证身份不就是用 cookie 嘛！对（其中一个方法）就是这样，下面来粗略看看实现——
+
+注意 Authentication 和 Authorization 都是 Auth 开头，但不是一个意思，前者是验证，后者是授权。
 
 ## JWT
 
@@ -316,7 +320,7 @@ HMACSHA256(
 
 这样可以用于自家登录，也可以用于第三方登录。单点登录也是 JWT 的常用领域。
 
-### 特点
+JWT 也因为信息储存在客户端造成无法让自己失效的问题，这算是 JWT 的一个缺点。
 
 ## HTTP authentication
 
@@ -352,6 +356,14 @@ state=STATE
 #wechat_redirect
 ```
 
+| 参数          | 是否必须 | 说明                                                                                                 |
+| ------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| appid         | 是       | 应用唯一标识                                                                                         |
+| redirect_uri  | 是       | 请使用 urlEncode 对链接进行处理                                                                      |
+| response_type | 是       | 填 code                                                                                              |
+| scope         | 是       | 应用授权作用域，拥有多个作用域用逗号（,）分隔，网页应用目前仅填写 snsapi_login                       |
+| state         | 否       | 用于保持请求和回调的状态，授权请求后原样带回给第三方。该参数可用于防止 csrf 攻击（跨站请求伪造攻击） |
+
 正确配置参数后，打开这个页面看到的是授权页面，在授权成功后，页面跳转到
 
 ```
@@ -380,7 +392,12 @@ code=CODE&
 grant_type=authorization_code
 ```
 
-authorization_code 是其中一种授权模式，微信现在只支持这一种
+| 参数       | 是否必须 | 说明                                                            |
+| ---------- | -------- | --------------------------------------------------------------- |
+| appid      | 是       | 应用唯一标识，在微信开放平台提交应用审核通过后获得              |
+| secret     | 是       | 应用密钥 AppSecret，在微信开放平台提交应用审核通过后获得        |
+| code       | 是       | 填写第一步获取的 code 参数                                      |
+| grant_type | 是       | 填 authorization_code，是其中一种授权模式，微信现在只支持这一种 |
 
 ### 使用 token 调用微信接口
 
@@ -434,8 +451,6 @@ req.session.id = null
 // 清除 session
 ```
 
-### 总结
-
 总结一下 OAuth2.0 的流程和重点：
 
 - 为你的应用申请 ID 和 Secret
@@ -445,11 +460,62 @@ req.session.id = null
 - 在重定向接口中使用 code 获取 token **<- 重要**
 - 传入 token 使用微信接口
 
+OAuth2.0 着重于第三方登陆和权限限制。
+
 ## 其他方法
 
-还有其他方法吗？
+JWT 和 OAuth2.0 都是成体系的鉴权方法，不代表登录系统就一定要这么复杂。
 
-随机
+简单登录系统其实就以上面两种 session 储存方式为基础就能做到。
+
+1. 使用服务器储存 session 为基础，可以用类似 `req.session.isLogin = true` 的方法标志该 session 的状态为已登录。
+
+2. 使用客户端储存 session 为基础，设置 session 的过期日期和登陆人就基本能用了。
+
+```json
+{
+  "exp": 1614088104313,
+  "usr": "admin"
+}
+```
+
+（就是和 JWT 原理基本一样，不过没有一套体系）
+
+3. 甚至你可以从 0 开始写一个 express 的登陆系统，随机生成一串码，用 set-cookie 写到客户端，然后初始化一个 store，添加哈希码作为属性：
+
+```javascript
+let store = {}
+
+// 登陆成功后
+store[HASH] = true
+cookie.set('token', HASH)
+
+// 需要鉴权的请求钟
+const hash = cookie.get('token')
+if(store[hash]){
+  // 已登录
+}else{
+  // 未登录
+}
+
+// 退出
+const hash = cookie.get('token')
+delete store[hash]
+```
+
+## 总结
+
+以下列出本文重点：
+
+- cookie 是储存 session/session id/token 的容器
+- cookie 设置一般通过 `set-cookie` 请求头设置
+- session 信息可以存放在浏览器，也可以存放在服务器
+- session 存放在服务器时，以 session id 为钥匙获取信息
+- token/session/session id 三者的界限是模糊的
+- 一般新技术使用 token，传统技术使用 session id
+- cookie/token/session/session id 都是用于鉴权的实用技术
+- JWT 是浏览器储存 session 的一种
+- OAuth2.0 是第三方登录标准
 
 ## 参考
 
