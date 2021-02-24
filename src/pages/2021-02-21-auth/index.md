@@ -1,12 +1,11 @@
 ---
 path: '/auth'
-date: '2021-02-21T11:29:07.785Z'
+date: '2021-02-24T10:52:07.785Z'
 title: '前后端接口鉴权全解'
 tags: ['coding', '网络安全']
-released: false
 ---
 
-不知不觉也写得比较长了，一次看不完建议收藏夹！
+不知不觉也写得比较长了，一次看不完建议收藏夹！本文主要解释与请求状态相关的术语（cookie、session、token）和几种常见登录的实现方式，希望大家看完本文后可以有比较清晰的理解，有感到迷惑的地方请在评论区提出。
 
 ## Cookie
 
@@ -24,7 +23,7 @@ cookie 诞生初似乎是用于电商存放用户购物车一类的数据，但�
 
 ### 设置方式
 
-现实世界的例子知道了，在电脑中怎么才能设置 cookie 呢？一般来说，安全起见，cookie 都是依靠 `set-cookie` 头设置，且不允许 JavaScript 设置。
+现实世界的例子明白了，在计算机中怎么才能设置 cookie 呢？一般来说，安全起见，cookie 都是依靠 `set-cookie` 头设置，且不允许 JavaScript 设置。
 
 ```
 Set-Cookie: <cookie-name>=<cookie-value>
@@ -59,7 +58,7 @@ Secure 和 HttpOnly 是强烈建议开启的。SameSite 选项需要根据实际
 
 其实因为 Chrome 在某一次更新后把没设置 `SameSite` 默认为 `Lax`，你不在服务器手动把 `SameSite` 设置为 `None` 就不会自动带 cookie 了。
 
-## 发送方式
+### 发送方式
 
 参考 MDN，cookie 的发送格式如下（其中 PHPSESSID 相关内容下面会提到）：
 
@@ -71,7 +70,7 @@ Cookie: name=value; name2=value2; name3=value3
 Cookie: PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1
 ```
 
-在发送 cookie 时，并不会传上面看到的诸多信息回服务器，因为服务器在设置后就不需要关心这些信息了，只要现代浏览器运作正常，收到的 cookie 就是没问题的。
+在发送 cookie 时，并不会传上面提到的配置到服务器，因为服务器在设置后就不需要关心这些信息了，只要现代浏览器运作正常，收到的 cookie 就是没问题的。
 
 ## Session
 
@@ -244,13 +243,9 @@ session 说完了，那么出现频率超高的关键字 token 又是什么？
 
 Token 在权限证明上真的很重要，不可泄漏，谁拿到 token，谁就是“主人”。所以要做一个 Token 系统，刷新或删除 Token 是必须要的，这样在尽快弥补 token 泄漏的问题。
 
-在理解了三个关键字和两种储存方式之后，下面我们**正式**开始说“用户登录”相关的知识和几种**登录规范**。
+在理解了三个关键字和两种储存方式之后，下面我们正式开始说“用户登录”相关的知识和两种**登录规范**——JWT 和 OAuth2.0。
 
-说到证明身份，终于引出了现在十分常见的登录问题。
-
-Authentication 就是验证身份的意思，是网络技术上比较常见的一个词。读完上面的大家都想到啦，验证身份不就是用 cookie 嘛！对（其中一个方法）就是这样，下面来粗略看看实现——
-
-注意 Authentication 和 Authorization 都是 Auth 开头，但不是一个意思，前者是验证，后者是授权。
+接着你可能会频繁见到 Authentication 和 Authorization 这两个单词，它们都是 Auth 开头，但可不是一个意思，简单来说前者是**验证**，后者是**授权**。在编写登录系统时，要先**验证**用户身份，设置登录状态，给用户发送 token 就是**授权**。
 
 ## JWT
 
@@ -332,19 +327,41 @@ Basic authentication 大概比较适合 serverless，毕竟他没有运行着的
 
 ## OAuth 2.0
 
-OAuth 2.0 也是用 token 登录的一种，它的特点是你可以在**有限范围内**使用别家接口，也可以借此使用别家的登录系统登录自家应用。
+OAuth 2.0（[RFC 6749](https://tools.ietf.org/html/rfc6749)）也是用 token 授权的一种协议，它的特点是你可以在**有限范围内**使用别家接口，也可以借此使用别家的登录系统登录自家应用，也就是第三方应用登录。（注意啦注意啦，OAuth 2.0 授权流程说不定面试会考哦！）
 
-注意啦注意啦， OAuth 2.0 授权流程说不定面试会考哦！
+既然是第三方登录，那除了应用本身，必定存在第三方登录服务器。在 OAuth 2.0 中涉及三个角色：用户、应用提供方、登录平台，相互调用关系如下：
+
+```
+     +--------+                               +---------------+
+     |        |--(A)- Authorization Request ->|   Resource    |
+     |        |                               |     Owner     |
+     |        |<-(B)-- Authorization Grant ---|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(C)-- Authorization Grant -->| Authorization |
+     | Client |                               |     Server    |
+     |        |<-(D)----- Access Token -------|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(E)----- Access Token ------>|    Resource   |
+     |        |                               |     Server    |
+     |        |<-(F)--- Protected Resource ---|               |
+     +--------+                               +---------------+
+```
 
 很多大公司都提供 OAuth 2.0 第三方登录，这里就拿小聋哥的微信举例吧——
 
 ### 准备
 
-一般来说，首先要在登录平台申请好 AppID 和 AppSecret。（微信使用这个名称，其他平台也差不多，一个 ID 和一个 Secret）
+一般来说，应用提供方需要先在登录平台申请好 AppID 和 AppSecret。（微信使用这个名称，其他平台也差不多，一个 ID 和一个 Secret）
 
 ### 获取 code
 
 > 什么是授权临时票据（code）？ 答：第三方通过 code 进行获取 `access_token` 的时候需要用到，code 的超时时间为 10 分钟，一个 code 只能成功换取一次 `access_token` 即失效。code 的临时性和一次保障了微信授权登录的安全性。第三方可通过使用 https 和 state 参数，进一步加强自身授权登录的安全性。
+
+在这一步中，**用户**先在**登录平台**进行身份校验。
 
 ```
 https://open.weixin.qq.com/connect/qrconnect?
@@ -364,7 +381,9 @@ state=STATE
 | scope         | 是       | 应用授权作用域，拥有多个作用域用逗号（,）分隔，网页应用目前仅填写 snsapi_login                       |
 | state         | 否       | 用于保持请求和回调的状态，授权请求后原样带回给第三方。该参数可用于防止 csrf 攻击（跨站请求伪造攻击） |
 
-正确配置参数后，打开这个页面看到的是授权页面，在授权成功后，页面跳转到
+注意一下 **scope** 是 OAuth2.0 权限控制的特点，定义了这个 code 换取的 token 可以用于什么接口。
+
+正确配置参数后，打开这个页面看到的是授权页面，在**用户**授权成功后，**登录平台**会带着 code 跳转到**应用提供方**指定的 `redirect_uri`：
 
 ```
 redirect_uri?code=CODE&state=STATE
@@ -380,7 +399,7 @@ redirect_uri?state=STATE
 
 ### 获取 token
 
-在跳转到重定向 URI 之后，你的**后台**需要使用微信给你的**code**获取 token，同时，你也可以用传回来的 state 进行来源校验。
+在跳转到重定向 URI 之后，应用提供方的**后台**需要使用微信给你的**code**获取 token，同时，你也可以用传回来的 state 进行来源校验。
 
 要获取 token，传入正确参数访问这个接口：
 
@@ -398,6 +417,21 @@ grant_type=authorization_code
 | secret     | 是       | 应用密钥 AppSecret，在微信开放平台提交应用审核通过后获得        |
 | code       | 是       | 填写第一步获取的 code 参数                                      |
 | grant_type | 是       | 填 authorization_code，是其中一种授权模式，微信现在只支持这一种 |
+
+正确的返回：
+
+```json
+{
+  "access_token": "ACCESS_TOKEN",
+  "expires_in": 7200,
+  "refresh_token": "REFRESH_TOKEN",
+  "openid": "OPENID",
+  "scope": "SCOPE",
+  "unionid": "o6_bmasdasdsad6_2sgVt7hMZOPfL"
+}
+```
+
+得到 token 之后你就可以根据之前申请 code 填写的 scope 调用接口了。
 
 ### 使用 token 调用微信接口
 
@@ -460,7 +494,7 @@ req.session.id = null
 - 在重定向接口中使用 code 获取 token **<- 重要**
 - 传入 token 使用微信接口
 
-OAuth2.0 着重于第三方登陆和权限限制。
+OAuth2.0 着重于第三方登录和权限限制。而且 OAuth2.0 不止微信使用的这一种授权方式，其他方式可以看阮老师的[OAuth 2.0 的四种方式](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)。
 
 ## 其他方法
 
@@ -470,7 +504,7 @@ JWT 和 OAuth2.0 都是成体系的鉴权方法，不代表登录系统就一定
 
 1. 使用服务器储存 session 为基础，可以用类似 `req.session.isLogin = true` 的方法标志该 session 的状态为已登录。
 
-2. 使用客户端储存 session 为基础，设置 session 的过期日期和登陆人就基本能用了。
+2. 使用客户端储存 session 为基础，设置 session 的过期日期和登录人就基本能用了。
 
 ```json
 {
@@ -481,20 +515,26 @@ JWT 和 OAuth2.0 都是成体系的鉴权方法，不代表登录系统就一定
 
 （就是和 JWT 原理基本一样，不过没有一套体系）
 
-3. 甚至你可以从 0 开始写一个 express 的登陆系统，随机生成一串码，用 set-cookie 写到客户端，然后初始化一个 store，添加哈希码作为属性：
+3. 甚至你可以使用上面的知识自己写一个 express 的登录系统：
+
+- 初始化一个 store，内存、redis、数据库都可以
+- 在用户身份验证成功后，随机生成一串哈希码作为 token
+- 用 set-cookie 写到客户端
+- 再在服务器写入登录状态，以内存为例就是在 store 中添加哈希码作为属性
+- 下次请求带着 cookie 的话检查 cookie 带来的 token 是否已经写入 store 中即可
 
 ```javascript
 let store = {}
 
-// 登陆成功后
+// 登录成功后
 store[HASH] = true
 cookie.set('token', HASH)
 
 // 需要鉴权的请求钟
 const hash = cookie.get('token')
-if(store[hash]){
+if (store[hash]) {
   // 已登录
-}else{
+} else {
   // 未登录
 }
 
@@ -515,7 +555,9 @@ delete store[hash]
 - 一般新技术使用 token，传统技术使用 session id
 - cookie/token/session/session id 都是用于鉴权的实用技术
 - JWT 是浏览器储存 session 的一种
-- OAuth2.0 是第三方登录标准
+- JWT 常用于单点登录（SSO）
+- OAuth2.0 的 token 不是由应用端颁发，存在另外的授权服务器
+- OAuth2.0 常用于第三方应用登录
 
 ## 参考
 

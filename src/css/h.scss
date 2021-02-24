@@ -5,9 +5,22 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-  color: var(--mainColor);
+  color: var(--linkColor);
 }
 
 h1 {
   font-size: 29px;
+  // color: var(--mainColor);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: inline-block;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--linkColor);
 }
