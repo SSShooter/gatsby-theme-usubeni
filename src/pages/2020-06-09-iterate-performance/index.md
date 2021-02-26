@@ -2,7 +2,7 @@
 path: '/iterate-performance'
 date: '2020-06-09T14:48:53.203Z'
 title: 'JavaScript 对象迭代方法与性能比较'
-tags: ['coding']
+tags: ['coding', '性能比较']
 ---
 
 原文地址：[Iterating Over JavaScript Object Entries and their Performance - 5 Techniques](https://hackernoon.com/5-techniques-to-iterate-over-javascript-object-entries-and-their-performance-6602dcb708a8)

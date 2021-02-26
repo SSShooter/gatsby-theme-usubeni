@@ -1,0 +1,83 @@
+const { PerformanceObserver, performance } = require('perf_hooks')
+
+var arrayLength = 500
+var numberRange = 50
+var array = genRandomNumberArray()
+
+function genRandomNumberArray() {
+  return Array(arrayLength)
+    .fill()
+    .map(item => Math.ceil(Math.random() * numberRange))
+}
+
+function loop(uniqueFunc, times) {
+  let i = 0
+  times = times || 500
+  while (i < times) {
+    uniqueFunc(array)
+    i++
+  }
+}
+
+function uniqueArray1(arr) {
+  var map = {}
+  var a = []
+  for (let i = 0; i < arr.length; i++) {
+    let v = arr[i]
+    if (map[v]) continue
+    else {
+      map[v] = 1
+      a.push(arr[i])
+    }
+  }
+  return a
+}
+function uniqueArray2(arr) {
+  var a = []
+  for (var i = 0; i < arr.length; i++)
+    if (a.indexOf(arr[i]) === -1 && arr[i] !== '') a.push(arr[i])
+  return a
+}
+function uniqueArray3(a) {
+  return a.filter(function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index
+  })
+}
+function uniqueArray4(a) {
+  return [...new Set(a)]
+}
+
+function benchmark() {
+  // performance.clearMeasures()
+
+  performance.mark('A')
+  loop(uniqueArray1)
+  performance.mark('B')
+  performance.measure('hash map', 'A', 'B')
+
+  performance.mark('A')
+  loop(uniqueArray2)
+  performance.mark('B')
+  performance.measure('indexof + array', 'A', 'B')
+
+  performance.mark('A')
+  loop(uniqueArray3)
+  performance.mark('B')
+  performance.measure('indexof + filter', 'A', 'B')
+
+  performance.mark('A')
+  loop(uniqueArray4)
+  performance.mark('B')
+  performance.measure('new Set', 'A', 'B')
+
+}
+var values = {}
+const obs = new PerformanceObserver(items => {
+  let entry = items.getEntries()[0]
+  console.log(entry.name, entry.duration)
+  values[entry.name] += entry.duration
+  performance.clearMarks()
+})
+obs.observe({ entryTypes: ['measure'] })
+
+benchmark()

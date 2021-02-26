@@ -2,7 +2,7 @@
 path: '/http-caching'
 date: '2020-11-04T22:11:06.804Z'
 title: 'HTTP 缓存简析'
-tags: ['coding']
+tags: ['coding', '前端优化']
 ---
 
 ## 概述
