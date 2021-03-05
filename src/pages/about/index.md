@@ -20,6 +20,8 @@ date: '2019-02-14T00:00:00.000Z'
 
 ## 做过什么
 
+基本都是兴趣使然的产物。
+
 ### Mind Elixir
 
 ![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/screenshot.png)

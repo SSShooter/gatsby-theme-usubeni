@@ -1,7 +1,6 @@
 import React from 'react'
 import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
-import Masonry from 'react-masonry-component'
 import Helmet from 'react-helmet'
 
 import '../css/global.scss'
@@ -35,10 +34,7 @@ class Gallery extends React.Component {
           <div>定格的生活</div>
         </header>
         <Menu direaction="row" />
-        <Masonry
-          disableImagesLoaded={false} // default false
-          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-        >
+        <div>
           {gallery.map(({ node }) => {
             const exifData = node.fields ? node.fields.exifData : {}
             return (
@@ -68,7 +64,7 @@ class Gallery extends React.Component {
               </a>
             )
           })}
-        </Masonry>
+        </div>
       </div>
     )
   }
