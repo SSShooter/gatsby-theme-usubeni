@@ -70,7 +70,7 @@ Cookie: name=value; name2=value2; name3=value3
 Cookie: PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1
 ```
 
-在发送 cookie 时，并不会传上面提到的配置到服务器，因为服务器在设置后就不需要关心这些信息了，只要现代浏览器运作正常，收到的 cookie 就是没问题的。
+在发送 cookie 时，并不会把上面提到的 `Expires` 等配置传到服务器，因为服务器在设置后就不需要关心这些信息了，只要现代浏览器运作正常，收到的 cookie 就是没问题的。
 
 ## Session
 
@@ -117,7 +117,7 @@ app.get('/', function(req, res) {
 app.listen(3001)
 ```
 
-在通过 `app.use(cookieSession())` 使用中间件之前，请求是不会设置 cookie 的，添加后再访问（并且在设置 req.session 后，若不添加 session 信息就没必要写、也没内容写到 cookie 里），就能看到服务器响应头部新增了下面两行，分别写入 session 和 session.sig：
+在通过 `app.use(cookieSession())` 使用中间件之前，请求是不会设置 cookie 的，添加后再访问（并且在设置 req.session 后，若不添加 session 信息就没必要、也没内容写到 cookie 里），就能看到服务器响应头部新增了下面两行，分别写入 session 和 session.sig：
 
 ```
 Set-Cookie: session=eyJ0ZXN0IjoiaGV5In0=; path=/; expires=Tue, 23 Feb 2021 01:07:05 GMT; httponly
@@ -128,7 +128,7 @@ Set-Cookie: session.sig=QBoXofGvnXbVoA8dDmfD-GMMM6E; path=/; expires=Tue, 23 Feb
 
 即使现代浏览器和服务器做了一些约定，例如使用 https、跨域限制、还有上面提到 cookie 的 httponly 和 sameSite 配置等，保障了 cookie 安全。但是想想，传输安全保障了，如果有人偷看你电脑里的 cookie，密码又恰好存在 cookie，那就能无声无息地偷走密码。相反的，只放其他信息或是仅仅证明“已登录”标志的话，只要退出一次，这个 cookie 就失效了，算是降低了潜在危险。
 
-说回第二个值 session.sig，它是一个 27 字节的 SHA1 签名，用以校验 session 是否被篡改，是 cookie 安全的又一层保障。
+说回第二个值 session.sig，它是一个 27 字节的 SHA1 签名，用以**校验 session 是否被篡改**，是 cookie 安全的又一层保障。
 
 ### 服务器储存
 
@@ -136,18 +136,18 @@ Set-Cookie: session.sig=QBoXofGvnXbVoA8dDmfD-GMMM6E; path=/; expires=Tue, 23 Feb
 
 express-session 的源码没 cookie-session 那么简明易懂，里面有一个有点绕的问题，`req.session` 到底是怎么插入的？
 
-不关注实现可以跳过这段，有兴趣的话可以跟着思路看看 [express-session](https://github.com/expressjs/session) 的源码。
+**不关注实现可以跳过下面几行**，有兴趣的话可以跟着思路看看 [express-session](https://github.com/expressjs/session) 的源码：
 
 我们可以从 `.session =` 这个关键词开始找，找到：
 
 - `store.generate` 否决这个，容易看出这个是初始化使用的
 - `Store.prototype.createSession` 这个是根据 req 和 sess 参数在 req 中设置 session 属性，没错，就是你了
 
-于是全局搜索 `createSession`，锁定 index 里的 `inflate` （就是填充的意思）函数。
+于是全局搜索 `createSession`，锁定 index 里的 `inflate`（就是填充的意思）函数。
 
 最后寻找 `inflate` 的调用点，是使用 sessionID 为参数的 `store.get` 的回调函数，一切说得通啦——
 
-在监测到客户端送来的 cookie 之后，可以从 cookie 获取 sessionID，再使用 id 在 store 中获取 session 信息，挂到 `req.session`，经过这个中间件，你就能顺利地使用 req 中的 session。
+在监测到客户端送来的 cookie 之后，可以从 cookie 获取 sessionID，再使用 id 在 store 中获取 session 信息，挂到 `req.session` 上，经过这个中间件，你就能顺利地使用 req 中的 session。
 
 那赋值怎么办呢？这就和上面储存在客户端不同了，上面要修改客户端 cookie 信息，但是对于储存在服务器的情况，你修改了 session 那就是“实实在在地修改”了嘛，不用其他花里胡哨的方法，内存中的信息就是修改了，下次获取内存里的对应信息也是修改后的信息。（仅限于内存的实现方式，使用数据库时仍需要额外的写入）
 
@@ -229,11 +229,11 @@ session 说完了，那么出现频率超高的关键字 token 又是什么？
 
 剧透一下，下面要讲的 JWT（JSON Web Token）！他是一个 token！但是里面放着 session 信息！放在客户端，并且可以随你选择放在 cookie 或是手动添加在 Authorization！但是他就叫 token！
 
-个人觉得你不能通过存放的位置判断是 token 或是 session id，也不能通过内容判断是 token 或是 session 信息，**session、session id 以及 token 都是很意识流的东西，只要你明白他是什么、怎么用就好了，怎么称呼不太重要。**
+所以，个人觉得你不能通过存放的位置判断是 token 或是 session id，也不能通过内容判断是 token 或是 session 信息，**session、session id 以及 token 都是很意识流的东西，只要你明白他是什么、怎么用就好了，怎么称呼不太重要。**
 
 另外在搜索资料时也看到有些文章说 session 和 token 的区别就是**新旧技术的区别**，好像有点道理。
 
-在 session 的 [Wikipedia](<https://en.wikipedia.org/wiki/Session_(computer_science)>) 页面上 HTTP session token 这一栏，举例都是 JSESSIONID (JSP)、PHPSESSID (PHP)、CGISESSID (CGI)、ASPSESSIONID (ASP) 等比较传统的技术，就像 SESSIONID 是他们的代名词一般；而在研究现在各种平台的 API 接口和 OAuth2.0 登录时，都是使用 access token 这样的字眼，这个区别着实有点意思。
+在 session 的 [Wikipedia](https://en.wikipedia.org/wiki/Session_(computer_science)) 页面上 HTTP session token 这一栏，举例都是 JSESSIONID (JSP)、PHPSESSID (PHP)、CGISESSID (CGI)、ASPSESSIONID (ASP) 等比较传统的技术，就像 SESSIONID 是他们的代名词一般；而在研究现在各种平台的 API 接口和 OAuth2.0 登录时，都是使用 access token 这样的字眼，这个区别着实有点意思。
 
 理解 session 和 token 的联系之后，可以在哪里能看到“活的” token 呢？
 
