@@ -2,7 +2,7 @@
 path: 'departure'
 title: Departure
 date: "2018-12-06T01:47:11.495Z"
-tags: ["tag测试"]
+tags: ["本站历史"]
 ---
 usubeni fantasy 开张啦！  
 本站文章内容可能涵盖一下元素：
