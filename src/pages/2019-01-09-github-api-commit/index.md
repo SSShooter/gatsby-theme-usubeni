@@ -1,35 +1,41 @@
 ---
-path: "/github-api-commit"
-date: "2019-01-09T08:24:42.000Z"
-title: "使用 Github API 更新仓库"
-tags: ["coding","github","api"]
+path: '/github-api-commit'
+date: '2019-01-09T08:24:42.000Z'
+title: '使用 Github API 更新仓库'
+tags: ['coding', 'github', 'git']
 ---
 
-
 ## 0. 总览
-本文为大家提供一种使用 GitHub API 生成 Commit 的方法。通常我们会使用 Git 客户端 Commit 然后 Push 到 GitHub，但 GitHub 为我们提供了相关 API，可以直接通过 API 更新仓库。
 
-要搞清楚整个更新流程，需要先理解 Git 的数据结构。如下图所示，Git 会使用 Ref、Commit、Tree、Blob 等单位管理 Commit 和文件。
+本文为大家提供一种使用  GitHub API  生成 Commit 的方法。通常我们会使用 Git 客户端 Commit 然后 Push 到 GitHub，但 GitHub 为我们提供了相关 API，可以直接通过 API 更新仓库。
+
+要搞清楚整个更新流程，需要先理解 Git 的数据结构。如下图所示，Git 会使用  Ref、Commit、Tree、Blob 等单位管理 Commit 和文件。
 ![](https://cdn.nlark.com/yuque/0/2019/png/196955/1547024344082-e04117d4-f97d-4bdc-aec8-1d17fe336835.png#align=left&display=inline&height=555&linkTarget=_blank&originHeight=595&originWidth=800&size=0&width=746)
 所以要生成一个新的 Commit，需要从树状结构的叶到根按顺序生成，换句话说就是：Blob→Tree→Commit→Ref。
 
 使用 GitHub API 提交文件有以下步骤。虽然对于第一次接触的新手来说可能会有点复杂，但是理清关系之后思路便会很清晰了。
 
-1. 获取 Ref：Ref 指 [Git 的引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)。如果要发起 Commit，必须知道你的 Commit 要提交到什么地方去（Commit 是一个接一个的链状关系，所以需要知道上一个 Commit 的信息），这一步做的就是这件事。
+1. 获取 Ref：Ref 指  [Git 的引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)。如果要发起 Commit，必须知道你的 Commit 要提交到什么地方去（Commit 是一个接一个的链状关系，所以需要知道上一个 Commit 的信息），这一步做的就是这件事。
 1. 获取 Commit：用于获取当前 Commit 的 tree 的 sha。
-1. 生成 Blob：相当于正常本地提交的 add 操作。
-1. 生成 Tree：构建一个新的 tree。这里需要用到的参数 base_tree 就是来自第二步的 Commit 信息。
+1. 生成 Blob：相当于正常本地提交的 add  操作。
+1. 生成 Tree：构建一个新的 tree。这里需要用到的参数 base_tree  就是来自第二步的 Commit 信息。
 1. 生成 Commit：提交你的 tree。至此已经完成提交。
 1. 更新 Ref：使 master 的指针指到你最新提交的版本。
 
-注意：访问 POST 方法的接口必须带 token，虽然 GET 可以不带，但是会限制访问频率，所以建议都带上。相关文档：[https://developer.github.com/v3/#authentication](https://developer.github.com/v3/#authentication)
+注意：访问  POST 方法的接口必须带 token，虽然 GET 可以不带，但是会限制访问频率，所以建议都带上。相关文档：[https://developer.github.com/v3/#authentication](https://developer.github.com/v3/#authentication)
 
 ## 1. 获取 Ref 
+
 ### 1.1 文档地址
+
 [https://developer.github.com/v3/git/refs/#get-a-reference](https://developer.github.com/v3/git/refs/#get-a-reference)
+
 ### 1.2 请求地址
+
 `GET https://api.github.com/repos/ssshooter/test/git/refs/heads/master`
+
 ### 1.3 返回数据
+
 ```json
 {
   "ref": "refs/heads/master",
@@ -42,12 +48,19 @@ tags: ["coding","github","api"]
   }
 }
 ```
+
 ## 2. 获取 Commit
+
 ### 2.1 文档地址
+
 [https://developer.github.com/v3/git/commits/#get-a-commit](https://developer.github.com/v3/git/commits/#get-a-commit)
+
 ### 2.2 请求地址
+
 `GET https://api.github.com/repos/ssshooter/test/git/commits/cda66de943082033f4b761639df77728d7bca4f0`
+
 ### 2.3 返回数据
+
 ```json
 {
   "sha": "cda66de943082033f4b761639df77728d7bca4f0",
@@ -69,8 +82,7 @@ tags: ["coding","github","api"]
     "url": "https://api.github.com/repos/ssshooter/test/git/trees/d7a57d28ace0db12773c7d70675f94a48da6421f"
   },
   "message": "Create readme.md",
-  "parents": [
-  ],
+  "parents": [],
   "verification": {
     "verified": true,
     "reason": "valid",
@@ -79,32 +91,49 @@ tags: ["coding","github","api"]
   }
 }
 ```
+
 ## 3. 生成 Blob
+
 ### 3.1 文档地址
+
 [https://developer.github.com/v3/git/blobs/#create-a-blob](https://developer.github.com/v3/git/blobs/#create-a-blob)
+
 ### 3.2 请求地址
+
 `POST https://api.github.com/repos/ssshooter/test/git/blobs`
+
 ### 3.3 请求参数
+
 ```
 {
   "content": "Content of the blob",
   "encoding": "utf-8"
 }
 ```
+
 ### 3.4 返回数据
+
 ```
 {
     "sha": "929246f65aab4d636cb229c790f966afc332c124",
     "url": "https://api.github.com/repos/ssshooter/test/git/blobs/929246f65aab4d636cb229c790f966afc332c124"
 }
 ```
+
 ## 4. 生成 tree
+
 ### 4.1 文档地址
+
 [https://developer.github.com/v3/git/trees/#create-a-tree](https://developer.github.com/v3/git/trees/#create-a-tree)
+
 ### 4.2 请求地址
+
 `POST https://api.github.com/repos/ssshooter/test/git/trees`
+
 ### 4.3 请求参数
-注意：tree.path 可以写深层目录，如 deep/deep/newFile.md（前面不用写斜杠）
+
+注意：tree.path 可以写深层目录，如  deep/deep/newFile.md（前面不用写斜杠）
+
 ```javascript
 {
   "base_tree": "d7a57d28ace0db12773c7d70675f94a48da6421f", // commit tree 的 sha
@@ -118,7 +147,9 @@ tags: ["coding","github","api"]
   ]
 }
 ```
+
 ### 4.4 返回数据
+
 ```
 {
     "sha": "2b3a65095ceb7cf4425f52d59ca5974d826cff80",
@@ -143,14 +174,21 @@ tags: ["coding","github","api"]
     "truncated": false
 }
 ```
+
 ## 5. 生成 Commit
+
 ### 5.1 文档地址
+
 [https://developer.github.com/v3/git/commits/#create-a-commit](https://developer.github.com/v3/git/commits/#create-a-commit)
+
 ### 5.2 请求地址
+
 ```
 POST https://api.github.com/repos/ssshooter/test/git/commits
 ```
+
 ### 5.3 请求参数
+
 ```
 {
   "message": "a Commit with GitHub api",
@@ -160,7 +198,9 @@ POST https://api.github.com/repos/ssshooter/test/git/commits
   "tree": "2b3a65095ceb7cf4425f52d59ca5974d826cff80"
 }
 ```
+
 ### 5.4 返回数据
+
 ```
 {
     "sha": "45c58a9358b67fc81e4034cb36c5196d791686ef",
@@ -197,19 +237,28 @@ POST https://api.github.com/repos/ssshooter/test/git/commits
     }
 }
 ```
+
 ## 6. 更新 Ref
+
 ### 6.1 文档地址
+
 [https://developer.github.com/v3/git/refs/#update-a-reference](https://developer.github.com/v3/git/refs/#update-a-reference)
+
 ### 6.2 请求地址
+
 `https://api.github.com/repos/ssshooter/test/git/refs/heads/master`
+
 ### 6.3 请求参数
+
 ```
 {
 	"sha":"45c58a9358b67fc81e4034cb36c5196d791686ef",
 	"force":true
 }
 ```
+
 ### 6.4 返回数据
+
 ```
 {
     "ref": "refs/heads/master",
@@ -266,7 +315,7 @@ var getCommit = function(commitSha) {
 var createBlob = function(content) {
   return axios.post(`/${owner}/${repo}/git/blobs`, {
     content,
-    encoding: 'utf-8'
+    encoding: 'utf-8',
   })
 }
 
@@ -278,9 +327,9 @@ var createTree = function(base_tree, path, sha) {
         path, // 文件路径
         mode: '100644', // 类型，详情看文档
         type: 'blob',
-        sha // 刚才生成的 blob 的 sha
-      }
-    ]
+        sha, // 刚才生成的 blob 的 sha
+      },
+    ],
   })
 }
 
@@ -288,19 +337,20 @@ var createCommit = function(parentCommitSha, tree, message = 'update post') {
   return axios.post(`/${owner}/${repo}/git/commits`, {
     message,
     parents: [parentCommitSha],
-    tree
+    tree,
   })
 }
 
 var updataRef = function(newCommitSha) {
   return axios.post(`/${owner}/${repo}/git/refs/heads/master`, {
     sha: newCommitSha,
-    force: true
+    force: true,
   })
 }
 ```
 
 ## 参考文献
+
 [https://int128.hatenablog.com/entry/2017/09/05/161641](https://int128.hatenablog.com/entry/2017/09/05/161641)
 [https://juejin.im/post/5c33f49de51d45523070f7bb](https://juejin.im/post/5c33f49de51d45523070f7bb)
 [https://git-scm.com/book/zh/v2/Git-内部原理-Git-引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)

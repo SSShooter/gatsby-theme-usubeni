@@ -2,7 +2,7 @@
 path: '/commit-message'
 date: '2020-10-13T10:00:23.853Z'
 title: '理解语义化 Commit'
-tags: ['coding', '翻译']
+tags: ['coding', '翻译', 'git']
 ---
 
 > 原文地址：[Understanding Semantic Commit Messages Using Git and Angular](https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular)
@@ -251,8 +251,8 @@ so，根据 commit 信息（尤其是其中的类型字段），语义化发布�
 - 语义化 commit 有更高可读性，更高效，更自动
 - 约定 commit 遵循轻量的约定
 - Angular 的指引
-    - 信息包括 header、body 和 footer
-    - 修改类型涉及生产类和开发类
+  - 信息包括 header、body 和 footer
+  - 修改类型涉及生产类和开发类
 - 约定后，我们可以更方便地浏览 commit 历史
 - 约定后，我们可以更方便地处理发布信息
 
