@@ -32,6 +32,12 @@ Github 地址： https://github.com/ssshooter/mind-elixir-core
 
 试用地址： https://mindelixir.ink/
 
+### YOLO.R
+
+https://play.google.com/store/apps/details?id=com.timerecord.yolo
+
+YOLO.R 是一个生活记录 App。这是我初次接触安卓的尝试……虽说如此，其实大部分功能还是 webview，不过自己实现了定时提醒和安卓 widget。
+
 ### syncHime
 
 https://github.com/ssshooter/syncHime
