@@ -192,6 +192,15 @@ tags: ['导航']
             </div>
         </div>
     </a>
+    <a class="link-card-wrapper" target="_blank" href="https://www.fffdann.com/index.php">
+        <div class="link-card">
+            <img src="https://i.loli.net/2021/03/18/YSuTaDrLCi7V8PX.jpg">
+            <div class="info">
+                <div class="title">FFF 团</div>
+                <div class="descript">ACG 交流论坛</div>
+            </div>
+        </div>
+    </a>
 </div>
 
 ## 添加方法
