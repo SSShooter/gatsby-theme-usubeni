@@ -5,7 +5,7 @@ date: '2019-02-14T00:00:00.000Z'
 
 ## 怎样的人
 
-- web 前端开发者，Vue👌React👌Vanilla更👌
+- web 前端开发者，Vue👌React👌Vanilla 更 👌
 - 有空会翻译一些英语文档和文章，边学边用
 - unity 学习中
 - 没什么用的日语 N2
@@ -32,15 +32,32 @@ Github 地址： https://github.com/ssshooter/mind-elixir-core
 
 试用地址： https://mindelixir.ink/
 
-### YOLO.R
+### 悠录 YOLO.R
 
 https://play.google.com/store/apps/details?id=com.timerecord.yolo
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yolo.skin.jpeg)
 
-YOLO.R 是一个生活记录 App。这是我初次接触安卓的尝试……虽说如此，其实大部分功能还是 webview，不过自己实现了定时提醒和安卓 widget。
+悠录是一个生活记录 App，这是我初次接触安卓的尝试……虽说如此，其实大部分功能还是 webview，不过自己实现了定时提醒和纪念日 widget。
 
-虽然说我是前端，但还是图方便用 Wix 整了个临时[官网](https://ssshooterx.wixsite.com/yolo) 😂
+不得不承认这是一个缝合 App，而且有点自嗨吧，因为这四个功能都是我需要用于改变自己习惯的：
+
+- 习惯养成，记录一些好习惯或坏习惯，可以打卡
+- routine，和习惯的区别是，这个是按时间排的每日任务
+- todo list，个人用于记录比较偏向于人生目标的那种 list
+- 纪念日记录，包含一个倒数功能（显示百分比）和普通的纪念日功能（显示经过天数）
+
+虽说自嗨，也希望大家在使用之后提一些意见吧……
+
+提醒：
+
+- 墙外有广告，而墙内，load 不到广告 😂
+- 如果要用闹铃功能的话，允许 banner 弹出体验比较好
+- 闹钟功能为了节省用户电量，没有使用精确的时间提醒，可能会延迟两三分钟
+- 本产品完全不上传用户信息，网络请求只是用在获取每日格言
+- 虽然可以添加纪念日 widget，但是字体读取很随缘，开机后隔一段时间才能恢复字体，据说渲染成图片可以解决这个问题，但是还没有处理
+
+图方便用 Wix 整了个临时~~官网~~下载点 https://ssshooterx.wixsite.com/yolo 😂
 
 ### syncHime
 
