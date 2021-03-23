@@ -6,7 +6,7 @@ tags: ['tag']
 released: false
 ---
 
-https://css-tricks.com/complete-guide-table-element
+本文翻译自 [A Complete Guide to the Table Element](https://css-tricks.com/complete-guide-table-element)，删减了部分举例。
 
 `<table>` 元素用于 HTML 表格数据展示，就像你在 Excel 里看到的那样。本质上，就是行和列。本文会告诉你如何和何时使用 `<table>`，以及你需要懂的关于他的所有东西。
 
@@ -141,26 +141,48 @@ table 元素的宽度有点特别。如果你把一个个表格顺序放在一�
 </section>
 ```
 
-```html
-display: table /*
-<table>
-  */ display: table-cell /*
-  <td>
-    */ display: table-row /*
-    <tr>
-      */ display: table-column /*
-      <col />
-      */ display: table-column-group /*
-      <colgroup>
-        */ display: table-footer-group /*
-        <tfoot>
-          */ display: table-header-group /*
-          <thead>
-            */
-          </thead>
-        </tfoot>
-      </colgroup>
-    </tr>
-  </td>
-</table>
+```css
+display: table                /* <table>     */
+display: table-cell           /* <td>        */
+display: table-row            /* <tr>        */
+display: table-column         /* <col>       */
+display: table-column-group   /* <colgroup>  */
+display: table-footer-group   /* <tfoot>     */
+display: table-header-group   /* <thead>     */
 ```
+
+## table 相关元素
+
+还有一些表单元素上面未提及，现在集中说说，你懂的，我们就用表格来做这件事：
+
+| 元素         | 用途                                  |
+| ------------ | ------------------------------------- |
+| `<table>`    | table 本身                            |
+| `<caption>`  | 说明文字，就像 figcaption 之于 figure |
+| `<thead>`    | 表头                                  |
+| `<tbody>`    | 表体                                  |
+| `<tfoot>`    | 表脚                                  |
+| `<tr>`       | 行（row）                             |
+| `<th>`       | 放标题的格子                          |
+| `<td>`       | 放数据的格子                          |
+| `<col>`      | 列（无内容元素）                      |
+| `<colgroup>` | 一组列                                |
+
+## table 相关属性
+
+除了 class ID 等通用属性，还有一些的 table 专用属性。以前的话会更多一些，不过因为 CSS 的完善，那些用于样式的属性就被弃用了。
+
+| 属性     | 作用元素 | Found On What it does                                                                           |
+| -------- | -------- | ----------------------------------------------------------------------------------------------- |
+| colspan  | th, td   | 横向扩大格子                                                                                    |
+| rowspan  | th, td   | 纵向扩大格子                                                                                    |
+| span     | col      | 让 col 应用于多列                                                                               |
+| headers  | td       | 空格分隔的字符串，关联格子相关的 `<th>` 元素的 ID                                               |
+| scope    | th       | 可选 row、col、rowgroup、colgroup（默认）用于指定表头的“轴”，默认就是列的头，你可以设置为行的头 |
+| sortable | table    | 表明表格可排序，因为缺乏实现而从标准中删除                                                      |
+
+## 已弃用属性
+
+略……既然弃用就忽略吧
+
+## table 实用 CSS
