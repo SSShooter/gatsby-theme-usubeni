@@ -6,7 +6,7 @@ tags: ['tag']
 released: false
 ---
 
-本文翻译自 [A Complete Guide to the Table Element](https://css-tricks.com/complete-guide-table-element)，删减了部分举例。
+本文翻译自 [A Complete Guide to the Table Element](https://css-tricks.com/complete-guide-table-element)，省略了部分小节。因为本文写于 2013 年，部分信息已经过时，我也作了小部分调整。另外，在一些不好理解的地方添加了一点解释。
 
 `<table>` 元素用于 HTML 表格数据展示，就像你在 Excel 里看到的那样。本质上，就是行和列。本文会告诉你如何和何时使用 `<table>`，以及你需要懂的关于他的所有东西。
 
@@ -40,7 +40,7 @@ HTML5 **之前**，`<tfoot>` 只可以放在 `<thead>` 和 `<tbody>` **中间**�
 
 ## 格子：td 和 th
 
-表格里的每个格子总是 `<td>` 或 `<th>` 两个元素的其中之一，它们是格子的本质。`<th>` 代表 tabular headers，`<td>` 代表 tabular data。
+表格里的每个格子总是 `<td>` 或 `<th>` 两个元素的其中之一，它们是作为一个表格格子的本质。`<th>` 代表 tabular headers，`<td>` 代表 tabular data。（本文后面提到的“格子”基本都是指这两个元素）
 
 在例子中第一行全是头，后面的都是行数据：
 
@@ -118,13 +118,15 @@ table 元素的宽度有点特别。如果你把一个个表格顺序放在一�
 
 ## 什么时候不用表格
 
-把 table 当布局工具就是一个不适当的用法。有点反直觉，毕竟 table 看起来是理想的布局方法：容易控制、有严谨的逻辑、可预测性、元素联系紧密。
+因为容易控制、有逻辑、可预测性、非碎片化（对标 float）等原因，table 在本文原文写成的时候还作为一种“布局”方式用在网页布局上（而不是单纯的展示表格），这整一节基本都是从无障碍（accessibility）的角度反对 table 用于页面布局。
 
-但用 table 当布局还是几个大问题。首先 HTML 标签自己是有含义的。之前提到，table 标签语义上就是展示表格数据，用在其他地方就是违反他的语义。
-
-语义这东西不是三言两语能说清楚（），这里就谈几个共识（）：网站必须是易用的（accessible）。易用（accessibility）的一部分就是屏幕阅读器。屏幕阅读器从上到下、从左到右阅读表格。你的网站会以表格的形式描述出来，虽然视觉上看起来挺正常，但是易用性上非常有问题。更不必说这么做有可能读出一些完全没用的元素。
+但是十多年后的现在，随着 CSS 的进化，尤其是各大浏览器都兼容了 flexbox，未来还有 grid 布局，基本是不可能见到 table 页面布局了，所以就不翻译这一节了，不过本节无障碍（accessibility）相关的内容值得了解，有兴趣可以直达原文：https://css-tricks.com/complete-guide-table-element/#when-not-to-use-tables
 
 ## 让其他元素 table 化
+
+CSS 属性可以让任何元素表现得像个 table 元素。你以 table 的结构组合他们，他们就会像 table 一样展示出来。这个做法需要谨慎使用。
+
+不要用行内 CSS，这里只是为了方便理解所以这么写：
 
 ```html
 <section style="display: table;">
@@ -141,6 +143,8 @@ table 元素的宽度有点特别。如果你把一个个表格顺序放在一�
 </section>
 ```
 
+通过 display 改变 table 行为的属性有这些：
+
 ```css
 display: table                /* <table>     */
 display: table-cell           /* <td>        */
@@ -150,6 +154,10 @@ display: table-column-group   /* <colgroup>  */
 display: table-footer-group   /* <tfoot>     */
 display: table-header-group   /* <thead>     */
 ```
+
+注意，没有代表 `<th>` 的属性，因为语义上和 `<td>` 差不多所以就没有另外整一个。
+
+source order dependency
 
 ## table 相关元素
 
@@ -168,6 +176,8 @@ display: table-header-group   /* <thead>     */
 | `<col>`      | 列（无内容元素）                      |
 | `<colgroup>` | 一组列                                |
 
+译者补充：`<col>` 可能让你觉得不好理解，其实这个就是**概念上**的列，可用于归类多个列、批量调整几个列的样式，可以看看 [mdn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col) 的例子。
+
 ## table 相关属性
 
 除了 class ID 等通用属性，还有一些的 table 专用属性。以前的话会更多一些，不过因为 CSS 的完善，那些用于样式的属性就被弃用了。
@@ -183,6 +193,209 @@ display: table-header-group   /* <thead>     */
 
 ## 已弃用属性
 
-略……既然弃用就忽略吧
+略……既然弃用就忽略吧，有兴趣的朋友可以直达原文本节：https://css-tricks.com/complete-guide-table-element/#deprecated-attributes
+
+## table 的层级
+
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/table-stack.png)
 
 ## table 实用 CSS
+
+这些属性是 table 专属的，或者与 table 组合的效果是与众不同的。
+
+**vertical-align**
+
+对其格子里的内容，对格子元素异常好用，不过有意义的就三个值：top/bottom/middle
+
+**white-space**
+
+文字换行对宽度的影响，上面提过了
+
+**border-collapse**
+
+border 坍塌，可选 collapse 或 separate。如果坍塌后两条边的样式冲突（如颜色），会按以下顺序覆盖 cell、row、row group、column、column group、table
+
+**border-spacing**
+
+`border-collapse` 选了 `separate` 的话这个属性用于指定间隙的宽度
+
+**width**
+
+正常情况下，格子的宽度表现如你所想，不过也有一些要特别注意的情况：例如有三个格子，第一个格子设置了宽度，后面两个没有的话，他们会自动分配空间；如果所有格子的宽度设置得都比表格还宽，它们的空间则会按比例分配。
+
+这里只考虑不换行且纯文字的情况，不然这个问题也够写一篇文章了。
+
+**border**
+
+border 不坍塌的话表现如你所想，但是坍塌之后会变得有点怪，它们会减少一个 border 的宽度。在坍塌的情况下两个格子如果需要取消一条边，就必须相邻两个格子都设置取消边框：`td:nth-child(2) { border-right: 0; } td:nth-child(3) { border-left: 0; }`
+
+译者注：关于坍塌后用哪条边，[mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse) 有一个简明易懂的例子
+
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/border-collapse.png)
+
+以上信息不是很详尽，还有其他不少 CSS 的怪异实现，例如你不可以在格子使用相对定位（译者注：2021 年 3 月，我尝试在 td 或 td 里的元素进行相对、绝对定位设置，发现没有任何问题）。
+
+如果你还发现其他 CSS 怪异现象，请在评论区分享。
+
+## 默认样式
+
+[WebKit](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css) 的情况
+
+我也调查过 Chrome 的情况，使用 Blink 实现，样式也是一样的。
+
+## 重置 table 样式
+
+## 让 table 不 table
+
+你可能会突然遇到不想让 table 展示得像个传统 table，做法本质上也是修改 table 元素的 display：
+
+```css
+th,
+td {
+  display: inline;
+}
+```
+
+为了整个环境更协调我倾向于先把全部 table 相关元素重置一下，避免出现神奇的问题。
+
+```css
+table,
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th,
+caption {
+  display: block;
+}
+```
+
+这么做通常是用在响应式设计上，例如小屏幕的手机不便展示 PC 端的大表格。后面会有一节解决这个问题。
+
+## 无障碍表格
+
+在 table 在正确的语义下使用时，无障碍相关配置仍有需要注意的地方，请参考这三篇不错的文章：
+
+- WebAIM: [Creating Accessible Tables](http://webaim.org/techniques/tables/)
+- Portland Community College: [Examples of Good and Bad Table Layout for Screen Readers](http://www.pcc.edu/resources/instructional-support/access/table-layout-examples.html)
+- Web Usability: [Accessible Data Tables](http://usability.com.au/2005/06/accessible-data-tables-2005/)
+
+## 斑马纹
+
+最简单的：
+
+```css
+tbody tr:nth-child(odd) {
+  background: #eee;
+}
+```
+
+限制在 tbody 是因为你大概不会想要包含表头和表脚，你也可以把 odd 改成 even。[调查证明](https://alistapart.com/article/zebrastripingmoredataforthecase)斑马纹确实是个不错的注意。
+
+## 高亮
+
+高亮行非常简单，加一个 class 即可：
+
+```html
+<tr class="highlight">
+  ...
+</tr>
+```
+
+<div class="wp-block-cp-codepen-gutenberg-embed-block cp_embed_wrapper resizable" style="height: 450px;"><iframe id="cp_embed_sbAaf" src="//codepen.io/anon/embed/sbAaf?height=450&amp;theme-id=1&amp;slug-hash=sbAaf&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen="" allowpaymentrequest="" name="CodePen Embed sbAaf" title="CodePen Embed sbAaf" class="cp_embed_iframe" style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe><div class="win-size-grip" style="touch-action: none;"></div></div>
+
+高亮列就有点麻烦。其中一种方法是使用 `<col>` 元素，它可以让你一次控制一整列的样式。不过这东西有点不直观，因为受影响的格子并不是 `<col>` 的子元素，但是浏览器会懂你什么意思。
+
+一个 4 列的表格会有四个 `<col>`：
+
+```html
+<table>
+  <col>
+  <col>
+  <col>
+  <col>
+
+  <thead>
+     ...
+
+</table>
+```
+
+你可以这样高亮它：
+
+```css
+col:nth-child(3) {
+  background: yellow; 
+}
+```
+
+<div class="wp-block-cp-codepen-gutenberg-embed-block cp_embed_wrapper resizable" style="height: 450px;"><iframe id="cp_embed_Adtxf" src="//codepen.io/anon/embed/Adtxf?height=450&amp;theme-id=1&amp;slug-hash=Adtxf&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen="" allowpaymentrequest="" name="CodePen Embed Adtxf" title="CodePen Embed Adtxf" class="cp_embed_iframe" style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe><div class="win-size-grip" style="touch-action: none;"></div></div>
+
+这个做法在你设置了格子背景色的时候会无效，因为格子的背景色总是优先于列的背景色，这个时候你可以为格子设置一系列 class 满足下面的选择器：
+
+```css
+td:nth-child(2),
+th:nth-child(2){
+  background: yellow;
+}
+```
+
+## hover 高亮
+
+行，一样的简单：
+
+```css
+tbody tr:hover {
+  background: yellow;
+}
+```
+
+<div class="wp-block-cp-codepen-gutenberg-embed-block cp_embed_wrapper resizable" style="height: 450px;"><iframe id="cp_embed_Kghja" src="//codepen.io/anon/embed/Kghja?height=450&amp;theme-id=1&amp;slug-hash=Kghja&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen="" allowpaymentrequest="" name="CodePen Embed Kghja" title="CodePen Embed Kghja" class="cp_embed_iframe" style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe><div class="win-size-grip" style="touch-action: none;"></div></div>
+
+如果设置了格子样式的话就用 `tr:hover td, tr:hover th { }` 一样简单。
+
+至于列，还是麻烦一点，你没办法设置 `col:hover`，根本没东西给你 hover，所以只能用 JavaScript 了：
+
+<div class="wp-block-cp-codepen-gutenberg-embed-block cp_embed_wrapper resizable" style="height: 450px;"><iframe id="cp_embed_pLHBm" src="//codepen.io/anon/embed/pLHBm?height=450&amp;theme-id=1&amp;slug-hash=pLHBm&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen="" allowpaymentrequest="" name="CodePen Embed pLHBm" title="CodePen Embed pLHBm" class="cp_embed_iframe" style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe><div class="win-size-grip" style="touch-action: none;"></div></div>
+
+## 表格设计范例
+
+本节展示了多个设计不错的表格，完整内容略，[点击这里直达原文](https://css-tricks.com/complete-guide-table-element/#nicely-styled-tables)
+
+## 表格搜索
+
+说明如何使用 jQuery 实现表格搜索，完整内容略，[点击这里直达原文](https://css-tricks.com/complete-guide-table-element/#table-search)
+
+## 响应式设计
+
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/mobile-table-suck.png)
+
+两个 live demo：
+
+<div class="wp-block-cp-codepen-gutenberg-embed-block cp_embed_wrapper resizable" style="height: 414px; transition: all 0s ease 0s; width: 764px;"><iframe id="cp_embed_FCBEg" src="//codepen.io/anon/embed/FCBEg?height=450&amp;theme-id=1&amp;slug-hash=FCBEg&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen="" allowpaymentrequest="" name="CodePen Embed FCBEg" title="CodePen Embed FCBEg" class="cp_embed_iframe" style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe><div class="win-size-grip" style="touch-action: none;"></div></div>
+
+<div class="wp-block-cp-codepen-gutenberg-embed-block cp_embed_wrapper resizable" style="height: 450px;"><iframe id="cp_embed_CvFHy" src="//codepen.io/anon/embed/CvFHy?height=450&amp;theme-id=1&amp;slug-hash=CvFHy&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen="" allowpaymentrequest="" name="CodePen Embed CvFHy" title="CodePen Embed CvFHy" class="cp_embed_iframe" style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe><div class="win-size-grip" style="touch-action: none;"></div></div>
+
+## 固定表头的表格
+
+说明如何使用 jQuery 实现固定表头，而现在基本可以放心使用 `position: sticky;`，完整内容略，[点击这里直达原文](https://css-tricks.com/complete-guide-table-element/#fixed-header-tables)
+
+## 用 Emmet 生成表格代码
+
+[Emmet](http://emmet.io/) 是一个不错的代码工具，可以帮你生成庞大但有规律的 HTML 结构，省得自己复制成狗。
+
+完整内容略，[点击这里直达原文](https://css-tricks.com/complete-guide-table-element/#using-emmet-for-creating-table-markup)
+
+## JavaScript 生成表格
+
+JavaScript 通过 `HTMLTableElement` 提供了处理 table 元素的特定方法。Louis Lazaris 最近也写了一篇相关[文章](http://us5.campaign-archive1.com/?u=ea228d7061e8bbfa8639666ad&id=f7212bdeba&e=313c7b398a)。你可以利用 `HTMLTableElement` 更灵活地生成表格，相关文档可以查阅 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement)。
+
+<div class="wp-block-cp-codepen-gutenberg-embed-block cp_embed_wrapper resizable" style="height: 450px;"><iframe id="cp_embed_inosC" src="//codepen.io/anon/embed/inosC?height=450&amp;theme-id=1&amp;slug-hash=inosC&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen="" allowpaymentrequest="" name="CodePen Embed inosC" title="CodePen Embed inosC" class="cp_embed_iframe" style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe><div class="win-size-grip" style="touch-action: none;"></div></div>
+
+## 表格排序
+
+## 更多信息
+
+- [HTML 标准文档](https://html.spec.whatwg.org/multipage/tables.html)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
