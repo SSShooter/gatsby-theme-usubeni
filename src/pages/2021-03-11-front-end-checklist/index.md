@@ -2,7 +2,7 @@
 path: '/front-end-checklist'
 date: '2021-03-11T14:26:35.250Z'
 title: '非正常前端学习清单'
-tags: ['coding']
+tags: []
 released: false
 ---
 
@@ -15,6 +15,7 @@ released: false
 - 事件循环机制，异步回调的基础，了解回调函数的运行时机是 JavaScript 的必修课
 - ajax
 - [编写清晰易懂的代码](https://github.com/ryanmcdermott/clean-code-javascript)
+- [自文档 Javascript](https://www.sitepoint.com/self-documenting-javascript/)
 
 优先度低一点的两个知识点：
 
@@ -118,6 +119,8 @@ web-rtc、socket 等
 ### WASM
 
 ### web GL
+
+### serverless
 
 ### 外语
 

@@ -95,7 +95,12 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } released: { ne: false } } }
+      filter: { 
+        frontmatter: { 
+          tags: { in: [$tag] } 
+          released: { ne: false } 
+        }
+      }
       limit: $limit
       skip: $skip
     ) {
