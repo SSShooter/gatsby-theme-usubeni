@@ -183,6 +183,62 @@ this.$parent.visible = true
 
 [MDN Object.defineProperty()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
+单向绑定是指数据使用 `defineProperty` 把 `configurable` 设置成 `false`，这样使数据相应化的 defineReactive 会跳过响应式设置：
+
+```javascript
+Object.defineProperty(data, key, {
+  configurable: false,
+})
+```
+
+但是你仍然可以通过 v-model 向绑定的目标赋值，只是赋值后界面不会更新。
+
+完全不绑定就是官网写的 freeze 一个对象再赋值，这么做对象内部的值（第一层）就直接不能改了。
+
+## 缓存 ajax 数据
+
+可以封装得像跟普通 axios 的 get 一样，直接替换原来的 axios 对象：
+
+```javascript
+import axios from 'axios'
+import router from './router'
+import { Message } from 'element-ui'
+let baseURL = process.env.VUE_APP_BASEURL
+let ajax = axios.create({
+  baseURL,
+  withCredentials: true,
+})
+let ajaxCache = {}
+
+ajaxCache.get = (...params) => {
+  let url = params[0]
+  let option = params[1]
+  let id = baseURL + url + (option ? JSON.stringify(option.params) : '')
+  if (sessionStorage[id]) {
+    return Promise.resolve(JSON.parse(sessionStorage[id]))
+  }
+  return ajax.get(...params)
+}
+
+ajax.interceptors.response.use(
+  function(response) {
+    // ......
+    if (response.data.code === '20000') {
+      let params = response.config.params
+      let id = response.config.url + (params ? JSON.stringify(params) : '')
+      sessionStorage[id] = JSON.stringify(response.data.data)
+      return response.data.data
+    }
+  },
+  function(error) {
+    Message.error('连接超时')
+    return Promise.reject(error)
+  }
+)
+
+export default ajaxCache
+```
+
 https://juejin.cn/post/6922641008106668045
 
 ## 函数式组件
@@ -259,6 +315,8 @@ function optimizeItem(item) {
   return itemData
 }
 ```
+
+PS：数据扁平化也可以缓解这个问题
 
 ## 虚拟滚动
 
