@@ -1,9 +1,8 @@
 ---
 path: '/complete-guide-table-element'
-date: '2021-03-23T15:28:46.976Z'
+date: '2021-03-29T23:28:46.976Z'
 title: '关于 table 元素你要懂的全在这'
-tags: ['coding']
-released: false
+tags: ['coding', '翻译']
 ---
 
 本文翻译自 [A Complete Guide to the Table Element](https://css-tricks.com/complete-guide-table-element)，省略了部分小节。因为本文写于 2013 年，部分信息已经过时，我也作了小部分调整。另外，在一些不好理解的地方添加了一点解释。
@@ -326,7 +325,7 @@ tbody tr:nth-child(odd) {
 
 ```css
 col:nth-child(3) {
-  background: yellow; 
+  background: yellow;
 }
 ```
 
@@ -336,7 +335,7 @@ col:nth-child(3) {
 
 ```css
 td:nth-child(2),
-th:nth-child(2){
+th:nth-child(2) {
   background: yellow;
 }
 ```
