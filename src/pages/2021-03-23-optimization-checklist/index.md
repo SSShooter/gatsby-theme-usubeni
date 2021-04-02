@@ -6,9 +6,7 @@ tags: ['coding']
 released: false
 ---
 
-程度需要把握，把阴阳平衡铭刻于心。
-
-网络性能相关研究——[Web Performance Working Group](https://www.w3.org/webperf/)
+程度需要把握，把阴阳平衡铭刻于心
 
 ## 连接
 
@@ -63,3 +61,8 @@ released: false
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
 - dev-tools performance
 - [webpagetest](https://www.webpagetest.org/)，使用提示：https://www.debugbear.com/blog/performant-front-end-architecture
+
+## 其他参考站点
+
+- 网络性能相关规范——[Web Performance Working Group](https://www.w3.org/webperf/)
+- [csswizardry](https://csswizardry.com/)
