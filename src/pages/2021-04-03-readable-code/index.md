@@ -380,6 +380,8 @@ PS.就像 React 的 Immutable 原则
 
 这和著名的“一个函数只做一件事”不完全一样，这是指一个函数**内**要做的事也是可以分为不同的“任务组”。(defragmenting)
 
+这是一个投票组件的函数，对应前后状态有多种组合的可能性：
+
 ```javascript
 var vote_changed = function(old_vote, new_vote) {
   var score = get_score()
@@ -395,6 +397,10 @@ var vote_changed = function(old_vote, new_vote) {
   set_score(score)
 }
 ```
+
+但是如果不根据前后状态直接混在一起处理可以吗？可以，这就是所谓“每次做一件事”。
+
+我们把单个操作的变化抽离成函数，然后先减去旧的状态，再加上新的状态：
 
 ```javascript
 var vote_value = function(vote) {
