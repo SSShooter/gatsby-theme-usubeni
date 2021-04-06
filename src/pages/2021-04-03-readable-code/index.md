@@ -18,10 +18,10 @@ tags: ['coding', '读书笔记']
 - 更精准地描述一个动作，例如从服务器获取的内容，动词 Get 可以换成 Fetch 或 Download
 
 ```
-send deliver, dispatch, announce, distribute, route
-find search, extract, locate, recover
-start launch, create, begin, open
-make create, set up, build, generate, compose, add, new
+send: deliver, dispatch, announce, distribute, route
+find: search, extract, locate, recover
+start: launch, create, begin, open
+make: create, set up, build, generate, compose, add, new
 ```
 
 - 不要用 `tmp` 和 `retval` 这样的通用词，尽管这确实可以让你知道这是“暂存值”和“返回值”，但是你本质上还是不知道这是啥啊！所以变量名不要流于表面，好好描述它真正的内容（除非你真的有更好的理由就是要用通用词）
@@ -464,6 +464,8 @@ if (is_admin_request()) {
 如果你发现很难描述你的问题或者代码……那可能你的代码逻辑存在一些问题，那更好了，再深度思考一下业务逻辑会不会有什么不对的地方吧。
 
 这事情做起来和 rubber ducking（也就是“小黄鸭调试法”）差不多，不难做到，却十分有效，十分推荐大家尝试。
+
+**每个程序员心中都应该有一只小黄鸭。**
 
 ## Less Code
 

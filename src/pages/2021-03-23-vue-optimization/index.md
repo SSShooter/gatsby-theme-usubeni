@@ -6,7 +6,21 @@ tags: ['coding']
 released: false
 ---
 
-## 拆分子组件
+## 速览
+
+- 拆分组件，利用组件级别的更新粒度优化更新速度
+- computed
+- 慎用重型组件或插件，有必要时自己造
+- 利用响应式的反模式
+- 使用函数式组件
+- 减少在依赖收集时使用 this
+- v-show 与 v-if 的平衡
+- keepalive
+- 分片渲染
+- 数据缓存
+- 虚拟滚动
+
+## 拆分组件
 
 我也曾以为，拆分子组件是用于抽象，但实践告诉我，拆分子组件是提升性能的一种方式（特定情况）。
 
@@ -165,7 +179,13 @@ this.$refs.child.visible = true
 this.$parent.visible = true
 ```
 
+关于更新粒度更详细的解释可以看这里：[Vue 和 React 对于组件的更新粒度有什么区别](https://github.com/sl1673495/blogs/issues/38)
+
 PS：另外有一个隐藏结论，一个组件用了 slot 的话，子组件是会随着父组件重新渲染的
+
+## computed
+
+经过官方文档的强调，可以说是众所周知，computed 可以缓存计算结果，减少计算消耗时间。
 
 ## 减少使用重型组件和插件
 
@@ -256,15 +276,11 @@ https://juejin.cn/post/6922641008106668045
 
 PS：函数式组件因为没有实例化，所以每次使用都会重新渲染，想要完全静态要用 `v-once`
 
-## 拆分组件
+PS2：在 Vue3 中，functional 和普通组件速度[差别几乎可以忽略](https://v3.vuejs.org/guide/migration/functional-components.html#overview)
 
-上面说了
+## 减少使用 this
 
-另外，某些情况可以用 computed 解决这个问题。
-
-## 使用本地变量
-
-简单来说就是要注意 watch 和 render 里面每一次 this 取值的代价都包含依赖收集的代码。
+简单来说就是要注意 computed、watch 和 render 里面每一次 this 取值的代价都包含依赖收集的代码，实际上这些代码只要运行一次就足够了。
 
 ```javascript
 {
@@ -283,7 +299,7 @@ PS：函数式组件因为没有实例化，所以每次使用都会重新渲染
 }
 ```
 
-补充链接：https://mp.weixin.qq.com/s/wuNneeWA6yrVpYRteTJxkw
+想要更详细了解这个问题，可以看这里：https://mp.weixin.qq.com/s/wuNneeWA6yrVpYRteTJxkw
 
 ## v-show 重用 DOM
 
@@ -298,6 +314,8 @@ v-show 固然可以加快组件显示速度，但是 v-show 和 v-if 的平衡�
 - 分批赋值响应式数据，从而减少每次渲染的时间，提高用户感知到的流畅度。
 - 重型组件使用 `v-if` 延后展示
 - 可以借助 `requestAnimationFrame`
+
+PS：个人体验，如果多个 ajax 牵扯到相同的一堆数据，分片渲染的速度恐怕并不会快，我会选择用 Promise.all 合并渲染
 
 ## 非响应式数据
 

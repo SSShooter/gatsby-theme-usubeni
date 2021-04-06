@@ -14,6 +14,7 @@ released: false
 - 原型链
 - 事件循环机制，异步回调的基础，了解回调函数的运行时机是 JavaScript 的必修课
 - ajax
+- 熟悉 [DOM 操作](https://itnext.io/using-the-dom-like-a-pro-163a6c552eba)
 - [编写清晰易懂的代码](https://github.com/ryanmcdermott/clean-code-javascript)
 - [自文档 Javascript](https://www.sitepoint.com/self-documenting-javascript/)
 
@@ -25,9 +26,10 @@ released: false
 
 ### CSS
 
-基础，常见布局，了解一些坑
-
-进阶，各种魔幻特效
+- 优先级
+- 基础，常见布局，了解一些坑
+- 浮动对布局的破坏
+- 进阶，各种魔幻特效
 
 ### HTML
 
@@ -35,9 +37,8 @@ HTML 入门……似乎真的没什么难度，了解主流 HTML 标签和这些
 
 需要特别注意的大概是元标签吧。
 
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
 
 ### git
 
@@ -77,6 +78,8 @@ https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1
 
 你可以用 Wireshark 看看在网络世界里飞来飞去的“包”到底是怎样的东西，也能看到高频考点三次握手和四次挥手。
 
+#### HTTPS
+
 #### 其他
 
 web-rtc、socket 等
@@ -86,6 +89,10 @@ web-rtc、socket 等
 - [前端网络安全必修 1 SOP、CSRF 和 CORS](https://ssshooter.com/2019-11-08-csrf-n-cors/)
 - [前端网络安全必修 2 XSS 和 CSP](https://ssshooter.com/2019-11-10-csp-n-xss/)
 - [前后端接口鉴权全解](https://ssshooter.com/2021-02-21-auth/)
+
+## Node.js
+
+stream、buffer
 
 ## 算法
 
@@ -126,9 +133,12 @@ web-rtc、socket 等
 
 ### 成长
 
-https://www.yuque.com/iscott/fe/kvokg4
-
 - 拥抱变化，也要审视、质疑变化
 - 选择框架：稳定性、性能、生态、文档、社区活跃度、学习曲线、开发团队、GitHub 信息、迁移成本
 - 可以以轻松更换框架为目标对代码进行优化拆分
 - 了解需求是写好业务代码的前提
+
+## 推荐阅读
+
+- https://github.com/mqyqingfeng/Blog
+- https://www.yuque.com/iscott/fe/kvokg4
