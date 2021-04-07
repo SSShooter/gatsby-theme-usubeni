@@ -2,8 +2,9 @@
 path: '/vue-optimization'
 date: '2021-03-23T09:53:29.360Z'
 title: 'Vue 优化自查'
-tags: ['coding']
-released: false
+# tags: ['coding']
+# released: false
+hiden: true
 ---
 
 ## 速览
@@ -12,13 +13,13 @@ released: false
 - computed
 - 慎用重型组件或插件，有必要时自己造
 - 利用响应式的反模式
-- 使用函数式组件
 - 减少在依赖收集时使用 this
 - v-show 与 v-if 的平衡
 - keepalive
 - 分片渲染
 - 数据缓存
 - 虚拟滚动
+- 使用函数式组件（低优先）
 
 ## 拆分组件
 

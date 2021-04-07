@@ -2,8 +2,9 @@
 path: '/optimization-checklist'
 date: '2021-03-23T16:19:51.218Z'
 title: '前端项目优化自查'
-tags: ['coding']
-released: false
+# tags: ['coding']
+# released: false
+hiden: true
 ---
 
 程度需要把握，把阴阳平衡铭刻于心
