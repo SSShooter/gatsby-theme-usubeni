@@ -13,9 +13,10 @@ exports.createPages = ({ graphql, actions }) => {
     const tagTemplate = path.resolve('./src/templates/tag.js')
     resolve(
       graphql(
-        `{
+        `
+          {
             allMarkdownRemark(
-              filter:{ frontmatter: { released: { ne: false } } }
+              filter: { frontmatter: { released: { ne: false } } }
               sort: { fields: [frontmatter___date], order: DESC }
               limit: 1000
             ) {
@@ -35,7 +36,8 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-          }`
+          }
+        `
       ).then(result => {
         if (result.errors) {
           reject(result.errors)
@@ -123,11 +125,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       .catch(err =>
         console.error(
           '\n--------------\n' +
-          absolutePath +
-          node.extension +
-          '\n--------------\n' +
-          err +
-          '\n--------------\n'
+            absolutePath +
+            node.extension +
+            '\n--------------\n' +
+            err +
+            '\n--------------\n'
         )
       )
       .then(exifData => {
@@ -156,11 +158,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       .catch(err =>
         console.error(
           '\n--------------\n' +
-          absolutePath +
-          node.extension +
-          '\n--------------\n' +
-          err +
-          '\n--------------\n'
+            absolutePath +
+            node.extension +
+            '\n--------------\n' +
+            err +
+            '\n--------------\n'
         )
       )
   }

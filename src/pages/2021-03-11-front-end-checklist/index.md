@@ -2,7 +2,7 @@
 path: '/front-end-checklist'
 date: '2021-03-11T14:26:35.250Z'
 title: '非正常前端学习清单'
-# tags: [coding]
+tags: [coding]
 # released: false
 hiden: true
 ---

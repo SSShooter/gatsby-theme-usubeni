@@ -12,20 +12,20 @@ const TagsPage = ({
     },
   },
 }) => (
-    <div>
-      <Layout title="Usubeni Fantasy" pageName="标签库">
-        <ul className="css-tags">
-          {group.map(tag => (
-            <li key={tag.fieldValue} className="css-tag">
-              <Link to={`/tag/${tag.fieldValue}/`}>
-                #{tag.fieldValue} <sup>{tag.totalCount}</sup>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Layout>
-    </div>
-  )
+  <div>
+    <Layout title="Usubeni Fantasy" pageName="标签库">
+      <ul className="css-tags">
+        {group.map(tag => (
+          <li key={tag.fieldValue} className="css-tag">
+            <Link to={`/tag/${tag.fieldValue}/`}>
+              #{tag.fieldValue} <sup>{tag.totalCount}</sup>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </Layout>
+  </div>
+)
 
 TagsPage.propTypes = {
   data: PropTypes.shape({
@@ -55,7 +55,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter:{ frontmatter: { released: { ne: false } } }
+      filter: { frontmatter: { released: { ne: false }, hiden: { ne: true } } }
       limit: 2000
     ) {
       group(field: frontmatter___tags) {
