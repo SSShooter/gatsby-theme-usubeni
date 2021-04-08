@@ -52,6 +52,7 @@ hiden: true
 
 ### CSS
 
+- [CSS 渲染原理以及优化策略](http://jartto.wang/2019/10/23/css-theory-and-optimization/)
 - CSS 硬件加速
 - 少用通配符
 - [编写高效 CSS](https://csswizardry.com/2011/09/writing-efficient-css-selectors/)
