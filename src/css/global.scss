@@ -124,7 +124,7 @@ body {
   font-size: 17px;
   background-color: var(--backgroundColor);
   color: var(--fontColor);
-  transition: all 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .mask {
