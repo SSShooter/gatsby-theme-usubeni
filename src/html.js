@@ -21,7 +21,8 @@ export default class HTML extends React.Component {
             content="email=no,telephone=no,address=no"
           />
           <meta name="baidu-site-verification" content="rVEuQMP8C6" />
-          {/* <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300&subset=chinese-simplified" rel="stylesheet"></link> */}
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap" rel="stylesheet"></link>
           <link
             rel="apple-touch-icon"
             sizes="180x180"
