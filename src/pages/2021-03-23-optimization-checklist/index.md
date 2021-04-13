@@ -32,11 +32,13 @@ hiden: true
 ### HTML
 
 - 默认情况 HTML 文件 parse 到 JavaScript 会停下来下载、然后运行，然后继续 parse
-- 使用 defer 属性：下载时 parse 不停止，下载完立即运行
-- 使用 async 属性：下载时 parse 不停止，下载完等待 HTML parse 完成再运行
+- 使用 defer 属性：下载时 parse 不停止，下载完等待 HTML parse 完成再运行
+- 使用 async 属性：下载时 parse 不停止，下载完立即运行
 - 善用 `<link>` 标签的 preload 等属性
 - 减少 DOM 复杂度
 - 无障碍优化（Accessibility）
+
+defer 和 async：可以理解为 defer 是 defer（延迟）到文档加载完成，用于强调运行顺序或需要整个 DOM 的脚本；async 就是在 parse html 的同时异步加载，下载完立即运行，适用于广告和统计之类的功能。
 
 ### JavaScript
 
