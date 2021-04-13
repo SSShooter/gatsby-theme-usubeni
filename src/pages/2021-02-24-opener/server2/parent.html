@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent</title>
+</head>
+
+<body>
+    <iframe src="./opener"></iframe>
+    <button id="open">open a new page</button>
+    <script>
+        window.name = 'parent'
+        document.querySelector('#open').addEventListener('click', e => {
+            const child = window.open('http://localhost:5000/openee')
+            console.log(child)
+        })
+        window.addEventListener("message", (e) => {
+            console.log(e.data)
+        }, false);
+    </script>
+</body>
+
+</html>

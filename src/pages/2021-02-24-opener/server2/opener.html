@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opener</title>
+</head>
+
+<body>
+    <button id="open">open a new page</button>
+    <script>
+        window.name = 'opener'
+        document.querySelector('#open').addEventListener('click', e => {
+            window.open('http://localhost:5000/openee')
+        })
+        window.addEventListener("message", (e) => {
+            console.log(e.data)
+        }, false);
+        function saveOpen(url) {
+            var win = window.open();
+            win.opener = null;
+            win.location = url
+        }
+    </script>
+</body>
+
+</html>

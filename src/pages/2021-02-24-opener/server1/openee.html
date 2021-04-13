@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openee</title>
+</head>
+
+<body>
+    <div class="info"></div>
+    <button id="close">close opener</button>
+    <button id="send">send message</button>
+    <script>
+        try {
+            console.log(window.opener)
+            document.querySelector('.info').innerHTML = window.opener.name || 'not found'
+        } catch (err) {
+            console.error(err)
+        }
+        document.querySelector('#close').onclick = e => {
+            window.opener.close()
+        }
+        document.querySelector('#send').onclick = e => {
+            // let data = {
+            //     msg: 'send to ' + window.opener.name + ' ' + Math.random()
+            // }
+            let data = {
+                msg: 'send ' + Math.random()
+            }
+            window.opener.postMessage(
+                data, // 需要发送的信息
+                'http://localhost:2000/' // 发送目标的域
+            )
+        }
+    </script>
+</body>
+
+</html>
