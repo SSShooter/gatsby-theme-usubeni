@@ -20,8 +20,7 @@ class Layout extends React.Component {
   }
   componentDidMount() {
     // avoid flash
-    document.documentElement.style.display = 'none'
-    startSakura()
+    // document.documentElement.style.display = 'none'
     this.setState({
       year: new Date().getFullYear(),
       days: this.formatTime(new Date() - new Date('2018-12-05 14:13:38')),
@@ -49,7 +48,7 @@ class Layout extends React.Component {
       // default light
       this.setTheme('light')
     }
-    document.documentElement.style.display = 'block'
+    // document.documentElement.style.display = 'block'
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     darkModeMediaQuery.addListener(e => {
       const darkModeOn = e.matches
@@ -79,8 +78,12 @@ class Layout extends React.Component {
     })
   }
   setFlowerDance = n => {
+    const sakuraCanvas = document.querySelector('#canvas_sakura')
+    if (n == 1 && !sakuraCanvas) {
+      startSakura()
+    }
+    if (sakuraCanvas) sakuraCanvas.style.opacity = Number(n)
     localStorage.setItem('flowerDance', n)
-    document.querySelector('#canvas_sakura').style.opacity = Number(n)
     this.setState({
       flowerDance: n,
     })
@@ -112,11 +115,11 @@ class Layout extends React.Component {
     }
   }
   formatTime = msTime => {
-    let time = msTime / 1000
-    let day = Math.floor(time / 60 / 60 / 24)
-    let hour = Math.floor(time / 60 / 60) % 24
-    let minute = Math.floor(time / 60) % 60
-    let second = Math.floor(time) % 60
+    const time = msTime / 1000
+    const day = Math.floor(time / 60 / 60 / 24)
+    const hour = Math.floor(time / 60 / 60) % 24
+    const minute = Math.floor(time / 60) % 60
+    const second = Math.floor(time) % 60
     return ` ${day} 天`
   }
   handleEnter = e => {
