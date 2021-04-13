@@ -99,6 +99,7 @@ export const pageQuery = graphql`
         frontmatter: { 
           tags: { in: [$tag] } 
           released: { ne: false } 
+          hidden: { ne: true } 
         }
       }
       limit: $limit

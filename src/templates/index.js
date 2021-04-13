@@ -110,7 +110,7 @@ export const pageQuery = graphql`
       filter: { 
         frontmatter: { 
           released: { ne: false } 
-          hiden: { ne: true } 
+          hidden: { ne: true } 
         } 
       }
       sort: { fields: [frontmatter___date], order: DESC }

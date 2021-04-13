@@ -55,7 +55,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { released: { ne: false }, hiden: { ne: true } } }
+      filter: { frontmatter: { released: { ne: false }, hidden: { ne: true } } }
       limit: 2000
     ) {
       group(field: frontmatter___tags) {
