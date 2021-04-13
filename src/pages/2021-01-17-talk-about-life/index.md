@@ -3,6 +3,7 @@ path: '/talk-about-life'
 date: '2021-01-17T12:25:21.754Z'
 title: '再说说活着'
 tags: ['人生思考','diary']
+released: false
 ---
 
 之前也思考过[活着的意义](/meaning-of-life)，但这个问题仍然是没有确定答案的，值得永远思考下去。
