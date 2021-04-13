@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
-import startSakura from '../sakura.TRHX.js'
+// import startSakura from '../sakura.TRHX.js'
 import '../css/global.scss'
 
 let footerStyle = {
@@ -79,8 +79,12 @@ class Layout extends React.Component {
   }
   setFlowerDance = n => {
     const sakuraCanvas = document.querySelector('#canvas_sakura')
+    console.log('setFlowerDance',n,sakuraCanvas)
     if (n == 1 && !sakuraCanvas) {
-      startSakura()
+      // 假如本来就是 1 也不用担心 opacity 设置不了，因为本来初始化就是显示的啊
+      import('../sakura.TRHX.js').then(code=>{
+        code.default()
+      })
     }
     if (sakuraCanvas) sakuraCanvas.style.opacity = Number(n)
     localStorage.setItem('flowerDance', n)
@@ -117,9 +121,9 @@ class Layout extends React.Component {
   formatTime = msTime => {
     const time = msTime / 1000
     const day = Math.floor(time / 60 / 60 / 24)
-    const hour = Math.floor(time / 60 / 60) % 24
-    const minute = Math.floor(time / 60) % 60
-    const second = Math.floor(time) % 60
+    // const hour = Math.floor(time / 60 / 60) % 24
+    // const minute = Math.floor(time / 60) % 60
+    // const second = Math.floor(time) % 60
     return ` ${day} 天`
   }
   handleEnter = e => {

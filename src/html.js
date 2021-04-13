@@ -44,17 +44,9 @@ export default class HTML extends React.Component {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
           <script
-            async
-            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
-          <script
             dangerouslySetInnerHTML={{
               __html: `
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-5174204966769125",
-      enable_page_level_ads: true
-    });
-    var _hmt = _hmt || [];
+var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?f0d372f52ceca5460b4187225904d16a";
@@ -89,3 +81,13 @@ HTML.propTypes = {
   body: PropTypes.string,
   postBodyComponents: PropTypes.array,
 }
+
+// 被去掉的谷歌广告
+/* <script
+async
+src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+/> */
+// (adsbygoogle = window.adsbygoogle || []).push({
+//   google_ad_client: "ca-pub-5174204966769125",
+//   enable_page_level_ads: true
+// });
