@@ -7,7 +7,9 @@ tags: ['coding']
 hidden: true
 ---
 
-程度需要把握，把阴阳平衡铭刻于心
+- 高速度的加载是抓住用户的利器，无论内容做得多好，用户因为等待时间太长而离开就没有意义了
+- 程度需要把握，把阴阳平衡铭刻于心
+- 优化时应使用浏览器的匿名模式防止插件干扰
 
 ## 连接
 
@@ -31,6 +33,7 @@ hidden: true
 
 ### HTML
 
+- 明白 [critical rendering path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path) 的概念
 - 默认情况 HTML 文件 parse 到 JavaScript 会停下来下载、然后运行，然后继续 parse
 - 使用 defer 属性：下载时 parse 不停止，下载完等待 HTML parse 完成再运行
 - 使用 async 属性：下载时 parse 不停止，下载完立即运行
@@ -51,14 +54,19 @@ defer 和 async：可以理解为 defer 是 defer（延迟）到文档加载完�
 - 减少 DOM 操作可能引起的重排与重绘
 - SSR，以新的技术栈回到服务器渲染的初心
 - 抽离关键代码用于首屏渲染
+- 运行大型任务时如果需要保持页面流畅，可以把任务拆分成 16.7 ms 内完成的多个任务，然后使用 `requestAnimationFrame` 运行，保证页面不卡顿
 
 ### CSS
 
+- 不要使用 `@import`，因为从 css 里下载会阻塞当前 css 解释，从而会阻塞渲染进程
 - [CSS 渲染原理以及优化策略](http://jartto.wang/2019/10/23/css-theory-and-optimization/)
 - CSS 硬件加速
 - 少用通配符
 - [编写高效 CSS](https://csswizardry.com/2011/09/writing-efficient-css-selectors/)
 - 使用 font-display 优化大型字体文件加载前的显示
+- 使用 devtools 的 Coverage 鉴别关键 CSS
+- 用 `media` 属性条件加载 CSS
+- 理解 Recalculate Styles、回流（reflow）和重绘（repaint）
 
 ## 性能检测方式
 

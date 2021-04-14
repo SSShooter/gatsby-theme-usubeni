@@ -143,3 +143,4 @@ stream、buffer
 
 - https://github.com/mqyqingfeng/Blog
 - https://www.yuque.com/iscott/fe/kvokg4
+- https://betterprogramming.pub/4-mistakes-i-made-as-a-programmer-but-i-had-to-become-a-cto-to-see-them-19a41ba70411
