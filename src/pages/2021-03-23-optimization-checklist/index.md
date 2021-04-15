@@ -66,22 +66,26 @@ defer 和 async：可以理解为 defer 是 defer（延迟）到文档加载完�
 ### JavaScript
 
 - 老掉牙的事件委托问题
+- 防抖节流
 - 内存泄漏问题，参考文章：[Beyond Memory Leaks in JavaScript](https://medium.com/outsystems-experts/beyond-memory-leaks-in-javascript-d27fd48ae67e)
 - 减少 DOM 操作可能引起的重排与重绘
 - SSR，以新的技术栈回到服务器渲染的初心
-- 运行大型任务时如果需要保持页面流畅，可以把任务拆分成 16.7 ms 内完成的多个任务，然后使用 `requestAnimationFrame` 运行，保证页面不卡顿
+- 因为渲染和脚本运行是互斥的，如果脚本运行时间太长，用户滚动页面时就会因为没有足够的渲染时间而使页面卡顿，所以运行大型任务时如果需要保持页面流畅，可以把任务拆分成 16.7 ms 内完成的多个任务，然后使用 `requestAnimationFrame` 运行，保证页面不卡顿
+- 上一个问题也可以用 service worker 解决，但是数据交流不一定方便
 
 ![帧的组成](./anatomy-of-a-frame.svg)
 
 图片来自 [aerotwist](https://aerotwist.com/blog/the-anatomy-of-a-frame/)
 
+[Minimize main thread work](https://web.dev/mainthread-work-breakdown)
+
 ### CSS
 
-- [CSS 渲染原理以及优化策略](http://jartto.wang/2019/10/23/css-theory-and-optimization/)
-- CSS 硬件加速
 - 少用通配符
+- [CSS 渲染原理以及优化策略](http://jartto.wang/2019/10/23/css-theory-and-optimization/)
 - [编写高效 CSS](https://csswizardry.com/2011/09/writing-efficient-css-selectors/)
 - 理解 Recalculate Styles、回流（reflow）和重绘（repaint）
+- CSS 硬件加速（增加 composite 的层减少回流重绘）
 
 可以在 [csstriggers](https://csstriggers.com/) 查看 CSS 属性是否触发回流或重绘
 
