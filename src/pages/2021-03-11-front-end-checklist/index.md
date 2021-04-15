@@ -29,6 +29,7 @@ hidden: true
 
 - 优先级
 - 基础，常见布局，了解一些坑
+- 新手必学：[元素居中](https://web.dev/centering-in-css/)
 - 浮动对布局的破坏
 - 进阶，各种魔幻特效
 
@@ -79,6 +80,8 @@ https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1
 
 你可以用 Wireshark 看看在网络世界里飞来飞去的“包”到底是怎样的东西，也能看到高频考点三次握手和四次挥手。
 
+[HTTP 缓存相关传送门](/2020-09-18-http-caching/)
+
 #### HTTPS
 
 #### 其他
@@ -113,6 +116,8 @@ stream、buffer
 也算是很久以前了，我写过[这样的](https://segmentfault.com/a/1190000015758071)小总结，现在看来很多都已经是刻到 DNA 的基本知识了，但对于当时的我来说仍是难以理解或者记忆的。
 
 但是现在回看，居然也有这么多的赞……只能说，大家还是把坑记下来吧，无论何时，总有像当年的自己那样刚上路的新手程序员。
+
+### PWA
 
 ### 跨平台
 

@@ -25,6 +25,8 @@ hidden: true
 - v-show 与 v-if 的平衡
 - 分片渲染
 
+相关传送门：[requestAnimationFrame](/2021-03-23-optimization-checklist/#javascript)
+
 Vue 自带的缓存
 
 - keepalive
