@@ -177,6 +177,7 @@ hr {
 a {
   color: var(--linkColor);
   text-decoration: none;
+  word-break: break-all;
   // box-shadow: 0 1px 0 0 currentColor;
   &:hover,
   &:active {
