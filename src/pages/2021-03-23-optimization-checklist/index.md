@@ -59,6 +59,8 @@ defer 和 async：可以理解为 defer 是 defer（延迟）到文档加载完�
 
 ## 运行优化
 
+https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rendering-df10531c9969
+
 ### HTML
 
 - 减少 DOM 复杂度（如高频使用开源重型组件，考虑自己实现最简化的替代品）
