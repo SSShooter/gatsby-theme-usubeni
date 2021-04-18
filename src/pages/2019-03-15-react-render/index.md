@@ -75,7 +75,8 @@ const element = React.createElement(
 
 ```javascript
 class Nest extends React.Component {
-  shouldComponentUpdate = () => { // <---- 注意这里
+  shouldComponentUpdate = () => {
+    // <---- 注意这里
     return false
   }
   render() {
@@ -157,18 +158,25 @@ class Nest extends React.PureComponent {
 
 ## 总结
 
+还是对实际情况模糊的话可以来这里玩玩：[playground](https://codesandbox.io/s/react-playground-forked-woj5t?file=/index.js)
+
 总结一下以上内容，整个流程基本如下：
 
-![](graph.png)
+- setState 尝试触发视图更新
+- 如果有 shouldComponentUpdate 就判断是否需要再 render，返回 true 运行 render，返回 false 就跳过该组件更新
+- 运行 render 函数中，遍历所有子组件，针对每个子组件回到上一步
+- 用 render 生成的虚拟节点树与原来的虚拟节点树比较（diff）
+- patch 修改的节点
+
+（在子组件返回 `false` 时，对虚拟节点树的处理方法我不太确定，是做一个不需要 diff 的标志？还是直接复制原来的节点树？）
 
 本文部分存在个人理解，如果文中有不严谨的地方，请在评论区指出，谢谢大家的阅读。
 
-参考文献：
+PS. 在函数式组件中，你可以使用 [React.memo](https://reactjs.org/docs/react-api.html#reactmemo) 产生 `shouldComponentUpdate` 的效果。
 
-https://reactjs.org/docs/faq-internals.html
+## 参考
 
-https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action
-
-https://github.com/xitu/gold-miner/blob/master/TODO1/react-inline-functions-and-performance.md
-
-https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578
+- https://reactjs.org/docs/faq-internals.html
+- https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action
+- https://github.com/xitu/gold-miner/blob/master/TODO1/react-inline-functions-and-performance.md
+- https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578

@@ -16,6 +16,7 @@ hidden: true
 ### 连接
 
 - [域名分片](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Connection_management_in_HTTP_1.x)，增加可同时进行的请求
+- [HTTP2](https://developers.google.com/web/fundamentals/performance/http2)
 - base64 内嵌图片，可以减少请求，但是 base64 比原数据大
 - iconfont 代替单个图标文件图标，大幅减少请求
 - 使用 HTTP 协议的缓存功能（服务器负责），相关传送门 [HTTP 缓存简析](https://ssshooter.com/2020-09-18-http-caching/)

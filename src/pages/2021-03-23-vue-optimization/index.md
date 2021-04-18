@@ -262,7 +262,8 @@ ajaxCache.get = (...params) => {
 
 ajax.interceptors.response.use(
   function(response) {
-    // ......
+    // 其他处理
+    // ……
     if (response.data.code === '20000') {
       let params = response.config.params
       let id = response.config.url + (params ? JSON.stringify(params) : '')
@@ -291,6 +292,8 @@ https://juejin.cn/post/6922641008106668045
   </div>
 </template>
 ```
+
+https://codesandbox.io/s/functional-t7c5p?file=/src/App.vue
 
 PS：函数式组件因为没有实例化，所以每次使用都会重新渲染，想要完全静态要用 `v-once`
 
