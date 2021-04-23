@@ -25,6 +25,12 @@ hidden: true
 - 正则表达式，强推神器 [regexr.com](https://regexr.com/)，但凡有一点点基础，借他之力都能写出漂亮的正则表达式
 - 跨域，前后端分离盛行后，这是一个很常见的问题，但是要完整理解和解决跨域并不容易，而且也不仅靠前端就能实现
 
+#### Vue
+
+- 父子组件的钩子调用顺序
+- Vue 子组件何时 create？定义时还是渲染时？**渲染时**
+- Vue 组件何时可以访问 $parent.$refs？**顺序在当前组件前的 ref 都可以访问**
+
 ### CSS
 
 - 优先级
@@ -81,6 +87,16 @@ https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1
 你可以用 Wireshark 看看在网络世界里飞来飞去的“包”到底是怎样的东西，也能看到高频考点三次握手和四次挥手。
 
 [HTTP 缓存相关传送门](/2020-09-18-http-caching/)
+
+不止协议本身，HTTP 请求相应头中包含非常多应用于实际的知识点，举几个例子：
+
+- Content-Type 辨识文件
+- Content-Range 断点续传
+- Cookie、Set-Cookie 储存与使用用户信息
+- Cache-Control（与其他很多控制文件是否有效的头）控制 HTTP 缓存
+- Referer 一个曾经引起安全问题的头
+- CORS 相关头处理跨域问题
+- CSP 相关头，也是网络安全相关的控制
 
 #### HTTPS
 

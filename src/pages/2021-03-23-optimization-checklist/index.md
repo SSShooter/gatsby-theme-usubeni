@@ -7,6 +7,7 @@ tags: ['coding']
 hidden: true
 ---
 
+- 性能问题的三大台柱：网络、渲染、运行
 - 高速度的加载是抓住用户的利器，无论内容做得多好，用户因为等待时间太长而离开就没有意义了
 - 程度需要把握，把阴阳平衡铭刻于心
 - 优化时应使用浏览器的匿名模式防止插件干扰
@@ -21,7 +22,7 @@ hidden: true
 - iconfont 代替单个图标文件图标，大幅减少请求
 - 使用 HTTP 协议的缓存功能（服务器负责），相关传送门 [HTTP 缓存简析](https://ssshooter.com/2020-09-18-http-caching/)
 - 使用两个 storage 缓存 ajax 数据，需要小心数据过时
-- 使用 service worker 缓存文件（PWA 解决方案）
+- 使用 **service worker** 缓存文件（PWA 解决方案）
 - 启用 keep-alive（服务器负责）
 - 代码合并，减少代码文件数量
 - 使用 CDN
@@ -75,7 +76,7 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 - 减少 DOM 操作可能引起的重排与重绘
 - SSR，以新的技术栈回到服务器渲染的初心
 - 因为渲染和脚本运行是互斥的，如果脚本运行时间太长，用户滚动页面时就会因为没有足够的渲染时间而使页面卡顿，所以运行大型任务时如果需要保持页面流畅，可以把任务拆分成 16.7 ms 内完成的多个任务，然后使用 `requestAnimationFrame` 运行，保证页面不卡顿
-- 上一个问题也可以用 service worker 解决，但是数据交流不一定方便
+- 上一个问题也可以用 **web worker** 解决，但是数据交流不一定方便
 
 ![帧的组成](./anatomy-of-a-frame.svg)
 
@@ -90,6 +91,7 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 - [编写高效 CSS](https://csswizardry.com/2011/09/writing-efficient-css-selectors/)
 - 理解 Recalculate Styles、回流（reflow）和重绘（repaint）
 - CSS 硬件加速（增加 composite 的层减少回流重绘）
+- 在未来，你可以用 Worklets 对浏览器渲染部分进行编程操作
 
 可以在 [csstriggers](https://csstriggers.com/) 查看 CSS 属性是否触发回流或重绘
 
@@ -99,7 +101,7 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 - 保持变量名准确描述变量信息
 - 把小黄鸭调试法用在写代码中，思考别人在看代码时会有什么疑惑，并记下
 - 在 workaround 写下注释，避免之后不解，甚至是自己都不解
-- 在可以优化的地方打上标记，如 `// TODO: `
+- 在可以优化的地方打上标记，如 `// TODO:`
 - 减少嵌套，拆分大型表达式
 - 把变量控制在最小范围的作用域里
 
@@ -108,6 +110,14 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
 - dev-tools performance
 - [webpagetest](https://www.webpagetest.org/)，使用提示：https://www.debugbear.com/blog/performant-front-end-architecture
+
+## 另一个思路
+
+制作极速版
+
+如果发现极速版用户明显比原版高，那么原版也可以考虑取消一些不常用功能。
+
+不一定要写两个版本，你完全可以新建一个环境，然后使用 `if(process.env.NODE_ENV !== 'blitz')` 的方式筛选部分大型逻辑
 
 ## 虽然不可能但不失为一个方法
 
