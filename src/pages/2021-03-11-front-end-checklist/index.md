@@ -139,6 +139,10 @@ stream、buffer
 
 主要 RN 和 flutter
 
+### GraphQL
+
+在此学习：https://graphql.org/learn/
+
 ### 编码
 
 计算机基础、编码
@@ -148,6 +152,8 @@ stream、buffer
 ### WASM
 
 ### web GL
+
+高性能前端渲染，也涉及到 D3 Pixi 等库
 
 ### serverless
 
