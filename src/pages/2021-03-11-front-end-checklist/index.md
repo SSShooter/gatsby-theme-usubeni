@@ -178,6 +178,10 @@ https://mp.weixin.qq.com/s/AQzamMzL3Yw0xN6i4YKY0w
 - 了解需求是写好业务代码的前提
 - 技术选型考虑因素：稳定性、性能、生态、文档、社区活跃度、学习曲线、开发团队、GitHub 信息、迁移成本、关注 breaking changes
 
+一些可以获取学习资源的博客：https://2020.stateofjs.com/en-US/resources/
+
+公司与程序员的关系：https://kentcdodds.com/blog/business-and-engineering-alignment
+
 ## 推荐阅读
 
 - https://github.com/mqyqingfeng/Blog

@@ -46,7 +46,7 @@ tags: ["animals", "Chicago", "zoos"]
 
 标签页面结构不难，与之前的文章页面差不多，区别在于标签的查询：
 
-```JavaScript
+```javascript
 // 注意 filter
 export const pageQuery = graphql`
   query($tag: String) {
@@ -70,7 +70,7 @@ export const pageQuery = graphql`
 ```
 ## 修改 `gatsby-node.js`，渲染标签页模板
 
-```JavaScript
+```javascript
 const path = require("path")
 const _ = require("lodash")
 
@@ -136,7 +136,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 如果你要把标签页也分页，多加一个循环就行，道理跟主页分页都是一样的：
 
-```JavaScript
+```javascript
 tags.forEach(tag => {
     const total = tag.totalCount
     const numPages = Math.ceil(total / postsPerPage)
@@ -166,7 +166,7 @@ tags.forEach(tag => {
 
 重点同样是查询部分：
 
-```JavaScript
+```javascript
 export const pageQuery = graphql`
   query {
     site {
