@@ -23,7 +23,7 @@ class BlogIndex extends React.Component {
         pageDescript={tagMap[tag]}
       >
         <Helmet
-          htmlAttributes={{ lang: 'en' }}
+          htmlAttributes={{ lang: 'zh' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />

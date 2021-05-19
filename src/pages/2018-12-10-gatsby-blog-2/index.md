@@ -25,7 +25,7 @@ tags: ['coding', 'gatsby']
 
 ### 添加翻页按钮
 
-```JavaScript
+```javascript
 // 数据来源是 createPage 注入的上下文变量
 const { totalPage, currentPage } = this.props.pageContext
 
@@ -52,7 +52,7 @@ const { totalPage, currentPage } = this.props.pageContext
 
 ## 在查询中添加分页逻辑
 
-```JavaScript
+```javascript
 // $skip 和 $limit 的来源也是 context
 // 不过可以注意到在查询中这些变量就存在于最外层而不需要访问对象属性获取
 export const pageQuery = graphql`
@@ -96,7 +96,7 @@ export const pageQuery = graphql`
 
 模板页面有了这些参数便可以方便查询出该页面需要渲染什么文章。
 
-```JavaScript
+```javascript
 //  create homepage pagination
 const postsPerPage = 8
 const numPages = Math.ceil(posts.length / postsPerPage)
