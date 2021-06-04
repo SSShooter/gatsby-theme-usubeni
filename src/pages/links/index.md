@@ -201,6 +201,15 @@ tags: ['导航']
             </div>
         </div>
     </a>
+    <a class="link-card-wrapper" target="_blank" href="https://ourai.ws/">
+        <div class="link-card">
+            <img src="https://ourai.ws/assets/avatars/ourai-100px-3bcaa1cb0c7fa0547d15622572d74a8bbc98a5f62e4920ecddb72ca95e505d17.jpg">
+            <div class="info">
+                <div class="title">欧雷流</div>
+                <div class="descript">我叫欧雷，是一个出生于上世纪 80 年代的理想主义叛逆青年。喜欢日本，热爱咖啡，善于总结。这里有我对技术和语言的研究，也有对世界和生活的思考</div>
+            </div>
+        </div>
+    </a>
 </div>
 
 ## 添加方法
@@ -215,6 +224,6 @@ tags: ['导航']
 ## 我的信息
 
 - 名称：UsubeniFantasy
-- 头像：[复制此链接](https://i.loli.net/2020/02/17/jrcMkuQxz6Z98H1.png)
+- 头像：[复制此链接](https://ssshooter.com/logo.png)
 - 简介：Write like you're running out of time.
 - 网址：https://ssshooter.com

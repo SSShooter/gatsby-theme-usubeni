@@ -156,6 +156,12 @@ TYRANO.kag.stat.is_strong_stop = false
 
 上面的写法可以回避 `nextOrder`。
 
+## 在 js 跑 ks 指令
+
+```
+TYRANO.kag.ftag.startTag('tag')
+```
+
 ## stat
 
 上面提到的 kag.stat 是 tyrano 的储存状态的关键变量。
@@ -166,4 +172,14 @@ TYRANO.kag.stat.is_strong_stop = false
 
 这意味着在你新增自定义标签时，必须要考虑保存的问题。否则会出现这样的问题：你做了一个特效标签，保存的时候特效在运行，但是读档时却没有了。
 
-在设置 stat 后，需要在读档时（loadGameData 函数）还原当时的状态，没有状态时还要主动清除当前状态。
+这个问题的解决方案就是在标签运行同时在 stat 记录运行状态，我的情况就是设置 currentEffect 属性并记录参数，在设置 stat 后，需要在读档时（loadGameData 函数，kag.menu.js）还原当时的状态，没有状态时还要主动清除当前状态。
+
+## 加载
+
+setLayerHtml，相对的是保存用的 getLayeyHtml
+
+在 bg 标签记录 stat.currentBG，然后在 setLayerHtml 特殊处理 bg
+
+## 截图
+
+为此我们需要从 doSave 开始看
