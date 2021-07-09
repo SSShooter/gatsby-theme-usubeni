@@ -15,10 +15,10 @@
     flex-shrink: 0;
   }
   img {
+    background-color: antiquewhite;
     height: 80px;
     width: 80px;
-    object-fit: cover;
-    object-position: left;
+    object-fit: contain;
     margin: 0 !important;
   }
   .info {
@@ -46,6 +46,9 @@
   width: 50%;
   padding:6px;
   box-sizing: border-box;
+  &:hover{
+    box-shadow: none;
+  }
 }
 .wrapper-wrapper {
   overflow: hidden;
