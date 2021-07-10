@@ -57,12 +57,14 @@ Gatsby 当然是有生成 sitemap 的插件的——[gatsby-plugin-sitemap](http
 
 安装，然后在配置文件加上即可，sitemap 会输出在根目录。
 
-```Javascript
+```javascript
 // In your gatsby-config.js
-siteMetadata: {
-  siteUrl: `https://www.example.com`,
-},
-plugins: [`gatsby-plugin-sitemap`]
+{
+  siteMetadata: {
+    siteUrl: `https://www.example.com`,
+  },
+  plugins: [`gatsby-plugin-sitemap`]
+}
 ```
 
 ## 下一步

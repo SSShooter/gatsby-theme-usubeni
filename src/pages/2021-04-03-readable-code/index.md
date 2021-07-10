@@ -251,7 +251,7 @@ exponent >= 0 ? mantissa * (1 << exponent) : mantissa / (1 << -exponent)
 
 ### 提早 return
 
-```c++
+```cpp
 public boolean Contains(String str, String substr) {
  if (str == null || substr == null) return false;
  if (substr.equals("")) return true;
