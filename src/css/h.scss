@@ -10,6 +10,7 @@ h6 {
 
 h1 {
   font-size: 29px;
+  margin-bottom: 0;
   // color: var(--mainColor);
 }
 
@@ -23,5 +24,13 @@ h6 {
   margin-top: 1em;
   margin-bottom: 0.5em;
   padding-left: 8px;
-  border-left: 2px solid var(--linkColor);
+  // border-left: 2px solid var(--linkColor);
+  &::before{
+    content: '#';
+    position: absolute;
+    left: -1rem;
+  }
+  &:hover::before{
+    display: none;
+  }
 }
