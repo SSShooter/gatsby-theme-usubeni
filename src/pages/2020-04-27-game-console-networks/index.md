@@ -8,6 +8,8 @@ released: false
 
 家里的网太菜，逼迫我学习老本行，毕竟，我也是网络工程毕业生啊...
 
+https://en-americas-support.nintendo.com/app/answers/detail/a_id/22455/~/troubleshooting-issues-related-to-nat
+
 ## NAT
 
 圣经：[rfc2663](https://tools.ietf.org/html/rfc2663)
@@ -70,6 +72,8 @@ https://www.zhihu.com/question/20436734
 
 ## DMZ
 
+https://www.jianshu.com/p/8580587c3201
+
 ## 虚拟专用网络
 
 ## UPnP
@@ -81,3 +85,14 @@ UPnP为NAT（网络地址转换）穿透带来了一个解决方案：互联网�
 ## DNS
 
 ## VPN
+
+## 参考链接
+
+- [wikipedia NAT](https://en.wikipedia.org/wiki/Network_address_translation)
+- [How NAT traversal works](https://tailscale.com/blog/how-nat-traversal-works/)
+- [用TCP穿透NAT（TCP打洞）的实现](https://www.cnblogs.com/mq0036/p/6589811.html)
+- [加速器技术](https://www.cnblogs.com/chengxuyuandashu/p/3801490.html)
+
+## 遗留问题
+
+- 如果一户没有 IP 的话，是意味着已经 NAT 了至少一次吗？
