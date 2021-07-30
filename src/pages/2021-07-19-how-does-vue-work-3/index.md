@@ -14,14 +14,16 @@ templete -> AST -> render -> VNode
 
 ## parse
 
-```
+```javascript
 /**
  * Convert HTML string to AST.
  */
 function parse (
   template,
   options
-)
+){
+  // ……
+}
 ```
 
 这里就不细讲 HTML 到 AST 的过程，不难但是细节不少 😂

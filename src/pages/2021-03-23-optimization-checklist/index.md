@@ -11,6 +11,15 @@ hidden: true
 - 高速度的加载是抓住用户的利器，无论内容做得多好，用户因为等待时间太长而离开就没有意义了
 - 程度需要把握，把阴阳平衡铭刻于心
 - 优化时应使用浏览器的匿名模式防止插件干扰
+- 虽然单个优化的空间真的很小，但是积小成多，编写高效程序基本不会错
+
+## 工具
+
+Core Web Vitals
+
+## 指标
+
+TTI FID LCP TBT CLS FMP
 
 ## 加载优化
 
@@ -36,7 +45,7 @@ hidden: true
 - 默认情况 HTML 文件 parse 到 JavaScript 会停下来下载、然后运行，然后继续 parse
 - 使用 defer 属性：下载时 parse 不停止，下载完等待 HTML parse 完成再运行
 - 使用 async 属性：下载时 parse 不停止，下载完立即运行
-- 善用 `<link>` 标签的 preload 等属性
+- 善用 `<link>` 标签的 `preload` 等属性
 
 defer 和 async：可以理解为 defer 是 defer（延迟）到文档加载完成，用于强调运行顺序或需要整个 DOM 的脚本；async 就是在 parse html 的同时异步加载，下载完立即运行，适用于广告和统计之类的功能。
 
@@ -44,13 +53,14 @@ defer 和 async：可以理解为 defer 是 defer（延迟）到文档加载完�
 
 - 不要使用 `@import`，因为从 css 里下载会阻塞当前 css 解释，从而会阻塞渲染进程
 - 使用 font-display 优化大型字体文件加载前的显示
-- 使用 devtools 的 Coverage 鉴别关键 CSS
+- 借助 devtools 的 Coverage 面板鉴别关键 CSS
 - 用 `media` 属性条件加载 CSS
 
-### 代码拆分
+### 打包优化
 
 - 代码拆分，这似乎与减少连接数的合并互斥，其实也不是，这个拆分是把现在不需要用的代码延后加载，在 SPA 中十分有效
 - 调整 webpack 配置，根据现实需求压缩代码、实现代码合并
+- 打包时可以考虑 tree-shaking 与 scope hoisting 
 - 抽离关键代码用于首屏渲染
 
 ### 静态数据体积
@@ -77,6 +87,7 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 - SSR，以新的技术栈回到服务器渲染的初心
 - 因为渲染和脚本运行是互斥的，如果脚本运行时间太长，用户滚动页面时就会因为没有足够的渲染时间而使页面卡顿，所以运行大型任务时如果需要保持页面流畅，可以把任务拆分成 16.7 ms 内完成的多个任务，然后使用 `requestAnimationFrame` 运行，保证页面不卡顿
 - 上一个问题也可以用 **web worker** 解决，但是数据交流不一定方便
+- lazy load 重型组件（IntersectionObserver）
 
 ![帧的组成](./anatomy-of-a-frame.svg)
 
@@ -119,6 +130,13 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 
 不一定要写两个版本，你完全可以新建一个环境，然后使用 `if(process.env.NODE_ENV !== 'blitz')` 的方式筛选部分大型逻辑
 
+更进一步，可以通过后台开关配置前端功能是否启用，这是一个使产品更稳定的方法：
+
+- 对于新功能，在遇到致命问题时可以迅速关闭
+- 对于性能要求高的功能可以根据环境与时机判断是否关闭
+
+添加埋点检测功能使用量，逐步淘汰不使用或使用率低的功能
+
 ## 虽然不可能但不失为一个方法
 
 - 要求用户升级客户端
@@ -127,3 +145,4 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 
 - 网络性能相关规范——[Web Performance Working Group](https://www.w3.org/webperf/)
 - [csswizardry](https://csswizardry.com/)
+- [Front-End Performance Checklist 2021](https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/)
