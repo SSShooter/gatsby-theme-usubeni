@@ -180,6 +180,8 @@ setLayerHtml，相对的是保存用的 getLayeyHtml
 
 在 bg 标签记录 stat.currentBG，然后在 setLayerHtml 特殊处理 bg
 
+在加载时同样需要**谨慎处理** `nextOrder`，因为在 load 的时候调用了自己新增的 setEffect，里面有一句 `nextOrder`，导致读档产生诡异的效果（例如突然冒出个例会），并且因为这是异步的操作，很难 debug，这个问题就查了老半天😂。
+
 ## 截图
 
 为此我们需要从 doSave 开始看

@@ -26,7 +26,6 @@ TTI FID LCP TBT CLS FMP
 ### 连接
 
 - [域名分片](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Connection_management_in_HTTP_1.x)，增加可同时进行的请求
-- [HTTP2](https://developers.google.com/web/fundamentals/performance/http2)
 - base64 内嵌图片，可以减少请求，但是 base64 比原数据大
 - iconfont 代替单个图标文件图标，大幅减少请求
 - 使用 HTTP 协议的缓存功能（服务器负责），相关传送门 [HTTP 缓存简析](https://ssshooter.com/2020-09-18-http-caching/)
@@ -34,6 +33,7 @@ TTI FID LCP TBT CLS FMP
 - 使用 **service worker** 缓存文件（PWA 解决方案）
 - 启用 keep-alive（服务器负责）
 - 代码合并，减少代码文件数量
+- [HTTP2](https://developers.google.com/web/fundamentals/performance/http2)，需要注意的是使用 HTTP2 之后，因为并行下载资源，域名分片，雪碧图，base64 内嵌，代码合包统统没有必要，分开小文件下载反而有早下完早使用的好处
 - 使用 CDN
 - 减少 cookie 体积（JWT 尤其注意）
 - 负载均衡等手段（正常来说，不归前端管）
@@ -55,6 +55,14 @@ defer 和 async：可以理解为 defer 是 defer（延迟）到文档加载完�
 - 使用 font-display 优化大型字体文件加载前的显示
 - 借助 devtools 的 Coverage 面板鉴别关键 CSS
 - 用 `media` 属性条件加载 CSS
+- [避免 synchronous layout](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid_forced_synchronous_layouts)
+- 适当拆分 layer，但是 layer 也是耗内存的，必要过分依赖
+
+```css
+.moving-element {
+  will-change: transform;
+}
+```
 
 ### 打包优化
 
@@ -146,3 +154,4 @@ https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rend
 - 网络性能相关规范——[Web Performance Working Group](https://www.w3.org/webperf/)
 - [csswizardry](https://csswizardry.com/)
 - [Front-End Performance Checklist 2021](https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/)
+- [Getting Ready For HTTP2](https://www.smashingmagazine.com/2016/02/getting-ready-for-http2/)
