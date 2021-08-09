@@ -26,18 +26,24 @@ TTI FID LCP TBT CLS FMP
 ### 连接
 
 - [域名分片](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Connection_management_in_HTTP_1.x)，增加可同时进行的请求
-- base64 内嵌图片，可以减少请求，但是 base64 比原数据大
-- iconfont 代替单个图标文件图标，大幅减少请求
 - 使用 HTTP 协议的缓存功能（服务器负责），相关传送门 [HTTP 缓存简析](https://ssshooter.com/2020-09-18-http-caching/)
 - 使用两个 storage 缓存 ajax 数据，需要小心数据过时
 - 使用 **service worker** 缓存文件（PWA 解决方案）
-- 启用 keep-alive（服务器负责）
-- 代码合并，减少代码文件数量
-- [HTTP2](https://developers.google.com/web/fundamentals/performance/http2)，需要注意的是使用 HTTP2 之后，因为并行下载资源，域名分片，雪碧图，base64 内嵌，代码合包统统没有必要，分开小文件下载反而有早下完早使用的好处
 - 使用 CDN
 - 减少 cookie 体积（JWT 尤其注意）
 - 负载均衡等手段（正常来说，不归前端管）
+- 启用 keep-alive（服务器负责）
 - 开启 gzip 甚至 Brotli（服务器负责）
+
+### 减少链接数
+
+- base64 内嵌图片，可以减少请求，但是 base64 比原数据大
+- iconfont 代替单个图标文件图标，大幅减少请求
+- 代码合并，减少代码文件数量
+
+### 大杀器
+
+- [HTTP2](https://developers.google.com/web/fundamentals/performance/http2)，需要注意的是使用 HTTP2 之后，因为并行下载资源，域名分片，雪碧图，base64 内嵌，代码合包统统没有必要，分开小文件下载反而有早下完早使用的好处
 
 ### HTML
 
