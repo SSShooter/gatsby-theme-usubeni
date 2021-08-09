@@ -4,7 +4,7 @@ date: '2021-08-06T13:11:56.297Z'
 title: 'career'
 tags: ['diary']
 # released: false
-hidden: false
+hidden: true
 ---
 
 ## 最少的钱，最爽的生活
