@@ -36,6 +36,23 @@ set https_proxy=socks5://127.0.0.1:1080
 
 然后运行 `echo %http_proxy%` 可知已经修改，接着再来一个 `curl ifconfig.io`，看到 ip 变了，那就是修改成功了。
 
+## npm 安装时的暴力全覆盖
+
+```
+npm config set registry http://registry.npmjs.org/
+npm config set proxy http://127.0.0.1:1080
+npm config set https-proxy http://127.0.0.1:1080
+npm config set strict-ssl false
+set HTTPS_PROXY=http://127.0.0.1:1080
+set HTTP_PROXY=http://127.0.0.1:1080
+export HTTPS_PROXY=http://127.0.0.1:1080
+export HTTP_PROXY=http://127.0.0.1:1080
+```
+
+npm 设置完 socks5 报 `tunneling socket could not be established, cause=socket hang up` 也不知道怎么解决。
+
+最好还是把 sock5 再代理一次到 http 吧（我直接用的 trojan QT5，挺方便的），唉。
+
 ## 其他参考连接
 
 - https://itectec.com/set-https-proxy-in-windows-command-line-environment/
