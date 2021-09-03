@@ -3,6 +3,7 @@ path: '/game-programming-pattern'
 date: '2021-04-28T10:59:31.662Z'
 title: 'game-programming-pattern'
 tags: ['tag']
+released: false
 ---
 
 - GOF 的几种设计模式
