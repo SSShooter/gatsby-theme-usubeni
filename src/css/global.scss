@@ -67,12 +67,13 @@
 @import './prism-light.scss';
 
 @font-face {
-  font-family: 'iconfont';
-  src: url('iconfont.eot');
-  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
-    url('iconfont.woff2') format('woff2'), url('iconfont.woff') format('woff'),
-    url('iconfont.ttf') format('truetype'),
-    url('iconfont.svg#iconfont') format('svg');
+  font-family: 'iconfont'; /* Project id 1042209 */
+  src: url('https://at.alicdn.com/t/font_1042209_vauxtt9hfm.woff2?t=1630842620266')
+      format('woff2'),
+    url('https://at.alicdn.com/t/font_1042209_vauxtt9hfm.woff?t=1630842620266')
+      format('woff'),
+    url('https://at.alicdn.com/t/font_1042209_vauxtt9hfm.ttf?t=1630842620266')
+      format('truetype');
 }
 
 .iconfont {

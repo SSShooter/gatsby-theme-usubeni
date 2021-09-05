@@ -32,7 +32,9 @@ export default class Menu extends Component {
         <a href="/about">
           <i className="iconfont">&#xe7ae;</i> 关于
         </a>
-        <a target="_blank" href="https://travellings-zeta.vercel.app/">开往</a>
+        <a target="_blank" href="https://www.foreverblog.cn/go.html">
+          <i className="iconfont">&#xe612;</i> 虫洞
+        </a>
       </div>
     )
   }
