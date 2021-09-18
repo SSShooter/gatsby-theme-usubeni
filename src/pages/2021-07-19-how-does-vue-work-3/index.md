@@ -10,30 +10,89 @@ released: false
 
 ## 流程
 
-templete -> AST -> render -> VNode
+先来个大概流程：templete -> AST -> render -> VNode
 
-## parse
+其中 templete 自然是大家熟知的“模板”，render 指之前多次提到的 render 函数，VNode 也就是老生常谈的“虚拟节点”了。
 
-```javascript
-/**
- * Convert HTML string to AST.
- */
-function parse (
-  template,
-  options
-){
-  // ……
+稍微详细说说 AST，这是在计算机语言解析中很重要的一个概念。
+
+AST 是 abstract syntax tree 的缩写，翻译过来就是抽象语法树。借助抽象语法树，可以比较方便地处理编程语言的功能。
+
+一般得到 AST 的操作称为 parse，在此之前还有 tokenize 这一步，可以翻译为“分词”。
+
+例如解析这么一句简单的代码：`let tips = ['t1'];`，第一步就是把他拆分成 token：
+
+```json
+[
+  {
+    "type": "Keyword",
+    "value": "let"
+  },
+  {
+    "type": "Identifier",
+    "value": "tips"
+  },
+  {
+    "type": "Punctuator",
+    "value": "="
+  },
+  {
+    "type": "Punctuator",
+    "value": "["
+  },
+  {
+    "type": "String",
+    "value": "'t1'"
+  },
+  {
+    "type": "Punctuator",
+    "value": "]"
+  },
+  {
+    "type": "Punctuator",
+    "value": ";"
+  }
+]
+```
+
+第二步是通过 parser 把这些 token 组织成 AST，这样就能更方便地对一种语言进行转换（例如 babel 对语言的转换就是借助 AST），或者实现功能。
+
+```json
+{
+  "type": "VariableDeclaration",
+  "declarations": [
+    {
+      "type": "VariableDeclarator",
+      "id": {
+        "type": "Identifier",
+        "name": "tips"
+      },
+      "init": {
+        "type": "ArrayExpression",
+        "elements": [
+          {
+            "type": "Literal",
+            "value": "t1",
+            "raw": "'t1'"
+          }
+        ]
+      }
+    }
+  ],
+  "kind": "let"
 }
 ```
 
-这里就不细讲 HTML 到 AST 的过程，不难但是细节不少 😂
+如果将来你要写一个领域专用语言（DSL），也可以按这个思路去实现……好吧，说回正题！
+
+## parse
 
 ```javascript
 var createCompiler = createCompilerCreator(function baseCompile(
   template,
   options
 ) {
-  var ast = parse(template.trim(), options)
+  var ast = parse(template.trim(), options) // Convert HTML string to AST.
   optimize(ast, options)
   var code = generate(ast, options)
   return {
@@ -44,7 +103,9 @@ var createCompiler = createCompilerCreator(function baseCompile(
 })
 ```
 
-`parse` 把模板处理为 AST，为了更好理解什么是 AST，直接给一个例子：
+关键代码如上，这里就不细讲 templete 到 AST 的过程，有点复杂而且细节非常多 😂
+
+`parse` 函数把 templete 处理为 AST，上面虽然解释过 AST 是什么，但是这里可以给一个更直接的例子，一段小 templete 的 AST ：
 
 ```json
 {
@@ -79,9 +140,11 @@ var createCompiler = createCompilerCreator(function baseCompile(
 }
 ```
 
+`optimize` 函数可以分析出静态节点，将它们存到常量里，这样可以提高重新渲染的速度。
+
 ## generate
 
-接着 `generate` 把 AST 处理为渲染函数，而渲染函数长这样：
+接着 `generate` 函数把 AST 处理为渲染函数，而渲染函数长这样：
 
 ```javascript
 function anonymous() {
@@ -151,8 +214,8 @@ patch 是 Vue 视图更新的核心，在 patch 中传入新旧两个 VNode，�
 早在第一篇提到，数据修改时，触发 `_update` 函数自动会更新视图
 
 ```javascript
-vm._watcher = new Watcher(vm, updateComponent, noop);
-vm._update(vm._render(), hydrating);
+vm._watcher = new Watcher(vm, updateComponent, noop)
+vm._update(vm._render(), hydrating)
 ```
 
 而 patch 就是 `_update` 的重要一步
@@ -161,6 +224,7 @@ diff 算法是一个不简单的东西
 
 ## 总结
 
+- 可以通过 `vm.$options.render` 访问渲染函数
 
 调用了 render 函数生成 Vnode，而旧的 Vnode 自然是当前的 Vnode，进行二者对比。
 

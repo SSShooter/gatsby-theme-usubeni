@@ -50,7 +50,7 @@ clone zadig 前端项目仓库 [zadig-portal](https://github.com/koderover/zadig
 
 - UI 库：桌面端使用 [element-ui](https://element.eleme.io/)，移动端使用 [Vant](https://youzan.github.io/vant/)
 - 构建工具：webpack ^3.6.0
-- 代码编辑组件：vue2-ace-bind
+- 代码编辑组件：vue2-ace-editor
 - 代码展示组件：vue-codemirror
 - 新手引导功能：vue-introjs
 - 命令行模拟库：xterm
