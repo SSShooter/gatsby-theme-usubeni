@@ -38,7 +38,7 @@ set https_proxy=socks5://127.0.0.1:1080
 
 ## npm 安装时的暴力全覆盖
 
-```
+```sh
 npm config set registry http://registry.npmjs.org/
 npm config set proxy http://127.0.0.1:1080
 npm config set https-proxy http://127.0.0.1:1080
@@ -52,6 +52,13 @@ export HTTP_PROXY=http://127.0.0.1:1080
 npm 设置完 socks5 报 `tunneling socket could not be established, cause=socket hang up` 也不知道怎么解决。
 
 最好还是把 sock5 再代理一次到 http 吧（我直接用的 trojan QT5，挺方便的），唉。
+
+## git push 上不去
+
+```sh
+git config --global http.sslVerify "false"
+git config --local http.proxy 127.0.0.1:58591
+```
 
 ## 其他参考连接
 
