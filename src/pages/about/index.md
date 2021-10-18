@@ -3,7 +3,7 @@ title: '关于本博客'
 date: '2019-02-14T00:00:00.000Z'
 ---
 
-## 这是个什么地方
+## 这是什么地方
 
 - 记录一些胡思乱想的地方
 - 不正经人写日记的地方
@@ -12,6 +12,7 @@ date: '2019-02-14T00:00:00.000Z'
 
 ## 作者是怎样的人
 
+- 坐标中国广东广州
 - web 前端开发者，Vue 👌 React 👌 Vanilla 更 👌
 - 有空会翻译一些英语文档和文章，边学边用
 - unity 学习中（更新：荒废中）
@@ -27,7 +28,7 @@ date: '2019-02-14T00:00:00.000Z'
 
 ## 作者做过什么
 
-仅指业余项目，基本都是兴趣使然的产物。
+工作无关，仅指业余项目，基本都是兴趣使然的产物。
 
 ### Mind Elixir
 
@@ -76,7 +77,7 @@ https://github.com/ssshooter/syncHime
 
 [> live demo <](https://ssshooter.github.io/img-vuer/index.html)
 
-[img-vuer](https://github.com/ssshooter/img-vuer) 是一个移动端优先的 Vue2 图片预览插件。
+[img-vuer](https://github.com/ssshooter/img-vuer) 是一个移动端优先的 Vue3 图片预览插件。
 
 ### canvas-img-process
 
@@ -97,8 +98,8 @@ https://ssshooter.github.io/nippon-color/#/
 
 ### 一些故事
 
-[平凡的他们的异想故事](https://book.qidian.com/info/1022500464)
+写的不怎么样的轻小说：[平凡的他们的异想故事](https://book.qidian.com/info/1022500464)
 
 ### 游戏的尝试
 
-[Frozen Memories](https://store.steampowered.com/app/1224840/Frozen_Memories/)
+还没发布的 AVG：[Frozen Memories](https://store.steampowered.com/app/1224840/Frozen_Memories/)
