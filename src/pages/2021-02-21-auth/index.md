@@ -1,17 +1,17 @@
 ---
 path: '/auth'
 date: '2021-02-24T10:52:07.785Z'
-title: '前后端接口鉴权全解'
+title: '前后端接口鉴权全解：cookie、session、token 区别解析'
 tags: ['coding', '网络安全']
 ---
 
-不知不觉也写得比较长了，一次看不完建议收藏夹！本文主要解释与请求状态相关的术语（cookie、session、token）和几种常见登录的实现方式，希望大家看完本文后可以有比较清晰的理解，有感到迷惑的地方请在评论区提出。
+不知不觉也写得比较长了，一次看不完建议收藏夹！本文主要解释与请求状态相关的术语（cookie、session、token）和几种常见登录的实现方式，希望大家看完本文后可以有比较清晰的理解，若有疑问，请在评论区提出。
 
 ## Cookie
 
 众所周知，http 是无状态协议，浏览器和服务器不可能凭协议的实现辨别请求的上下文。
 
-于是 cookie 登场，既然协议本身不能分辨链接，那就在请求头部手动带着上下文信息吧。
+于是 cookie 登场，既然协议本身不能分辨链接，那就在请求头部手动带着上下文信息吧，下面一起看看小甜饼如何给我们带来多巴胺 😏
 
 举个例子，以前去旅游的时候，到了景区可能会需要存放行李，被大包小包压着，旅游也不开心啦。在存放行李后，服务员会给你一个牌子，上面写着你的行李放在哪个格子，离开时，你就能凭这个牌子和上面的数字成功取回行李。
 
@@ -23,7 +23,11 @@ cookie 诞生初似乎是用于电商存放用户购物车一类的数据，但�
 
 ### 设置方式
 
-现实世界的例子明白了，在计算机中怎么才能设置 cookie 呢？一般来说，安全起见，cookie 都是依靠 `set-cookie` 头设置，且不允许 JavaScript 设置。
+现实世界的例子明白了，在计算机中怎么才能设置 cookie 呢？一般来说，安全起见，cookie 都是依靠 `set-cookie` 头设置，使用请求头设置的 cookie 可以设置为不允许 JavaScript 读写。
+
+但 js 自己写自己读还是可以的，也就是把 cookie 当前端持久化储存的一种方式（只是个人觉得没什么必要），例如 [js-cookie](https://github.com/js-cookie/js-cookie) 库就能让你方便地用 js 读写 cookie。
+
+说回 http 请求头的 Set-Cookie 属性，下面是一些使用例子：
 
 ```
 Set-Cookie: <cookie-name>=<cookie-value>
@@ -44,7 +48,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 其中 `<cookie-name>=<cookie-value>` 这样的 kv 对，内容随你定，另外还有 HttpOnly、SameSite 等配置，一条 `Set-Cookie` 只配置一项 cookie。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/devtools_cookies.png)
+![devtools cookies](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/devtools_cookies.png)
 
 - Expires 设置 cookie 的过期时间（时间戳），这个时间是**客户端时间**。
 - Max-Age 设置 cookie 的保留时长（秒数），同时存在 Expires 和 Max-Age 的话，Max-Age 优先
@@ -52,11 +56,11 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 - Path 设置生效路径，`/` 全匹配
 - Secure 设置 cookie 只在 https 下发送，防止**中间人攻击**
 - HttpOnly 设置禁止 JavaScript 访问 cookie，防止**XSS**
-- SameSite 设置跨域时不携带 cookie，防止**CSRF**
+- SameSite 设置跨域时不携带 cookie，防止**CSRF**（经 [realMorrisLiu](https://github.com/realMorrisLiu) 提醒，其实跨站和跨域有一点微小的区别，详细可以看[这篇文章](https://jub0bs.com/posts/2021-01-29-great-samesite-confusion/)）
 
 Secure 和 HttpOnly 是强烈建议开启的。SameSite 选项需要根据实际情况讨论，因为 SameSite 可能会导致即使你用 CORS 解决了**跨越问题**，依然会因为请求没自带 cookie 引起一系列问题，一开始还以为是 axios 配置问题，绕了一大圈，然而根本没关系。
 
-其实因为 Chrome 在某一次更新后把没设置 `SameSite` 默认为 `Lax`，你不在服务器手动把 `SameSite` 设置为 `None` 就不会自动带 cookie 了。
+其实因为 Chrome 在某一次更新后把没设置 `SameSite` 的 cookie 都默认为 `Lax`，所以！你不在服务器手动把 `SameSite` 设置为 `None` 的话，跨域请求就不会自动带 cookie 了（还要注意 SameSite 为 none 时 Secure **必须**为 true），这些安全控制的行为都是浏览器行为，这就是现代浏览器为你网络安全护航的点点滴滴。
 
 ### 发送方式
 
@@ -221,11 +225,11 @@ session 说完了，那么出现频率超高的关键字 token 又是什么？
 
 不妨谷歌搜一下 token 这个词，可以看到冒出来几个（年纪大的人）比较熟悉的图片：密码器。过去网上银行不是只要短信认证就能转账，还要经过一个密码器，上面显示着一个变动的密码，在转账时你需要输入密码器中的代码才能转账，这就是 token 现实世界中的例子。凭借一串码或是一个数字证明自己身份，这事情不就和上面提到的行李问题还是一样的吗……
 
-**其实本质上 token 的功能就是和 session id 一模一样。**你把 session id 说成 session token 也没什么问题（Wikipedia 里就写了这个别名）。
+**其实本质上 token 的功能就是和 session id 一模一样。**你把 session id 说成 session token 也没什么问题（Wikipedia 里就提到这个别名）。
 
 其中的区别在于，session id **一般**存在 cookie 里，自动带上；token **一般**是要你主动放在请求中，例如设置请求头的 `Authorization` 为 `bearer:<access_token>`。
 
-然而上面说的都是一般情况，根本没有明确规定！
+然而上面说的都是一般情况，实际上根本没有明确规定！
 
 剧透一下，下面要讲的 JWT（JSON Web Token）！他是一个 token！但是里面放着 session 信息！放在客户端，并且可以随你选择放在 cookie 或是手动添加在 Authorization！但是他就叫 token！
 
@@ -233,7 +237,7 @@ session 说完了，那么出现频率超高的关键字 token 又是什么？
 
 另外在搜索资料时也看到有些文章说 session 和 token 的区别就是**新旧技术的区别**，好像有点道理。
 
-在 session 的 [Wikipedia](https://en.wikipedia.org/wiki/Session_(computer_science)) 页面上 HTTP session token 这一栏，举例都是 JSESSIONID (JSP)、PHPSESSID (PHP)、CGISESSID (CGI)、ASPSESSIONID (ASP) 等比较传统的技术，就像 SESSIONID 是他们的代名词一般；而在研究现在各种平台的 API 接口和 OAuth2.0 登录时，都是使用 access token 这样的字眼，这个区别着实有点意思。
+在 session 的 [Wikipedia](<https://en.wikipedia.org/wiki/Session_(computer_science)>) 页面上 HTTP session token 这一栏，举例都是 JSESSIONID (JSP)、PHPSESSID (PHP)、CGISESSID (CGI)、ASPSESSIONID (ASP) 等比较传统的技术，就像 SESSIONID 是他们的代名词一般；而在研究现在各种平台的 API 接口和 OAuth2.0 登录时，都是使用 access token 这样的字眼，这个区别着实有点意思。
 
 理解 session 和 token 的联系之后，可以在哪里能看到“活的” token 呢？
 
@@ -552,7 +556,7 @@ delete store[hash]
 - session 信息可以存放在浏览器，也可以存放在服务器
 - session 存放在服务器时，以 session id 为钥匙获取信息
 - token/session/session id 三者的界限是模糊的
-- 一般新技术使用 token，传统技术使用 session id
+- 一般，新技术使用 token，传统技术使用 session id
 - cookie/token/session/session id 都是用于鉴权的实用技术
 - JWT 是浏览器储存 session 的一种
 - JWT 常用于单点登录（SSO）

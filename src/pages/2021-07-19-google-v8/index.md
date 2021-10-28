@@ -1,7 +1,7 @@
 ---
 path: '/google-v8'
 date: '2021-07-19T15:50:30.149Z'
-title: '浏览器是如何工作的：Chrome V8 让你更懂JavaScript'
+title: '浏览器是如何工作的：Chrome V8 让你更懂 JavaScript'
 tags: ['转载', 'coding', 'V8']
 ---
 
