@@ -88,6 +88,8 @@ Cookie: PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1
 
 session 信息可以储存在客户端，如 [cookie-session](https://github.com/expressjs/cookie-session)，也可以储存在服务器，如 [express-session](https://github.com/expressjs/session)。使用 session ID 就是把 session 放在服务器里，用 cookie 里的 id 寻找服务器的信息。
 
+当我们说 session 信息全都放在客户端，服务器不管理状态，就可以说这个后端应用是“无状态”的。大家或许没注意，其实[热门的 RESTful 架构就倡导无状态](https://restfulapi.net/statelessness/)。
+
 ### 客户端储存
 
 对于 cookie-session 库，比较容易理解，其实就是把所有信息加密后塞到 cookie 里。其中涉及到 [cookies](https://github.com/pillarjs/cookies/blob/master/index.js) 库。在设置 session 时其实就是调用 cookies.set，把信息写到 set-cookie 里，再返回浏览器。**换言之，取值和赋值的本质都是操作 cookie**。
@@ -132,7 +134,7 @@ Set-Cookie: session.sig=QBoXofGvnXbVoA8dDmfD-GMMM6E; path=/; expires=Tue, 23 Feb
 
 即使现代浏览器和服务器做了一些约定，例如使用 https、跨域限制、还有上面提到 cookie 的 httponly 和 sameSite 配置等，保障了 cookie 安全。但是想想，传输安全保障了，如果有人偷看你电脑里的 cookie，密码又恰好存在 cookie，那就能无声无息地偷走密码。相反的，只放其他信息或是仅仅证明“已登录”标志的话，只要退出一次，这个 cookie 就失效了，算是降低了潜在危险。
 
-说回第二个值 session.sig，它是一个 27 字节的 SHA1 签名，用以**校验 session 是否被篡改**，是 cookie 安全的又一层保障。
+说回第二个值 session.sig，它是一个 27 字节的 SHA1 签名，用以**校验 session 是否被篡改**，是 cookie 安全的又一层保障。其实，这个思路跟后面说的 JWT 是一摸一样的。
 
 ### 服务器储存
 
@@ -317,9 +319,9 @@ HMACSHA256(
 
 用户访问需要授权的连接时，可以把 token 放在 cookie，也可以在请求头带上 `Authorization: Bearer <token>`。（手动放在请求头不受 CORS 限制，不怕 CSRF）
 
-这样可以用于自家登录，也可以用于第三方登录。单点登录也是 JWT 的常用领域。
-
 JWT 也因为信息储存在客户端造成无法让自己失效的问题，这算是 JWT 的一个缺点。
+
+P.S.虽然很常见到 JWT 常用于单点登录（sso），但是**我还是不太懂这两者有什么特别的联系**。
 
 ## HTTP authentication
 
@@ -559,7 +561,6 @@ delete store[hash]
 - 一般，新技术使用 token，传统技术使用 session id
 - cookie/token/session/session id 都是用于鉴权的实用技术
 - JWT 是浏览器储存 session 的一种
-- JWT 常用于单点登录（SSO）
 - OAuth2.0 的 token 不是由应用端颁发，存在另外的授权服务器
 - OAuth2.0 常用于第三方应用登录
 
@@ -575,3 +576,4 @@ delete store[hash]
 - [JWT introduction](https://jwt.io/introduction)
 - [阮一峰 JSON Web Token 入门教程](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)
 - [微信 OAuth2.0 登录](https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html)
+- [REST API Tutorial](https://restfulapi.net/)
