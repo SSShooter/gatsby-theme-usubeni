@@ -37,6 +37,7 @@ Vue 自带的缓存
 - 数据缓存
 - 虚拟滚动
 - 去除 console.log
+- 启用 performance 配置
 
 ## 拆分组件
 
