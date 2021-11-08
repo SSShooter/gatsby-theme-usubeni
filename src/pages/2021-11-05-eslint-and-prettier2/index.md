@@ -2,8 +2,18 @@
 path: '/eslint-and-prettier2'
 date: '2021-11-07T18:14:01.447Z'
 title: '用 eslint 和 prettier 让跨 IDE 协作更舒服'
-tags: ['coding']
+tags: ['coding', 'ESLint', 'Prettier']
 ---
+
+## TL; DR
+
+- 搭配 eslint 和 prettier 可以进行代码质量优化和跨 IDE 协作
+- 安装插件和 npm 包以顺利使用 eslint 和 prettier
+- 准备配置文件 `.eslintrc.js` 和 `.prettierrc.js`（可以借助工具生成也可手写）
+- 提高效率，开启 IDE 的保存自动格式化功能
+- 用 npm 可以更方便地管理 eslint 和 prettier 配置
+
+## 场景
 
 [之前说明了一下 eslint 和 prettier 的区别](https://ssshooter.com/2020-06-01-eslint-and-prettier/)，这次是要实践解决 VScode 和 jetbrains 系 IDE 的协作问题。
 
@@ -11,21 +21,24 @@ jetbrains 系在输入 html 标签名后如果在后面接一个属性的话，�
 
 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/jb-format.png)
 
-但是在 vscode 中……找不到做到这种缩进的方法……但是协作总要配置统一，那么便很自然地想到 eslint 和 prettier 了。
+但是 vscode 中找不到配置这种缩进的方法，要做到兼顾两款 IDE 和所有开发者的格式统一，便很自然地想到 eslint 和 prettier 了，这也是前端项目中十分常用的代码管理工具。
+
+这里就有一个小问题，eslint 不够吗？某些情况下确实不够，虽说 eslint 也能管代码格式，但他毕竟是个 ES lint……Vue 文件里模板部分的缩进他不管，所以如果需求是 vsc 和 jb 协作的话，只用 eslint 不够，模板部分得靠 prettier 统一。都用 vsc 的话短时间没大问题，但是随着 vsc 版本升级指不定格式化算法会修改，所以还是多加一个 prettier 靠谱。
 
 ## 安装插件
 
 ### vscode
 
-[Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+插件页找这两个即可：
 
-[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ### webstorm
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-eslint.png)
+![webstorm eslint](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-eslint.png)
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-prettier.png)
+![webstorm prettier](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-prettier.png)
 
 webstorm 自带 eslint，prettier 可以在 settings-plugins 里搜索安装（ws 似乎也默认安装了 prettier）。
 
@@ -46,13 +59,13 @@ npm install --save-dev eslint eslint-plugin-vue prettier
 
 在设置里可以设置 prettier 的路径：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-prettier2.png)
+![ws prettier setting](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-prettier2.png)
 
 ## 初始化配置
 
 ### eslint
 
-> No, ESLint does both traditional linting (looking for problematic patterns) and style checking (enforcement of conventions). You can use ESLint for everything, or you can combine both using Prettier to format your code and ESLint to catch possible errors.
+> ESLint does both traditional linting (looking for problematic patterns) and style checking (enforcement of conventions). You can use ESLint for everything, or you can combine both using Prettier to format your code and ESLint to catch possible errors.
 
 ```
 npx eslint --init
@@ -86,7 +99,7 @@ module.exports = {
 }
 ```
 
-看起来配置很少，其实都浓缩在 extends 里的预设规则集里了。
+看起来配置很少，其实都浓缩在 `extends` 里的预设规则集里了。
 
 <!-- const 会不会被加速 -->
 
@@ -120,17 +133,11 @@ module.exports = {
 
 ## 其他问题
 
-### eslint 不够吗
+### prettier 和 eslint 的冲突
 
-虽说 eslint 也管代码格式，但他毕竟是个 ES lint 啊……
+有时候 prettier 和 eslint 的规则有冲突，prettier [官网](https://prettier.io/docs/en/related-projects.html#eslint-integrations)有相关专题描述这个问题，不过个人认为没有必要额外加兼容软件，因为 prettier 的配置本来就很少，手动兼容也不是难事，再加这些工具可能反而会增加维护负担。
 
-如果你的需求是 vsc 和 jb 协作的话，只用 eslint 不够，html 的部分没法统一，都用 vsc 的话短时间没大问题，但是随着 vsc 版本升级指不定格式化算法会修改，所以还是多加一个 prettier 靠谱。
-
-### s 和 p 的冲突
-
-有时候 prettier 和 eslint 的规则有冲突，prettier [官网](https://prettier.io/docs/en/related-projects.html#eslint-integrations)有相关专题处理这个问题，不过个人认为没有必要额外加兼容软件，因为 prettier 的配置本来就很少，手动兼容也不是难事，再加这些工具这可能反而会增加维护负担。
-
-像是默认生成的 eslint 规则在格式化 switch 的时候和 prettier 的规则就不一样，但是 prettier 没有细致到控制 switch 缩进的规则，所以要改 eslint 迁就 prettier：`indent: [2, 2, { SwitchCase: 1 }],`
+像是默认生成的 eslint 规则在格式化 `switch` 的时候和 prettier 规则就不一样，但是 prettier 没有细致到控制 `switch` 缩进的规则，所以要改 eslint 迁就 prettier：`indent: [2, 2, { SwitchCase: 1 }],`
 
 ### 自动格式化
 
@@ -151,6 +158,26 @@ vscode 可以直接写入这个配置（默认格式化工具使用 prettier）�
 }
 ```
 
+### 提交检查
+
+**项目立项时未使用代码格式化工具，后来再接入的项目没必要立即开启提交检查，渐进式修改即可**
+
+使用 [husky](https://typicode.github.io/husky) 可以帮助我们在提交前运行一些检查代码质量或进行代码测试的脚本。
+
+安装过程大概是 `npx husky-init` 初始化后安装 husky 依赖，在 package.json 文件添加 lint 命令。
+
+```json
+{
+  "scripts": {
+    "lint": "node ./node_modules/eslint/bin/eslint.js --ext .vue,.js src",
+    "fix": "node ./node_modules/eslint/bin/eslint.js --ext .vue,.js src --fix",
+    "prepare": "husky install"
+  }
+}
+```
+
+然后在 `.husky` 文件夹中的 `pre-commit` 文件添加 `npm run lint`，即可在提交前运行 eslint，失败时不可提交代码。
+
 ## 配置分享
 
 一般来说一个团队完全可以所有项目共用一套配置，直接复制配置文件共享就能跳过生成配置的步骤，更方便的还通过 [npm 管理配置](https://prettier.io/docs/en/configuration.html#sharing-configurations)文件，像下面这样（eslint 同理）：
@@ -161,13 +188,6 @@ module.exports = {
   semi: false,
 }
 ```
-
-## 总结
-
-- 安装插件和 npm 包以顺利使用 eslint 和 prettier
-- 准备配置文件（可以借助工具生成也可手写）
-- 提高效率，开启保存自动格式化
-- 用 npm 更方便地统一配置 eslint 和 prettier
 
 ## 拓展
 
