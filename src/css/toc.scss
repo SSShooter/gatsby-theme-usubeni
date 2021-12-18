@@ -4,11 +4,19 @@
   top: 30px;
   max-height: 80vh;
   color: var(--mainDerive1);
-  padding: 15px;
-  margin-top: 25px;
   overflow-y: auto;
   overflow-x: hidden;
   font-size: 14px;
+  margin: 2em 0;
+  padding: 25px 10px 7px;
+  // border: solid 1px var(--mainDerive1);
+  a {
+    color: var(--mainDerive1);
+    box-shadow: none;
+  }
+  .active {
+    color: var(--mainColor);
+  }
   > ul {
     padding-left: 10px;
   }
@@ -22,6 +30,9 @@
   }
   li {
     margin-bottom: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   li > p {
     line-height: 1.5;
@@ -31,34 +42,21 @@
     margin-top: 6px;
     padding-left: 1rem;
   }
-}
-
-.css-toc {
-  margin: 2em 0;
-  padding: 25px 10px 7px;
-  // border: solid 1px var(--mainDerive1);
-  a {
+  .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -1px;
+    left: -1px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    font-size: 17px;
     color: var(--mainDerive1);
-    box-shadow: none;
+    font-weight: bold;
   }
-  .active {
-    color: var(--mainColor);
+  p {
+    margin: 0;
+    padding: 0;
   }
-}
-.css-toc .box-title {
-  position: absolute;
-  display: inline-block;
-  top: -1px;
-  left: -1px;
-  padding: 0 9px;
-  height: 25px;
-  line-height: 25px;
-  vertical-align: middle;
-  font-size: 17px;
-  color: var(--mainDerive1);
-  font-weight: bold;
-}
-.css-toc p {
-  margin: 0;
-  padding: 0;
 }

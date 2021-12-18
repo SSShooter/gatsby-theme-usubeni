@@ -372,13 +372,18 @@ button {
   }
   .css-post-main {
     margin-top: 3rem;
-    > p {
+    p {
       word-wrap: break-word;
       word-break: break-word;
       margin-bottom: 29px;
     }
-    > ul {
+    ul {
       margin-bottom: 29px;
+    }
+    p + ul,
+    p + ol {
+      margin-top: -1.3em;
+      margin-bottom: 1.5em;
     }
     img {
       max-width: 100%;

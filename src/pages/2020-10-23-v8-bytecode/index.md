@@ -54,6 +54,8 @@ JavaScript 引擎，用于 Chrome，但与浏览器引擎区别的是 JavaScript
 
 Compiler 是将一种语言（通常是高等语言）处理为另一种语言（assembly language、object code、machine code）的计算机程序。
 
+例如，babel 就是一个 js Compiler，将 ES6 以上编译到 ES5.
+
 它需要做的可能包含：
 
 - 预处理
