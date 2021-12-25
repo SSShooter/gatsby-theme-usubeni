@@ -105,7 +105,7 @@ module.exports = {
 
 ### prettier
 
-官网自带的[playground](https://prettier.io/playground/) 可以帮你生成 json 文件，拿到了直接新建 js 文件用 `module.exports =` 输出就可以了
+官网自带的 [playground](https://prettier.io/playground/) 可以帮你生成 json 文件，拿到了直接新建 `.prettierrc.js` 文件用 `module.exports =` 输出就可以了
 
 全部可选配置的详细解释可以看这里 https://prettier.io/docs/en/options.html
 
@@ -141,7 +141,7 @@ module.exports = {
 
 ### 自动格式化
 
-尽管快捷键很方便，还是不如一个 ctrl S 来得直接。
+尽管快捷键很方便，还是不如一个 `ctrl S` 来得直接。
 
 webstorm 可以在 settings 搜索到保存时的行为，勾选 eslint 和 prettier。
 
