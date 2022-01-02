@@ -1,1 +1,1 @@
-export let apiUrl = 'https://wwwiki.top:8001'
+export let apiUrl = 'https://wwwiki.top'
