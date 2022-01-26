@@ -480,6 +480,11 @@ button {
   word-break: break-all !important;
 }
 
+// 让手机看不到这玩意
+.anchor.before {
+  transform: translateX(-180%) !important;
+}
+
 .code-title {
   display: block;
   position: relative;

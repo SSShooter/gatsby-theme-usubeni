@@ -6,6 +6,7 @@ h5,
 h6 {
   font-weight: 400;
   color: var(--linkColor);
+  // color: #111;
 }
 
 h1 {
@@ -20,18 +21,18 @@ h4,
 h5,
 h6 {
   position: relative;
-  // left: -10px;
-  transform: translateX(10px);
   margin-top: 1em;
   margin-bottom: 0.5em;
-  padding-left: 8px;
+  // left: -10px;
+  // padding-left: 8px;
+  // transform: translateX(10px);
   // border-left: 2px solid var(--linkColor);
-  &::before{
-    content: '#';
-    position: absolute;
-    left: -1rem;
-  }
-  &:hover::before{
-    display: none;
-  }
+  // &::before{
+  //   content: '#';
+  //   position: absolute;
+  //   left: -1rem;
+  // }
+  // &:hover::before{
+  //   display: none;
+  // }
 }

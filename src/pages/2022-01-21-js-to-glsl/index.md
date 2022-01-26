@@ -142,7 +142,7 @@ gl.uniform1i(programInfo.uniformLocations.uSampler, 0)
 glUniform1i and glUniform1iv are the only two functions that may be used to load uniform variables defined as sampler types. Loading samplers with any other function will result in a GL_INVALID_OPERATION error.
 ```
 
-参考资料
+## 参考资料
 
 - [WebGLRenderingContext - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext)
 - [5.3 - A Primer on Buffer Objects — LearnWebGL](http://learnwebgl.brown37.net/rendering/buffer_object_primer.html)
