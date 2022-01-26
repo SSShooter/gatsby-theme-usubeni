@@ -1,7 +1,7 @@
 .list-item {
   .list-title {
     margin-top: 30px;
-    font-size: 26px;
+    font-size: 1.4rem;
     line-height: 1.3;
     a {
       color: var(--linkColor);
@@ -10,7 +10,6 @@
       }
     }
   }
-
   .list-date {
     margin-top: 6px;
     margin-bottom: 16px;
@@ -20,7 +19,6 @@
     margin-top: 10px;
     line-height: 1.6;
     padding-bottom: 25px;
-    // border-bottom: 1px solid var(--divider);
     word-break: break-all;
   }
 }
