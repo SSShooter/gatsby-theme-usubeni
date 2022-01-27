@@ -104,7 +104,7 @@ class Layout extends React.Component {
   }
   search = () => {
     window.open(
-      'https://www.google.co.jp/search?q=site%3Assshooter.com+' +
+      'https://cn.bing.com/search?q=site%3Assshooter.com%20' +
         this.state.keyword
     )
   }
