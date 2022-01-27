@@ -17,7 +17,8 @@
     border: none;
     margin: 0 0 10px 0;
     padding: 0 10px;
-    border: solid 1px var(--buttonColor);
+    border: solid 1px #ccc;
+    // border: solid 1px var(--buttonColor);
     border-radius: 3px;
   }
   textarea {
