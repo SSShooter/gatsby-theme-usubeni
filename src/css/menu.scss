@@ -19,25 +19,29 @@
     position: relative;
     display: inline-block;
     padding: 0.25em 1em;
-    line-height: 1.4;
+    line-height: 1.8;
+    word-spacing: 5px;
+    letter-spacing: 7px;
     &:hover {
       opacity: 0.5;
     }
   }
-
-  a:before,
-  a:after {
-    position: relative;
-    display: inline-block;
-    font-size: 1em;
-    color: inherit;
+  a + a {
+    border-top: solid 1px #ddd;
   }
-  a:before {
-    content: '<';
-    padding-right: 0.5em;
-  }
-  a:after {
-    content: '/>';
-    padding-left: 0.5em;
-  }
+  // a:before,
+  // a:after {
+  //   position: relative;
+  //   display: inline-block;
+  //   font-size: 1em;
+  //   color: inherit;
+  // }
+  // a:before {
+  //   content: '<';
+  //   padding-right: 0.5em;
+  // }
+  // a:after {
+  //   content: '/>';
+  //   padding-left: 0.5em;
+  // }
 }

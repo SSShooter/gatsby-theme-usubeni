@@ -24,7 +24,7 @@ class BlogIndex extends React.Component {
           return (
             <div
               style={{
-                marginTop: '0.5rem',
+                marginTop: '0.2rem',
               }}
               key={node.fields.slug}
             >
@@ -36,7 +36,7 @@ class BlogIndex extends React.Component {
                   style={{
                     fontSize: '1.8em',
                     marginTop: index === 0?'0rem':'2rem',
-                    marginBottom: '1.5rem',
+                    marginBottom: '1.2rem',
                   }}
                 >
                   {node.frontmatter.year}

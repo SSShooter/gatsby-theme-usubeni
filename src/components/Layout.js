@@ -152,7 +152,12 @@ class Layout extends React.Component {
           <span className="logo-mobile">{title}</span>
           <img className="logo" src="/logo.png" />
         </Link>
-        {pageName ? <div className="page-name">{'# ' + pageName}</div> : null}
+        {pageName ? (
+          <div className="page-name">
+            <i className="iconfont">&#xe654;</i>
+            {' ' + pageName}
+          </div>
+        ) : null}
       </div>
     )
     const descript = <div className="page-description">{pageDescript}</div>
@@ -194,7 +199,7 @@ class Layout extends React.Component {
                 <Menu direction="column" />
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                   <input
-                    placeholder="输入关键字搜索"
+                    placeholder="搜索，然后 Enter"
                     onChange={this.change}
                     onKeyUp={this.handleEnter}
                   />

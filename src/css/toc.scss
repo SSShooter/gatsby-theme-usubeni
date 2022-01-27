@@ -10,12 +10,15 @@
   margin: 0 25px;
   // padding: 25px 10px 7px;
   // border-left: solid 2px #ccc;
+  > ul > li {
+    padding-left: 6px;
+  }
   > ul > li:before {
     content: '';
     position: relative;
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 5px;
+    height: 5px;
     left: -4px;
     background-color: var(--mainColor);
     border-radius: 50%;
