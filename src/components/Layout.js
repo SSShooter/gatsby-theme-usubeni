@@ -50,7 +50,7 @@ class Layout extends React.Component {
     }
     // document.documentElement.style.display = 'block'
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    darkModeMediaQuery.addListener(e => {
+    darkModeMediaQuery.addListener((e) => {
       const darkModeOn = e.matches
       if (darkModeOn) {
         this.setTheme('dark')
@@ -70,19 +70,19 @@ class Layout extends React.Component {
     if (this.state.flowerDance == 1) this.setFlowerDance(0)
     else this.setFlowerDance(1)
   }
-  setTheme = themeName => {
+  setTheme = (themeName) => {
     localStorage.setItem('theme', themeName)
     document.documentElement.className = themeName + '-theme'
     this.setState({
       theme: themeName,
     })
   }
-  setFlowerDance = n => {
+  setFlowerDance = (n) => {
     const sakuraCanvas = document.querySelector('#canvas_sakura')
-    console.log('setFlowerDance',n,sakuraCanvas)
+    console.log('setFlowerDance', n, sakuraCanvas)
     if (n == 1 && !sakuraCanvas) {
       // 假如本来就是 1 也不用担心 opacity 设置不了，因为本来初始化就是显示的啊
-      import('../sakura.TRHX.js').then(code=>{
+      import('../sakura.TRHX.js').then((code) => {
         code.default()
       })
     }
@@ -97,7 +97,7 @@ class Layout extends React.Component {
       menuState: !this.state.menuState,
     })
   }
-  change = e => {
+  change = (e) => {
     this.setState({
       keyword: e.target.value,
     })
@@ -118,7 +118,7 @@ class Layout extends React.Component {
       this.state.animation[i].playbackRate = 1
     }
   }
-  formatTime = msTime => {
+  formatTime = (msTime) => {
     const time = msTime / 1000
     const day = Math.floor(time / 60 / 60 / 24)
     // const hour = Math.floor(time / 60 / 60) % 24
@@ -126,21 +126,15 @@ class Layout extends React.Component {
     // const second = Math.floor(time) % 60
     return ` ${day} 天`
   }
-  handleEnter = e => {
+  handleEnter = (e) => {
     if (e.keyCode === 13) {
       this.search()
     }
   }
   render() {
     const { menuState, days, year, theme, flowerDance } = this.state
-    const {
-      pageName,
-      pageDescript,
-      title,
-      children,
-      aside,
-      className,
-    } = this.props
+    const { pageName, pageDescript, title, children, aside, className } =
+      this.props
     // const rootPath = `${__PATH_PREFIX__}/`
 
     const websiteName = (
@@ -190,8 +184,9 @@ class Layout extends React.Component {
               <div
                 className="css-toc"
                 dangerouslySetInnerHTML={{
-                  __html: '<div class="box-title">TOC</div>' + aside,
+                  __html: aside,
                 }}
+                //  '<div class="box-title">TOC</div>' +
               />
             ) : (
               <React.Fragment>
