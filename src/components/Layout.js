@@ -199,7 +199,7 @@ class Layout extends React.Component {
                 <Menu direction="column" />
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                   <input
-                    placeholder="搜索，然后 Enter"
+                    placeholder="关键字，然后 Enter"
                     onChange={this.change}
                     onKeyUp={this.handleEnter}
                   />

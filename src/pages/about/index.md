@@ -10,29 +10,30 @@ date: '2019-02-14T00:00:00.000Z'
 - 总结一些技术知识，方便自己以后查看，如果能方便其他人理解一些技术难题，就更好了
 - 本博客的技术文可能存在“良莠不齐”的情况，请带着批判的眼光阅读，有错误请指正
 
-## 作者是怎样的人
+## 博主是怎样的人
 
 - 坐标中国广东广州
 - web 前端开发者，Vue 👌 React 👌 Vanilla 更 👌
 - 有空会翻译一些英语文档和文章，边学边用
 - unity 学习中（更新：荒废中）
+- RN、iOS、android 同样荒废中
 - 没什么用的日语 N2
 - 梦想是环游世界，偏好都市，海边也很棒，但是不喜欢上山
 - 一个不赖床的人
 - 希望能正确调整兴趣和时间的平衡
 - 已经不是[骑空士](http://game.granbluefantasy.jp/)了
-- 已经没有研究 RN 和连带的 iOS、android 原生
 - Email ssshooterx@gmail.com
 - NS SW-3824-2959-2096
 - PSN usubenifantasy
+- 在黑暗中不忘赞美太阳
 
-## 作者做过什么
+## 博主做了啥
 
-工作无关，仅指业余项目，基本都是兴趣使然的产物。
+以下内容工作无关，仅指业余项目，基本都是兴趣使然的产物。
 
 ### Mind Elixir
 
-![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/screenshot.png)
+![mind elixir](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/mind-elixir.png)
 
 Mind elixir 是一个免费开源的思维导图内核
 
@@ -75,11 +76,11 @@ https://github.com/ssshooter/syncHime
 
 ### img-vuer
 
-[> live demo <](https://ssshooter.github.io/img-vuer/index.html)
-
-[img-vuer](https://github.com/ssshooter/img-vuer) 是一个移动端优先的 Vue3 图片预览插件。
+[img-vuer](https://github.com/ssshooter/img-vuer) 是一个移动端优先的 Vue3 图片预览插件，[> live demo <](https://ssshooter.github.io/img-vuer/index.html) 戳这里。
 
 ### canvas-img-process
+
+一个了解到卷积核之后做着玩的东西。
 
 ![canvas-img-process](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/canvas-img-process.png)
 
