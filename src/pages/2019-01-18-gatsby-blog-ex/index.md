@@ -20,18 +20,18 @@ tags: ['coding', 'gatsby']
 
 ### 在知识库页面配置订阅地址
 
-![](https://cdn.nlark.com/yuque/0/2019/png/196955/1547775580192-9abc8bef-97db-4ccc-8603-6536d24ce51d.png#align=left&display=inline&height=465&linkTarget=_blank&originHeight=499&originWidth=800&size=0&width=746)
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yuque1.png)
 
 ### 本地测试
 
-官方推荐使用 [ngrok](https://ngrok.com)，ngrok 能让你的本地服务暴露到外网，方便测试。
-我的配置：
-![](https://cdn.nlark.com/yuque/0/2019/png/196955/1547775591463-37ce2192-d525-46a9-9c62-19e3121a3088.png#align=left&display=inline&height=71&linkTarget=_blank&originHeight=76&originWidth=800&size=0&width=746)
+官方推荐使用 [ngrok](https://ngrok.com)，ngrok 能让你的本地服务暴露到外网，方便测试。我的配置：
+
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yuque2.png)
 
 ### express 接收 webhook 推送
 
 ```javascript
-app.post('/yuque/webhook', function(req, res) {
+app.post('/yuque/webhook', function (req, res) {
   console.log(req.body.data)
 })
 ```
@@ -47,7 +47,7 @@ app.post('/yuque/webhook', function(req, res) {
 ### 主要代码
 
 ```javascript
-var updateGitHubRes = function(blob, path) {
+var updateGitHubRes = function (blob, path) {
   var commitSha
   var commitTreeSha
   return getRef()
@@ -71,23 +71,23 @@ var updateGitHubRes = function(blob, path) {
       var newCommitSha = data.sha
       return updataRef(newCommitSha)
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err)
     })
 }
-var getRef = function() {
+var getRef = function () {
   return axios.get(`/${owner}/${repo}/git/refs/heads/master`)
 }
-var getCommit = function(commitSha) {
+var getCommit = function (commitSha) {
   return axios.get(`/${owner}/${repo}/git/commits/${commitSha}`)
 }
-var createBlob = function(content) {
+var createBlob = function (content) {
   return axios.post(`/${owner}/${repo}/git/blobs`, {
     content,
     encoding: 'utf-8',
   })
 }
-var createTree = function(base_tree, path, sha) {
+var createTree = function (base_tree, path, sha) {
   return axios.post(`/${owner}/${repo}/git/trees`, {
     base_tree, // commit tree 的 sha
     tree: [
@@ -100,7 +100,7 @@ var createTree = function(base_tree, path, sha) {
     ],
   })
 }
-var createCommit = function(
+var createCommit = function (
   parentCommitSha,
   tree,
   message = ':memo: update post'
@@ -111,7 +111,7 @@ var createCommit = function(
     tree,
   })
 }
-var updataRef = function(newCommitSha) {
+var updataRef = function (newCommitSha) {
   return axios.post(`/${owner}/${repo}/git/refs/heads/master`, {
     sha: newCommitSha,
     force: true,
@@ -187,3 +187,30 @@ app.listen(PORT, () => {
 ## 大功告成
 
 在语雀发布文章即可在博客同时发布，这确实比手写 md 再 push 发布只方便了一点，但是更让人期待的是语雀移动端的上线！那么之后就能直接在手机更新静态博客了！不过有点地方还是想吐槽，语雀的 md 编辑器有时候会语法失效，而且不能直接看到 md 代码，总觉得对格式有种不能完全控制源码的束缚感。
+
+## 2022.2.8 更新
+
+1. 语雀返回的数据长这样：
+
+```
+"wow, it's a test file!\n" +
+'<a name="jvKnj"></a>\n' +
+'## 试一试 h2\n' +
+'**试一试加粗**<br />**按钮的加粗**<br />_斜体_\n' +
+'> 引用\n' +
+'\n',
+```
+
+在编辑器长这样：
+
+![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yuque3.png)
+
+洁癖人估计是受不了，包括我，所以一直以来也都没有再使用这种方法更新，特地回来打自己脸。
+
+2. 现在图片有防盗链
+
+要加一行 meta 隐藏 referrer 才能正常看图
+
+```html
+<meta name="referrer" content="no-referrer" />
+```
