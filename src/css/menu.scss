@@ -7,6 +7,9 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  a {
+    border: none !important;
+  }
 }
 
 .css-menu {

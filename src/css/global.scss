@@ -323,11 +323,11 @@ button {
       font-size: 1.2rem;
     }
   }
-  .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: masonry;
-  }
+  // .container {
+  //   display: grid;
+  //   grid-template-columns: repeat(4, 1fr);
+  //   grid-template-rows: masonry;
+  // }
   .img-box {
     position: relative;
     display: block;
