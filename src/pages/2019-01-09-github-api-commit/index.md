@@ -7,24 +7,24 @@ tags: ['coding', 'github', 'git']
 
 ## 0. 总览
 
-本文为大家提供一种使用  GitHub API  生成 Commit 的方法。通常我们会使用 Git 客户端 Commit 然后 Push 到 GitHub，但 GitHub 为我们提供了相关 API，可以直接通过 API 更新仓库。
+本文为大家提供一种使用 GitHub API 生成 Commit 的方法。通常我们会使用 Git 客户端 Commit 然后 Push 到 GitHub，但 GitHub 为我们提供了相关 API，可以直接通过 API 更新仓库。
 
-要搞清楚整个更新流程，需要先理解 Git 的数据结构。如下图所示，Git 会使用  Ref、Commit、Tree、Blob 等单位管理 Commit 和文件。
+要搞清楚整个更新流程，需要先理解 Git 的数据结构。如下图所示，Git 会使用 Ref、Commit、Tree、Blob 等单位管理 Commit 和文件。
 ![](https://cdn.nlark.com/yuque/0/2019/png/196955/1547024344082-e04117d4-f97d-4bdc-aec8-1d17fe336835.png#align=left&display=inline&height=555&linkTarget=_blank&originHeight=595&originWidth=800&size=0&width=746)
 所以要生成一个新的 Commit，需要从树状结构的叶到根按顺序生成，换句话说就是：Blob→Tree→Commit→Ref。
 
 使用 GitHub API 提交文件有以下步骤。虽然对于第一次接触的新手来说可能会有点复杂，但是理清关系之后思路便会很清晰了。
 
-1. 获取 Ref：Ref 指  [Git 的引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)。如果要发起 Commit，必须知道你的 Commit 要提交到什么地方去（Commit 是一个接一个的链状关系，所以需要知道上一个 Commit 的信息），这一步做的就是这件事。
+1. 获取 Ref：Ref 指 [Git 的引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)。如果要发起 Commit，必须知道你的 Commit 要提交到什么地方去（Commit 是一个接一个的链状关系，所以需要知道上一个 Commit 的信息），这一步做的就是这件事。
 1. 获取 Commit：用于获取当前 Commit 的 tree 的 sha。
-1. 生成 Blob：相当于正常本地提交的 add  操作。
-1. 生成 Tree：构建一个新的 tree。这里需要用到的参数 base_tree  就是来自第二步的 Commit 信息。
+1. 生成 Blob：相当于正常本地提交的 add 操作。
+1. 生成 Tree：构建一个新的 tree。这里需要用到的参数 base_tree 就是来自第二步的 Commit 信息。
 1. 生成 Commit：提交你的 tree。至此已经完成提交。
 1. 更新 Ref：使 master 的指针指到你最新提交的版本。
 
-注意：访问  POST 方法的接口必须带 token，虽然 GET 可以不带，但是会限制访问频率，所以建议都带上。相关文档：[https://developer.github.com/v3/#authentication](https://developer.github.com/v3/#authentication)
+注意：访问 POST 方法的接口必须带 token，虽然 GET 可以不带，但是会限制访问频率，所以建议都带上。相关文档：[https://developer.github.com/v3/#authentication](https://developer.github.com/v3/#authentication)
 
-## 1. 获取 Ref 
+## 1. 获取 Ref
 
 ### 1.1 文档地址
 
@@ -275,7 +275,7 @@ POST https://api.github.com/repos/ssshooter/test/git/commits
 ## 7. node.js 实践代码
 
 ```javascript
-var updateGitHubRes = function(blob, path) {
+var updateGitHubRes = function (blob, path) {
   var commitSha
   var commitTreeSha
   return getRef()
@@ -299,27 +299,27 @@ var updateGitHubRes = function(blob, path) {
       var newCommitSha = data.sha
       return updataRef(newCommitSha)
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err)
     })
 }
 
-var getRef = function() {
+var getRef = function () {
   return axios.get(`/${owner}/${repo}/git/refs/heads/master`)
 }
 
-var getCommit = function(commitSha) {
+var getCommit = function (commitSha) {
   return axios.get(`/${owner}/${repo}/git/commits/${commitSha}`)
 }
 
-var createBlob = function(content) {
+var createBlob = function (content) {
   return axios.post(`/${owner}/${repo}/git/blobs`, {
     content,
     encoding: 'utf-8',
   })
 }
 
-var createTree = function(base_tree, path, sha) {
+var createTree = function (base_tree, path, sha) {
   return axios.post(`/${owner}/${repo}/git/trees`, {
     base_tree, // commit tree 的 sha
     tree: [
@@ -333,7 +333,7 @@ var createTree = function(base_tree, path, sha) {
   })
 }
 
-var createCommit = function(parentCommitSha, tree, message = 'update post') {
+var createCommit = function (parentCommitSha, tree, message = 'update post') {
   return axios.post(`/${owner}/${repo}/git/commits`, {
     message,
     parents: [parentCommitSha],
@@ -341,7 +341,7 @@ var createCommit = function(parentCommitSha, tree, message = 'update post') {
   })
 }
 
-var updataRef = function(newCommitSha) {
+var updataRef = function (newCommitSha) {
   return axios.post(`/${owner}/${repo}/git/refs/heads/master`, {
     sha: newCommitSha,
     force: true,
@@ -351,6 +351,6 @@ var updataRef = function(newCommitSha) {
 
 ## 参考文献
 
-[https://int128.hatenablog.com/entry/2017/09/05/161641](https://int128.hatenablog.com/entry/2017/09/05/161641)
-[https://juejin.im/post/5c33f49de51d45523070f7bb](https://juejin.im/post/5c33f49de51d45523070f7bb)
-[https://git-scm.com/book/zh/v2/Git-内部原理-Git-引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)
+- [GitHub の Git Data API でコミットを作成する](https://int128.hatenablog.com/entry/2017/09/05/161641)
+- [马蹄疾 | 2018(农历年)封山之作，和我一起嚼烂 Git(两万字长文)](https://juejin.im/post/5c33f49de51d45523070f7bb)
+- [Git 内部原理 - Git 引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)
