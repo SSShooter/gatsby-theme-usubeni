@@ -101,7 +101,7 @@ TyranoScript 中变量有三种：
 - f 游戏变量（跟存档）
 - tf 暂存（关掉游戏就没了）
 
-可以用 eval 标签或 iscript 标签修改。
+可以用 eval 标签或 iscript 标签修改，可以这么做的原因是 `evalScript` 里藏着一个 `saveSystemVariable`，确实不太直观。
 
 ```
 ;This assigns a text string to a system variable
@@ -156,6 +156,8 @@ TYRANO.kag.stat.is_strong_stop = false
 
 上面的写法可以回避 `nextOrder`。
 
+顺便补充一下，默认配置由 `loadConfig` 导入 `data\system\Config.tjs` 文件的内容。
+
 ## 在 js 跑 ks 指令
 
 ```
@@ -167,7 +169,92 @@ TYRANO.kag.ftag.startTag('tag')
 上面提到的 kag.stat 是 tyrano 的储存状态的关键变量。
 
 ```javascript
-["map_label", "map_macro", "vertical", "f", "mp", "current_layer", "current_page", "is_stop", "is_wait", "is_trans", "is_wait_anim", "is_strong_stop", "strong_stop_recover_index", "is_nowait", "current_message_str", "current_save_str", "current_keyframe", "map_keyframe", "is_script", "buff_script", "is_html", "map_html", "cssload", "save_img", "stack", "set_text_span", "current_scenario", "is_skip", "is_auto", "current_bgm", "current_bgm_vol", "current_se", "enable_keyconfig", "current_bgmovie", "current_camera", "current_camera_layer", "is_move_camera", "is_wait_camera", "current_line", "is_hide_message", "is_click_text", "is_adding_text", "flag_ref_page", "ruby_str", "ch_speed", "skip_link", "log_join", "log_clear", "f_chara_ptext", "flag_glyph", "current_cursor", "font", "locate", "default_font", "sysview", "chara_pos_mode", "chara_effect", "chara_ptext", "chara_time", "chara_memory", "chara_anim", "pos_change_time", "chara_talk_focus", "chara_brightness_value", "chara_blur_value", "chara_talk_anim", "chara_talk_anim_time", "chara_talk_anim_value", "apply_filter_str", "video_stack", "is_wait_bgmovie", "charas", "jcharas", "play_bgm", "play_se", "map_se_volume", "map_bgm_volume", "map_vo", "vostart", "log_write", "buff_label_name", "already_read", "visible_menu_button", "title"]
+;[
+  'map_label',
+  'map_macro',
+  'vertical',
+  'f',
+  'mp',
+  'current_layer',
+  'current_page',
+  'is_stop',
+  'is_wait',
+  'is_trans',
+  'is_wait_anim',
+  'is_strong_stop',
+  'strong_stop_recover_index',
+  'is_nowait',
+  'current_message_str',
+  'current_save_str',
+  'current_keyframe',
+  'map_keyframe',
+  'is_script',
+  'buff_script',
+  'is_html',
+  'map_html',
+  'cssload',
+  'save_img',
+  'stack',
+  'set_text_span',
+  'current_scenario',
+  'is_skip',
+  'is_auto',
+  'current_bgm',
+  'current_bgm_vol',
+  'current_se',
+  'enable_keyconfig',
+  'current_bgmovie',
+  'current_camera',
+  'current_camera_layer',
+  'is_move_camera',
+  'is_wait_camera',
+  'current_line',
+  'is_hide_message',
+  'is_click_text',
+  'is_adding_text',
+  'flag_ref_page',
+  'ruby_str',
+  'ch_speed',
+  'skip_link',
+  'log_join',
+  'log_clear',
+  'f_chara_ptext',
+  'flag_glyph',
+  'current_cursor',
+  'font',
+  'locate',
+  'default_font',
+  'sysview',
+  'chara_pos_mode',
+  'chara_effect',
+  'chara_ptext',
+  'chara_time',
+  'chara_memory',
+  'chara_anim',
+  'pos_change_time',
+  'chara_talk_focus',
+  'chara_brightness_value',
+  'chara_blur_value',
+  'chara_talk_anim',
+  'chara_talk_anim_time',
+  'chara_talk_anim_value',
+  'apply_filter_str',
+  'video_stack',
+  'is_wait_bgmovie',
+  'charas',
+  'jcharas',
+  'play_bgm',
+  'play_se',
+  'map_se_volume',
+  'map_bgm_volume',
+  'map_vo',
+  'vostart',
+  'log_write',
+  'buff_label_name',
+  'already_read',
+  'visible_menu_button',
+  'title',
+]
 ```
 
 这意味着在你新增自定义标签时，必须要考虑保存的问题。否则会出现这样的问题：你做了一个特效标签，保存的时候特效在运行，但是读档时却没有了。
@@ -180,7 +267,7 @@ setLayerHtml，相对的是保存用的 getLayeyHtml
 
 在 bg 标签记录 stat.currentBG，然后在 setLayerHtml 特殊处理 bg
 
-在加载时同样需要**谨慎处理** `nextOrder`，因为在 load 的时候调用了自己新增的 setEffect，里面有一句 `nextOrder`，导致读档产生诡异的效果（例如突然冒出个例会），并且因为这是异步的操作，很难 debug，这个问题就查了老半天😂。
+在加载时同样需要**谨慎处理** `nextOrder`，因为在 load 的时候调用了自己新增的 setEffect，里面有一句 `nextOrder`，导致读档产生诡异的效果（例如突然冒出个例会），并且因为这是异步的操作，很难 debug，这个问题就查了老半天 😂。
 
 ## 截图
 
