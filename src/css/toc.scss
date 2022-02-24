@@ -25,8 +25,13 @@
     margin-right: 5px;
   }
   a {
+    display: inline-block;
+    width: 100%;
     color: var(--mainDerive1);
     box-shadow: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-top: 2px; // 不知道为啥 a 就是不在 p 中间
   }
   .active {
     color: var(--mainColor);
@@ -43,16 +48,12 @@
     }
   }
   li {
-    margin-bottom: 6px;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
     > p {
-      line-height: 1.5;
       margin: 0;
+      width: 90%;
     }
     > ul {
-      margin-top: 6px;
       padding-left: 1rem;
       opacity: 0.7;
     }
