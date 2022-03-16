@@ -80,11 +80,11 @@ https://github.com/ssshooter/syncHime
 
 ### canvas-img-process
 
-一个了解到卷积核之后做着玩的东西。
-
 ![canvas-img-process](/blog-image/canvas-img-process.png)
 
 https://github.com/ssshooter/canvas-img-process
+
+一个了解到卷积核之后做着玩的东西，彩蛋是图片转 ASCII。
 
 ### Nippon Color
 
@@ -92,17 +92,27 @@ https://github.com/ssshooter/canvas-img-process
 
 https://ssshooter.github.io/nippon-color/#/
 
-### 一些翻译
+大概是日本传统色的“redesign”，希望大家看得还顺眼。
+
+### 晒晒奖杯
+
+<iframe style="width:100%;height:300px;border:none" src="https://psn-trophy.ssshooter.com/#/userPage?accountId=7044269709970808941" />
+
+### 翻译
 
 - 可以在[翻译](/tag/翻译/)标签查看我的翻译
 - [mongoose 中文文档](https://github.com/ssshooter/mongoose-doc-cn)
 
-### 一些故事
+基本是数年前的残留文章，最近是没翻译过了。
+
+### 故事
 
 写的不怎么样的轻小说：[平凡的他们的异想故事](https://book.qidian.com/info/1022500464)
 
-### 游戏的尝试
+其实写的时候总在媚宅与不媚宅的风格中摇摆，事实上到写完都还没决定，嗯，所以写得有点不伦不类了。
+
+### 游戏
 
 ![Frozen Memories](/blog-image/frozen_memory.png)
 
-还没发布的 AVG：[Frozen Memories](https://store.steampowered.com/app/1224840/Frozen_Memories/)
+在这个做 AVG 只有死路一条的时代，我家老板还是用爱发电让 [Frozen Memories](https://store.steampowered.com/app/1224840/Frozen_Memories/) 诞生了，做了一点技术支持，学到了点 WebGL 新玩法，也是不错的。框架用的是 TyranoScript，相关问题可以看 [Tyrano 专区](https://ssshooter.com/tag/TyranoScript/)
