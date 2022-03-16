@@ -196,7 +196,7 @@ source order dependency
 
 ## table 的层级
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/table-stack.png)
+![](/blog-image/table-stack.png)
 
 ## table 实用 CSS
 
@@ -230,7 +230,7 @@ border 不坍塌的话表现如你所想，但是坍塌之后会变得有点怪�
 
 译者注：关于坍塌后用哪条边，[mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse) 有一个简明易懂的例子
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/border-collapse.png)
+![](/blog-image/border-collapse.png)
 
 以上信息不是很详尽，还有其他不少 CSS 的怪异实现，例如你不可以在格子使用相对定位（译者注：2021 年 3 月，我尝试在 td 或 td 里的元素进行相对、绝对定位设置，发现没有任何问题）。
 
@@ -368,7 +368,7 @@ tbody tr:hover {
 
 ## 响应式设计
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/mobile-table-suck.png)
+![](/blog-image/mobile-table-suck.png)
 
 两个 live demo：
 

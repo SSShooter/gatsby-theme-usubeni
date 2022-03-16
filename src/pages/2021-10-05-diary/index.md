@@ -5,7 +5,7 @@ title: '10 月 4 日 打牌'
 tags: ['diary', '游戏']
 ---
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/hpmobile.jpg)
+![](/blog-image/hpmobile.jpg)
 
 ## 胡适日记
 
@@ -55,4 +55,4 @@ tags: ['diary', '游戏']
 
 开服前几天说我必须当吴克，过几天课了两个 6 块，这个月连月卡都买了，我脸都打肿了。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/猪场索钱.jpg)
+![](/blog-image/猪场索钱.jpg)

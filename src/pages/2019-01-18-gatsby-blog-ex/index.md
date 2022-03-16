@@ -20,13 +20,13 @@ tags: ['coding', 'gatsby']
 
 ### 在知识库页面配置订阅地址
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yuque1.png)
+![](/blog-image/yuque1.png)
 
 ### 本地测试
 
 官方推荐使用 [ngrok](https://ngrok.com)，ngrok 能让你的本地服务暴露到外网，方便测试。我的配置：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yuque2.png)
+![](/blog-image/yuque2.png)
 
 ### express 接收 webhook 推送
 
@@ -203,7 +203,7 @@ app.listen(PORT, () => {
 
 在编辑器长这样：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yuque3.png)
+![](/blog-image/yuque3.png)
 
 洁癖人估计是受不了，包括我，所以一直以来也都没有再使用这种方法更新，特地回来打自己脸。
 

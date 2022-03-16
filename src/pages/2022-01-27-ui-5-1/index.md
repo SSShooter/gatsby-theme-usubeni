@@ -20,6 +20,6 @@ tags: ['本站历史']
 
 这个春节回老家闲着，说不定过两天又更新了 🤣
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ui5_1_1.png)
+![](/blog-image/ui5_1_1.png)
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ui5_1_2.png)
+![](/blog-image/ui5_1_2.png)

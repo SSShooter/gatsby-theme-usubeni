@@ -7,7 +7,7 @@ tags: ['coding', 'zadig']
 
 > Zadig 是 KodeRover 公司基于 Kubernetes 自主设计、研发的开源分布式持续交付 (Continuous Delivery) 产品，为开发者提供云原生运行环境，支持开发者本地联调、微服务并行构建和部署、集成测试等。Zadig 内置了面向 Kubernetes、Helm、云主机/物理机、大体量微服务等复杂业务场景的最佳实践，为工程师一键生成自动化工作流 (workflow)。Zadig 不改变现有习惯和流程，几乎兼容所有软件架构，无缝集成 GitHub/GitLab、Jenkins、多家云厂商等，运维成本极低。
 
-![Zadig-Business-Architecture](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Zadig-Business-Architecture.png)
+![Zadig-Business-Architecture](/blog-image/Zadig-Business-Architecture.png)
 
 ## 本地启动 zadig 前端项目流程
 
@@ -126,13 +126,13 @@ components
 
 因为原来的项目在 [Zadig](https://github.com/koderover/zadig) 的 [examples](https://github.com/koderover/Zadig/tree/main/examples/voting-app/freestyle-k8s-specifications) 里，为了方便操作，直接提交一份到这个仓库 [voting-app](https://github.com/ssshooter/voting-app)，使用时直接 fork 即可。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/20210818184207.png)
+![](/blog-image/20210818184207.png)
 
 **此处需熟悉 K8s 配置**
 
 配置服务构建：选择服务 -> 点击`添加构建` -> 填写构建脚本
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/zadig-build.png)
+![](/blog-image/zadig-build.png)
 
 ### 加入运行环境
 

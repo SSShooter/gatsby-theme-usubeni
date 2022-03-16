@@ -11,7 +11,7 @@ tags: ['coding', '翻译', 'git']
 
 最初提出 commit 约定的项目之一是 AngularJS。团队建立了详尽的文档说明成员们应该如何进行 commit。后来，commit 约定火起来了，或者大家接触到他们是在 Karma 的指引中。另外 jQuery、JSHint、Ember、Angular（AngularJS 约定的增强版）等，都有着各自不同的约定。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/conventions-diagram.png)
+![](/blog-image/conventions-diagram.png)
 
 上面可以清晰看到各种 commit 约定的形式，这些约定中都包含了一个合适的 commit 原因。[Conventional Commits](https://www.conventionalcommits.org/) 就是这么一种规范，简化了 Angular 约定并简单说明了一些基础的 commit 约定。
 
@@ -44,7 +44,7 @@ tags: ['coding', '翻译', 'git']
 
 Angular 约定要求一个 commit 包含下面的结构：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/commit-message-format-by-angular.png)
+![](/blog-image/commit-message-format-by-angular.png)
 
 上图把 commit 信息分为 header、body、footer 三部分，下面我们详细说明。
 
@@ -93,7 +93,7 @@ git commit -m "fix(core): remove deprecated and defunct wtf* apis" -m "These api
 
 最后，看看提交记录：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/final-commit-message.png)
+![](/blog-image/final-commit-message.png)
 
 如你所想，这条 [commit](https://github.com/angular/angular/commit/cf420194ed91076afb66d9179245b9dbaabc4fd4) 出自 Angular 仓库。
 
@@ -114,55 +114,55 @@ git commit -m "fix(core): remove deprecated and defunct wtf* apis" -m "These api
 
 `build`（也常称为 `chore`），**开发类**，这些修改常包含构建系统（引入脚本、配置、工具）和依赖。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-build-type.png)
+![](/blog-image/examples-of-build-type.png)
 
 ### 💚 ci
 
 `ci`，**开发类**，持续集成和部署脚本、设置或工具相关。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-ci-type.png)
+![](/blog-image/examples-of-ci-type.png)
 
 ### 📝 docs
 
 `docs`，**开发类**，项目文档相关，包括面向用户或内部开发者的文档。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-docs-type.png)
+![](/blog-image/examples-of-docs-type.png)
 
 ### ✨ feat
 
 `feat`，**生产类**，向下兼容的新功能。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-feat-type.png)
+![](/blog-image/examples-of-feat-type.png)
 
 ### 🐛 fix
 
 `fix`，**生产类**，向下兼容的 bug 修复。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-fix-type.png)
+![](/blog-image/examples-of-fix-type.png)
 
 ### ⚡️ perf
 
 `perf`，**生产类**，向下兼容的性能提升
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-perf-type.png)
+![](/blog-image/examples-of-perf-type.png)
 
 ### ♻️ refactor
 
 `refactor`，**开发类**，修改代码库，但不是添加新功能或修复 bug，而是移除多余代码、简化代码、重命名变量等操作。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-refactor-type.png)
+![](/blog-image/examples-of-refactor-type.png)
 
 ### 🎨 style
 
 **开发类**，代码格式化相关
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-style-type.png)
+![](/blog-image/examples-of-style-type.png)
 
 ### ✅ test
 
 **开发类**，重构测试或新增测试
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/examples-of-test-type.png)
+![](/blog-image/examples-of-test-type.png)
 
 ## 好处
 
@@ -210,7 +210,7 @@ so，根据 commit 信息（尤其是其中的类型字段），语义化发布�
 
 例如，Ionic 的 [angular-toolkit](https://github.com/ionic-team/angular-toolkit) 就集成了自动发布流程：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/example-of-release-note.png)
+![](/blog-image/example-of-release-note.png)
 
 ## 杂项
 
@@ -229,13 +229,13 @@ so，根据 commit 信息（尤其是其中的类型字段），语义化发布�
 
 [Commitizen](https://github.com/commitizen/cz-cli) 强制使用 commit 格式的命令行工具。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/commitlint-example.png)
+![](/blog-image/commitlint-example.png)
 
 ### Linter
 
 [commitlint](https://github.com/conventional-changelog/commitlint) 是一个保证 commit 信息格式的工具。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/commitizen-example.png)
+![](/blog-image/commitizen-example.png)
 
 ### VSCode 插件
 

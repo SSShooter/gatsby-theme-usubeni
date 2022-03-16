@@ -25,7 +25,7 @@ clientHeight = 本身高度 + padding - 滚动条宽度（如果有）
 
 另外，一个特殊情况，clientHeight 作用在 `<html>` 时返回 viewport 高度（无视滚动条）
 
-![clientHeight](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Dimensions-client.png)
+![clientHeight](/blog-image/Dimensions-client.png)
 
 ## offsetTop
 
@@ -45,7 +45,7 @@ offsetHeight = 本身高度 + padding + border + 滚动条宽度（如果有）
 
 display 为 none 的元素会返回 0
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Dimensions-offset.png)
+![](/blog-image/Dimensions-offset.png)
 
 ## scrollTop
 
@@ -61,7 +61,7 @@ display 为 none 的元素会返回 0
 
 整个元素本身的高度，看下图就很形象
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ScrollHeight.png)
+![](/blog-image/ScrollHeight.png)
 
 ## 其他相关
 
@@ -95,7 +95,7 @@ UIEvent.layerX/Y 非标准
 
 注意：offsetWidth 和 offsetHeight 计算的大小是原始大小，scale 后不变，getBoundingClientRect 是真实大小，反映 scale 后的变化
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/element-box-diagram.png)
+![](/blog-image/element-box-diagram.png)
 
 ### IntersectionObserver
 

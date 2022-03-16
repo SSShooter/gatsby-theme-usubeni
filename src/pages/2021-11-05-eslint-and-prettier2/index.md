@@ -19,7 +19,7 @@ tags: ['coding', 'ESLint', 'Prettier']
 
 jetbrains 系在输入 html 标签名后如果在后面接一个属性的话，再换行就会自动对齐到标签名的长度，但是如果后面不接属性直接换行的话就定位到正常缩进位置。第一种情况如下图的 `el-select` 第二种情况如 `el-option`，即使再使用 IDE 的格式化也是按照这个“设定”格式化。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/jb-format.png)
+![](/blog-image/jb-format.png)
 
 但是 vscode 中找不到配置这种缩进的方法，要做到兼顾两款 IDE 和所有开发者的格式统一，便很自然地想到 eslint 和 prettier 了，这也是前端项目中十分常用的代码管理工具。
 
@@ -36,9 +36,9 @@ jetbrains 系在输入 html 标签名后如果在后面接一个属性的话，�
 
 ### webstorm
 
-![webstorm eslint](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-eslint.png)
+![webstorm eslint](/blog-image/ws-eslint.png)
 
-![webstorm prettier](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-prettier.png)
+![webstorm prettier](/blog-image/ws-prettier.png)
 
 webstorm 自带 eslint，prettier 可以在 settings-plugins 里搜索安装（ws 似乎也默认安装了 prettier）。
 
@@ -59,7 +59,7 @@ npm install --save-dev eslint eslint-plugin-vue prettier
 
 在设置里可以设置 prettier 的路径：
 
-![ws prettier setting](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-prettier2.png)
+![ws prettier setting](/blog-image/ws-prettier2.png)
 
 ## 初始化配置
 
@@ -75,7 +75,7 @@ npx eslint --init
 
 输出格式当然还是推荐 js，一来本身就受到 eslint 管理，而且还可以根据程序自定义输出结果。
 
-![eslint init](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/eslint-init.png)
+![eslint init](/blog-image/eslint-init.png)
 
 ```javascript
 module.exports = {
@@ -145,7 +145,7 @@ module.exports = {
 
 webstorm 可以在 settings 搜索到保存时的行为，勾选 eslint 和 prettier。
 
-![webstorm action on save](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ws-action-on-save.png)
+![webstorm action on save](/blog-image/ws-action-on-save.png)
 
 vscode 可以直接写入这个配置（默认格式化工具使用 prettier）：
 

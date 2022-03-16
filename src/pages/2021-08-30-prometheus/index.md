@@ -64,7 +64,7 @@ remote_read:
 
 ## 基本流程
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/prometheus_architecture.png)
+![](/blog-image/prometheus_architecture.png)
 
 **Prometheus Server** 收集 **exporter** 或 **job** 的数据，推送到 **Alertmanager**；同时，Grafana 和 API 客户端可以使用 PromQL 向 Prometheus Server 查询数据。
 

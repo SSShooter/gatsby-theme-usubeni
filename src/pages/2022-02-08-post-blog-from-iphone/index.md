@@ -62,7 +62,7 @@ Serverless 简单来说就是写个函数挂在某个地址，这个地址被访
 
 ### 快捷指令
 
-![shortcuts-icon](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/shortcuts-icon.webp)
+![shortcuts-icon](/blog-image/shortcuts-icon.webp)
 
 原名 Workflow，后来成为 iOS 自带 App，算是一个可视化的脚本工具吧。不难懂，但是需要一定时间熟悉操作（而且在 iPhone 操作有点别扭，而且经常触发页面抽搐 bug，感觉 iPad 会舒服多了）。
 
@@ -84,7 +84,7 @@ Serverless 简单来说就是写个函数挂在某个地址，这个地址被访
 4. decode 一个 url（这一步必须备注一下，不知道是 bug 还是咋地，不 decode 直接用 url 的话会提示第一步拿到的文件名不能放到 url 里，我就纳闷了，那个文件名明明就是个 text 而且都是英文，咋就不行了）
 5. 使用 decode 的 url 通过 Taio 打开刚创建的文件，然后完善一下信息直接开写就可以了
 
-![shortcuts3](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Shortcuts3.jpg)
+![shortcuts3](/blog-image/Shortcuts3.jpg)
 
 ### 上传 markdown
 
@@ -93,7 +93,7 @@ Serverless 简单来说就是写个函数挂在某个地址，这个地址被访
 3. `Get contents of URL` 实际就是发 ajax 请求，数据自己决定，我是用了当前时间、文件内容、文件路径 3 个数据
 4. 最后是展示接口返回结果，这步也是可以没有，因为请求报错的话上一步就会停下来并提示你
 
-![shortcuts2](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Shortcuts2.jpg)
+![shortcuts2](/blog-image/Shortcuts2.jpg)
 
 其实还有一点可以改进，上传的时候可以动态修改文章信息的 date，刷新文章更新时间，稍微用一点正则知识就可以了。
 
@@ -113,7 +113,7 @@ Serverless 简单来说就是写个函数挂在某个地址，这个地址被访
 6. 发布 base64，创建 blob 时 encoding 记得选 base64
 7. 展示接口返回结果
 
-![shortcuts1](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Shortcuts1.jpg)
+![shortcuts1](/blog-image/Shortcuts1.jpg)
 
 ## 安卓呢
 

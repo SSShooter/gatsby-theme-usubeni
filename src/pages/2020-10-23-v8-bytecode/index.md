@@ -44,7 +44,7 @@ JavaScript 引擎，用于 Chrome，但与浏览器引擎区别的是 JavaScript
 
 下图为 WebKit 主要流程：
 
-![webkit 主要流程](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/webkitflow.png)
+![webkit 主要流程](/blog-image/webkitflow.png)
 
 - [How Browsers Work: Behind the scenes of modern web browsers](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#The_rendering_engine)
 - [WebKit](https://webkit.org/project/)
@@ -67,7 +67,7 @@ Compiler 是将一种语言（通常是高等语言）处理为另一种语言�
 
 ### 编译器的三级结构
 
-![three-stage-compiler-structure](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Compiler_design.svg)
+![three-stage-compiler-structure](/blog-image/Compiler_design.svg)
 
 - 前端：源代码转换为 intermediate representation(IR)
 - 中端：优化 IR

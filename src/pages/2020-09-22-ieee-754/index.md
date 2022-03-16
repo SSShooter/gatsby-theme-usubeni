@@ -5,11 +5,11 @@ title: '为什么会精度丢失？教你看懂 IEEE-754！'
 tags: ['coding']
 ---
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/1180px-Float_example.svg.png)
+![](/blog-image/1180px-Float_example.svg.png)
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/IEEE_754_Double_Floating_Point_Format.svg.png)
+![](/blog-image/IEEE_754_Double_Floating_Point_Format.svg.png)
 
-上图来自维基百科，黑夜模式会导致文字看不清楚，麻烦大家使用日间模式阅读啦 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu18.gif)
+上图来自维基百科，黑夜模式会导致文字看不清楚，麻烦大家使用日间模式阅读啦 ![](/blog-image/alu18.gif)
 
 IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式（上面两幅图分别是 32 bit 和 64 bit 的情况，结构是一致的），JavaScript 使用的是 64 位，也就是常说的“双精度”，本文将以 64 位举例讲解 IEEE-754 标准。
 
@@ -23,7 +23,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 0100000001101101001000000000000000000000000000000000000000000000
 
-不多不少 64 位，不信的数一数 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu9.gif)
+不多不少 64 位，不信的数一数 ![](/blog-image/alu9.gif)
 
 ## sign
 
@@ -41,7 +41,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 `1.1101001000000000000000000000000000000000000000000000`
 
-如果你问为什么要塞个 1 在前面，我也没查，总之就是这么规定的，这确实是名副其实的“小数” ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu22.gif)
+如果你问为什么要塞个 1 在前面，我也没查，总之就是这么规定的，这确实是名副其实的“小数” ![](/blog-image/alu22.gif)
 
 但是拿到这一长串 `1.f` 要怎么用呢？就得结合 exponent 部分。
 
@@ -88,7 +88,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 0.f × 2<sup>−1022</sup>
 
-这就是 f 前不为 1 的特殊情况，这种情况可以用于表示极小的数字 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu2.gif)
+这就是 f 前不为 1 的特殊情况，这种情况可以用于表示极小的数字 ![](/blog-image/alu2.gif)
 
 ## 总结
 
@@ -110,9 +110,9 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 使用上面总结的公式，将 IEEE-754 算回十进制应该不难，但是自己动手，如何通过十进制数算出 IEEE-754 呢？
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/IEEE_754_Double_Floating_Point_Format.svg.png)
+![](/blog-image/IEEE_754_Double_Floating_Point_Format.svg.png)
 
-我们整一个看起来还挺简单的数字：-5432.1，再贴一下 64 bit 的组成图，免得大家翻来翻去 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu9.gif)
+我们整一个看起来还挺简单的数字：-5432.1，再贴一下 64 bit 的组成图，免得大家翻来翻去 ![](/blog-image/alu9.gif)
 
 ### step1
 
@@ -156,7 +156,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 | 0.8\*2 | 1.6  | 1    |
 | 0.6\*2 | 1.2  | 1    |
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu22.gif) 没完没了，聪明的大家应该看出来了，这已经进入了无限循环状态。
+![](/blog-image/alu22.gif) 没完没了，聪明的大家应该看出来了，这已经进入了无限循环状态。
 
 就像十进制的三分一等于 0.33333333……，二进制的“十”分一等于 0.00011001100110011……，都是无限循环小数。
 
@@ -178,7 +178,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 ### step4
 
-拼图都凑齐了，组合在一起吧！s + e + f！ ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu39.gif)
+拼图都凑齐了，组合在一起吧！s + e + f！ ![](/blog-image/alu39.gif)
 
 1100000001111011000000011001100110011001100110011001100110011010
 
@@ -186,7 +186,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 ## 为什么算不准
 
-程序员们因为[精度丢失](https://stackoverflow.com/questions/1458633/how-to-deal-with-floating-point-number-precision-in-javascript)苦不堪言，这个问题不仅仅发生在 JavaScript 里，只是可怜的 JavaScript 奇怪的设定更多，大家就经常把 0.1 + 0.2 的问题绑定到 JavaScript 身上，其实 Java 等使用 IEEE-754 标准的语言都会有这个问题（然而 Java 还有 BigDecimal，JavaScript 只能哭哭 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu18.gif)）。
+程序员们因为[精度丢失](https://stackoverflow.com/questions/1458633/how-to-deal-with-floating-point-number-precision-in-javascript)苦不堪言，这个问题不仅仅发生在 JavaScript 里，只是可怜的 JavaScript 奇怪的设定更多，大家就经常把 0.1 + 0.2 的问题绑定到 JavaScript 身上，其实 Java 等使用 IEEE-754 标准的语言都会有这个问题（然而 Java 还有 BigDecimal，JavaScript 只能哭哭 ![](/blog-image/alu18.gif)）。
 
 那么到底为什么会算不准呢？
 
@@ -200,7 +200,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 0.0532 * 100 // 5.319999999999999
 ```
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu18.gif) 曾经我也以为乘 100 变成整数再进行加减计算就不会丢精度，但事实是，乘法本身算出来的数就已经走样了。
+![](/blog-image/alu18.gif) 曾经我也以为乘 100 变成整数再进行加减计算就不会丢精度，但事实是，乘法本身算出来的数就已经走样了。
 
 说回产生的原因吧，其实跟上面算 0.1 一样，就是因为 除 不 尽。
 
@@ -222,7 +222,7 @@ console.log((1.1 - 1).toFixed(30))
 - 小于 0.1000000000000000124（等等等等）
 - 大于 0.0999999999999999987（等等等等）
 
-至于要准确知道 IEEE-754 怎么进行“估值”，[这里](https://en.wikipedia.org/wiki/Floating-point_arithmetic)或许能找到答案，好奇宝宝们可以钻研一下 ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/alu39.gif)
+至于要准确知道 IEEE-754 怎么进行“估值”，[这里](https://en.wikipedia.org/wiki/Floating-point_arithmetic)或许能找到答案，好奇宝宝们可以钻研一下 ![](/blog-image/alu39.gif)
 
 总之，因为除不尽，再加上计算中带来的误差，超过一定的值，某个数就变成另一个数了。
 

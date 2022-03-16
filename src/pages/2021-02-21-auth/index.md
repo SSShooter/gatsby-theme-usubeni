@@ -48,7 +48,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 其中 `<cookie-name>=<cookie-value>` 这样的 kv 对，内容随你定，另外还有 HttpOnly、SameSite 等配置，一条 `Set-Cookie` 只配置一项 cookie。
 
-![devtools cookies](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/devtools_cookies.png)
+![devtools cookies](/blog-image/devtools_cookies.png)
 
 - Expires 设置 cookie 的过期时间（时间戳），这个时间是**客户端时间**。
 - Max-Age 设置 cookie 的保留时长（秒数），同时存在 Expires 和 Max-Age 的话，Max-Age 优先
@@ -311,7 +311,7 @@ HMACSHA256(
 
 最后将三部分通过 `.` 组合在一起，你可以通过 [jwt.io Debugger](https://jwt.io/#debugger-io) 形象地看到 JWT 的组成原理：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/jwt_debugger.png)
+![](/blog-image/jwt_debugger.png)
 
 ### 如何使用
 

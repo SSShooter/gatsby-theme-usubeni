@@ -281,7 +281,7 @@ DIP 依赖反转原则
 
 SOLID 5 个原则之间的关系实质错综复杂，你中有我我中有你，所以应该结合起来理解。其实很多“原则”和“设计模式”的中心思想都是一致的。之前看过一篇[文章](https://mp.weixin.qq.com/s/qRjn_4xZdmuUPQFoWMBQ4Q)提到：**找到变化，封装变化**是设计模式的核心，觉得十分精辟。除此之外还有耳熟能详的高内聚和低耦合（[High cohesion, Loose coupling](<https://en.wikipedia.org/wiki/Cohesion_(computer_science)>)两者是二位一体的，也是编程的重要中心思想。
 
-![Coupling Vs Cohesion](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/CouplingVsCohesion.svg.png)
+![Coupling Vs Cohesion](/blog-image/CouplingVsCohesion.svg.png)
 
 总结完了，这么看来，SOLID 是不是也很简单呢，但是，每个人都会、也应该有一套自己对 SOLID 的理解，在理解后**有选择地**应用于工作中才是最重要的，毕竟某些原则在一定环境下反而是违背了更好，不要死脑筋，原则不是真理，但当你处于编程困境时，这些原则或许能给你一些绝妙的灵感。
 

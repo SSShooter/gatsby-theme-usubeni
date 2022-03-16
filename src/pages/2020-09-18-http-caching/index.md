@@ -13,7 +13,7 @@ tags: ['coding', '前端优化']
 
 其中代理（proxy）是指客户端到服务器中间的可能经过的地方，有可能用于数据转发和缓存。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/Client-server-chain.png)
+![](/blog-image/Client-server-chain.png)
 
 **HTTP 缓存有两个关键字：新鲜度（Freshness），校验（Validation）**
 
@@ -47,7 +47,7 @@ Cache-Control: max-age=<seconds>
 
 上面说的只是特例的其中之一，Cache-Control 的**多种属性组合使用**会产生很多意外的效果，不同浏览器存在不同的实现，但是应该大同小异。本文不会详细讲组合效果和在各个浏览器的表现。
 
-![flowchart](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/2020-09-18-http-caching-flowchart.png)
+![flowchart](/blog-image/2020-09-18-http-caching-flowchart.png)
 
 借助上图，可以根据你的需求简单判断 Cache-Control 的设置，来源于：https://web.dev/http-cache/
 
@@ -76,7 +76,7 @@ ETag 属性是请求指向的资源的**指纹**，如果资源被修改，那�
 
 下面随便打开一个网页看看 HTTP 缓存的实际效果。
 
-![dev tool](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/2020-09-18-http-caching-devtool.png)
+![dev tool](/blog-image/2020-09-18-http-caching-devtool.png)
 
 第一条是网页文件请求，`cache-control` 设置为 `public, max-age=0, s-maxage=300`，说明了：
 
@@ -102,7 +102,7 @@ ETag 属性是请求指向的资源的**指纹**，如果资源被修改，那�
 
 ## 附录
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/serverToClientFlowchart.png)
+![](/blog-image/serverToClientFlowchart.png)
 
 上图来源于 [Server to Client](https://alistapart.com/article/server-to-client/) 这篇文章，看不清请右键新建页面浏览图片。
 

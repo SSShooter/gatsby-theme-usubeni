@@ -9,7 +9,7 @@ tags: ['coding']
 
 安装 [element-ui-helper](https://marketplace.visualstudio.com/items?itemName=oibit.element-ui-helper) 插件，可得到 element ui 悬停提示，不用每次都翻文档。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/element-ui-tips.png)
+![](/blog-image/element-ui-tips.png)
 
 缺点也是有一点，tips 的显示框有点小了，不过跟插件本身也没关系，查了一下，vscode 暂时还没有提供可以修改 tips 大小的方法，只有[修改 vscode 全局 css 的 workaround](https://github.com/microsoft/vscode/issues/14165)。
 
@@ -23,7 +23,7 @@ snippet 的意思就是“代码片段”，一般我们不会记住 ui 框架�
 
 虽然可以通过插件安装 snippet，但是更灵活的方法是用 ctrl+P 创建 snippet 文件。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/snippet.png)
+![](/blog-image/snippet.png)
 
 snippet 文件的结构大概就这样：
 

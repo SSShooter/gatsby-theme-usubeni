@@ -33,7 +33,7 @@ date: '2019-02-14T00:00:00.000Z'
 
 ### Mind Elixir
 
-![mind elixir](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/mind-elixir.png)
+![mind elixir](/blog-image/mind-elixir.png)
 
 Mind elixir 是一个免费开源的思维导图内核
 
@@ -45,7 +45,7 @@ Github 地址： https://github.com/ssshooter/mind-elixir-core
 
 https://play.google.com/store/apps/details?id=com.timerecord.yolo
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/yolo.skin.jpeg)
+![](/blog-image/yolo.skin.jpeg)
 
 悠录是一个生活记录 App，这是我初次接触安卓的尝试……虽说如此，其实大部分功能还是 webview，不过自己实现了定时提醒和纪念日 widget。
 
@@ -82,13 +82,13 @@ https://github.com/ssshooter/syncHime
 
 一个了解到卷积核之后做着玩的东西。
 
-![canvas-img-process](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/canvas-img-process.png)
+![canvas-img-process](/blog-image/canvas-img-process.png)
 
 https://github.com/ssshooter/canvas-img-process
 
 ### Nippon Color
 
-![nippon color](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/nippon-color.png)
+![nippon color](/blog-image/nippon-color.png)
 
 https://ssshooter.github.io/nippon-color/#/
 
@@ -102,5 +102,7 @@ https://ssshooter.github.io/nippon-color/#/
 写的不怎么样的轻小说：[平凡的他们的异想故事](https://book.qidian.com/info/1022500464)
 
 ### 游戏的尝试
+
+![Frozen Memories](/blog-image/frozen_memory.png)
 
 还没发布的 AVG：[Frozen Memories](https://store.steampowered.com/app/1224840/Frozen_Memories/)

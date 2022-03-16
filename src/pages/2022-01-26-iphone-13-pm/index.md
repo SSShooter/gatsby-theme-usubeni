@@ -17,17 +17,17 @@ tags: ['diary']
 
 随便放两个图，因为很环保所以也没啥看点：
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ip13pm_3.jpg)
+![](/blog-image/ip13pm_3.jpg)
 
 嗯，包装很环保，我没意见，但还是觉得没有充电器很过分，再这么下去怕是连线都不给了。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ip13pm_1.jpg)
+![](/blog-image/ip13pm_1.jpg)
 
 说回为什么这么纠结着想要现金吧，这件事不记下来，估计过后是肯定会忘的，我是希望这会被我忘记的，如果这件事还要发展到我永远记得的程度，那也太惨了。
 
 那么这是什么事呢？看图吧。
 
-![兰兰求求你，我不玩了，钱还我](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/兰兰求求你我不玩了钱还我.png)
+![兰兰求求你，我不玩了，钱还我](/blog-image/兰兰求求你我不玩了钱还我.png)
 
 最近一年医疗是最惨的，但是其他的也好不到哪里去，总之现在在基金负的钱是比一台 iPhone13pm 多了，现在手上的 mate20X 虽然叙利亚成色，但还是挺流畅的，没什么必要换手机。所以很纠结，要不要拿钱补仓（但是谁知道会不会越补越跌呢，哭晕）
 
@@ -39,6 +39,6 @@ tags: ['diary']
 
 我这种吝啬鬼，这辈子，即使不至于买不起，也一定不会花一万在手机上吧（此处不计算货币升值），那就既来之则安之吧，希望能用五年（虽然可以预见三年后电池估计就报废了）。这次第一次用 512g 的手机，就感受任性下 app、任性缓存的爽快吧。
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/ip13pm_2.jpg)
+![](/blog-image/ip13pm_2.jpg)
 
 PS. 今天玩手游抽了三个保底，RP 守恒呢

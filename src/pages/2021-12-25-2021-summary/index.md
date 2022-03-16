@@ -45,7 +45,7 @@ COVID-19 已经在地球肆虐了一年多，刚爆发的时候的紧张都快�
 - 最奇葩：三天在横琴湾酒店健身房跑了可能有三四小时
 - 最好看：珠海长隆的水母
 
-![水母](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/水母.jpg)
+![水母](/blog-image/水母.jpg)
 
 ## 咖啡与睡眠
 
@@ -59,7 +59,7 @@ COVID-19 已经在地球肆虐了一年多，刚爆发的时候的紧张都快�
 
 ## 年度音乐
 
-![年度音乐 2021](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/wyy2021.jpg)
+![年度音乐 2021](/blog-image/wyy2021.jpg)
 
 顺便说几句：
 
@@ -76,7 +76,7 @@ COVID-19 已经在地球肆虐了一年多，刚爆发的时候的紧张都快�
 
 ## 年度游戏
 
-![仁王2 白金啦](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/nioh2.png)
+![仁王2 白金啦](/blog-image/nioh2.png)
 
 游戏就毫无疑问的，今年也是充满魂的一年，先把仁王 2 白了，接着是开始在 switch 上玩魂 1，然后圣诞特惠的时候买了魂 3，现在还在肝（事实上我就是被肝魂 3 拖慢了年终总结的进度），差不多了估计把 2 和盐与避难所也买了吧。（害，此时想起坑了好几年的空洞骑士）
 

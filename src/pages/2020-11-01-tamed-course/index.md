@@ -23,13 +23,13 @@ tags: ['diary']
 - 关键是找到 cue，并让其与正向动作连结，如锻炼冥想，这样就能让好习惯替代坏习惯
 - 奖励是你形成坏习惯的推动力，你可以思考有没有其他 routine 可以达成相同奖励
 - 从生活分析你奖励的深层原因，例如这么反着想，有什么事你做了之后会让你可以不需要激活 routine
-  ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/HowDoHabitsREALLYWork.png)
+  ![](/blog-image/HowDoHabitsREALLYWork.png)
 
 ## 3. 2 个对于建立习惯最大的误解
 
 - 传言中养成习惯需要的时间 21 天，是错的
 - 达成“最大自动性”（不要太多思考就自然做到）需要的时间是：两周到九个月，平均 66 天，取决于复杂度和难度（坚持健身需要六个月）
-  ![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/The2BiggestMisconceptionsAboutBuildingHabits.png)
+  ![](/blog-image/The2BiggestMisconceptionsAboutBuildingHabits.png)
 - all or nothing mindset 是错的，一旦中断不代表所有努力都白费了
 - 事实上，中断一次不会影响习惯形成进度，一次以上效果会比较显著
 - 所以在 relapse 的时候一定要再次重新开始，不能破罐子破摔
@@ -62,7 +62,7 @@ tags: ['diary']
 - 必须是立即或短时间内就可以的到的奖励
 - 必须让你愉快（food play sex socializing relax）
 
-![](https://cdn.jsdelivr.net/gh/ssshooter/photoshop/HowToProperlyBuildYourHabit.png)
+![](/blog-image/HowToProperlyBuildYourHabit.png)
 
 ## 6. 意志力真的存在吗（重点）
 
