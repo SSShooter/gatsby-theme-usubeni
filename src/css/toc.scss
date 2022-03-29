@@ -32,6 +32,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     padding-top: 2px; // 不知道为啥 a 就是不在 p 中间
+    vertical-align: middle;
   }
   .active {
     color: var(--mainColor);
