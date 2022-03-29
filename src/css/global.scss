@@ -184,11 +184,6 @@ a {
   text-decoration: none;
   word-break: break-all;
   // box-shadow: 0 1px 0 0 currentColor;
-  &:hover,
-  &:active {
-    // box-shadow: none;
-    box-shadow: 0 1px 0 0 currentColor;
-  }
 }
 
 footer {
@@ -393,6 +388,13 @@ button {
     .anchor {
       box-shadow: none;
       // opacity: 0;
+    }
+    a {
+      &:hover,
+      &:active {
+        // box-shadow: none;
+        box-shadow: 0 1px 0 0 currentColor;
+      }
     }
   }
   table {
