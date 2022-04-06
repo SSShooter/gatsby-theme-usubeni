@@ -62,18 +62,19 @@ class BlogIndex extends React.Component {
             {currentPage - 1 > 0 && (
               <Link
                 to={
-                  `/tag/${tag}/` + (currentPage - 1 === 1 ? '' : currentPage - 1)
+                  `/tag/${tag}/` +
+                  (currentPage - 1 === 1 ? '' : currentPage - 1)
                 }
                 rel="prev"
               >
-                <button>{'<'} 上一页</button>
+                <button className="page-button">{'<'} 上一页</button>
               </Link>
             )}
           </div>
           <div>
             {currentPage + 1 <= totalPage && (
               <Link to={`/tag/${tag}/` + (currentPage + 1)} rel="next">
-                <button>下一页 {'>'}</button>
+                <button className="page-button">下一页 {'>'}</button>
               </Link>
             )}
           </div>
@@ -86,7 +87,7 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query($tag: String!, $skip: Int!, $limit: Int!) {
+  query ($tag: String!, $skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
@@ -95,11 +96,11 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { 
-        frontmatter: { 
-          tags: { in: [$tag] } 
-          released: { ne: false } 
-          hidden: { ne: true } 
+      filter: {
+        frontmatter: {
+          tags: { in: [$tag] }
+          released: { ne: false }
+          hidden: { ne: true }
         }
       }
       limit: $limit
