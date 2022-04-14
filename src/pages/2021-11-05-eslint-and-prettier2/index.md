@@ -2,7 +2,7 @@
 path: '/eslint-and-prettier2'
 date: '2021-11-07T18:14:01.447Z'
 title: '用 eslint 和 prettier 让跨 IDE 协作更舒服'
-tags: ['coding', 'ESLint', 'Prettier']
+tags: ['coding', 'ESLint', 'Prettier', '效率']
 ---
 
 ## TL; DR

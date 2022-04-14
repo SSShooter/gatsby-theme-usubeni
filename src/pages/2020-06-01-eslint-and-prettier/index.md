@@ -2,7 +2,7 @@
 path: '/eslint-and-prettier'
 date: '2020-06-01T10:46:47.925Z'
 title: '认识 ESLint 和 Prettier'
-tags: ['coding', 'ESLint', 'Prettier']
+tags: ['coding', 'ESLint', 'Prettier', '效率']
 ---
 
 - ESLint 和 Prettier 分别是什么，有什么关系？
@@ -136,4 +136,3 @@ https://prettier.io/docs/en/options.html
 又像上面的配置一样配置整个 vscode 的风格，实测现在是不能用的，即使没有 `.prettierrc.json` 这样配置也不生效，官网现在也没有提到这种配置方法。
 
 上面两个配置不是本文主要内容，只是突然想起来好像有这回事，而现在，可能已经成为了时代眼泪吧。
-

@@ -234,5 +234,5 @@ tags: ['导航']
 
 - 名称：UsubeniFantasy
 - 头像：[复制此链接](https://ssshooter.com/logo.png)
-- 简介：Write like you're running out of time.
+- 简介：`Write like you're running out of time.`
 - 网址：https://ssshooter.com

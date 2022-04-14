@@ -2,7 +2,7 @@
 path: '/efficient-element-ui'
 date: '2021-11-23T10:19:36.573Z'
 title: '三个技巧高效写 Element UI（Vue）'
-tags: ['coding']
+tags: ['coding', '效率']
 ---
 
 ## Tips
@@ -62,8 +62,8 @@ plop 大概由三个部分组成，其中关系后面会说到：
 使用 plop 的第一步是写一个 `plopfile.js`，这个文件一般长这样：
 
 ```javascript
-module.exports = function(plop) {
-  plop.setHelper('equal', function(a, b) {
+module.exports = function (plop) {
+  plop.setHelper('equal', function (a, b) {
     return a === b
   })
   plop.setGenerator('table-view', tableViewGenerator)
@@ -160,7 +160,7 @@ plop 的目的是生成一份或一系列定制的代码文件，上面说了获
 举个例子，要做到 Vue 模板 `{{ x || y }}` 的效果，需要自定义一个 helper：
 
 ```javascript
-Handlebars.registerHelper('coalesce', function(a, b) {
+Handlebars.registerHelper('coalesce', function (a, b) {
   return a || b
 })
 ```
@@ -183,14 +183,14 @@ Handlebars.registerHelper('coalesce', function(a, b) {
 plop（非 hbs）自带了一些 helper，都用于处理字符串格式：
 
 - camelCase: changeFormatToThis
-- snakeCase: change\_format\_to\_this
+- snakeCase: change_format_to_this
 - dashCase/kebabCase: change-format-to-this
 - dotCase: change.format.to.this
 - pathCase: change/format/to/this
 - properCase/pascalCase: ChangeFormatToThis
 - lowerCase: change format to this
 - sentenceCase: Change format to this,
-- constantCase: CHANGE\_FORMAT\_TO\_THIS
+- constantCase: CHANGE_FORMAT_TO_THIS
 - titleCase: Change Format To This
 
 ## 总结
