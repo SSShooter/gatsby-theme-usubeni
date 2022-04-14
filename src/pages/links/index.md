@@ -25,21 +25,30 @@ tags: ['导航']
             </div>
         </div>
     </a>
-    <a class="link-card-wrapper" target="_blank" href="https://www.webcreatorbox.com/">
+    <a class="link-card-wrapper" target="_blank" href="https://web.dev/blog/">
+        <div class="link-card">
+            <div class="noimage">W</div>
+            <div class="info">
+                <div class="title">Web.dev</div>
+                <div class="descript">Let's build the future of the web, together</div>
+            </div>
+        </div>
+    </a>
+    <a class="link-card-wrapper" target="_blank" href="https://www.smashingmagazine.com/">
         <div class="link-card">
             <img src="https://www.smashingmagazine.com/images/footer/tablet__left.svg">
             <div class="info">
                 <div class="title">SMASHING MAGAZINE</div>
-                <div class="descript">Web 技术博客（英语）</div>
+                <div class="descript">Web 技术博客</div>
             </div>
         </div>
     </a>
     <a class="link-card-wrapper" target="_blank" href="https://www.webcreatorbox.com/">
         <div class="link-card">
-            <div class="noimage">W</div>
+            <div class="noimage">ボ</div>
             <div class="info">
-                <div class="title">web creator box</div>
-                <div class="descript">网页创造者的工具箱（日语）</div>
+                <div class="title">Webクリエイターボックス</div>
+                <div class="descript">日语前端技术资讯站</div>
             </div>
         </div>
     </a>
@@ -66,7 +75,7 @@ tags: ['导航']
             </div>
         </div>
     </a>
-    <a class="link-card-wrapper" target="_blank" href="https://imjad.cn/">
+    <a class="link-card-wrapper" target="_blank" href="https://2heng.xin/">
         <div class="link-card">
             <img src="https://secure.gravatar.com/avatar/1f1b82f7ab1429a50424ac18dce65e37?s=80&r=X&d=">
             <div class="info">
