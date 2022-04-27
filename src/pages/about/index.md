@@ -95,7 +95,7 @@ https://ssshooter.github.io/nippon-color/#/
 
 ### 晒晒奖杯
 
-<iframe style="width:100%;height:300px;border:none" src="https://psn-trophy.ssshooter.com/#/userPage?accountId=7044269709970808941" />
+<iframe style="width:100%;height:300px;border:none" src="https://psn-trophy.ssshooter.com/#/userPage?accountId=7044269709970808941"></iframe>
 
 ### 翻译
 
