@@ -7,7 +7,7 @@ tags: ['coding']
 
 Github 地址： https://github.com/ssshooter/mind-elixir-core
 
-试用地址： https://mindelixir.ink/
+试用地址： https://mind-elixir.com/
 
 ![mindelixir logo](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/logo.png)
 
@@ -17,7 +17,7 @@ Mind elixir 是一个免费开源的思维导图内核
 
 ![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/screenshot.png)
 
-https://mindelixir.ink/#/
+https://mind-elixir.com/#/
 
 ## 在项目中使用
 

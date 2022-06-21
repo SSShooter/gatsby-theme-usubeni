@@ -38,7 +38,7 @@ Mind elixir 是一个免费开源的思维导图内核
 
 Github 地址： https://github.com/ssshooter/mind-elixir-core
 
-试用地址： https://mindelixir.ink/
+试用地址： https://mind-elixir.com/
 
 ### 悠录 YOLO.R
 

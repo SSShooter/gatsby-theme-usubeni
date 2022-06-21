@@ -11,4 +11,4 @@ tags: ['diary']
 
 想起[上年年终总结](/2018-12-31-2018-summary)定的目标，算是实现了🤔
 
-<iframe width="100%" height="600px" style="border:none" src="https://mindelixir.ink/#/map?id=5d40e4fda94fe2003d0cbdae&p=1&share=1">
+<iframe width="100%" height="600px" style="border:none" src="https://mind-elixir.com/#/map?id=5d40e4fda94fe2003d0cbdae&p=1&share=1">
