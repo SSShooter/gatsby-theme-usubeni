@@ -9,13 +9,13 @@ Github 地址： https://github.com/ssshooter/mind-elixir-core
 
 试用地址： https://mind-elixir.com/
 
-![mindelixir logo](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/logo.png)
+![mindelixir logo](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/images/logo.png)
 
 Mind elixir 是一个免费开源的思维导图内核
 
 ## 立即试用
 
-![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/screenshot.png)
+![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/images/screenshot.png)
 
 https://mind-elixir.com/#/
 
