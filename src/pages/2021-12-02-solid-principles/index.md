@@ -14,7 +14,7 @@ tags: ['coding']
 
 > THERE SHOULD NEVER BE MORE THAN ONE REASON FOR A CLASS TO CHANGE.
 
-如果你把多个功能写到 1 个类里，未来你在修改的时候有可能因为调整一个功能影响另一个。**单一责任原则（SRP）**就是避免上述情况的发生。
+如果你把多个功能写到 1 个类里，未来你在修改的时候有可能因为调整一个功能影响另一个。**单一责任原则（SRP）** 就是避免上述情况的发生。
 
 不只是类，函数、模块大体也应该遵循单一责任的原则，只是这个责任范围大了一层而已，就像生物分类的种属科目。
 
@@ -24,7 +24,7 @@ tags: ['coding']
 
 > SOFTWARE ENTITIES (CLASSES, MODULES, FUNCTIONS, ETC.) SHOULD BE OPEN FOR EXTENSION, BUT CLOSED FOR MODIFICATION.
 
-**开闭原则（OCP）**中的开和闭，分别代表的是对新增功能（这里的“功能”包括类、模块、函数等）开放，但拒绝修改原来的功能。（想吐槽一句，其实 OCP 得有一个前提，就是在新增功能时，不修改原来的功能，不然需求就是要修改功能还能不改么）
+**开闭原则（OCP）** 中的开和闭，分别代表的是对新增功能（这里的“功能”包括类、模块、函数等）开放，但拒绝修改原来的功能。（想吐槽一句，其实 OCP 得有一个前提，就是在新增功能时，不修改原来的功能，不然需求就是要修改功能还能不改么）
 
 在计划赶不上变化的今天，我觉得这条绝对是最最重要的原则，大大巩固了程序的可维护性，下面以函数来举例，大多数不符合 OCP 的代码有一个特点，就是会带有一大堆 `if else`，例如：
 
@@ -104,7 +104,7 @@ function getSound(animal) {
 
 ## Liskov Substitution Principle
 
-**里氏替换原则（LSP）**最早是 Barbara Liskov 女士提出，Barbara 女士的原文差不多是这样的：Let Φ(x) be a property provable about objects x of type T. Then Φ(y) should be true for objects y of type S where S is a subtype of T.
+**里氏替换原则（LSP）** 最早是 Barbara Liskov 女士提出，Barbara 女士的原文差不多是这样的：Let Φ(x) be a property provable about objects x of type T. Then Φ(y) should be true for objects y of type S where S is a subtype of T.
 
 Hmmmm，十分学术，还是看 Robert C. Martin 的转述版吧：
 
@@ -157,7 +157,7 @@ d.printName()
 
 > CLIENTS SHOULD NOT BE FORCED TO DEPEND UPON INTERFACES THAT THEY DO NOT USE
 
-**接口隔离原则（ISP）**字面意思就是拆分接口，其含义是不应强迫用户使用他们不用的接口。其实最初认识到接口隔离原则的时候，光看名字会觉得和单一责任原则很像，因为接口隔离做到的效果也是单一职责，但是稍微思考一下他们的定义，SRP 是简单的高内聚概念，ISP 更多是从用户角度出发，而且在实践 LSP 的时候你很可能就自动想到 ISP 了。
+**接口隔离原则（ISP）** 字面意思就是拆分接口，其含义是不应强迫用户使用他们不用的接口。其实最初认识到接口隔离原则的时候，光看名字会觉得和单一责任原则很像，因为接口隔离做到的效果也是单一职责，但是稍微思考一下他们的定义，SRP 是简单的高内聚概念，ISP 更多是从用户角度出发，而且在实践 LSP 的时候你很可能就自动想到 ISP 了。
 
 还是用 ts 举例吧：
 
@@ -214,7 +214,7 @@ class Ostrich implements IBird {
 > A. HIGH LEVEL MODULES SHOULD NOT DEPEND UPON LOW LEVEL MODULES. BOTH SHOULD DEPEND UPON ABSTRACTIONS.
 > <br>B. ABSTRACTIONS SHOULD NOT DEPEND UPON DETAILS. DETAILS SHOULD DEPEND UPON ABSTRACTIONS.
 
-**依赖反转原则（DIP）**有两层含义：高层模块不应依赖底层模块，都应依赖抽象；抽象不应依赖具体，具体应依赖抽象。为什么说是反转呢，因为传统软件开发都是高层依赖底层，抽象依赖具体。
+**依赖反转原则（DIP）** 有两层含义：高层模块不应依赖底层模块，都应依赖抽象；抽象不应依赖具体，具体应依赖抽象。为什么说是反转呢，因为传统软件开发都是高层依赖底层，抽象依赖具体。
 
 简单来说**抽象就是类、函数，具体就是实例、对象**，下面的例子是告诉你“函数不应依赖实例，应该依赖一个类”
 
