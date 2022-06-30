@@ -134,7 +134,7 @@ body {
   font-size: 17px;
   background-color: var(--backgroundColor);
   color: var(--fontColor);
-  transition: background-color 0.5s ease-in-out;
+  // transition: background-color 0.5s ease-in-out;
 }
 
 .mask {
@@ -409,7 +409,7 @@ button {
     .logo {
       display: block;
       width: 100%;
-      transition: background 0.5s ease-in-out;
+      // transition: background 0.5s ease-in-out;
     }
     .logo-mobile {
       display: none;

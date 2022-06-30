@@ -8,6 +8,26 @@ import '../css/global.scss'
 let footerStyle = {
   marginBottom: '1rem',
 }
+
+let theme = 'light'
+let localTheme = localStorage.getItem('theme')
+if (localTheme) {
+  if (localTheme === 'dark') {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+} else if (window.matchMedia) {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+} else {
+  // default light
+  theme = 'light'
+}
+document.documentElement.className = theme + '-theme'
 class Layout extends React.Component {
   state = {
     menuState: false, // false for close, true for open
@@ -15,7 +35,7 @@ class Layout extends React.Component {
     animation: [],
     year: '',
     days: '',
-    theme: 'light',
+    theme,
     flowerDance: false,
   }
   componentDidMount() {
@@ -31,23 +51,7 @@ class Layout extends React.Component {
     } else {
       this.setFlowerDance(localFlowerDance)
     }
-    let localTheme = localStorage.getItem('theme')
-    if (localTheme) {
-      if (localTheme === 'dark') {
-        this.setTheme('dark')
-      } else {
-        this.setTheme('light')
-      }
-    } else if (window.matchMedia) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.setTheme('dark')
-      } else {
-        this.setTheme('light')
-      }
-    } else {
-      // default light
-      this.setTheme('light')
-    }
+
     // document.documentElement.style.display = 'block'
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     darkModeMediaQuery.addListener((e) => {
@@ -105,7 +109,7 @@ class Layout extends React.Component {
   search = () => {
     window.open(
       'https://cn.bing.com/search?q=site%3Assshooter.com%20' +
-        this.state.keyword
+      this.state.keyword
     )
   }
   slowMotion = () => {
@@ -191,7 +195,7 @@ class Layout extends React.Component {
                 dangerouslySetInnerHTML={{
                   __html: aside,
                 }}
-                //  '<div class="box-title">TOC</div>' +
+              //  '<div class="box-title">TOC</div>' +
               />
             ) : (
               <React.Fragment>
