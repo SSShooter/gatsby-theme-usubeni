@@ -3,7 +3,9 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout'
-
+/**
+ * Archive page
+ */
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -11,7 +13,6 @@ class BlogIndex extends React.Component {
     const siteDescription = data.site.siteMetadata.description
     const posts = data.allMarkdownRemark.edges
     const { totalPage, currentPage } = this.props.pageContext
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <Helmet
@@ -31,17 +32,17 @@ class BlogIndex extends React.Component {
               {(index === 0 ||
                 (index > 0 &&
                   posts[index - 1].node.frontmatter.year !==
-                    node.frontmatter.year)) && (
-                <div
-                  style={{
-                    fontSize: '1.8em',
-                    marginTop: index === 0 ? '0rem' : '2rem',
-                    marginBottom: '1.2rem',
-                  }}
-                >
-                  {node.frontmatter.year}
-                </div>
-              )}
+                  node.frontmatter.year)) && (
+                  <div
+                    style={{
+                      fontSize: '1.8em',
+                      marginTop: index === 0 ? '0rem' : '2rem',
+                      marginBottom: '1.2rem',
+                    }}
+                  >
+                    {node.frontmatter.year}
+                  </div>
+                )}
               <span
                 style={{
                   display: 'inline-block',

@@ -3,7 +3,9 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import Info from '../components/PostInfo'
-
+/**
+ * Blog list of specific Tag
+ */
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -44,7 +46,7 @@ class BlogIndex extends React.Component {
               <Info date={node.frontmatter.date} tags={node.frontmatter.tags} />
               <p
                 className="list-excerpt"
-                dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}
               />
             </div>
           )
@@ -116,6 +118,7 @@ export const pageQuery = graphql`
             date(formatString: "YYYY-MM-DD")
             title
             tags
+            description
           }
         }
       }

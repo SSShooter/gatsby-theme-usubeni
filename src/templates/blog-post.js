@@ -90,17 +90,18 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { slug, previous, next } = this.props.pageContext
+    
     // const isCoding = post.frontmatter.tags.includes('coding')
     return (
       <Layout
         location={this.props.location}
         title={siteTitle}
         aside={post.tableOfContents}
-        // className={isCoding?'night':null}
+      // className={isCoding?'night':null}
       >
         <Helmet
           htmlAttributes={{ lang: 'zh' }}
-          meta={[{ name: 'description', content: siteDescription }]}
+          meta={[{ name: 'description', content: post.frontmatter.description || siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
         <h1>{post.frontmatter.title}</h1>
@@ -121,66 +122,66 @@ class BlogPostTemplate extends React.Component {
         />*/}
         {this.state.comments.length > 0
           ? this.state.comments.map(comment => {
-              const dateFormat = this.dateFormat(comment.date)
-              return (
-                <React.Fragment>
-                  <div className="css-comment-display" key={comment._id}>
-                    <div className="name">
-                      {comment.site ? (
-                        <a target="_blank" href={comment.site}>
-                          {comment.author}
-                        </a>
-                      ) : (
-                        <span>{comment.author}</span>
-                      )}
-                      <span className="date">{dateFormat}</span>
-                      <span
-                        className="inline-button css-reply"
-                        onClick={this.reply(comment._id, comment.author)}
-                      >
-                        回复
-                      </span>
-                    </div>
-                    <div className="message">{comment.content}</div>
+            const dateFormat = this.dateFormat(comment.date)
+            return (
+              <React.Fragment>
+                <div className="css-comment-display" key={comment._id}>
+                  <div className="name">
+                    {comment.site ? (
+                      <a target="_blank" href={comment.site}>
+                        {comment.author}
+                      </a>
+                    ) : (
+                      <span>{comment.author}</span>
+                    )}
+                    <span className="date">{dateFormat}</span>
+                    <span
+                      className="inline-button css-reply"
+                      onClick={this.reply(comment._id, comment.author)}
+                    >
+                      回复
+                    </span>
                   </div>
-                  {comment.replies.length > 0
-                    ? comment.replies.map(commentChild => {
-                        const dateFormat = this.dateFormat(comment.date)
-                        return (
-                          <div
-                            className="css-child-comment-display"
-                            key={commentChild._id}
+                  <div className="message">{comment.content}</div>
+                </div>
+                {comment.replies.length > 0
+                  ? comment.replies.map(commentChild => {
+                    const dateFormat = this.dateFormat(comment.date)
+                    return (
+                      <div
+                        className="css-child-comment-display"
+                        key={commentChild._id}
+                      >
+                        <div className="name">
+                          {commentChild.site ? (
+                            <a target="_blank" href={commentChild.site}>
+                              {commentChild.author}
+                            </a>
+                          ) : (
+                            <span>{commentChild.author}</span>
+                          )}
+                          {' -> ' + commentChild.to}
+                          <span className="date">{dateFormat}</span>
+                          <span
+                            className="inline-button css-reply"
+                            onClick={this.reply(
+                              comment._id,
+                              commentChild.author
+                            )}
                           >
-                            <div className="name">
-                              {commentChild.site ? (
-                                <a target="_blank" href={commentChild.site}>
-                                  {commentChild.author}
-                                </a>
-                              ) : (
-                                <span>{commentChild.author}</span>
-                              )}
-                              {' -> ' + commentChild.to}
-                              <span className="date">{dateFormat}</span>
-                              <span
-                                className="inline-button css-reply"
-                                onClick={this.reply(
-                                  comment._id,
-                                  commentChild.author
-                                )}
-                              >
-                                回复
-                              </span>
-                            </div>
-                            <div className="message">
-                              {commentChild.content}
-                            </div>
-                          </div>
-                        )
-                      })
-                    : null}
-                </React.Fragment>
-              )
-            })
+                            回复
+                          </span>
+                        </div>
+                        <div className="message">
+                          {commentChild.content}
+                        </div>
+                      </div>
+                    )
+                  })
+                  : null}
+              </React.Fragment>
+            )
+          })
           : '暂时没有留言，要抢沙发吗？'}
         <CommentSubmit
           url={slug}
@@ -246,6 +247,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         tags
+        description
         date(formatString: "YYYY-MM-DD")
       }
     }

@@ -3,6 +3,7 @@ path: '/cancel-ajax'
 date: '2022-06-23T16:09:46.189Z'
 title: 'Ajax 怎么取消？要不要取消？'
 tags: ['coding', 'Ajax']
+description: '一起了解一下如何利用 AbortController 取消 Ajax 请求，但是，cancel 请求真的有用吗？取消还是不取消，这是个问题。'
 ---
 
 ## Ajax cancel
