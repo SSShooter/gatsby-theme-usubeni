@@ -11,9 +11,9 @@ export default class Menu extends Component {
         <a href="/tag/coding/">
           <i className="iconfont">&#xe7d7;</i> 技术
         </a>
-        <a href="/tag/diary/">
+        {/* <a href="/tag/diary/">
           <i className="iconfont">&#xe7b3;</i> 杂谈
-        </a>
+        </a> */}
         <a href="/tags">
           <i className="iconfont">&#xe7e5;</i> 标签
         </a>

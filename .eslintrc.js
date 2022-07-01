@@ -8,6 +8,7 @@ module.exports = {
     graphql: false,
   },
   parserOptions: {
+    ecmaVersion: 2022,
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -15,6 +16,6 @@ module.exports = {
     },
   },
   rules: {
-    'array-element-newline': 'consistent',
+    'array-element-newline': 1,
   },
 }
