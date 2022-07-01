@@ -9,25 +9,7 @@ let footerStyle = {
   marginBottom: '1rem',
 }
 
-let theme = 'light'
-let localTheme = localStorage.getItem('theme')
-if (localTheme) {
-  if (localTheme === 'dark') {
-    theme = 'dark'
-  } else {
-    theme = 'light'
-  }
-} else if (window.matchMedia) {
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    theme = 'dark'
-  } else {
-    theme = 'light'
-  }
-} else {
-  // default light
-  theme = 'light'
-}
-document.documentElement.className = theme + '-theme'
+
 class Layout extends React.Component {
   state = {
     menuState: false, // false for close, true for open
@@ -35,13 +17,15 @@ class Layout extends React.Component {
     animation: [],
     year: '',
     days: '',
-    theme,
+    theme: null,
     flowerDance: false,
   }
   componentDidMount() {
     // avoid flash
     // document.documentElement.style.display = 'none'
+    console.log(window.theme)
     this.setState({
+      theme: window.theme,
       year: new Date().getFullYear(),
       days: this.formatTime(new Date() - new Date('2018-12-05 14:13:38')),
     })

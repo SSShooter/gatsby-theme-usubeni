@@ -55,6 +55,31 @@ var _hmt = _hmt || [];
         `,
             }}
           />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `              
+              var theme = 'light'
+              let localTheme = localStorage.getItem('theme')
+              if (localTheme) {
+                if (localTheme === 'dark') {
+                  theme = 'dark'
+                } else {
+                  theme = 'light'
+                }
+              } else if (window.matchMedia) {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                  theme = 'dark'
+                } else {
+                  theme = 'light'
+                }
+              } else {
+                // default light
+                theme = 'light'
+              }
+              document.documentElement.className = theme + '-theme'
+        `,
+            }}
+          />
           {this.props.headComponents}
         </head>
         {/* <div className="mask" /> */}

@@ -13,4 +13,4 @@ tags: ['diary', '英语', '思维导图']
 
 顺便给我的思维导图内核求个 star！https://github.com/ssshooter/mind-elixir-core
 
-<iframe allowfullscreen="true" width="100%" height="600px" style="border:none" src="https://mind-elixir.com/#/map?id=6016683af1919f0043aa7ae9&p=1&share=1">
+<iframe allowfullscreen="true" width="100%" height="600px" style="border:none" src="https://mind-elixir.com/#/map?id=6016683af1919f0043aa7ae9&p=1&share=1" />
