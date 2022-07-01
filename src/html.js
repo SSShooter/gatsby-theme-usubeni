@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default class HTML extends React.Component {
   render() {
     return (
-      <html className="light-theme" {...this.props.htmlAttributes}>
+      <html {...this.props.htmlAttributes}>
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
