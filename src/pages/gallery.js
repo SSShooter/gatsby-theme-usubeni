@@ -2,6 +2,7 @@ import React from 'react'
 import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { siteName } from '../settings'
 
 class Gallery extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Gallery extends React.Component {
         <Helmet
           htmlAttributes={{ lang: 'zh' }}
           meta={[{ name: 'description', content: '定格的生活' }]}
-          title={'Usubeni Fantasy | 定格的生活'}
+          title={siteName + ' | 定格的生活'}
         />
         <header>
           <Link
@@ -26,7 +27,7 @@ class Gallery extends React.Component {
             className="usubeni"
             to={'/tag/coding/'}
           >
-            Usubeni Fantasy
+            {siteName}
           </Link>
           <span>#Gallery</span>
           <div>定格的生活</div>

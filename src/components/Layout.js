@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
+import { siteName } from '../settings'
 
 let footerStyle = {
   marginBottom: '1rem',
@@ -115,8 +116,7 @@ class Layout extends React.Component {
   }
   render() {
     const { menuState, days, year, theme, flowerDance } = this.state
-    const { pageName, pageDescript, title, children, aside, className } =
-      this.props
+    const { pageName, pageDescript, children, aside, className } = this.props
     // const rootPath = `${__PATH_PREFIX__}/`
 
     const websiteName = (
@@ -131,7 +131,7 @@ class Layout extends React.Component {
           to={'/tag/coding/'}
         >
           {/* <img className="logo-mobile" src="/logo.mobile.png" /> */}
-          <span className="logo-mobile">{title}</span>
+          <span className="logo-mobile">{siteName}</span>
           <img className="logo" src="/logo.png" />
         </Link>
         {pageName ? (
@@ -203,7 +203,7 @@ class Layout extends React.Component {
           </div>
           <div style={footerStyle}>
             © 2018-{year} SSShooter • theme{' '}
-            <span className="usubeni">UsubeniFantasy</span> • powered by{' '}
+            <span className="usubeni">{siteName}</span> • powered by{' '}
             <a style={{ boxShadow: 'none' }} href="https://www.gatsbyjs.org/">
               Gatsbyjs
             </a>

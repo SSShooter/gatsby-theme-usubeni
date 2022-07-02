@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import { siteName } from '../settings'
 
 class NotFoundPage extends React.Component {
   render() {
@@ -10,12 +11,12 @@ class NotFoundPage extends React.Component {
     return (
       <Layout
         location={this.props.location}
-        title="Usubeni Fantasy"
+        title={siteName}
         pageName="沙雕表情库"
         pageDescript="点击图片，大图带走"
       >
         <div className="css-meme">
-          {meme.map(img => (
+          {meme.map((img) => (
             <a
               href={img.node.publicURL}
               key={img.node.relativePath}

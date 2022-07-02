@@ -1,6 +1,9 @@
 .css-comment-submit {
   max-width: 400px;
   margin: 40px auto;
+  .title{
+    margin-bottom: 12px;
+  }
   input,
   button,
   textarea {
@@ -17,8 +20,7 @@
     border: none;
     margin: 0 0 10px 0;
     padding: 0 10px;
-    border: solid 1px #ccc;
-    // border: solid 1px var(--buttonColor);
+    background-color: var(--backgroundColor2);
     border-radius: 3px;
   }
   textarea {
@@ -56,10 +58,10 @@
 }
 .css-comment-display {
   padding: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--hrColor);
 }
 .css-child-comment-display {
   padding: 20px;
   margin-left: 30px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--hrColor);
 }

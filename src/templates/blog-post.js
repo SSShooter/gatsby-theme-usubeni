@@ -2,7 +2,7 @@ import 'katex/dist/katex.min.css'
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
-import { apiUrl } from '../const'
+import { apiUrl } from '../settings'
 
 import CommentSubmit from '../components/CommentSubmit'
 // import CommentDisplay from '../components/CommentDisplay'

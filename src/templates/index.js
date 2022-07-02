@@ -26,7 +26,7 @@ class BlogIndex extends React.Component {
             const title = node.frontmatter.title || node.fields.slug
             return (
               // show year if it's different from the previous one
-              <>
+              <React.Fragment key={node.fields.slug}>
                 {(index === 0 ||
                   (index > 0 &&
                     posts[index - 1].node.frontmatter.year !==
@@ -41,13 +41,13 @@ class BlogIndex extends React.Component {
                     {node.frontmatter.year}
                   </div>
                 )}
-                <div className="item" key={node.fields.slug}>
+                <div className="item">
                   <span className="date">{node.frontmatter.date}</span>
                   <Link className="title" to={node.fields.slug}>
                     {title}
                   </Link>
                 </div>
-              </>
+              </React.Fragment>
             )
           })}
         </div>

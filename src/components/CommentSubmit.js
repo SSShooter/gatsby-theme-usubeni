@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { apiUrl } from "../const";
+import { apiUrl } from '../settings'
 export default class Comment extends Component {
   state = {
     submitState: '发送留言',
@@ -35,7 +35,7 @@ export default class Comment extends Component {
     }
     axios
       .post(apiUrl + '/api/comment', data)
-      .then(res => {
+      .then((res) => {
         localStorage.name = author
         localStorage.email = mail
         localStorage.site = site
@@ -45,7 +45,7 @@ export default class Comment extends Component {
           submitState: '已发送',
         })
       })
-      .catch(err => {
+      .catch((err) => {
         alert(err)
         this.button.disabled = false
         this.setState({
@@ -57,13 +57,11 @@ export default class Comment extends Component {
     })
     this.button.disabled = true
   }
-  render () {
+  render() {
     const { parent, to, onCancel } = this.props
     return (
       <div className="css-comment-submit">
-        <span className="box-title">
-          留言
-        </span>
+        <div className="title">留言</div>
         {parent && (
           <div>
             回复 {to}
@@ -73,7 +71,7 @@ export default class Comment extends Component {
           </div>
         )}
         <input
-          ref={input => {
+          ref={(input) => {
             this.name = input
             if (this.name && localStorage.name) {
               this.name.value = localStorage.name
@@ -84,7 +82,7 @@ export default class Comment extends Component {
           required
         />
         <input
-          ref={input => {
+          ref={(input) => {
             this.email = input
             if (this.email && localStorage.email) {
               this.email.value = localStorage.email
@@ -95,7 +93,7 @@ export default class Comment extends Component {
         />
         <input
           id="comment-input"
-          ref={input => {
+          ref={(input) => {
             this.site = input
             if (this.site && localStorage.site) {
               this.site.value = localStorage.site
@@ -106,11 +104,11 @@ export default class Comment extends Component {
         />
         <textarea
           id="comment-input"
-          ref={input => (this.message = input)}
+          ref={(input) => (this.message = input)}
           placeholder="必填 请输入留言内容"
           required
         />
-        <button ref={button => (this.button = button)} onClick={this.submit}>
+        <button ref={(button) => (this.button = button)} onClick={this.submit}>
           {this.state.submitState}
         </button>
       </div>

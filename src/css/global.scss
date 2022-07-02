@@ -1,6 +1,7 @@
 #canvas_sakura {
   transition: opacity 0.5s ease-in-out;
 }
+// USUBENI #e87a90
 
 // @media screen and (prefers-color-scheme: light) {
 .light-theme {
@@ -8,10 +9,9 @@
   //   animation-name: fade-in;
   //   animation-duration: 3s;
   // }
-  --backgroundColor: #f8f9fa;
+  --backgroundColor: #f0f0f0;
   --backgroundColor2: #ffffff;
   --mainColor: #c4324f;
-  // --mainColor: #e87a90;
   --mainDerive1: #68565a;
   --mainDerive2: #b55f70;
   --mainDerive3: #ecc3cb;
@@ -20,7 +20,8 @@
   --codeBlock: #3c495b;
   --code: #c3c7cb;
   --divider: rgb(214, 214, 214);
-  --buttonColor: #683741;
+  --buttonColor: #ffffff;
+  --buttonBackgroundColor: #e87a90;
   --hrColor: #dfdfdf;
   --tableHeadColor: #f8f9fa;
   --shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11);
@@ -40,21 +41,20 @@
   --code: #c3c7cb;
   --divider: #3e4b5e;
   --buttonColor: #ecbcc6;
+  --buttonBackgroundColor: #2d2a30;
   --hrColor: #5c5c5c;
   --tableHeadColor: #3a3a3a;
-  --shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11);
+  --shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%),
+    0 1px 5px 0 rgb(0 0 0 / 12%);
 
   img {
-    // filter: brightness(80%);
+    filter: brightness(90%);
   }
 
   #canvas_sakura {
     filter: brightness(80%);
   }
 }
-
-// 原来的樱花 css，已经弃用
-// @import './sakura.base.scss';
 
 @import './toc.scss';
 @import './blockquote.scss';
@@ -72,13 +72,10 @@
 @import './prism-light.scss';
 
 @font-face {
-  font-family: 'iconfont'; /* Project id 1042209 */
-  src: url('https://at.alicdn.com/t/font_1042209_yij8e6vrtz.woff2?t=1643258303088')
-      format('woff2'),
-    url('https://at.alicdn.com/t/font_1042209_yij8e6vrtz.woff?t=1643258303088')
-      format('woff'),
-    url('https://at.alicdn.com/t/font_1042209_yij8e6vrtz.ttf?t=1643258303088')
-      format('truetype');
+  font-family: 'iconfont';
+  src: url('./iconfont.woff2?t=1656758366575') format('woff2'),
+    url('./iconfont.woff?t=1656758366575') format('woff'),
+    url('./iconfont.ttf?t=1656758366575') format('truetype');
 }
 
 .iconfont {
@@ -224,12 +221,12 @@ li > p {
 
 button {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0);
   display: inline-block;
   padding: 0.3rem 1rem;
   margin-bottom: 0.3rem;
   text-decoration: none;
   color: var(--buttonColor);
+  background-color: var(--buttonBackgroundColor);
   border: none;
   transition: 0.4s;
 }
@@ -240,7 +237,6 @@ button {
 // }
 
 input,
-button,
 textarea {
   color: var(--fontColor);
   background: rgba(0, 0, 0, 0);
@@ -313,7 +309,8 @@ button {
   max-width: 1000px;
   @import './menu.scss';
   header {
-    margin: 40px 0 20px;
+    margin: 40px 20px 20px;
+    text-align: center;
     span {
       vertical-align: super;
       padding-left: 5px;
@@ -366,7 +363,7 @@ button {
 .css-post {
   flex-grow: 1;
   max-width: 700px;
-  margin: 32px;
+  margin: 20px;
   line-height: 1.8;
   // 防止加粗文字粘太近
   strong {
