@@ -259,19 +259,6 @@ button {
   margin-top: 30px;
   width: 220px;
   @import './menu.scss';
-  .css-header {
-    a {
-      word-break: normal !important;
-      .logo {
-        display: block;
-        width: 100%;
-        transition: background-color 0.5s ease-in-out;
-      }
-      .logo-mobile {
-        display: none;
-      }
-    }
-  }
   .css-bio {
     display: flex;
     align-items: center;
@@ -295,6 +282,19 @@ button {
   }
 }
 
+.css-header {
+  a {
+    word-break: normal !important;
+    .logo {
+      display: block;
+      width: 100%;
+      transition: background-color 0.5s ease-in-out;
+    }
+    .logo-mobile {
+      display: none;
+    }
+  }
+}
 .social-media {
   margin: auto;
   width: 200px;
