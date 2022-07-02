@@ -5,9 +5,11 @@ export default class HTML extends React.Component {
   render() {
     return (
       <html {...this.props.htmlAttributes}>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `       
+        <head>
+          {this.props.headComponents}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `       
           var theme = 'light'
           let localTheme = localStorage.getItem('theme')
           if (localTheme) {
@@ -28,9 +30,8 @@ export default class HTML extends React.Component {
           }
           document.documentElement.className = theme + '-theme'
     `,
-        }}
-      />
-        <head>
+            }}
+          />
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
@@ -80,9 +81,7 @@ var _hmt = _hmt || [];
         `,
             }}
           />
-          {this.props.headComponents}
         </head>
-        {/* <div className="mask" /> */}
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div
@@ -92,11 +91,11 @@ var _hmt = _hmt || [];
           />
           {this.props.postBodyComponents}
         </body>
-        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        {/* <link rel="preconnect" href="https://fonts.gstatic.com"></link>
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap"
           rel="stylesheet"
-        ></link>
+        ></link> */}
       </html>
     )
   }

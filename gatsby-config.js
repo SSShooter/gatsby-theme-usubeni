@@ -5,7 +5,6 @@ module.exports = {
     description: '次の千年へ　夢を紡いで',
     siteUrl: 'https://ssshooter.com',
   },
-  // pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
