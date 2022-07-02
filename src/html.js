@@ -5,6 +5,31 @@ export default class HTML extends React.Component {
   render() {
     return (
       <html {...this.props.htmlAttributes}>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `              
+          var theme = 'light'
+          let localTheme = localStorage.getItem('theme')
+          if (localTheme) {
+            if (localTheme === 'dark') {
+              theme = 'dark'
+            } else {
+              theme = 'light'
+            }
+          } else if (window.matchMedia) {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              theme = 'dark'
+            } else {
+              theme = 'light'
+            }
+          } else {
+            // default light
+            theme = 'light'
+          }
+          document.documentElement.className = theme + '-theme'
+    `,
+        }}
+      />
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -52,31 +77,6 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-        `,
-            }}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `              
-              var theme = 'light'
-              let localTheme = localStorage.getItem('theme')
-              if (localTheme) {
-                if (localTheme === 'dark') {
-                  theme = 'dark'
-                } else {
-                  theme = 'light'
-                }
-              } else if (window.matchMedia) {
-                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                  theme = 'dark'
-                } else {
-                  theme = 'light'
-                }
-              } else {
-                // default light
-                theme = 'light'
-              }
-              document.documentElement.className = theme + '-theme'
         `,
             }}
           />
