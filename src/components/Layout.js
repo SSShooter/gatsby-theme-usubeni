@@ -2,12 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
-// import startSakura from '../sakura.TRHX.js'
 
 let footerStyle = {
   marginBottom: '1rem',
 }
-
 
 class Layout extends React.Component {
   state = {
@@ -20,13 +18,10 @@ class Layout extends React.Component {
     flowerDance: false,
   }
   componentDidMount() {
-    // avoid flash
-    // document.documentElement.style.display = 'none'
-    console.log(window.theme)
     this.setState({
       theme: window.theme,
       year: new Date().getFullYear(),
-      days: this.formatTime(new Date() - new Date('2018-12-05 14:13:38')),
+      days: this.formatTime(new Date() - new Date('2018-12-05T14:13:38')),
     })
     let localFlowerDance = localStorage.getItem('flowerDance')
     if (!localFlowerDance) {
@@ -92,7 +87,7 @@ class Layout extends React.Component {
   search = () => {
     window.open(
       'https://cn.bing.com/search?q=site%3Assshooter.com%20' +
-      this.state.keyword
+        this.state.keyword
     )
   }
   slowMotion = () => {
@@ -178,7 +173,7 @@ class Layout extends React.Component {
                 dangerouslySetInnerHTML={{
                   __html: aside,
                 }}
-              //  '<div class="box-title">TOC</div>' +
+                //  '<div class="box-title">TOC</div>' +
               />
             ) : (
               <React.Fragment>
