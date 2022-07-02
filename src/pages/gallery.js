@@ -3,8 +3,6 @@ import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import '../css/global.scss'
-
 class Gallery extends React.Component {
   render() {
     const { data } = this.props

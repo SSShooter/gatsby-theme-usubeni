@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import Bio from './Bio'
 import Menu from './Menu'
 // import startSakura from '../sakura.TRHX.js'
-import '../css/global.scss'
 
 let footerStyle = {
   marginBottom: '1rem',

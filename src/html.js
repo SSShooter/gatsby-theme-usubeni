@@ -7,7 +7,7 @@ export default class HTML extends React.Component {
       <html {...this.props.htmlAttributes}>
       <script
         dangerouslySetInnerHTML={{
-          __html: `              
+          __html: `       
           var theme = 'light'
           let localTheme = localStorage.getItem('theme')
           if (localTheme) {
