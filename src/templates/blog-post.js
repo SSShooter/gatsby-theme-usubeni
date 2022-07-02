@@ -22,7 +22,7 @@ class BlogPostTemplate extends React.Component {
       document.querySelector(`.css-toc a[href*="${pre}"]`).className = 'active'
     let all = document.querySelectorAll(`.css-toc a`)
     for (let item of Array.from(all)) {
-      item.addEventListener('click', e => {
+      item.addEventListener('click', (e) => {
         if (pre) {
           let menuItem = document.querySelector(`.css-toc a[href*="${pre}"]`)
           menuItem.className = ''
@@ -31,7 +31,7 @@ class BlogPostTemplate extends React.Component {
         pre = item.hash
       })
     }
-    document.addEventListener('scroll', e => {
+    document.addEventListener('scroll', (e) => {
       let list = Array.from(document.querySelectorAll('h2,h3,h4,h5,h6'))
       if (list.length === 0) return
       let passedList = []
@@ -77,7 +77,7 @@ class BlogPostTemplate extends React.Component {
       to,
     })
   }
-  dateFormat = date => {
+  dateFormat = (date) => {
     date = new Date(date)
     let m = date.getMonth() + 1
     m = m < 10 ? '0' + m : m
@@ -90,18 +90,23 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { slug, previous, next } = this.props.pageContext
-    
+
     // const isCoding = post.frontmatter.tags.includes('coding')
     return (
       <Layout
         location={this.props.location}
         title={siteTitle}
         aside={post.tableOfContents}
-      // className={isCoding?'night':null}
+        // className={isCoding?'night':null}
       >
         <Helmet
           htmlAttributes={{ lang: 'zh' }}
-          meta={[{ name: 'description', content: post.frontmatter.description || siteDescription }]}
+          meta={[
+            {
+              name: 'description',
+              content: post.frontmatter.description || siteDescription,
+            },
+          ]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
         <h1>{post.frontmatter.title}</h1>
@@ -111,77 +116,68 @@ class BlogPostTemplate extends React.Component {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <hr />
-        {/* 谷歌广告 */}
-        {/*<ins
-          className="adsbygoogle"
-          style={{ display: 'block', textAlign: 'center' }}
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-5174204966769125"
-          data-ad-slot="5098541959"
-        />*/}
         {this.state.comments.length > 0
-          ? this.state.comments.map(comment => {
-            const dateFormat = this.dateFormat(comment.date)
-            return (
-              <React.Fragment>
-                <div className="css-comment-display" key={comment._id}>
-                  <div className="name">
-                    {comment.site ? (
-                      <a target="_blank" href={comment.site}>
-                        {comment.author}
-                      </a>
-                    ) : (
-                      <span>{comment.author}</span>
-                    )}
-                    <span className="date">{dateFormat}</span>
-                    <span
-                      className="inline-button css-reply"
-                      onClick={this.reply(comment._id, comment.author)}
-                    >
-                      回复
-                    </span>
-                  </div>
-                  <div className="message">{comment.content}</div>
-                </div>
-                {comment.replies.length > 0
-                  ? comment.replies.map(commentChild => {
-                    const dateFormat = this.dateFormat(comment.date)
-                    return (
-                      <div
-                        className="css-child-comment-display"
-                        key={commentChild._id}
+          ? this.state.comments.map((comment) => {
+              const dateFormat = this.dateFormat(comment.date)
+              return (
+                <React.Fragment>
+                  <div className="css-comment-display" key={comment._id}>
+                    <div className="name">
+                      {comment.site ? (
+                        <a target="_blank" href={comment.site}>
+                          {comment.author}
+                        </a>
+                      ) : (
+                        <span>{comment.author}</span>
+                      )}
+                      <span className="date">{dateFormat}</span>
+                      <span
+                        className="inline-button css-reply"
+                        onClick={this.reply(comment._id, comment.author)}
                       >
-                        <div className="name">
-                          {commentChild.site ? (
-                            <a target="_blank" href={commentChild.site}>
-                              {commentChild.author}
-                            </a>
-                          ) : (
-                            <span>{commentChild.author}</span>
-                          )}
-                          {' -> ' + commentChild.to}
-                          <span className="date">{dateFormat}</span>
-                          <span
-                            className="inline-button css-reply"
-                            onClick={this.reply(
-                              comment._id,
-                              commentChild.author
-                            )}
+                        回复
+                      </span>
+                    </div>
+                    <div className="message">{comment.content}</div>
+                  </div>
+                  {comment.replies.length > 0
+                    ? comment.replies.map((commentChild) => {
+                        const dateFormat = this.dateFormat(comment.date)
+                        return (
+                          <div
+                            className="css-child-comment-display"
+                            key={commentChild._id}
                           >
-                            回复
-                          </span>
-                        </div>
-                        <div className="message">
-                          {commentChild.content}
-                        </div>
-                      </div>
-                    )
-                  })
-                  : null}
-              </React.Fragment>
-            )
-          })
+                            <div className="name">
+                              {commentChild.site ? (
+                                <a target="_blank" href={commentChild.site}>
+                                  {commentChild.author}
+                                </a>
+                              ) : (
+                                <span>{commentChild.author}</span>
+                              )}
+                              {' -> ' + commentChild.to}
+                              <span className="date">{dateFormat}</span>
+                              <span
+                                className="inline-button css-reply"
+                                onClick={this.reply(
+                                  comment._id,
+                                  commentChild.author
+                                )}
+                              >
+                                回复
+                              </span>
+                            </div>
+                            <div className="message">
+                              {commentChild.content}
+                            </div>
+                          </div>
+                        )
+                      })
+                    : null}
+                </React.Fragment>
+              )
+            })
           : '暂时没有留言，要抢沙发吗？'}
         <CommentSubmit
           url={slug}
@@ -190,15 +186,7 @@ class BlogPostTemplate extends React.Component {
           onCancel={this.cancelReply}
           onSuccess={this.getComment}
         />
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
+        <ul className="button-wrapper">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">

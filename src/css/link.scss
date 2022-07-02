@@ -1,10 +1,18 @@
+.link-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
 .link-card {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  width: 100%;
+
+  box-shadow: none;
+  width: 50%;
+  padding: 6px;
+  box-sizing: border-box;
   .noimage {
     height: 50px;
     width: 50px;
@@ -32,7 +40,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .descript {
+    .description {
       font-size: 0.9rem;
       color: #aaa;
       white-space: nowrap;
@@ -40,17 +48,4 @@
       text-overflow: ellipsis;
     }
   }
-}
-.link-card-wrapper {
-  box-shadow: none;
-  float: left;
-  width: 50%;
-  padding:6px;
-  box-sizing: border-box;
-  &:hover{
-    box-shadow: none !important;
-  }
-}
-.wrapper-wrapper {
-  overflow: hidden;
 }

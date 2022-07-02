@@ -20,6 +20,7 @@ date: '${date}'
 title: '${title}'
 tags: ['tag']
 released: false
+description: 'description'
 ---`
 
 fs.mkdirSync(`./src/pages/${DATE || yyyymmdd}-${title}`)
