@@ -2,14 +2,16 @@
   transition: opacity 0.5s ease-in-out;
 }
 // USUBENI #e87a90
-
+:root {
+  --radius: 0.5rem;
+}
 // @media screen and (prefers-color-scheme: light) {
 .light-theme {
   // html {
   //   animation-name: fade-in;
   //   animation-duration: 3s;
   // }
-  --backgroundColor: #f0f0f0;
+  --backgroundColor: #f6f7fa;
   --backgroundColor2: #ffffff;
   --mainColor: #c4324f;
   --mainDerive1: #68565a;
@@ -222,11 +224,12 @@ li > p {
 button {
   cursor: pointer;
   display: inline-block;
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 1rem;
   margin-bottom: 0.3rem;
   text-decoration: none;
   color: var(--buttonColor);
   background-color: var(--buttonBackgroundColor);
+  border-radius: 3px;
   border: none;
   transition: 0.4s;
 }
@@ -260,6 +263,19 @@ button {
   margin-top: 30px;
   width: 220px;
   @import './menu.scss';
+  .css-header {
+    a {
+      word-break: normal !important;
+      .logo {
+        display: block;
+        width: 100%;
+        transition: background-color 0.5s ease-in-out;
+      }
+      .logo-mobile {
+        display: none;
+      }
+    }
+  }
   .css-bio {
     display: flex;
     align-items: center;
@@ -374,6 +390,7 @@ button {
     // top 1 防止 margin 穿透
     padding: 1px 15px 15px;
     background-color: var(--backgroundColor2);
+    border-radius: var(--radius);
     p {
       word-wrap: break-word;
       word-break: break-word;
@@ -406,8 +423,11 @@ button {
     padding: 15px 25px;
     .item {
       background-color: var(--backgroundColor2);
+      border-radius: var(--radius);
       padding: 6px 12px;
       display: flex;
+      margin-bottom: 6px;
+      font-size: 16px;
       .date {
         display: inline-block;
         width: 4em;
@@ -419,27 +439,12 @@ button {
         flex-grow: 1;
         width: 300px;
         box-shadow: none;
-        font-size: 1.1em;
       }
     }
   }
   table {
     overflow: auto;
     border: none;
-  }
-}
-
-.css-header {
-  a {
-    word-break: normal !important;
-    .logo {
-      display: block;
-      width: 100%;
-      transition: background-color 0.5s ease-in-out;
-    }
-    .logo-mobile {
-      display: none;
-    }
   }
 }
 

@@ -177,7 +177,6 @@ class Layout extends React.Component {
                     onChange={this.change}
                     onKeyUp={this.handleEnter}
                   />
-                  <br />
                 </div>
               </React.Fragment>
             )}
