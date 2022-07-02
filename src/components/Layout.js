@@ -145,19 +145,11 @@ class Layout extends React.Component {
     const descript = <div className="page-description">{pageDescript}</div>
     return (
       <div className={className}>
-        {/* <div className="sakura-box">
-          {Array(12)
-            .fill(0)
-            .map((v, i) => (
-              <div key={i} className="petal" />
-            ))}
-        </div> */}
         <div className="css-main">
           <article className="css-post">{children}</article>
           <aside className={'css-aside ' + (menuState ? 'open' : 'close')}>
             <header className="css-header">
               {websiteName}
-              {/* {pageDescript ? descript : null} */}
               <div className="menu-button" onClick={this.toggleMenuState}>
                 <span
                   className="iconfont"
@@ -170,10 +162,10 @@ class Layout extends React.Component {
             {aside ? (
               <div
                 className="css-toc"
+                onClick={this.toggleMenuState}
                 dangerouslySetInnerHTML={{
                   __html: aside,
                 }}
-                //  '<div class="box-title">TOC</div>' +
               />
             ) : (
               <React.Fragment>
@@ -186,7 +178,6 @@ class Layout extends React.Component {
                     onKeyUp={this.handleEnter}
                   />
                   <br />
-                  {/* <button onClick={this.search}>搜索</button> */}
                 </div>
               </React.Fragment>
             )}

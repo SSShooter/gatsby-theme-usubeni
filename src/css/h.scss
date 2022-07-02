@@ -4,15 +4,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-weight: 600;
   color: var(--linkColor);
-  // color: #111;
 }
 
 h1 {
   font-size: 29px;
   margin-bottom: 0;
-  // color: var(--mainColor);
+  color: var(--mainColor);
+  font-weight: 400;
 }
 
 h2,

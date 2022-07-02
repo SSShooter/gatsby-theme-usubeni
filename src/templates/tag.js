@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import Info from '../components/PostInfo'
+import Pagination from '../components/Pagination'
 /**
  * Blog list of specific Tag
  */
@@ -33,54 +34,23 @@ class BlogIndex extends React.Component {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div className="list-item" key={node.fields.slug}>
-              <div
-                className="list-title"
-                style={{
-                  marginBottom: '0.24rem',
-                }}
-              >
+              <div className="list-title">
                 <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
                   {title}
                 </Link>
               </div>
               <Info date={node.frontmatter.date} tags={node.frontmatter.tags} />
-              <p
-                className="list-excerpt"
-                dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}
-              />
+              <p className="list-excerpt">
+                {node.frontmatter.description || node.excerpt}
+              </p>
             </div>
           )
         })}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          <div>
-            {currentPage - 1 > 0 && (
-              <Link
-                to={
-                  `/tag/${tag}/` +
-                  (currentPage - 1 === 1 ? '' : currentPage - 1)
-                }
-                rel="prev"
-              >
-                <button className="page-button">{'<'} 上一页</button>
-              </Link>
-            )}
-          </div>
-          <div>
-            {currentPage + 1 <= totalPage && (
-              <Link to={`/tag/${tag}/` + (currentPage + 1)} rel="next">
-                <button className="page-button">下一页 {'>'}</button>
-              </Link>
-            )}
-          </div>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPage={totalPage}
+          prefix={`/tag/${tag}/`}
+        />
       </Layout>
     )
   }

@@ -8,8 +8,10 @@
   //   animation-name: fade-in;
   //   animation-duration: 3s;
   // }
-  --backgroundColor: #ffffff;
-  --mainColor: #e87a90;
+  --backgroundColor: #f8f9fa;
+  --backgroundColor2: #ffffff;
+  --mainColor: #c4324f;
+  // --mainColor: #e87a90;
   --mainDerive1: #68565a;
   --mainDerive2: #b55f70;
   --mainDerive3: #ecc3cb;
@@ -17,20 +19,22 @@
   --fontColor: hsl(284, 20%, 30%);
   --codeBlock: #3c495b;
   --code: #c3c7cb;
-  --divider: #eee;
+  --divider: rgb(214, 214, 214);
   --buttonColor: #683741;
   --hrColor: #dfdfdf;
   --tableHeadColor: #f8f9fa;
+  --shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11);
 }
 
 // @media screen and (prefers-color-scheme: dark) {
 .dark-theme {
   --backgroundColor: #231b30;
+  --backgroundColor2: #2d2a30;
   --mainColor: #e87a90;
   --mainDerive1: #b4989e;
   --mainDerive2: #b55f70;
   --mainDerive3: #ecc3cb;
-  --linkColor: #ecbcc6;
+  --linkColor: #e6cfd3;
   --fontColor: #e5e5e5;
   --codeBlock: #2d2d2d;
   --code: #c3c7cb;
@@ -38,6 +42,7 @@
   --buttonColor: #ecbcc6;
   --hrColor: #5c5c5c;
   --tableHeadColor: #3a3a3a;
+  --shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11);
 
   img {
     // filter: brightness(80%);
@@ -119,7 +124,7 @@ p {
 }
 
 body {
-  // user-select: none; // 禁止文字被选中
+  // user-select: none;
   margin: 0;
   padding: 0;
   outline: none; // 去除点击外边框,点击无轮廓
@@ -131,7 +136,7 @@ body {
   // font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
   //   'WenQuanYi Micro Hei', sans-serif;
   -webkit-font-smoothing: antialiased !important;
-  font-size: 17px;
+  font-size: 16px;
   background-color: var(--backgroundColor);
   color: var(--fontColor);
   transition: background-color 0.5s ease-in-out;
@@ -369,6 +374,9 @@ button {
   }
   .css-post-main {
     margin-top: 3rem;
+    // top 1 防止 margin 穿透
+    padding: 1px 15px 15px;
+    background-color: var(--backgroundColor2);
     p {
       word-wrap: break-word;
       word-break: break-word;
@@ -397,6 +405,27 @@ button {
       }
     }
   }
+  .css-archive {
+    padding: 15px 25px;
+    .item {
+      background-color: var(--backgroundColor2);
+      padding: 6px 12px;
+      display: flex;
+      .date {
+        display: inline-block;
+        width: 4em;
+        text-align: left;
+        margin-right: 10px;
+        opacity: 0.6;
+      }
+      .title {
+        flex-grow: 1;
+        width: 300px;
+        box-shadow: none;
+        font-size: 1.1em;
+      }
+    }
+  }
   table {
     overflow: auto;
     border: none;
@@ -409,7 +438,7 @@ button {
     .logo {
       display: block;
       width: 100%;
-      transition: background 0.5s ease-in-out;
+      transition: background-color 0.5s ease-in-out;
     }
     .logo-mobile {
       display: none;
@@ -418,6 +447,7 @@ button {
 }
 
 .css-info {
+  font-size: 0.8em;
   color: var(--mainDerive1);
   .iconfont {
     &:first-of-type {
@@ -451,10 +481,16 @@ button {
 
 .flower-toggle,
 .theme-toggle {
-  font-family: fangsong;
+  background-color: var(--backgroundColor);
+
+  // font-family: fangsong;
+  font-weight: 200;
   position: fixed;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
   right: 12px;
   font-weight: bolder;
 }
@@ -484,9 +520,9 @@ button {
   word-break: break-all !important;
 }
 
-// 让手机看不到这玩意
 .anchor.before {
-  transform: translateX(-180%) !important;
+  right: 0 !important;
+  left: unset !important;
 }
 
 .code-title {
@@ -510,6 +546,13 @@ button {
   opacity: 0.7;
 }
 
-.page-button {
-  font-size: 20px;
+.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding-top: 30px;
+  .page-button {
+    display: block;
+  }
 }

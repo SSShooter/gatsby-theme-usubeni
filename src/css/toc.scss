@@ -1,29 +1,28 @@
 .css-toc {
   display: block;
   position: sticky;
-  top: 280px;
-  max-height: 670px;
+  top: 40vh;
+  max-height: 50vh;
   color: var(--mainDerive1);
   overflow-y: auto;
   overflow-x: hidden;
   font-size: 14px;
-  margin: 0 25px;
-  // padding: 25px 10px 7px;
-  // border-left: solid 2px #ccc;
+  margin: 0 20px;
+  
   > ul > li {
     padding-left: 6px;
   }
-  > ul > li:before {
-    content: '';
-    position: relative;
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    left: -4px;
-    background-color: var(--mainColor);
-    border-radius: 50%;
-    margin-right: 5px;
-  }
+  // > ul > li:before {
+  //   content: '';
+  //   position: relative;
+  //   display: inline-block;
+  //   width: 5px;
+  //   height: 5px;
+  //   left: -4px;
+  //   background-color: var(--mainColor);
+  //   border-radius: 50%;
+  //   margin-right: 5px;
+  // }
   a {
     display: inline-block;
     width: 100%;

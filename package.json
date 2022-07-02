@@ -1,8 +1,8 @@
 {
   "name": "usubeni-fantasy",
-  "description": "Starter Gatsby Blog",
+  "description": "Gatsby Blog Template",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "SSShooter <ssshooterx@gmail.com>",
   "dependencies": {
     "axios": "0.25.0",
     "fast-exif": "^1.0.1",
@@ -49,16 +49,12 @@
     "gh-pages": "^1.2.0",
     "prettier": "^2.5.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://ssshooter.com/",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog"
   ],
   "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
     "dev": "gatsby develop",
     "ser": "gatsby serve",

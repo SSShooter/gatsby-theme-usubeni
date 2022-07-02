@@ -4,13 +4,15 @@ import { Link } from 'gatsby'
 export default function (props) {
   return (
     <div className="css-info">
-      {/* <span className="iconfont">&#xe7d3;</span> */}
-      <span style={{
-        paddingRight: '12px'
-      }}>{props.date}</span>
+      <span
+        style={{
+          paddingRight: '12px',
+        }}
+      >
+        {props.date}
+      </span>
       {props.tags ? (
         <React.Fragment>
-          {/* <span className="iconfont">&#xe7e5;</span> */}
           {props.tags.map((tag, index) => (
             <span
               key={tag}
