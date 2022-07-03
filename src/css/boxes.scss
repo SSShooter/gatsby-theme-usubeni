@@ -1,0 +1,310 @@
+// 各种盒子
+.inline-block {
+  display: inline-block;
+}
+
+.box1 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
+.box1 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box2 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3; /*文字色*/
+  background: #fff;
+  border: solid 3px #6091d3; /*線*/
+  border-radius: 10px; /*角の丸み*/
+}
+.box2 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box4 {
+  padding: 8px 19px;
+  margin: 2em 0;
+  color: #2c2c2f;
+  background: #cde4ff;
+  border-top: solid 5px #5989cf;
+  border-bottom: solid 5px #5989cf;
+}
+.box4 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box8 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+}
+.box8 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box10 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #00bcd4;
+  background: #e4fcff; /*背景色*/
+  border-top: solid 6px #1dc1d6;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32); /*影*/
+}
+.box10 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box11 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box11 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box14 {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #d6ebff;
+  box-shadow: 0px 0px 0px 10px #d6ebff;
+  border: dashed 2px white;
+}
+.box14 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box16 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  background: -webkit-repeating-linear-gradient(
+    -45deg,
+    #f0f8ff,
+    #f0f8ff 3px,
+    #e9f4ff 3px,
+    #e9f4ff 7px
+  );
+  background: repeating-linear-gradient(
+    -45deg,
+    #f0f8ff,
+    #f0f8ff 3px,
+    #e9f4ff 3px,
+    #e9f4ff 7px
+  );
+}
+.box16 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box17 {
+  margin: 2em 0;
+  position: relative;
+  padding: 0.5em 1.5em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+}
+.box17:before,
+.box17:after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  height: -webkit-calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-color: black;
+}
+.box17:before {
+  left: 10px;
+}
+.box17:after {
+  right: 10px;
+}
+.box17 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box19 {
+  position: relative;
+  padding: 0.25em 1em;
+}
+.box19:before,
+.box19:after {
+  content: '';
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  display: inline-block;
+}
+.box19:before {
+  border-left: solid 1px #5767bf;
+  border-top: solid 1px #5767bf;
+  top: 0;
+  left: 0;
+}
+.box19:after {
+  border-right: solid 1px #5767bf;
+  border-bottom: solid 1px #5767bf;
+  bottom: 0;
+  right: 0;
+}
+.box19 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box22 {
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  background: #f4f4f4;
+  border-left: solid 6px #5bb7ae;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+.box22 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box23 {
+  position: relative;
+  margin: 2em 0 2em 40px;
+  padding: 8px 15px;
+  background: #fff0c6;
+  border-radius: 30px;
+}
+.box23:before {
+  font-family: iconfont;
+  content: '\e68a';
+  position: absolute;
+  font-size: 15px;
+  left: -40px;
+  bottom: 0;
+  color: #fff0c6;
+}
+.box23:after {
+  font-family: iconfont;
+  content: '\e68a';
+  position: absolute;
+  font-size: 21px;
+  left: -23px;
+  bottom: 0;
+  color: #fff0c6;
+}
+.box23 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box24 {
+  position: relative;
+  padding: 0.5em 0.7em;
+  margin: 2em 0;
+  background: #e6f4ff;
+  color: #5c98d4;
+  font-weight: bold;
+}
+.box24:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e6f4ff;
+  width: 0;
+  height: 0;
+}
+.box24 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box26 {
+  position: relative;
+  margin: 2em;
+  padding: 1em;
+  border: solid 3px #5d627b;
+  border-radius: 8px;
+  a {
+    color: #5d627b;
+  }
+}
+.box26 .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #fff;
+  color: #5d627b;
+  font-weight: bold;
+}
+.box26 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box27 {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border: solid 1px var(--mainColor);
+  pre {
+    overflow-x: auto;
+  }
+}
+.box27 .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -25px;
+  left: -1px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  font-size: 17px;
+  background: var(--mainColor);
+  color: #ffffff;
+  border-radius: 5px 5px 0 0;
+}
+.box27 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box29 {
+  margin: 2em 0;
+  background: #dcefff;
+}
+.box29 .box-title {
+  font-size: 1.2em;
+  background: #5fb3f5;
+  padding: 4px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+.box29 p {
+  padding: 15px 20px;
+  margin: 0;
+}

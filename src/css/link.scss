@@ -1,0 +1,55 @@
+.link-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.link-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+
+  box-shadow: none;
+  width: 45%;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: var(--backgroundColor2);
+  border-radius: 3px;
+  .noimage,
+  img {
+    height: 55px;
+    width: 55px;
+    background-color: var(--backgroundColor);
+    border-radius: 3px;
+  }
+  .noimage {
+    line-height: 55px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  img {
+    object-fit: contain;
+    margin: 0 !important;
+  }
+  .info {
+    flex-grow: 1;
+    padding-left: 10px;
+    min-width: 0; // 加了才能用溢出省略号
+    .title {
+      font-size: 1.2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .description {
+      font-size: 0.7rem;
+      color: #aaa;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

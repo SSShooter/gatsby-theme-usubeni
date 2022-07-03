@@ -1,0 +1,65 @@
+.css-toc {
+  display: block;
+  position: sticky;
+  top: 40vh;
+  max-height: 50vh;
+  color: var(--mainDerive1);
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 14px;
+  margin: 0 20px;
+  
+  > ul > li {
+    padding-left: 6px;
+  }
+  // > ul > li:before {
+  //   content: '';
+  //   position: relative;
+  //   display: inline-block;
+  //   width: 5px;
+  //   height: 5px;
+  //   left: -4px;
+  //   background-color: var(--mainColor);
+  //   border-radius: 50%;
+  //   margin-right: 5px;
+  // }
+  a {
+    display: inline-block;
+    width: 100%;
+    color: var(--mainDerive1);
+    box-shadow: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-top: 2px; // 不知道为啥 a 就是不在 p 中间
+    vertical-align: middle;
+  }
+  .active {
+    color: var(--mainColor);
+  }
+  > ul {
+    padding-left: 0px;
+  }
+  ul {
+    list-style-type: none;
+    margin-bottom: 0;
+    p {
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  li {
+    white-space: nowrap;
+    > p {
+      margin: 0;
+      width: 90%;
+    }
+    > ul {
+      padding-left: 1rem;
+      opacity: 0.7;
+    }
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}

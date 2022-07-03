@@ -1,0 +1,27 @@
+.list-item {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: var(--backgroundColor2);
+  border-radius: var(--radius);
+  .list-title {
+    margin-bottom: 0.24rem;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    a {
+      color: var(--mainColor);
+      &:hover {
+        color: var(--mainDerive3);
+      }
+    }
+  }
+  .list-date {
+    margin-top: 6px;
+    margin-bottom: 16px;
+    color: var(--mainDerive1);
+  }
+  .list-excerpt {
+    margin: 10px 0 0;
+    line-height: 1.6;
+    word-break: break-all;
+  }
+}

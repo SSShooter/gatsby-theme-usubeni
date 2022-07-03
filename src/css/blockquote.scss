@@ -1,0 +1,36 @@
+// 引用块
+blockquote {
+  position: relative;
+  padding: 35px 15px 10px 15px;
+  margin: 40px 20px;
+  box-sizing: border-box;
+  color: var(--fontColor);
+  border-left: 4px solid var(--mainDerive2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+blockquote:before {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  vertical-align: middle;
+  content: '\e66c';
+  font-family: iconfont;
+  color: var(--mainDerive2);
+  font-size: 35px;
+  line-height: 1;
+}
+
+blockquote p {
+  padding: 0;
+  margin: 10px 0 !important;
+  line-height: 1.7;
+}
+
+blockquote cite {
+  display: block;
+  text-align: right;
+  color: #888888;
+  font-size: 0.9em;
+}
