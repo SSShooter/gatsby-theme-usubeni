@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
 import Comment from '../components/Comment'
-// import CommentDisplay from '../components/CommentDisplay'
 import Layout from '../components/Layout'
 import Info from '../components/PostInfo'
 
