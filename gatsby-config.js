@@ -63,18 +63,5 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `UsubeniFantasy`,
-    //     short_name: `UF`,
-    //     start_url: `/`,
-    //     background_color: `#ffffff`,
-    //     theme_color: `#663399`,
-    //     display: `standalone`,
-    //     icon: `static/mstile-150x150.png`,
-    //   },
-    // },
-    // `gatsby-plugin-offline`,
   ],
 }

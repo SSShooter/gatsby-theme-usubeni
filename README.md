@@ -19,7 +19,7 @@ fork 本项目，修改 `gatsby-config.js` 和 `src\settings.js` 中的配置。
 缺点：
 
 - 有一定学习成本
-- 依赖极多
+- 依赖多，但是也不是非常多，也就 500m
 
 ## 开发
 
@@ -43,6 +43,10 @@ npm run build
 - 静态方案，Staticman
 - 自己掌控数据，[valine](https://valine.js.org/)
 - 第三方，disqus
+
+## PWA
+
+本模板没有启用 PWA，尽管你可以通过 `gatsby-plugin-manifest` 和 `gatsby-plugin-offline` 简单地启用 PWA 功能，但是对个人博客来说 PWA 确实没有太大的必要，而且启用 PWA 之后，预渲染的页面就废了，似乎因为 PWA 的缓存机制跟多页面冲突。
 
 ## 感谢
 
