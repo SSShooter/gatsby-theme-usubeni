@@ -1,3 +1,4 @@
+import React from 'react'
 import CommentSubmit from './CommentSubmit'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
