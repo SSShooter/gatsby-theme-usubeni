@@ -10,6 +10,8 @@ released: false
 
 https://en-americas-support.nintendo.com/app/answers/detail/a_id/22455/~/troubleshooting-issues-related-to-nat
 
+https://www.rfc-editor.org/rfc/rfc3489
+
 ## NAT
 
 圣经：[rfc2663](https://tools.ietf.org/html/rfc2663)
@@ -42,7 +44,7 @@ https://en-americas-support.nintendo.com/app/answers/detail/a_id/22455/~/trouble
 
 http://zyearn.github.io/blog/2014/07/19/how-p2p-in-symmetric-nat/
 
-NAT 穿透失败恐怕不少 switch 玩家见过
+NAT 穿透失败恐怕不少 switch 玩家遇到过
 
 nat 详解
 https://www.bilibili.com/read/cv359009/

@@ -28,11 +28,13 @@ yarn
 npm start
 ```
 
-## 部署
+## 发布
 
 ```
 npm run build
 ```
+
+可选如 Vercel 或 Netlify 等服务。
 
 ## 评论系统
 

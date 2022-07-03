@@ -11,3 +11,9 @@ released: false
 被迫学习 NodeList 和 HTMLCollection 的区别
 
 tsconfig 可以暂时不开 strict
+
+为什么 `globle.d.ts` 可以，但是 `index.d.ts` 不行？
+
+`never` 是什么？（hint：Narrowing）
+
+`void`
