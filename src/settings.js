@@ -1,5 +1,5 @@
 export const siteName = 'Usubeni Fantasy'
-
+export const author = 'SSShooter'
 export const apiUrl = 'https://wwwiki.top'
 
 export const menu = [

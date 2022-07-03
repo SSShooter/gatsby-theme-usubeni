@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Menu from './Menu'
-import { siteName, socialMedia } from '../settings'
+import { author, siteName, socialMedia } from '../settings'
 
 let footerStyle = {
   marginBottom: '1rem',
@@ -110,7 +110,7 @@ class Layout extends React.Component {
   render() {
     const { menuState, days, year, theme, flowerDance } = this.state
     const { pageName, pageDescript, children, aside, className } = this.props
-    
+
     const websiteName = (
       <div>
         <Link
@@ -175,12 +175,12 @@ class Layout extends React.Component {
           <div className="social-media" style={footerStyle}>
             {socialMedia.map((item) => (
               <a key={item.icon} target="_blank" href={item.href}>
-                <i className={"iconfont icon-" + item.icon}></i>
+                <i className={'iconfont icon-' + item.icon}></i>
               </a>
-            ))} 
+            ))}
           </div>
           <div style={footerStyle}>
-            © 2018-{year} SSShooter • theme{' '}
+            © 2018-{year} {author} • theme{' '}
             <span className="usubeni">{siteName}</span> • powered by{' '}
             <a style={{ boxShadow: 'none' }} href="https://www.gatsbyjs.org/">
               Gatsbyjs

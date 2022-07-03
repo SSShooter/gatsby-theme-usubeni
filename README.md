@@ -52,5 +52,6 @@ npm run build
 
 ## 感谢
 
-- https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647
+- [了不起的 Gatsby](https://www.gatsbyjs.com/)
+- [封面图 P站#18073647](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647)
 - https://saruwakakun.com/html-css/reference/css-sample#section1
