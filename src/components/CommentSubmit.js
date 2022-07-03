@@ -103,7 +103,7 @@ export default class Comment extends Component {
           required
         />
         <textarea
-          id="comment-input"
+          id="comment-textarea"
           ref={(input) => (this.message = input)}
           placeholder="必填 请输入留言内容"
           required

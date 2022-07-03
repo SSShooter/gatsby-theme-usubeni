@@ -30,7 +30,6 @@ class Layout extends React.Component {
       this.setFlowerDance(localFlowerDance)
     }
 
-    // document.documentElement.style.display = 'block'
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     darkModeMediaQuery.addListener((e) => {
       const darkModeOn = e.matches
@@ -61,9 +60,7 @@ class Layout extends React.Component {
   }
   setFlowerDance = (n) => {
     const sakuraCanvas = document.querySelector('#canvas_sakura')
-    console.log('setFlowerDance', n, sakuraCanvas)
     if (n == 1 && !sakuraCanvas) {
-      // 假如本来就是 1 也不用担心 opacity 设置不了，因为本来初始化就是显示的啊
       import('../sakura.TRHX.js').then((code) => {
         code.default()
       })
@@ -103,9 +100,6 @@ class Layout extends React.Component {
   formatTime = (msTime) => {
     const time = msTime / 1000
     const day = Math.floor(time / 60 / 60 / 24)
-    // const hour = Math.floor(time / 60 / 60) % 24
-    // const minute = Math.floor(time / 60) % 60
-    // const second = Math.floor(time) % 60
     return ` ${day} 天`
   }
   handleEnter = (e) => {
@@ -116,8 +110,7 @@ class Layout extends React.Component {
   render() {
     const { menuState, days, year, theme, flowerDance } = this.state
     const { pageName, pageDescript, children, aside, className } = this.props
-    // const rootPath = `${__PATH_PREFIX__}/`
-
+    
     const websiteName = (
       <div>
         <Link
@@ -129,7 +122,6 @@ class Layout extends React.Component {
           className="usubeni"
           to={'/tag/coding/'}
         >
-          {/* <img className="logo-mobile" src="/logo.mobile.png" /> */}
           <span className="logo-mobile">{siteName}</span>
           <img className="logo" src="/logo.png" />
         </Link>

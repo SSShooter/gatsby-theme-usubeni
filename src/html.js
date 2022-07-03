@@ -68,19 +68,6 @@ export default class HTML extends React.Component {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?f0d372f52ceca5460b4187225904d16a";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-        `,
-            }}
-          />
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}

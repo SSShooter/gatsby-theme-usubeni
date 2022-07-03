@@ -43,7 +43,7 @@ npm run build
 也可以接其他系统例如：
 
 - 静态方案，Staticman
-- 自己掌控数据，[valine](https://valine.js.org/)
+- 自己掌控数据，[valine](https://valine.js.org/)、waline
 - 第三方，disqus
 
 ## PWA
