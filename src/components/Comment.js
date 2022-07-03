@@ -58,11 +58,11 @@ export default function Comment({ slug }) {
           ) : (
             <span>{item.author}</span>
           )}
-          {' -> ' + item.to}
+          {item.to && ' -> ' + item.to}
           <span className="date">{date}</span>
           <span
             className="inline-button css-reply"
-            onClick={reply(comment._id, item.author)}
+            onClick={reply(comment ? comment._id : item._id, item.author)}
           >
             回复
           </span>
