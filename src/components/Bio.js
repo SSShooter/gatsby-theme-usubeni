@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
 class Bio extends Component {
   render() {
@@ -19,9 +18,6 @@ class Bio extends Component {
         `}
         render={data => (
           <div className="css-bio">
-            {/* <div className="css-avatar">
-              <Img fluid={data.file.childImageSharp.fluid} />
-            </div> */}
             <div className="author-wrapper">
               {/* <div className="author">SSShooter</div> */}
               <div className="social-media">

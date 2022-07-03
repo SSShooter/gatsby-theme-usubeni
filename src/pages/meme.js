@@ -1,8 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import { siteName } from '../settings'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 class NotFoundPage extends React.Component {
   render() {
@@ -24,11 +24,13 @@ class NotFoundPage extends React.Component {
                 boxShadow: 'none',
               }}
             >
-              <Img
+              <GatsbyImage
+                alt={img.node.name}
                 style={{
                   margin: '12px',
                 }}
-                fixed={img.node.childImageSharp.fixed}
+                height="200px"
+                image={img.node.childImageSharp.gatsbyImageData}
               />
             </a>
           ))}
@@ -46,16 +48,11 @@ export const query = graphql`
       edges {
         node {
           id
-          relativePath
-          relativeDirectory
+          name
           publicURL
           sourceInstanceName
           childImageSharp {
-            # Specify the image processing specifications right in the query.
-            # Makes it trivial to update as your page's design changes.
-            fixed(width: 125, height: 125) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(layout: FIXED height:150)
           }
         }
       }

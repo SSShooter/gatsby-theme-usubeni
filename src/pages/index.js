@@ -1,22 +1,21 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import { siteName } from '../settings'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-class IndexPage extends React.Component {
-  render() {
-    return (
-      <Layout location={this.props.location} title={siteName}>
-        <Img
-          style={{
-            marginTop: '30px',
-          }}
-          fluid={this.props.data.file.childImageSharp.fluid}
-        />
-      </Layout>
-    )
-  }
+function IndexPage({ location, data }) {
+  return (
+    <Layout location={location} title={siteName}>
+      <GatsbyImage
+        alt={data.file.name}
+        style={{
+          marginTop: '30px',
+        }}
+        image={data.file.childImageSharp.gatsbyImageData}
+      />
+    </Layout>
+  )
 }
 
 export default IndexPage
@@ -24,10 +23,9 @@ export default IndexPage
 export const query = graphql`
   query {
     file(relativePath: { eq: "yozakura.jpg" }) {
+      name
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_noBase64
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }
