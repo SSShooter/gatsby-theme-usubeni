@@ -2,29 +2,35 @@
 
 ## 使用
 
-fork 本项目，修改 `gatsby-config.js` 和 `src\settings.js` 中的配置。推荐使用 yarn 安装依赖。
+fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。
 
-在 `pages` 文件夹添加新文章。可以通过 `node createPost post-title` or `node createPost post-title 2017-07-26` 创建新文章。
+然后：
+
+- 修改 `gatsby-config.js`
+- 修改 `src\settings.js`
+- 更换主题图 `src\assets\yozakura.jpg`
+- 更换 logo `static\logo.png`
+- 建议使用 master 分支写博客，保留 theme 分支更新主题后，再合并到 master 分支
+- 在 `pages` 文件夹添加新文章，也可以通过 `node createPost post-title` or `node createPost post-title 2017-07-26` 创建
 
 本模板基于 Gatsby.js v4，相对于 hexo 上手有一点门槛，不过这个代价换来的是比较大的自由度。使用相关问题在[博客里](https://ssshooter.com/tag/gatsby/)解释了一部分。
 
 - 本模板已集成 LaTeX（katex）
 - 已配置 `.npmrc` 减轻安装依赖的痛苦
 
-优点：
+Gatsby 的优点：
 
 - 高自由
 - 体验 graphQL
 
-缺点：
+Gatsby 的缺点：
 
 - 有一定学习成本
-- 依赖多，但是也不是非常多，也就 500m
+- 依赖多，但是也不是非常多，也就 500m（滑稽）
 
 ## 开发
 
 ```
-yarn
 npm start
 ```
 
@@ -35,6 +41,10 @@ npm run build
 ```
 
 可选如 Vercel 或 Netlify 等服务。
+
+## 拒绝雷同
+
+修改 `src\css\global.scss` 文件夹的配色变量，用上自己喜欢的颜色！这是个性化主题最简单的方法！
 
 ## 评论系统
 
