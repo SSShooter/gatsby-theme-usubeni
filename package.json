@@ -43,6 +43,7 @@
     "typography-theme-wordpress-2016": "^0.15.10"
   },
   "devDependencies": {
+    "babel-preset-gatsby": "^2.17.0",
     "eslint": "^8.7.0",
     "eslint-plugin-react": "^7.11.1",
     "gatsby-remark-prismjs-title": "^1.0.0",
