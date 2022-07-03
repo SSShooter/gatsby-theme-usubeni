@@ -15,7 +15,4 @@ module.exports = {
       jsx: true,
     },
   },
-  rules: {
-    'array-element-newline': 1,
-  },
 }

@@ -5,6 +5,7 @@ module.exports = {
     description: '次の千年へ　夢を紡いで',
     siteUrl: 'https://ssshooter.com',
   },
+  jsxRuntime: "automatic",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
