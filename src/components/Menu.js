@@ -11,13 +11,8 @@ export default class Menu extends Component {
       >
         {menu.map((item) => (
           <a target={item.target} href={item.href} key={item.name}>
-            <i
-              className="iconfont"
-              dangerouslySetInnerHTML={{
-                __html: item.icon,
-              }}
-            />
-            {' ' + item.name}
+            <i className={'iconfont icon-' + item.icon} />
+            {item.name}
           </a>
         ))}
       </div>

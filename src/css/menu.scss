@@ -16,6 +16,7 @@
   margin: 10px auto;
   display: flex;
   a {
+    vertical-align: middle;
     color: var(--mainDerive4);
     font-size: 1.1rem;
     box-shadow: none;
@@ -26,25 +27,15 @@
     word-spacing: 5px;
     letter-spacing: 7px;
     &:hover {
-      opacity: 0.5;
+      color: var(--mainDerive3);
+    }
+    .iconfont {
+      vertical-align: middle;
+      font-size: 1.5rem;
+      margin-right: 1rem;
     }
   }
   a + a {
     border-top: solid 1px var(--divider);
   }
-  // a:before,
-  // a:after {
-  //   position: relative;
-  //   display: inline-block;
-  //   font-size: 1em;
-  //   color: inherit;
-  // }
-  // a:before {
-  //   content: '<';
-  //   padding-right: 0.5em;
-  // }
-  // a:after {
-  //   content: '/>';
-  //   padding-left: 0.5em;
-  // }
 }

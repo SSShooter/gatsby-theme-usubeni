@@ -1,3 +1,5 @@
+@import './icon/iconfont.css';
+
 #canvas_sakura {
   transition: opacity 0.5s ease-in-out;
 }
@@ -5,18 +7,14 @@
 :root {
   --radius: 0.5rem;
 }
-// @media screen and (prefers-color-scheme: light) {
+
 .light-theme {
-  // html {
-  //   animation-name: fade-in;
-  //   animation-duration: 3s;
-  // }
   --backgroundColor: #f6f7fa;
   --backgroundColor2: #ffffff;
   --mainColor: #c4324f;
   --mainDerive1: #68565a;
   --mainDerive2: #b55f70;
-  --mainDerive3: #ecc3cb;
+  --mainDerive3: #e87a90;
   --linkColor: #c92f4e;
   --fontColor: hsl(284, 20%, 30%);
   --codeBlock: #3c495b;
@@ -29,7 +27,6 @@
   --shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11);
 }
 
-// @media screen and (prefers-color-scheme: dark) {
 .dark-theme {
   --backgroundColor: #231b30;
   --backgroundColor2: #2d2a30;
@@ -69,13 +66,6 @@
 @import './prism-dark.scss';
 @import './prism-light.scss';
 
-@font-face {
-  font-family: 'iconfont';
-  src: url('./iconfont.woff2?t=1656758366575') format('woff2'),
-    url('./iconfont.woff?t=1656758366575') format('woff'),
-    url('./iconfont.ttf?t=1656758366575') format('truetype');
-}
-
 .iconfont {
   font-family: 'iconfont' !important;
   font-style: normal;
@@ -83,10 +73,6 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-
-// html {
-//   scroll-behavior: smooth;
-// }
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -230,11 +216,6 @@ button {
   transition: 0.4s;
 }
 
-// button:hover {
-//   background: var(--buttonColor);
-//   color: white;
-// }
-
 input,
 textarea {
   color: var(--fontColor);
@@ -284,9 +265,9 @@ button {
 
 .css-header {
   a {
-    word-break: normal !important;
     .logo {
       display: block;
+      height: 118px;
       width: 100%;
       transition: background-color 0.5s ease-in-out;
     }
@@ -405,7 +386,9 @@ button {
     }
     .anchor {
       box-shadow: none;
-      // opacity: 0;
+      svg {
+        fill: gray;
+      }
     }
     a {
       &:hover,
@@ -548,6 +531,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
   padding-top: 30px;
   .page-button {

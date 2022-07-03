@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Menu from './Menu'
-import { siteName } from '../settings'
+import { siteName, socialMedia } from '../settings'
 
 let footerStyle = {
   marginBottom: '1rem',
@@ -135,7 +135,7 @@ class Layout extends React.Component {
         </Link>
         {pageName ? (
           <div className="page-name">
-            <i className="iconfont">&#xe654;</i>
+            <i className="iconfont icon-hash"></i>
             {' ' + pageName}
           </div>
         ) : null}
@@ -150,11 +150,10 @@ class Layout extends React.Component {
             <header className="css-header">
               {websiteName}
               <div className="menu-button" onClick={this.toggleMenuState}>
-                <span
-                  className="iconfont"
-                  dangerouslySetInnerHTML={{
-                    __html: menuState ? '&#xe7fc;' : '&#xe7f4;',
-                  }}
+                <i
+                  className={
+                    'iconfont icon-' + (menuState ? 'close1' : 'menu1')
+                  }
                 />
               </div>
             </header>
@@ -168,7 +167,6 @@ class Layout extends React.Component {
               />
             ) : (
               <React.Fragment>
-                {/* <Bio className="css-bio" /> */}
                 <Menu direction="column" />
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                   <input
@@ -183,21 +181,11 @@ class Layout extends React.Component {
         </div>
         <footer>
           <div className="social-media" style={footerStyle}>
-            <a target="_blank" href="https://weibo.com/ariaqua">
-              <i className="iconfont">&#xe883;</i>
-            </a>
-            <a target="_blank" href="https://twitter.com/zhoudejie">
-              <i className="iconfont">&#xe882;</i>
-            </a>
-            <a target="_blank" href="https://github.com/ssshooter">
-              <i className="iconfont">&#xe885;</i>
-            </a>
-            <a target="_blank" href="https://www.zhihu.com/people/ssshooter">
-              <i className="iconfont">&#xe87c;</i>
-            </a>
-            <a target="_blank" href="https://ssshooter.com/rss.xml">
-              <i className="iconfont">&#xe604;</i>
-            </a>
+            {socialMedia.map((item) => (
+              <a key={item.icon} target="_blank" href={item.href}>
+                <i className={"iconfont icon-" + item.icon}></i>
+              </a>
+            ))} 
           </div>
           <div style={footerStyle}>
             © 2018-{year} SSShooter • theme{' '}

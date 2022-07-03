@@ -4,50 +4,73 @@ export const apiUrl = 'https://wwwiki.top'
 
 export const menu = [
   {
-    icon: '&#xe7d7;',
+    icon: 'electronics',
     name: '技术',
     href: '/tag/coding/',
   },
   {
-    icon: '&#xe7b3;',
+    icon: 'explain',
     name: '生活',
     href: '/tag/diary/',
   },
   {
-    icon: '&#xe7e5;',
+    icon: 'discount',
     name: '标签',
     href: '/tags',
   },
   {
-    icon: '&#xe7de;',
+    icon: 'picture',
     name: '相册',
     href: '/gallery',
   },
   {
-    icon: '&#xe734;',
+    icon: 'save',
     name: '归档',
     href: '/archive',
   },
   // {
-  //   icon: '&#xe780;',
+  //   icon: 'meh',
   //   name: '表情',
   //   href: '/meme',
   // },
   {
-    icon: '&#xe7e2;',
+    icon: 'link1',
     name: '链接',
     href: '/links',
   },
   {
-    icon: '&#xe7ae;',
+    icon: 'user1',
     name: '关于',
     href: '/about',
   },
   {
-    icon: '&#xe612;',
+    icon: 'loading',
     name: '虫洞',
     href: 'https://www.foreverblog.cn/go.html',
     target: '_blank',
+  },
+]
+
+export const socialMedia = [
+  {
+    icon: 'weibo',
+    href: 'https://weibo.com/ariaqua',
+  },
+  {
+    icon: 'twitter',
+    href: 'https://twitter.com/zhoudejie',
+  },
+  {
+    icon: 'github-fill',
+    href: 'https://github.com/ssshooter',
+  },
+  {
+    icon: 'zhihu',
+    href: 'https://www.zhihu.com/people/ssshooter',
+  },
+  {
+    icon: 'RSS',
+    href: 'https://ssshooter.com/rss.xml',
   },
 ]
 

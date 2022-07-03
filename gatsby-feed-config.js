@@ -1,12 +1,9 @@
 module.exports = {
   resolve: `gatsby-plugin-feed`,
   options: {
-    // Override if you want to manually specify the RSS "generator" tag.
     generator: 'GatsbyJS',
-    // Run a default query to gather some information about the site.
     query:
-      ' {\n      site {\n        siteMetadata {\n          title\n          description\n          siteUrl\n          site_url: siteUrl\n        }\n      }\n    }\n  ',
-    // Create a default RSS feed. Others may be added by using the format below.
+      ' { site { siteMetadata { title description siteUrl site_url: siteUrl } } } ',
     feeds: [
       {
         serialize: ({ query: { site, allMarkdownRemark } }) => {
