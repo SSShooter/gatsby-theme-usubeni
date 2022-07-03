@@ -49,7 +49,11 @@ export default function Comment({ slug }) {
   const CommentDisplay = ({ item, comment }) => {
     const date = dateFormat(item.date)
     return (
-      <div className="css-child-comment-display">
+      <div
+        className={
+          item.to ? 'css-child-comment-display' : 'css-comment-display'
+        }
+      >
         <div className="name">
           {item.site ? (
             <a target="_blank" href={item.site}>

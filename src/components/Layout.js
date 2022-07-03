@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Bio from './Bio'
 import Menu from './Menu'
 import { siteName } from '../settings'
 

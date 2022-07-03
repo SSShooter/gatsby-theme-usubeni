@@ -23,7 +23,7 @@ class BlogPostTemplate extends React.Component {
         pre = item.hash
       })
     }
-    document.addEventListener('scroll', (e) => {
+    document.addEventListener('scroll', () => {
       let list = Array.from(document.querySelectorAll('h2,h3,h4,h5,h6'))
       if (list.length === 0) return
       let passedList = []
@@ -52,7 +52,6 @@ class BlogPostTemplate extends React.Component {
     const siteDescription = post.excerpt
     const { slug, previous, next } = this.props.pageContext
 
-    // const isCoding = post.frontmatter.tags.includes('coding')
     return (
       <Layout
         location={this.props.location}

@@ -8,11 +8,11 @@ export const menu = [
     name: '技术',
     href: '/tag/coding/',
   },
-  // {
-  //   icon: '&#xe7b3;',
-  //   name: '杂谈',
-  //   href: '/tag/diary/',
-  // },
+  {
+    icon: '&#xe7b3;',
+    name: '生活',
+    href: '/tag/diary/',
+  },
   {
     icon: '&#xe7e5;',
     name: '标签',

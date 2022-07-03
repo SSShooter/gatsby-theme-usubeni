@@ -91,11 +91,6 @@ var _hmt = _hmt || [];
           />
           {this.props.postBodyComponents}
         </body>
-        {/* <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap"
-          rel="stylesheet"
-        ></link> */}
       </html>
     )
   }
@@ -109,13 +104,3 @@ HTML.propTypes = {
   body: PropTypes.string,
   postBodyComponents: PropTypes.array,
 }
-
-// 被去掉的谷歌广告
-/* <script
-async
-src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-/> */
-// (adsbygoogle = window.adsbygoogle || []).push({
-//   google_ad_client: "ca-pub-5174204966769125",
-//   enable_page_level_ads: true
-// });
