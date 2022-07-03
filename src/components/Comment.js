@@ -44,7 +44,7 @@ export default function Comment({ slug }) {
   }
   useEffect(() => {
     getComment()
-  })
+  }, [])
 
   const CommentDisplay = ({ item, comment }) => {
     const date = dateFormat(item.date)
