@@ -1,24 +1,24 @@
 # UsubeniFantasy
 
+[Usubeni](https://github.com/ssshooter/gatsby-theme-usubeni) 基于 [Gatsby.js v4](https://www.gatsbyjs.com/)，示例页面：https://ssshooter.com/tag/coding/
+
+Gatsby 相对于 hexo 上手有一点门槛，不过这个代价换来的是比较大的自由度。使用相关问题在[博客里](https://ssshooter.com/tag/gatsby/)解释了一部分。
+
 ## 使用
 
-fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。
-
-然后：
+fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。然后：
 
 - 修改 `gatsby-config.js`
 - 修改 `src\settings.js`
 - iconfont 文件夹为 `src\css\icon`，必要时请自行替换，但注意同步修改配置文件中的 icon 名称避免显示异常
 - 更换主题图 `src\assets\yozakura.jpg`
 - 更换 logo `static\logo.png`
-- 建议使用 master 分支写博客，保留 theme 分支更新主题后，再合并到 master 分支
+- 建议使用 master 分支写博客，保留 theme 分支更新主题后（同时可以提 PR），再合并到 master 分支
 - 在 `pages` 文件夹添加新文章，也可以通过 `node createPost post-title` or `node createPost post-title 2017-07-26` 创建
-
-本主题基于 Gatsby.js v4，相对于 hexo 上手有一点门槛，不过这个代价换来的是比较大的自由度。使用相关问题在[博客里](https://ssshooter.com/tag/gatsby/)解释了一部分。
 
 本主题特性包括：
 
-- 快
+- 快（Lighthouse performance 评分 90）
 - Gatsby 相关依赖基本更新到最新
 - 已集成 代码高亮（prismjs）
 - 已集成 LaTeX（katex）
@@ -55,7 +55,7 @@ npm run build
 
 ## 拒绝雷同
 
-修改 `src\css\global.scss` 文件夹的配色变量，用上自己喜欢的颜色！这是个性化主题最简单的方法！
+修改 `src\css\global.scss` 文件夹的配色变量，用上自己喜欢的颜色！这是个性化主题最简单的方法！（也欢迎大家 PR 好看的配色）
 
 其他排版优化可以参考 [Typography.js](https://github.com/kyleamathews/typography.js/)
 
@@ -75,7 +75,6 @@ npm run build
 
 ## 注意事项
 
-
 1. `/archive/` 为全文章列表，`/tag/xxx/` 单标签列表
 
 ```
@@ -89,4 +88,4 @@ hidden: false
 
 - [了不起的 Gatsby](https://www.gatsbyjs.com/)
 - [封面图 P 站#18073647](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647)
-- [一些样式](https://saruwakakun.com/html-css/reference/css-sample#section1)
+- [可以在这里抄一下样式](https://saruwakakun.com/html-css/reference/css-sample#section1)
