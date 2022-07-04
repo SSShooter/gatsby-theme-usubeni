@@ -8,24 +8,29 @@ fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。
 
 - 修改 `gatsby-config.js`
 - 修改 `src\settings.js`
+- iconfont 文件夹为 `src\css\icon`，必要时请自行替换，但注意同步修改配置文件中的 icon 名称避免显示异常
 - 更换主题图 `src\assets\yozakura.jpg`
 - 更换 logo `static\logo.png`
 - 建议使用 master 分支写博客，保留 theme 分支更新主题后，再合并到 master 分支
 - 在 `pages` 文件夹添加新文章，也可以通过 `node createPost post-title` or `node createPost post-title 2017-07-26` 创建
 
-本模板基于 Gatsby.js v4，相对于 hexo 上手有一点门槛，不过这个代价换来的是比较大的自由度。使用相关问题在[博客里](https://ssshooter.com/tag/gatsby/)解释了一部分。
+本主题基于 Gatsby.js v4，相对于 hexo 上手有一点门槛，不过这个代价换来的是比较大的自由度。使用相关问题在[博客里](https://ssshooter.com/tag/gatsby/)解释了一部分。
 
-本主题特性：
+本主题特性包括：
 
 - 快
 - Gatsby 相关依赖基本更新到最新
 - 已集成 LaTeX（katex）
 - 已配置 `.npmrc` 减轻安装依赖的痛苦
+- 实现 TOC
+- 自带图库、标签库
+- 自带（没什么用的）表情库
+- `/archive/` 为全文章列表，`/tag/xxx/` 单标签列表
 
 Gatsby 的优点：
 
-- 高自由
-- 体验 graphQL
+- 高自由度页面自定义
+- 为数不多的体验 graphQL 的机会
 
 Gatsby 的缺点：
 
@@ -45,6 +50,8 @@ npm run build
 ```
 
 可选如 Gatsby 自家的 cloud、 Vercel 或 Netlify 等服务。
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fssshooter%2Fgatsby-theme-usubeni.git&demo-title=Usubeni%20Fantasy&demo-description=Gatsby%20Theme%20For%20Blog&demo-url=gatsby-theme-usubeni.vercel.app)
 
 ## 拒绝雷同
 
@@ -70,4 +77,4 @@ npm run build
 
 - [了不起的 Gatsby](https://www.gatsbyjs.com/)
 - [封面图 P 站#18073647](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647)
-- https://saruwakakun.com/html-css/reference/css-sample#section1
+- [一些样式](https://saruwakakun.com/html-css/reference/css-sample#section1)

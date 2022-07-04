@@ -19,7 +19,8 @@ path: '/${title}'
 date: '${date}'
 title: '${title}'
 tags: ['tag']
-released: false
+released: true
+hidden: false
 description: 'description'
 ---`
 
