@@ -42,6 +42,7 @@
   "homepage": "https://ssshooter.com/",
   "keywords": [
     "gatsby",
+    "gatsby-theme",
     "blog"
   ],
   "license": "MIT",

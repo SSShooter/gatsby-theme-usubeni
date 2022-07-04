@@ -20,12 +20,12 @@ fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。
 
 - 快
 - Gatsby 相关依赖基本更新到最新
+- 已集成 代码高亮（prismjs）
 - 已集成 LaTeX（katex）
 - 已配置 `.npmrc` 减轻安装依赖的痛苦
-- 实现 TOC
+- 已添加 TOC
 - 自带图库、标签库
 - 自带（没什么用的）表情库
-- `/archive/` 为全文章列表，`/tag/xxx/` 单标签列表
 
 Gatsby 的优点：
 
@@ -72,6 +72,18 @@ npm run build
 ## PWA
 
 本模板没有启用 PWA，尽管你可以通过 `gatsby-plugin-manifest` 和 `gatsby-plugin-offline` 简单地启用 PWA 功能，但是对个人博客来说 PWA 确实没有太大的必要，而且启用 PWA 之后，预渲染的页面就废了，似乎因为 PWA 的缓存机制跟多页面冲突。
+
+## 注意事项
+
+
+1. `/archive/` 为全文章列表，`/tag/xxx/` 单标签列表
+
+```
+released: true
+hidden: false
+```
+
+2. 文章信息的 `released` 代表完全不加入页面生成，`hidden` 代表生成页面但不出现在任何列表中。
 
 ## 感谢
 
