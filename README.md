@@ -88,10 +88,5 @@ hidden: false
 ## 感谢
 
 - [了不起的 Gatsby](https://www.gatsbyjs.com/)
-<<<<<<< HEAD
-- [封面图 P站#18073647](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647)
-- https://saruwakakun.com/html-css/reference/css-sample#section1
-=======
 - [封面图 P 站#18073647](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647)
 - [一些样式](https://saruwakakun.com/html-css/reference/css-sample#section1)
->>>>>>> theme
