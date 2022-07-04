@@ -36,7 +36,7 @@
   --mainDerive3: #ecc3cb;
   --linkColor: #e6cfd3;
   --fontColor: #e5e5e5;
-  --codeBlock: #2d2d2d;
+  --codeBlock: #181818;
   --code: #c3c7cb;
   --divider: #3e4b5e;
   --buttonColor: #ecbcc6;
@@ -364,8 +364,7 @@ button {
   }
   .css-post-main {
     margin-top: 3rem;
-    // top 1 防止 margin 穿透
-    padding: 1px 15px 15px;
+    padding: 15px;
     background-color: var(--backgroundColor2);
     border-radius: var(--radius);
     p {
