@@ -87,16 +87,6 @@ class Layout extends React.Component {
         this.state.keyword
     )
   }
-  slowMotion = () => {
-    for (let i = 0; i < this.state.animation.length; i++) {
-      this.state.animation[i].playbackRate = 0.4
-    }
-  }
-  backNormal = () => {
-    for (let i = 0; i < this.state.animation.length; i++) {
-      this.state.animation[i].playbackRate = 1
-    }
-  }
   formatTime = (msTime) => {
     const time = msTime / 1000
     const day = Math.floor(time / 60 / 60 / 24)
@@ -181,8 +171,19 @@ class Layout extends React.Component {
           </div>
           <div style={footerStyle}>
             © 2018-{year} {author} • theme{' '}
-            <span className="usubeni">{siteName}</span> • powered by{' '}
-            <a style={{ boxShadow: 'none' }} href="https://www.gatsbyjs.org/">
+            <a
+              className="usubeni"
+              target="_blank"
+              href="https://github.com/ssshooter/gatsby-theme-usubeni"
+            >
+              usubeni
+            </a>{' '}
+            • powered by{' '}
+            <a
+              style={{ boxShadow: 'none' }}
+              target="_blank"
+              href="https://www.gatsbyjs.org/"
+            >
               Gatsbyjs
             </a>
           </div>

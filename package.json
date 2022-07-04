@@ -12,7 +12,6 @@
     "gatsby-plugin-react-helmet": "^5.6.0",
     "gatsby-plugin-sass": "^5.6.0",
     "gatsby-plugin-sitemap": "^5.6.0",
-    "gatsby-plugin-typography": "^4.6.0",
     "gatsby-remark-autolink-headers": "^5.6.0",
     "gatsby-remark-copy-linked-files": "^5.6.0",
     "gatsby-remark-images": "^6.6.0",
@@ -29,12 +28,7 @@
     "prismjs": "^1.15.0",
     "react": "^18.2.0",
     "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "react-typography": "^0.16.13",
-    "typeface-merriweather": "1.1.13",
-    "typeface-montserrat": "1.1.13",
-    "typography": "^0.16.17",
-    "typography-theme-wordpress-2016": "^0.15.10"
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
@@ -43,7 +37,6 @@
     "gatsby-plugin-sharp": "^4.17.0",
     "gatsby-remark-prismjs-title": "^1.0.0",
     "gatsby-transformer-sharp": "^4.17.0",
-    "gh-pages": "^1.2.0",
     "prettier": "^2.5.1"
   },
   "homepage": "https://ssshooter.com/",
@@ -53,7 +46,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "gatsby develop --host=0.0.0.0",
     "ser": "gatsby serve",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -61,7 +54,6 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }
