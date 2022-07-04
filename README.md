@@ -44,11 +44,13 @@ npm start
 npm run build
 ```
 
-可选如 Vercel 或 Netlify 等服务。
+可选如 Gatsby 自家的 cloud、 Vercel 或 Netlify 等服务。
 
 ## 拒绝雷同
 
 修改 `src\css\global.scss` 文件夹的配色变量，用上自己喜欢的颜色！这是个性化主题最简单的方法！
+
+其他排版优化可以参考 [Typography.js](https://github.com/kyleamathews/typography.js/)
 
 ## 评论系统
 

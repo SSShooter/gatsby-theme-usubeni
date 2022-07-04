@@ -36,11 +36,7 @@ export default class HTML extends React.Component {
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-          />
-          <meta
-            name="google-site-verification"
-            content="ebowurt3yvxVX2IhEbMGgmpbNBQIHYxRwVNbxuIx58s"
+            content="width=device-width, initial-scale=1, maximum-scale=5"
           />
           <meta
             name="format-detection"
