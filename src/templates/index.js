@@ -9,12 +9,11 @@ import Layout from '../components/Layout'
  */
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
+    const { data, location } = this.props
     const posts = data.allMarkdownRemark.edges
     const { totalPage, currentPage } = this.props.pageContext
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout>
         <SEO
           title="归档"
           pathname={location.pathname}
