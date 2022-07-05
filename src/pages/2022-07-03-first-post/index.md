@@ -3,7 +3,7 @@ path: '/first-post'
 date: '2022-07-03T21:00:00.171Z'
 title: 'first-post'
 tags: ['coding']
-description: 'description'
+description: '一个测试页'
 released: true
 hidden: false
 ---
@@ -72,8 +72,8 @@ You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
 ## Blocks of code
 
 ```javascript
-let message = 'Hello world';
-alert(message);
+let message = 'Hello world'
+alert(message)
 ```
 
 ## Inline code

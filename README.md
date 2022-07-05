@@ -14,7 +14,7 @@ fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。然后：
 - 更换主题图 `src\assets\yozakura.jpg`
 - 更换 logo `static\logo.png`
 - 建议使用 master 分支写博客，保留 theme 分支更新主题后（同时可以提 PR），再合并到 master 分支
-- 在 `pages` 文件夹添加新文章，也可以通过 `node createPost post-title` or `node createPost post-title 2017-07-26` 创建
+- 在 `pages` 文件夹添加新文章，也可以通过 `node createPost post-title` 或 `node createPost post-title 2017-07-26` 创建
 
 本主题特性包括：
 
@@ -26,6 +26,7 @@ fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。然后：
 - 已添加 TOC
 - 自带图库、标签库
 - 自带（没什么用的）表情库
+- SEO 优化
 
 Gatsby 的优点：
 

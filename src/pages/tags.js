@@ -1,30 +1,28 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
+import SEO from '../components/Seo'
 
 import { Link, graphql } from 'gatsby'
 
 const TagsPage = ({
+  location: { pathname },
   data: {
     allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
   },
 }) => (
-  <div>
-    <Layout pageName="标签库">
-      <ul className="css-tags">
-        {group.map((tag) => (
-          <li key={tag.fieldValue} className="css-tag">
-            <Link to={`/tag/${tag.fieldValue}/`}>
-              #{tag.fieldValue} <sup>{tag.totalCount}</sup>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </Layout>
-  </div>
+  <Layout pageName="标签库">
+    <SEO title="标签库" pathname={pathname} />
+    <ul className="css-tags">
+      {group.map((tag) => (
+        <li key={tag.fieldValue} className="css-tag">
+          <Link to={`/tag/${tag.fieldValue}/`}>
+            #{tag.fieldValue} <sup>{tag.totalCount}</sup>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </Layout>
 )
 
 TagsPage.propTypes = {

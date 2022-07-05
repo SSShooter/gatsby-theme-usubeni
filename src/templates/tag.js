@@ -16,12 +16,7 @@ class BlogIndex extends React.Component {
     const { totalPage, currentPage, tag } = this.props.pageContext
     const tagMap = {}
     return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        pageName={tag}
-        pageDescript={tagMap[tag]}
-      >
+      <Layout pageName={tag} pageDescript={tagMap[tag]}>
         <Helmet
           htmlAttributes={{ lang: 'zh' }}
           meta={[{ name: 'description', content: siteDescription }]}

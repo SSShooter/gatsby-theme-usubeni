@@ -1,12 +1,13 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
-import { siteName } from '../settings'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import SEO from '../components/Seo'
 
-function IndexPage({ location, data }) {
+function IndexPage({ data, location }) {
   return (
-    <Layout location={location} title={siteName}>
+    <Layout>
+      <SEO title="主页" pathname={location.pathname} />
       <GatsbyImage
         alt={data.file.name}
         style={{

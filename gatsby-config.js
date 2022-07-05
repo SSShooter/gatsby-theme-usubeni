@@ -6,6 +6,7 @@ module.exports = {
     author: 'ssshooter',
     description: '次の千年へ　夢を紡いで',
     siteUrl: 'https://ssshooter.com',
+    keywords: ['编程', '生活'],
   },
   jsxRuntime: 'automatic',
   plugins: [

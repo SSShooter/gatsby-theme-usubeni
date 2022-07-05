@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { siteName } from '../settings'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-class NotFoundPage extends React.Component {
+class MemePage extends React.Component {
   render() {
     const { data } = this.props
     const meme = data.allFile.edges
@@ -40,7 +40,7 @@ class NotFoundPage extends React.Component {
   }
 }
 
-export default NotFoundPage
+export default MemePage
 
 export const query = graphql`
   query {
