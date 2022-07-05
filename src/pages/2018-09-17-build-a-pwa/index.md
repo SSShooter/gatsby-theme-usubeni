@@ -40,7 +40,7 @@ Vue-cli3 与 2 的区别挺大的，3 默认搭建工程并非像 2 一样拉取
 
 ### eslint 配置
 
-在这里首先推荐一下尾逗号，加上尾逗号的好处只有一个，但真的十分重要，那就是 diff 会非常好看。然后 [eslint-plugin-vue](eslint-plugin-vue) 插件是一些预设规则组合，分 base，essential，strongly-recommended，recommended 四级，请自由选择，没有最好的搭配，只要用得舒服就好，团队合作还是非常推荐定好 eslint 规则，使用尽量详细的同一套规则，在代码合并时感觉会非常爽快。
+在这里首先推荐一下尾逗号，加上尾逗号的好处只有一个，但真的十分重要，那就是 diff 会非常好看。然后 [eslint-plugin-vue](https://eslint.vuejs.org/) 插件是一些预设规则组合，分 base，essential，strongly-recommended，recommended 四级，请自由选择，没有最好的搭配，只要用得舒服就好，团队合作还是非常推荐定好 eslint 规则，使用尽量详细的同一套规则，在代码合并时感觉会非常爽快。
 
 ![eslintrc](eslintrc.png)
 

@@ -15,7 +15,7 @@ TyranoScript 接入 Steam 是怎么回事呢？TyranoScript 相信大家都很�
 
 下面讲一下如何使用 [greenworks](https://github.com/greenheartgames/greenworks/blob/master/docs/build-instructions-electron.md) 给 TyranoScript 极限逃课地接入 Steamworks。
 
-说好的逃课，所以用最简单的方法接上，也就是，不 build 了，直接用现成的东西。并且下面的例子使用 64 位 windows 系统和 Electron 套壳（想了解怎么把原来的 NW.js 换成 Electron 可以看[这里](https://ssshooter.com/tyrano-tutorial-3)）。
+说好的逃课，所以用最简单的方法接上，也就是，不 build 了，直接用现成的东西。并且下面的例子使用 64 位 windows 系统和 Electron 套壳（想了解怎么把原来的 NW.js 换成 Electron 可以看[这里](https://ssshooter.com/2020-04-25-tyrano-tutorial-3)）。
 
 1. 拉取 greenworks 代码
 

@@ -51,19 +51,19 @@ tags: ['coding']
 <th colspan="1" style="background:#efefef; padding:1px">F0000–&#8203;10FFFF
 </th></tr>
 <tr style="vertical-align: top;">
-<th colspan="2" style="background:#efefef; padding:1px"><a href="/wiki/Plane_(Unicode)#Basic_Multilingual_Plane" title="Plane (Unicode)">Basic Multilingual Plane</a>
+<th colspan="2" style="background:#efefef; padding:1px"><a href="https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane" title="Plane (Unicode)">Basic Multilingual Plane</a>
 </th>
-<th colspan="2" style="background:#f7f7f7; padding:1px"><a href="/wiki/Plane_(Unicode)#Supplementary_Multilingual_Plane" title="Plane (Unicode)">Supplementary Multilingual Plane</a>
+<th colspan="2" style="background:#f7f7f7; padding:1px"><a href="https://en.wikipedia.org/wiki/Plane_(Unicode)#Supplementary_Multilingual_Plane" title="Plane (Unicode)">Supplementary Multilingual Plane</a>
 </th>
-<th colspan="2" style="background:#efefef; padding:1px"><a href="/wiki/Plane_(Unicode)#Supplementary_Ideographic_Plane" title="Plane (Unicode)">Supplementary Ideographic Plane</a>
+<th colspan="2" style="background:#efefef; padding:1px"><a href="https://en.wikipedia.org/wiki/Plane_(Unicode)#Supplementary_Ideographic_Plane" title="Plane (Unicode)">Supplementary Ideographic Plane</a>
 </th>
-<th colspan="1" style="background:#f7f7f7; padding:1px"><a href="/wiki/Plane_(Unicode)#Tertiary_Ideographic_Plane" title="Plane (Unicode)">Tertiary Ideographic Plane</a>
+<th colspan="1" style="background:#f7f7f7; padding:1px"><a href="https://en.wikipedia.org/wiki/Plane_(Unicode)#Tertiary_Ideographic_Plane" title="Plane (Unicode)">Tertiary Ideographic Plane</a>
 </th>
 <th colspan="1" style="background:#efefef; padding:1px"><i>unassigned</i>
 </th>
-<th colspan="1" style="background:#f7f7f7; padding:1px"><a href="/wiki/Supplementary_Special-purpose_Plane" class="mw-redirect" title="Supplementary Special-purpose Plane">Supplement&shy;ary Special-purpose Plane</a>
+<th colspan="1" style="background:#f7f7f7; padding:1px"><a href="https://en.wikipedia.org/wiki/Supplementary_Special-purpose_Plane" class="mw-redirect" title="Supplementary Special-purpose Plane">Supplement&shy;ary Special-purpose Plane</a>
 </th>
-<th colspan="1" style="background:#efefef; padding:1px">Supplement&shy;ary <a href="/wiki/Private_Use_(Unicode)#Private_Use_Areas" class="mw-redirect" title="Private Use (Unicode)">Private Use Area</a> planes
+<th colspan="1" style="background:#efefef; padding:1px">Supplement&shy;ary <a href="https://en.wikipedia.org/wiki/Private_Use_(Unicode)#Private_Use_Areas" class="mw-redirect" title="Private Use (Unicode)">Private Use Area</a> planes
 </th></tr>
 <tr style="vertical-align: top;">
 <th colspan="2" style="background:#efefef; padding:1px">BMP
@@ -296,7 +296,7 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 <th>Hexadecimal
 </th></tr>
 <tr>
-<td><a href="/wiki/$" class="mw-redirect" title="$">$</a></td>
+<td><a href="https://en.wikipedia.org/wiki/$" class="mw-redirect" title="$">$</a></td>
 <td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">U+0024</span>
 </td>
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:red;">044</span></span>
@@ -310,7 +310,7 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:red;">24</span></span>
 </td></tr>
 <tr>
-<td><a href="/wiki/%C2%A2" class="mw-redirect" title="¢">¢</a></td>
+<td><a href="https://en.wikipedia.org/wiki/%C2%A2" class="mw-redirect" title="¢">¢</a></td>
 <td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">U+00A2</span>
 </td>
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:green;">02</span><span style="color:red;">42</span></span>
@@ -324,7 +324,7 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:green;">C2</span> <span style="color:red;">A2</span></span>
 </td></tr>
 <tr>
-<td><a href="/wiki/Devanagari_(Unicode_block)" title="Devanagari (Unicode block)">ह</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Devanagari_(Unicode_block)" title="Devanagari (Unicode block)">ह</a></td>
 <td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">U+0939</span>
 </td>
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:blue;">00</span><span style="color:green;">44</span><span style="color:red;">71</span></span>
@@ -338,7 +338,7 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:blue;">E0</span> <span style="color:green;">A4</span> <span style="color:red;">B9</span></span>
 </td></tr>
 <tr>
-<td><a href="/wiki/Euro_sign" title="Euro sign">€</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Euro_sign" title="Euro sign">€</a></td>
 <td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">U+20AC</span>
 </td>
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:blue;">02</span><span style="color:green;">02</span><span style="color:red;">54</span></span>
@@ -352,7 +352,7 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:blue;">E2</span> <span style="color:green;">82</span> <span style="color:red;">AC</span></span>
 </td></tr>
 <tr>
-<td><a href="/wiki/Hangul_Syllables" title="Hangul Syllables">한</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Hangul_Syllables" title="Hangul Syllables">한</a></td>
 <td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">U+D55C</span>
 </td>
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:blue;">15</span><span style="color:green;">25</span><span style="color:red;">34</span></span>
@@ -366,7 +366,7 @@ UTF-8（8-bit Unicode Transformation Format）是一种特别广泛使用的格�
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color:blue;">ED</span> <span style="color:green;">95</span> <span style="color:red;">9C</span></span>
 </td></tr>
 <tr>
-<td><a href="/wiki/Hwair" title="Hwair">𐍈</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Hwair" title="Hwair">𐍈</a></td>
 <td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">U+10348</span>
 </td>
 <td align="left"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced"><span style="color: #C000C0;">0</span><span style="color:blue;">20</span><span style="color:green;">15</span><span style="color:red;">10</span></span>
@@ -405,7 +405,7 @@ UTF-16（UCS-2）即便没有 UTF-8 使用得广泛，仍是一个比较常用�
 <th>UTF-16LE<br>hex bytes
 </th></tr>
 <tr>
-<td><a href="/wiki/$" class="mw-redirect" title="$">$</a></td>
+<td><a href="https://en.wikipedia.org/wiki/$" class="mw-redirect" title="$">$</a></td>
 <td><code>U+0024</code>
 </td>
 <td align="right"><code><span style="color: #000092;">0000 0000 0010 0100</span></code>
@@ -419,7 +419,7 @@ UTF-16（UCS-2）即便没有 UTF-8 使用得广泛，仍是一个比较常用�
 <td align="right"><code><span style="color: #000092;">24 00</span></code>
 </td></tr>
 <tr>
-<td><a href="/wiki/Euro_sign" title="Euro sign">€</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Euro_sign" title="Euro sign">€</a></td>
 <td><code>U+20AC</code>
 </td>
 <td align="right"><code><span style="color: #000092;">0010 0000 1010 1100</span></code>
@@ -433,7 +433,7 @@ UTF-16（UCS-2）即便没有 UTF-8 使用得广泛，仍是一个比较常用�
 <td align="right"><code><span style="color: #000092;">AC 20</span></code>
 </td></tr>
 <tr>
-<td><a href="/wiki/%F0%90%90%8F" class="mw-redirect" title="𐐏">𐐷</a></td>
+<td><a href="https://en.wikipedia.org/wiki/%F0%90%90%8F" class="mw-redirect" title="𐐏">𐐷</a></td>
 <td><code>U+10437</code>
 </td>
 <td align="right"><code><span style="color: #920000;">0001 0000 01</span><span style="color: #000092;">00 0011 0111</span></code>
