@@ -74,6 +74,16 @@ export default class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
         </body>
+        <script
+          charset="UTF-8"
+          id="LA_COLLECT"
+          src="//sdk.51.la/js-sdk-pro.min.js"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `LA.init({id: "Jk3MKaA0W16opssA",ck: "Jk3MKaA0W16opssA"})`,
+          }}
+        ></script>
       </html>
     )
   }
