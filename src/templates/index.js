@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import Pagination from '../components/Pagination'
+import SEO from '../components/Seo'
 
 import Layout from '../components/Layout'
 /**
@@ -11,15 +11,14 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const siteDescription = data.site.siteMetadata.description
     const posts = data.allMarkdownRemark.edges
     const { totalPage, currentPage } = this.props.pageContext
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <Helmet
-          htmlAttributes={{ lang: 'zh' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
+        <SEO
+          title="归档"
+          pathname={location.pathname}
+          description="一步一步，走出自己的轨迹"
         />
         <div className="css-archive">
           {posts.map(({ node }, index) => {

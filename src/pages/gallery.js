@@ -1,7 +1,6 @@
 import React from 'react'
 import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import { siteName } from '../settings'
 import SEO from '../components/Seo'
 
