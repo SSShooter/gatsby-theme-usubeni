@@ -51,7 +51,6 @@ class BlogPostTemplate extends React.Component {
     const pathname = this.props.location.pathname
     const siteDescription = post.frontmatter.description || post.excerpt
     const { slug, previous, next } = this.props.pageContext
-    console.log(this.props)
     return (
       <Layout aside={post.tableOfContents}>
         <SEO
