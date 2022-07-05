@@ -19,12 +19,7 @@ class BlogIndex extends React.Component {
       coding: '技术分享与踩坑经验，前端为主，安利跨平台框架',
     }
     return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        pageName={tag}
-        pageDescript={tagMap[tag]}
-      >
+      <Layout pageName={tag} pageDescript={tagMap[tag]}>
         <Helmet
           htmlAttributes={{ lang: 'zh' }}
           meta={[{ name: 'description', content: siteDescription }]}

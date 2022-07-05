@@ -1,11 +1,11 @@
 import 'katex/dist/katex.min.css'
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
 import Comment from '../components/Comment'
 import Layout from '../components/Layout'
 import Info from '../components/PostInfo'
+import SEO from '../components/Seo'
 
 class BlogPostTemplate extends React.Component {
   componentDidMount = () => {
@@ -48,25 +48,17 @@ class BlogPostTemplate extends React.Component {
   }
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const siteDescription = post.excerpt
+    const pathname = this.props.location.pathname
+    const siteDescription = post.frontmatter.description || post.excerpt
     const { slug, previous, next } = this.props.pageContext
-
+    console.log(this.props)
     return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        aside={post.tableOfContents}
-      >
-        <Helmet
-          htmlAttributes={{ lang: 'zh' }}
-          meta={[
-            {
-              name: 'description',
-              content: post.frontmatter.description || siteDescription,
-            },
-          ]}
-          title={`${post.frontmatter.title} | ${siteTitle}`}
+      <Layout aside={post.tableOfContents}>
+        <SEO
+          title={post.frontmatter.title}
+          description={siteDescription}
+          keywords={post.frontmatter.tags}
+          pathname={pathname}
         />
         <h1>{post.frontmatter.title}</h1>
         <Info date={post.frontmatter.date} tags={post.frontmatter.tags} />

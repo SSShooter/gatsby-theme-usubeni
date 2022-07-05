@@ -3,18 +3,19 @@ import Menu from '../components/Menu'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { siteName } from '../settings'
+import SEO from '../components/Seo'
 
 class Gallery extends React.Component {
   render() {
-    const { data } = this.props
+    const { data, location } = this.props
     const gallery = data.allFile.edges
 
     return (
       <div className="css-gallery">
-        <Helmet
-          htmlAttributes={{ lang: 'zh' }}
-          meta={[{ name: 'description', content: '定格的生活' }]}
-          title={siteName + ' | 定格的生活'}
+        <SEO
+          title="定格的生活"
+          pathname={location.pathname}
+          description="定格的生活"
         />
         <header>
           <Link
