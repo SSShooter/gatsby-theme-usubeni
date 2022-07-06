@@ -9,12 +9,7 @@ class MemePage extends React.Component {
     const { data } = this.props
     const meme = data.allFile.edges
     return (
-      <Layout
-        location={this.props.location}
-        title={siteName}
-        pageName="沙雕表情库"
-        pageDescript="点击图片，大图带走"
-      >
+      <Layout pageName="沙雕表情库" pageDescript="点击图片，大图带走">
         <div className="css-meme">
           {meme.map((img) => (
             <a
@@ -52,7 +47,7 @@ export const query = graphql`
           publicURL
           sourceInstanceName
           childImageSharp {
-            gatsbyImageData(layout: FIXED height:150)
+            gatsbyImageData(layout: FIXED, height: 150)
           }
         }
       }

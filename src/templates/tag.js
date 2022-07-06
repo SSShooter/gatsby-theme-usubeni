@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import SEO from '../components/Seo'
 import Layout from '../components/Layout'
 import Info from '../components/PostInfo'
 import Pagination from '../components/Pagination'
@@ -9,21 +9,19 @@ import Pagination from '../components/Pagination'
  */
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const siteDescription = data.site.siteMetadata.description
+    const { data, location } = this.props
     const posts = data.allMarkdownRemark.edges
     const { totalPage, currentPage, tag } = this.props.pageContext
-    const tagMap = {
+    const tagDescriptionMap = {
       diary: '生活分享（自言自语）',
       coding: '技术分享与踩坑经验，前端为主，安利跨平台框架',
     }
     return (
-      <Layout pageName={tag} pageDescript={tagMap[tag]}>
-        <Helmet
-          htmlAttributes={{ lang: 'zh' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
+      <Layout pageName={tag} pageDescript={tagDescriptionMap[tag]}>
+        <SEO
+          title={tag}
+          pathname={location.pathname}
+          description={tagDescriptionMap[tag]}
         />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
