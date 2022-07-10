@@ -134,7 +134,7 @@ function defineReactive(obj, key, val, customSetter, shallow) {
 }
 ```
 
-首先每个响应式的值都是一个“依赖"，所以第一步我们先借闭包的能力给每个值造一个 Dep。（到 Vue 3 就不需要闭包啦）
+首先响应式对象的每个属性都是一个“依赖"，所以第一步我们先借闭包的能力给每个值造一个 Dep。（到 Vue 3 就不需要闭包啦）
 
 接着看核心的三个参数：
 
@@ -143,6 +143,8 @@ function defineReactive(obj, key, val, customSetter, shallow) {
 - val 当前的值
 
 这个值还可能之前就定义了自己的 getter、setter，所以在做 Vue 的响应式处理时先处理原本的 getter、setter。
+
+### getter
 
 上面在核心流程中提到在 getter 函数会建立 Dep 和 Watcher 的关系，具体来说依靠的是 `dep.depend()`。
 
@@ -173,7 +175,11 @@ Dep.prototype.addSub = function addSub(sub) {
 
 你可以在 Dep 的 subs 找到所有订阅同一个 Dep 的 Watcher，也可以在 Watcher 的 deps 找到所有该 Watcher 订阅的所有 Dep。
 
-但是里面还有一个隐藏问题，就是 `Dep.target` 怎么来呢？先放一放，后会作出解答。先接着看看 setter 函数，其中的关键是 `dep.notify()`。
+但是里面还有一个隐藏问题，就是 `Dep.target` 怎么来呢？先放一放，后会作出解答。
+
+### setter
+
+先接着看看 setter 函数，其中的关键是 `dep.notify()`。
 
 ```javascript
 Dep.prototype.notify = function notify() {
@@ -240,14 +246,14 @@ Watcher.prototype.run = function run() {
 }
 ```
 
-这段代码的重点在于需要**现在 get 方法中对 Dep.target 进行了设置**。
+这段代码的重点在于需要**现在 get 方法中对 Dep.target 进行了设置**。（具体路径是 run -> get -> pushTarget）
 
 因为只有 `Dep.target` 存在，之后在回调函数 cb（例如页面渲染函数就是一个典型的 Watcher cb）调用时，`Dep.prototype.depend` 才能真正生效。再之后的逻辑，就回到使用响应式数据的取值，一切都连起来了！形成闭环（滑稽）！这就是上面 `depend()` 遗留问题的答案。
 
 ## 总结
 
 - Dep 与数据关联，代表数据可以成为依赖
-- Watcher 与 watch、computed、渲染函数关联，代表这些函数可以成为依赖的订阅者
+- Watcher 有 watch、computed、渲染函数 3 种，这些函数可以成为依赖的订阅者
 - Observer 算是一个处理 Dep 的入口，递归处理响应式数据
 - Watcher 的回调函数在使用响应式数据时，会先设置 `Dep.target`
 - 响应式数据在 getter 函数中通过 `Dep.target` 得知调用者，并与调用者建立订阅者和依赖的关系
