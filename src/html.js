@@ -75,7 +75,7 @@ export default class HTML extends React.Component {
           {this.props.postBodyComponents}
         </body>
         <script
-          charset="UTF-8"
+          charSet="UTF-8"
           id="LA_COLLECT"
           src="//sdk.51.la/js-sdk-pro.min.js"
         ></script>
