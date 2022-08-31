@@ -1,7 +1,7 @@
 ---
 path: '/html-encode'
 date: '2020-08-19T18:27:39.444Z'
-title: '字符编码与在 Web 前端的应用'
+title: 'Unicode 编码及其在 Web 前端的应用'
 tags: ['coding']
 ---
 
