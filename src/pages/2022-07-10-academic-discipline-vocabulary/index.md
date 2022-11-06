@@ -39,7 +39,7 @@ description: '苦于托福听力反应太慢，把学科单词都放这里强化
 - Statistics
 - Physics
 - Chemistry: neurochemistry
-- Geology: geological dating
+- Geology: geological dating, fossil
 - Meteorology
 - Oceanography: marine organisms, ecosystem dynamics, ocean currents, geophysical fluid dynamics, plate tectonics
 - Meteorology
