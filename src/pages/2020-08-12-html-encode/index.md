@@ -1,7 +1,7 @@
 ---
 path: '/html-encode'
 date: '2020-08-19T18:27:39.444Z'
-title: '字符编码与在 Web 前端的应用'
+title: 'Unicode 编码及其在 Web 前端的应用'
 tags: ['coding']
 ---
 
@@ -166,7 +166,7 @@ F0000–&#8203;FFFFF<br>
 </p>
 </td></tr></tbody></table>
 
-点击表中链接可以查看某段位置包含的字符。其中，从 0000 到 ffff 是最常用是平面 0，也称作 **Basic Multilingual Plane（BMP）**，大多数常用汉字都包含在其中。
+点击表中链接可以查看某段位置包含的字符。其中，从 `0000` 到 `ffff` 是最常用是平面 0，也称作 **Basic Multilingual Plane（BMP）**，大多数常用汉字都包含在其中。
 
 我们用 Unicode 表示一个字符，约定俗成地 `U+` 加上这个字的 16 进制码点，例如“汉”就是 `U+6C49`。
 
@@ -475,15 +475,16 @@ UTF-16（UCS-2）即便没有 UTF-8 使用得广泛，仍是一个比较常用�
 
 这样的 html 文档内的转义常用于代替空格、`<`、`>`、`&`、`"` 等 html 里有功能的字符，但是当然不止如此。
 
-iconfont 应该是前端开发者很熟悉的一个平台，这个平台可以把图标做成字体，引入这个字体，然后每个图标有一个特定的 Unicode 码位，只要使用转义字符，就能顺利显示该图标。
+iconfont 是前端开发者很熟悉的平台，这个平台可以把图标做成字体，引入这个字体，使得每个图标有一个特定的 Unicode 码位，只要使用转义字符，就能顺利显示该图标。
 
 利用同样的原理，你也可以[在 React Native 使用阿里 iconfont 图标](https://ssshooter.com/2020-08-19-react-native-iconfont/)。
 
-https://en.wikipedia.org/wiki/Numeric_character_reference
-
-[Character entity references in HTML](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)
+- [Numeric character reference](https://en.wikipedia.org/wiki/Numeric_character_reference)
+- [Character entity references in HTML](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)
 
 ## CSS
+
+CSS 中的转义标志是 `\`：
 
 | 格式      | 描述                                   |
 | --------- | -------------------------------------- |
@@ -493,8 +494,6 @@ https://en.wikipedia.org/wiki/Numeric_character_reference
 例如 css 选择器本不可以以数字开头，但是使用转义字符就能选择 class 123
 
 `.\31 23 { ... }` 或 `.\00003123 { ... }`
-
-转义标志是 \
 
 ## 字符串
 
@@ -554,15 +553,11 @@ console.log('\u{20bb7}') //𠮷
 
 ## 参考与拓展
 
-[Using character escapes in markup and CSS](https://www.w3.org/International/questions/qa-escapes)
-
-[MDN String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-
-[Difference between codePointAt and charCodeAt](https://stackoverflow.com/questions/36527642/difference-between-codepointat-and-charcodeat)
-
-[字符编码 wikipedia](https://en.wikipedia.org/wiki/Character_encoding#Terminology)
-
-[What's the difference between a character, a code point, a glyph and a grapheme?](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme)
+- [Using character escapes in markup and CSS](https://www.w3.org/International/questions/qa-escapes)
+- [MDN String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+- [Difference between codePointAt and charCodeAt](https://stackoverflow.com/questions/36527642/difference-between-codepointat-and-charcodeat)
+- [字符编码 wikipedia](https://en.wikipedia.org/wiki/Character_encoding#Terminology)
+- [What's the difference between a character, a code point, a glyph and a grapheme?](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme)
 
 <style>
 .wikitable{

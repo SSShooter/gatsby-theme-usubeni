@@ -11,9 +11,9 @@ tags: ['coding']
 
 上图来自维基百科，黑夜模式会导致文字看不清楚，麻烦大家使用日间模式阅读啦 ![](/blog-image/alu18.gif)
 
-IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式（上面两幅图分别是 32 bit 和 64 bit 的情况，结构是一致的），JavaScript 使用的是 64 位，也就是常说的“双精度”，本文将以 64 位举例讲解 IEEE-754 标准。
+IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式（上面两幅图分别是 32 bit 和 64 bit 的情况，结构是一致的）。无论看起来是整数还是小数，JavaScript 中的 `number` 都是 64 位浮点数（也就是常说的“双精度”）。
 
-从图中可知，IEEE-754 标准将 64 位分为三部分：
+本文将以 64 位举例讲解 IEEE-754 标准，从上图可以看出，IEEE-754 标准将 64 位分为三部分：
 
 - **sign**，1 bit 的标识位，0 为正数，1 为负数
 - **exponent**，指数，11 bit
@@ -21,7 +21,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 为了举例方便，我们使用下面这串数字介绍 IEEE-754 标准
 
-0100000001101101001000000000000000000000000000000000000000000000
+`0100000001101101001000000000000000000000000000000000000000000000`
 
 不多不少 64 位，不信的数一数 ![](/blog-image/alu9.gif)
 
@@ -47,7 +47,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 ## exponent
 
-为更清晰地说明 **exponent（指数）**从二进制到十进制的转换，借用[此文](https://2ality.com/2012/04/number-encoding.html)的一个“表格”：
+为更清晰地说明 **exponent（指数）** 从二进制到十进制的转换，借用[此文](https://2ality.com/2012/04/number-encoding.html)的一个“表格”：
 
 ```
 %00000000000     0  →  −1023  (lowest number)
@@ -66,7 +66,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 1.f × 2<sup>e−1023</sup> = 1.1101001 × 2<sup>7</sup> = 11101001
 
-（**注意了，这是二！进！制！**类比成十进制就是类似：1.3828171 × 10<sup>7</sup> = 13828171）
+（**注意了，这是二！进！制！** 类比成十进制就是类似：1.3828171 × 10<sup>7</sup> = 13828171）
 
 这就是“浮点数”的所谓**浮点（Floating Point）**，小数点的位置可以随着指数的值左右漂移，这样可以更精细地表示一个数字；
 
@@ -76,7 +76,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 所以举例的
 
-0100000001101101001000000000000000000000000000000000000000000000
+`0100000001101101001000000000000000000000000000000000000000000000`
 
 其实就是以 IEEE-754 标准储存的 `233`
 
@@ -92,7 +92,7 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 
 ## 总结
 
-[这位大佬](https://2ality.com/2012/04/number-encoding.html)的总结过于精辟：
+[这位大佬](https://2ality.com/2012/04/number-encoding.html)的总结过于精辟，浮点数可以分为五种情况：
 
 | 表达式                                       | 取值                       |
 | -------------------------------------------- | -------------------------- |
@@ -200,9 +200,9 @@ IEEE-754 标准是一个浮点数标准，存在 32、64、128 bit 三种格式�
 0.0532 * 100 // 5.319999999999999
 ```
 
-![](/blog-image/alu18.gif) 曾经我也以为乘 100 变成整数再进行加减计算就不会丢精度，但事实是，乘法本身算出来的数就已经走样了。
+![](/blog-image/alu18.gif) 曾经我也以为乘 100 变成整数再进行加减计算就不会丢精度，但事实是，某些情况下（例如 `0.0532 * 100`）乘法本身算出来的数就已经走样了。
 
-说回产生的原因吧，其实跟上面算 0.1 一样，就是因为 除 不 尽。
+说回产生的原因吧，其实跟上面算 0.1 一样，就是因为 **除 不 尽**。
 
 但是为什么？！明明直接打印出来他就是正常的 0.1 啊！为什么 1 - 0.9 出来的 0.1 就不是了 0.1 了！
 
@@ -256,10 +256,7 @@ console.log(Math.pow(2, 53) + 4)
 
 ## 实用链接
 
-[十进制转 IEEE-754](https://babbage.cs.qc.cuny.edu/IEEE-754/)
-
-[IEEE-754 转十进制](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
-
-[自己动手的十进制转 IEEE-754](https://www.wikihow.com/Convert-a-Number-from-Decimal-to-IEEE-754-Floating-Point-Representation)
-
-[What's Up With Floating Point?](https://timroderick.com/floating-point-introduction/)
+- [十进制转 IEEE-754](https://babbage.cs.qc.cuny.edu/IEEE-754/)
+- [IEEE-754 转十进制](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
+- [自己动手的十进制转 IEEE-754](https://www.wikihow.com/Convert-a-Number-from-Decimal-to-IEEE-754-Floating-Point-Representation)
+- [What's Up With Floating Point?](https://timroderick.com/floating-point-introduction/)
