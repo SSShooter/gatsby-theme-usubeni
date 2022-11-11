@@ -145,6 +145,8 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 - vogue adj.n.流行时尚 trend, in fashion
 - vague adj.模糊 Ant: precise
 
+——
+
 - grin v.😁
 - grim adj.严峻 严肃 阴森 令人沮丧
 
@@ -152,6 +154,8 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 - infer v.推断
 - inferior adj.n.下等
+
+——
 
 - meddle vi.干涉
 - medal n.vi.奖牌
@@ -175,9 +179,9 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- incidental
-- coincidental What a Coincidance!
-- accidental
+- incidental 顺带发生的
+- coincidental 同时发生的，也就是巧合 What a Coincidance!
+- accidental 意外的
 
 ——
 
@@ -208,8 +212,8 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- vigor
-- rigor
+- vigor n.活力
+- rigor n.艰辛、僵硬
 
 ——
 
@@ -219,27 +223,27 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- lodge n. small house, v. rest
+- lodge n.small house, v.rest
 - ledge film: man on the ledge
 - pledge
 - plague
 
 ——
 
-- endorse
-- endure
-- endeavor
-- endow
+- endorse 背书
+- endure 忍耐
+- endeavor 努力
+- endow 授予 bestow
 
 ——
 
 - sheer
-- shear
+- shear v.剪羊毛
 
 ——
 
-- erect
-- eject
+- erect v.竖起
+- eject v.驱逐，弹射
 
 ——
 
@@ -286,11 +290,12 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- involve
-- revolve
-- revolt
-- evolve
-- devolve
+- involve 卷入
+- revolve 围绕
+- evolve 发展
+- devolve 下放权力
+- revolt 反叛
+- provoke 挑拨
 
 ——
 
@@ -301,13 +306,13 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- forage search for provisions
-- forge
+- forage 觅食 search for provisions
+- forge 铸
 
 ——
 
-- sensor
-- censor
+- sensor n.传感器
+- censor vt.审查 n.审查员
 
 ——
 
@@ -315,10 +320,11 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- temperate
-- temper
-- temperature
-- temporary
+- temperate adj.温和
+- temper n.脾气 vt.使温和
+- temperature n.气温
+- temporary adj.暂时
+- contemporary adj.当代
 
 ——
 
@@ -328,7 +334,7 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- extent
+- extent n.程度
 - extend
 
 ——
@@ -338,9 +344,9 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- squirrel
-- quarrel
-- quarry
+- squirrel n.松鼠
+- quarrel v.n.口角
+- quarry n.采石场，猎物
 
 ——
 
@@ -350,8 +356,8 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- device
-- devise
+- device /dɪˈvaɪs/
+- devise /dɪˈvaɪz/
 
 ——
 
@@ -416,7 +422,7 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- descent
+- descent ascend
 - decent
 
 ——
@@ -427,9 +433,9 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 ——
 
-- hilarious
-- delirious
-- humiliate
+- hilarious adj.滑稽
+- delirious adj.爽爆
+- humiliate vt.羞辱
 
 ——
 
@@ -464,3 +470,10 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 - vowel 元音
 - vow 誓言
+
+——
+
+- circulated
+- circular
+- circle
+- cycle
