@@ -43,3 +43,4 @@ In WebGL objects are built using sets of vertices, each of which has a position 
 
 一切在屏幕看到的东西都依赖 fragment shader
 
+https://www.bilibili.com/video/BV1X7411F744/
