@@ -477,3 +477,8 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 - circular
 - circle
 - cycle
+
+——
+
+- allege /əˈledʒ/ v.声称
+- allergic /əˈlɜːrdʒɪk/ adj.过敏
