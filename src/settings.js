@@ -16,17 +16,17 @@ export const menu = [
   {
     icon: 'discount',
     name: '标签',
-    href: '/tags',
+    href: '/tags/',
   },
   {
     icon: 'picture',
     name: '相册',
-    href: '/gallery',
+    href: '/gallery/',
   },
   {
     icon: 'save',
     name: '归档',
-    href: '/archive',
+    href: '/archive/',
   },
   // {
   //   icon: 'meh',
@@ -36,12 +36,12 @@ export const menu = [
   {
     icon: 'link1',
     name: '链接',
-    href: '/links',
+    href: '/links/',
   },
   {
     icon: 'user1',
     name: '关于',
-    href: '/about',
+    href: '/about/',
   },
   {
     icon: 'loading',
