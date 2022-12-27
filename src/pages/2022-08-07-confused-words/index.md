@@ -482,3 +482,8 @@ description: '自己收集了一些托福易混淆词，英语不存在“形近
 
 - allege /əˈledʒ/ v.声称
 - allergic /əˈlɜːrdʒɪk/ adj.过敏
+
+——
+
+- content n.内容 adj.满意 vt.满足
+- contend v.竞争、主张

@@ -8,6 +8,12 @@ hidden: false
 description: '一些万能主题，一个模板，同样是及格线抱佛脚用的'
 ---
 
+## 综合写作
+
+- 重点记第一段最后一句，后面每段第一句，多数是理由
+
+## 头脑风暴
+
 - Economy
 - Environment
 - Efficiency convenience/ time saving/ energy saving/ cost saving
