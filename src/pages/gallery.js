@@ -73,10 +73,7 @@ export default Gallery
 
 export const query = graphql`
   query {
-    allFile(
-      sort: { fields: [birthTime], order: DESC }
-      filter: { sourceInstanceName: { eq: "gallery" } }
-    ) {
+    allFile(sort: {birthTime: DESC}, filter: {sourceInstanceName: {eq: "gallery"}}) {
       edges {
         node {
           id
@@ -98,8 +95,6 @@ export const query = graphql`
             }
           }
           childImageSharp {
-            # Specify the image processing specifications right in the query.
-            # Makes it trivial to update as your page's design changes.
             fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid_noBase64
             }

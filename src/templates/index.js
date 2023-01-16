@@ -70,8 +70,8 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { released: { ne: false }, hidden: { ne: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {released: {ne: false}, hidden: {ne: true}}}
+      sort: {frontmatter: {date: DESC}}
       limit: $limit
       skip: $skip
     ) {
