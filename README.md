@@ -1,8 +1,10 @@
 # Usubeni
 
-[Usubeni](https://github.com/ssshooter/gatsby-theme-usubeni) 基于 [Gatsby.js v4](https://www.gatsbyjs.com/)，示例页面：https://ssshooter.com/tag/coding/
+[Usubeni](https://github.com/ssshooter/gatsby-theme-usubeni) 基于 [Gatsby.js v5](https://www.gatsbyjs.com/)，示例页面：https://ssshooter.com/tag/coding/
 
 Gatsby 相对于 hexo 上手有一点门槛，不过这个代价换来的是比较大的自由度。使用相关问题在[博客里](https://ssshooter.com/tag/gatsby/)解释了一部分。
+
+P.S. Gatsby.js v4 版 在[这里](https://github.com/ssshooter/gatsby-theme-usubeni/tree/V4)
 
 ## 使用
 
