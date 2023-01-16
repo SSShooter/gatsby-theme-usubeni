@@ -6,11 +6,11 @@ const fastExif = require('fast-exif')
 const query = `
 {
   allMarkdownRemark(
-    filter: { frontmatter: { released: { ne: false } } }
-    sort: { fields: [frontmatter___date], order: DESC }
+    filter: {frontmatter: {released: {ne: false}}}
+    sort: {frontmatter: {date: DESC}}
     limit: 1000
   ) {
-    group(field: frontmatter___tags) {
+    group(field: {frontmatter: {tags: SELECT}}) {
       fieldValue
       totalCount
     }
