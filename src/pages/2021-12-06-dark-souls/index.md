@@ -3,7 +3,6 @@ path: '/dark-souls'
 date: '2021-12-06T09:18:53.273Z'
 title: '黑暗之魂重制版攻略，但是文字版'
 tags: ['黑暗之魂']
-released: false
 ---
 
 ## 一些前置提醒
