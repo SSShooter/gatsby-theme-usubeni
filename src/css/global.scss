@@ -380,7 +380,8 @@ button {
       margin-top: -1.3em;
       margin-bottom: 1.5em;
     }
-    img {
+    // 仅限外链图片，经过 Gatsby 处理的图片会显示异常
+    p > img {
       display: block;
       margin: auto;
       max-width: 100%;
