@@ -382,9 +382,11 @@ button {
     }
     // 仅限外链图片，经过 Gatsby 处理的图片会显示异常
     p > img {
+      position: relative;
       display: block;
       margin: auto;
-      max-width: 100%;
+      max-width: calc(100% + 30px);
+      left: -15px;
       max-height: 650px;
     }
     .anchor {
