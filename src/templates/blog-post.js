@@ -47,17 +47,9 @@ class BlogPostTemplate extends React.Component {
   }
   render() {
     const post = this.props.data.markdownRemark
-    const pathname = this.props.location.pathname
-    const siteDescription = post.frontmatter.description || post.excerpt
     const { slug, previous, next } = this.props.pageContext
     return (
       <Layout aside={post.tableOfContents}>
-        <SEO
-          title={post.frontmatter.title}
-          description={siteDescription}
-          keywords={post.frontmatter.tags}
-          pathname={pathname}
-        />
         <h1>{post.frontmatter.title}</h1>
         <Info date={post.frontmatter.date} tags={post.frontmatter.tags} />
         <div
@@ -88,6 +80,19 @@ class BlogPostTemplate extends React.Component {
 }
 
 export default BlogPostTemplate
+
+export const Head = ({ data, location }) => {
+  const post = data.markdownRemark
+  const pathname = location.pathname
+  const siteDescription = post.frontmatter.description || post.excerpt
+  return <SEO
+    title={post.frontmatter.title}
+    description={siteDescription}
+    keywords={post.frontmatter.tags}
+    pathname={pathname}
+  />
+}
+
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

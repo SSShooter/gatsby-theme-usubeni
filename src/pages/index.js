@@ -4,10 +4,9 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import SEO from '../components/Seo'
 
-function IndexPage({ data, location }) {
+function IndexPage({ data }) {
   return (
     <Layout>
-      <SEO title="主页" pathname={location.pathname} />
       <GatsbyImage
         alt={data.file.name}
         style={{
@@ -20,6 +19,10 @@ function IndexPage({ data, location }) {
 }
 
 export default IndexPage
+
+export const Head = ({ location }) => (
+  <SEO title="主页" pathname={location.pathname} />
+)
 
 export const query = graphql`
   query {

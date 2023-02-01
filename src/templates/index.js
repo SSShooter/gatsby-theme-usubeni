@@ -14,11 +14,6 @@ class BlogIndex extends React.Component {
     const { totalPage, currentPage } = this.props.pageContext
     return (
       <Layout>
-        <SEO
-          title="归档"
-          pathname={location.pathname}
-          description="一步一步，走出自己的轨迹"
-        />
         <div className="css-archive">
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
@@ -28,17 +23,17 @@ class BlogIndex extends React.Component {
                 {(index === 0 ||
                   (index > 0 &&
                     posts[index - 1].node.frontmatter.year !==
-                      node.frontmatter.year)) && (
-                  <div
-                    style={{
-                      fontSize: '1.8em',
-                      marginTop: index === 0 ? '0rem' : '2rem',
-                      marginBottom: '1.2rem',
-                    }}
-                  >
-                    {node.frontmatter.year}
-                  </div>
-                )}
+                    node.frontmatter.year)) && (
+                    <div
+                      style={{
+                        fontSize: '1.8em',
+                        marginTop: index === 0 ? '0rem' : '2rem',
+                        marginBottom: '1.2rem',
+                      }}
+                    >
+                      {node.frontmatter.year}
+                    </div>
+                  )}
                 <div className="item">
                   <span className="date">{node.frontmatter.date}</span>
                   <Link className="title" to={node.fields.slug}>
@@ -60,6 +55,14 @@ class BlogIndex extends React.Component {
 }
 
 export default BlogIndex
+
+export const Head = ({ location }) => (
+  <SEO
+    title="归档"
+    pathname={location.pathname}
+    description="一步一步，走出自己的轨迹"
+  />
+)
 
 export const pageQuery = graphql`
   query ($skip: Int!, $limit: Int!) {

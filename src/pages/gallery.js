@@ -6,16 +6,11 @@ import SEO from '../components/Seo'
 
 class Gallery extends React.Component {
   render() {
-    const { data, location } = this.props
+    const { data } = this.props
     const gallery = data.allFile.edges
 
     return (
       <div className="css-gallery">
-        <SEO
-          title="定格的生活"
-          pathname={location.pathname}
-          description="定格的生活"
-        />
         <header>
           <Link
             style={{
@@ -70,6 +65,14 @@ class Gallery extends React.Component {
 }
 
 export default Gallery
+
+export const Head = ({ location }) => (
+  <SEO
+    title="定格的生活"
+    pathname={location.pathname}
+    description="定格的生活"
+  />
+)
 
 export const query = graphql`
   query {

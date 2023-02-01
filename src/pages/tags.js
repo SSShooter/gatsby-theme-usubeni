@@ -12,7 +12,6 @@ const TagsPage = ({
   },
 }) => (
   <Layout pageName="标签库">
-    <SEO title="标签库" pathname={pathname} />
     <ul className="css-tags">
       {group.map((tag) => (
         <li key={tag.fieldValue} className="css-tag">
@@ -44,6 +43,10 @@ TagsPage.propTypes = {
 }
 
 export default TagsPage
+
+export const Head = ({ location }) => (
+  <SEO title="标签库" pathname={location.pathname} />
+)
 
 export const pageQuery = graphql`
   query {

@@ -1,140 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 function SEO({
   description,
   keywords,
-  lang,
-  meta,
-  image: metaImage,
+  image,
   title,
   pathname,
 }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            keywords
-            siteUrl
-          }
-        }
-      }
-    `
-  )
+  const meta = useSiteMetadata()
+  const seo = {
+    title: `${title} | ${meta.title}`,
+    url: `${meta.siteUrl}${pathname || ''}`,
+    description: description || meta.description,
+    keywords: keywords || meta.keywords,
+    author: meta.author,
+    image,
+  }
 
-  const metaDescription = description || site.siteMetadata.description
-  const metaKeywords = keywords || site.siteMetadata.keywords
-  const image =
-    metaImage && metaImage.src
-      ? `${site.siteMetadata.siteUrl}${metaImage.src}`
-      : null
-  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={
-        canonical
-          ? [
-              {
-                rel: 'canonical',
-                href: canonical,
-              },
-            ]
-          : []
-      }
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: 'keywords',
-          content: metaKeywords.join(','),
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ]
-        .concat(
-          metaImage
-            ? [
-                {
-                  property: 'og:image',
-                  content: image,
-                },
-                {
-                  property: 'og:image:width',
-                  content: metaImage.width,
-                },
-                {
-                  property: 'og:image:height',
-                  content: metaImage.height,
-                },
-                {
-                  name: 'twitter:card',
-                  content: 'summary_large_image',
-                },
-              ]
-            : [
-                {
-                  name: 'twitter:card',
-                  content: 'summary',
-                },
-              ]
-        )
-        .concat(meta)}
-    />
+    <>
+      <title>{seo.title}</title>
+      <link rel="canonical" href={seo.url} />
+      <meta name="keywords" content={seo.keywords.join(',')} />
+      <meta name="description" content={seo.description} />
+
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:url" content={seo.url} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:creator" content={seo.author} />
+
+      {/* TODO: img */}
+      {seo.img ? <>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={seo.image.src} />
+        <meta name="image" content={seo.image.src} />
+        <meta property="og:image:width" content={seo.image.width} />
+        <meta property="og:image:height" content={seo.image.height} />
+      </> : null}
+    </>
   )
-}
-
-SEO.defaultProps = {
-  lang: `zh`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-  }),
-  pathname: PropTypes.string,
 }
 
 export default SEO

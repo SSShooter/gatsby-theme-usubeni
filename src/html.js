@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default class HTML extends React.Component {
   render() {
     return (
-      <html {...this.props.htmlAttributes}>
+      <html lang="zh-CN" {...this.props.htmlAttributes}>
         <head>
           {this.props.headComponents}
           <script

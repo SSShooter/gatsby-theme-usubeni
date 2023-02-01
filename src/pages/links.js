@@ -35,7 +35,6 @@ const LinkList = ({ list }) => (
 )
 const Links = ({ location: { pathname } }) => (
   <Layout pageName="链接库">
-    <SEO title="链接库" pathname={pathname} />
     <h2>推荐</h2>
     <LinkList list={recommend} />
     <h2>友链</h2>
@@ -45,3 +44,7 @@ const Links = ({ location: { pathname } }) => (
 )
 
 export default Links
+
+export const Head = ({ location }) => (
+  <SEO title="链接库" pathname={location.pathname} />
+)
