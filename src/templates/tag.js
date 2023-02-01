@@ -49,7 +49,7 @@ export const Head = ({ location, pageContext }) => (
   <SEO
     title={pageContext.tag}
     pathname={location.pathname}
-    description={tagDescriptionMap[tag]}
+    description={tagDescriptionMap[pageContext.tag]}
   />
 )
 
