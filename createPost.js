@@ -16,8 +16,9 @@ let yyyymmdd = `${yyyy}-${mm}-${dd}`
 
 let template = `---
 path: '/${title}'
+slug: '${title}'
 date: '${date}'
-title: '${title}'
+title: ''
 tags: ['tag']
 released: true
 hidden: false
