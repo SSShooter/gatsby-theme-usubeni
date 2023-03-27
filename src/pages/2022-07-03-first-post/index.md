@@ -1,7 +1,8 @@
 ---
 path: '/first-post'
+slug: '/first-post'
 date: '2022-07-03T21:00:00.171Z'
-title: 'first-post'
+title: '这是一个标题'
 tags: ['coding']
 description: '一个测试页'
 released: true
