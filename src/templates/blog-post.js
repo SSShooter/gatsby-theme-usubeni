@@ -47,7 +47,7 @@ class BlogPostTemplate extends React.Component {
   }
   render() {
     const post = this.props.data.markdownRemark
-    const { slug, previous, next } = this.props.pageContext
+    const { slug, prev, next } = this.props.pageContext 
     return (
       <Layout aside={post.tableOfContents}>
         <h1>{post.frontmatter.title}</h1>
@@ -60,9 +60,9 @@ class BlogPostTemplate extends React.Component {
         <Comment slug={slug} />
         <ul className="button-wrapper">
           <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                <button>Prev: {previous.frontmatter.title}</button>
+            {prev && (
+              <Link to={prev.fields.slug} rel="prev">
+                <button>Prev: {prev.frontmatter.title}</button>
               </Link>
             )}
           </li>
@@ -85,14 +85,15 @@ export const Head = ({ data, location }) => {
   const post = data.markdownRemark
   const pathname = location.pathname
   const siteDescription = post.frontmatter.description || post.excerpt
-  return <SEO
-    title={post.frontmatter.title}
-    description={siteDescription}
-    keywords={post.frontmatter.tags}
-    pathname={pathname}
-  />
+  return (
+    <SEO
+      title={post.frontmatter.title}
+      description={siteDescription}
+      keywords={post.frontmatter.tags}
+      pathname={pathname}
+    />
+  )
 }
-
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

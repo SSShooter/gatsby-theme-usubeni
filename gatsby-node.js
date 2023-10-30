@@ -1,52 +1,51 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const _ = require('lodash')
-const get = _.get
 const fastExif = require('fast-exif')
-const query = `
-{
-  allMarkdownRemark(
-    filter: {frontmatter: {released: {ne: false}}}
-    sort: {frontmatter: {date: DESC}}
-    limit: 1000
-  ) {
-    group(field: {frontmatter: {tags: SELECT}}) {
-      fieldValue
-      totalCount
-    }
-    edges {
-      node {
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          tags
-          slug
-        }
-      }
-    }
-  }
+
+const blogPost = path.resolve('./src/templates/blog-post.js')
+const homePaginate = path.resolve('./src/templates/index.js')
+const tagTemplate = path.resolve('./src/templates/tag.js')
+
+const createPosts = (createPage, post, prev, next) => {
+  createPage({
+    path: post.node.fields.slug,
+    component: blogPost,
+    context: {
+      slug: post.node.fields.slug,
+      prev,
+      next,
+    },
+  })
 }
-`
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve('./src/templates/blog-post.js')
-  const homePaginate = path.resolve('./src/templates/index.js')
-  const tagTemplate = path.resolve('./src/templates/tag.js')
+  const result = await graphql(`
+    query ArchiveAndGroup {
+      allMarkdownRemark(
+        filter: {
+          frontmatter: { released: { ne: false }, hidden: { ne: true } }
+          fields: { lang: { eq: null } }
+        }
+        sort: { frontmatter: { date: DESC } }
+        limit: 1000
+      ) {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          fieldValue
+          totalCount
+        }
+        totalCount
+      }
+    }
+  `)
 
-  const result = await graphql(query)
-
-  if (result.errors) {
-    throw new Error(result.errors)
-  }
   const tags = result.data.allMarkdownRemark.group
-  const posts = result.data.allMarkdownRemark.edges
+  const postsCount = result.data.allMarkdownRemark.totalCount
 
   // Create archive pages
   const postsPerPage = 50
-  const numPages = Math.ceil(posts.length / postsPerPage)
+  const numPages = Math.ceil(postsCount / postsPerPage)
 
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -85,18 +84,58 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create blog posts pages.
+  const allPosts = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {
+          frontmatter: { released: { ne: false }, hidden: { ne: true } }
+          fields: { lang: { eq: null } }
+        }
+        sort: { frontmatter: { date: DESC } }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+  const posts = allPosts.data.allMarkdownRemark.edges
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const prev = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    })
+    createPosts(createPage, post, prev, next)
+  })
+
+  const hiddenAndMultiLangPosts = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {
+          frontmatter: { released: { ne: false }, hidden: { eq: true } }
+          fields: { lang: { ne: null } }
+        }
+        sort: { frontmatter: { date: DESC } }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  hiddenAndMultiLangPosts.data.allMarkdownRemark.edges.forEach((post) => {
+    createPosts(createPage, post, null, null)
   })
 }
 
@@ -104,10 +143,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
+    // extract lang from fileAbsolutePath
+    // fileAbsolutePath eg: 'D:/usubeni-fantasy/src/pages/2022-07-03-first-post/index.en.md' or 'D:/usubeni-fantasy/src/pages/2022-07-03-first-post/index.md'
+    const lang = node.fileAbsolutePath.match(/\.([a-z]{2})\.md$/)?.[1] || null
+    const path = node.frontmatter.slug || createFilePath({ node, getNode })
+    const slug = lang ? `/${lang}${path}` : path
     createNodeField({
       node,
       name: `slug`,
-      value: node.frontmatter.slug || createFilePath({ node, getNode }),
+      value: slug,
+    })
+    createNodeField({
+      node,
+      name: `lang`,
+      value: lang,
     })
   }
   // node contain the folder, eliminate it using node.extension

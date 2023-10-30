@@ -23,17 +23,17 @@ class BlogIndex extends React.Component {
                 {(index === 0 ||
                   (index > 0 &&
                     posts[index - 1].node.frontmatter.year !==
-                    node.frontmatter.year)) && (
-                    <div
-                      style={{
-                        fontSize: '1.8em',
-                        marginTop: index === 0 ? '0rem' : '2rem',
-                        marginBottom: '1.2rem',
-                      }}
-                    >
-                      {node.frontmatter.year}
-                    </div>
-                  )}
+                      node.frontmatter.year)) && (
+                  <div
+                    style={{
+                      fontSize: '1.8em',
+                      marginTop: index === 0 ? '0rem' : '2rem',
+                      marginBottom: '1.2rem',
+                    }}
+                  >
+                    {node.frontmatter.year}
+                  </div>
+                )}
                 <div className="item">
                   <span className="date">{node.frontmatter.date}</span>
                   <Link className="title" to={node.fields.slug}>
@@ -73,8 +73,11 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {frontmatter: {released: {ne: false}, hidden: {ne: true}}}
-      sort: {frontmatter: {date: DESC}}
+      filter: {
+        frontmatter: { released: { ne: false }, hidden: { ne: true } }
+        fields: { lang: { eq: null } }
+      }
+      sort: { frontmatter: { date: DESC } }
       limit: $limit
       skip: $skip
     ) {

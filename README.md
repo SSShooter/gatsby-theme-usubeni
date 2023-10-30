@@ -1,96 +1,111 @@
 # Usubeni
 
-[Usubeni](https://github.com/ssshooter/gatsby-theme-usubeni) 基于 [Gatsby.js v5](https://www.gatsbyjs.com/)，示例页面：https://ssshooter.com/tag/coding/
+[Usubeni](https://github.com/ssshooter/gatsby-theme-usubeni) is based on [Gatsby.js v5](https://www.gatsbyjs.com/), with example pages available at: https://ssshooter.com/tag/coding/
 
-Gatsby 相对于 hexo 上手有一点门槛，不过这个代价换来的是比较大的自由度。使用相关问题在[博客里](https://ssshooter.com/tag/gatsby/)解释了一部分。
+Gatsby has a slightly higher learning curve compared to Hexo, but it offers greater flexibility in return. Some of the related issues are explained in the [blog](https://ssshooter.com/tag/gatsby/).
 
-P.S. Gatsby.js v4 版 在[这里](https://github.com/ssshooter/gatsby-theme-usubeni/tree/V4)
+P.S. Gatsby.js v4 version is available [here](https://github.com/ssshooter/gatsby-theme-usubeni/tree/V4)
 
-## 使用
+## Usage
 
-fork 或 clone 本项目，安装依赖，推荐使用 **yarn**。然后：
+Fork or clone this project, install the dependencies, and it is recommended to use **yarn**. Then:
 
-- 修改 `gatsby-config.js`
-- 修改 `src\settings.js`
-- iconfont 文件夹为 `src\css\icon`，必要时请自行替换，但注意同步修改配置文件中的 icon 名称避免显示异常
-- 更换主题图 `src\assets\yozakura.jpg`
-- 更换 logo `static\logo.png`
-- 建议使用 master 分支写博客，保留 theme 分支更新主题后（同时可以提 PR），再合并到 master 分支
-- 在 `pages` 文件夹添加新文章，也可以通过 `node createPost post-title` 或 `node createPost post-title 2017-07-26` 创建
+- Modify `gatsby-config.js`
+- Modify `src\settings.js`
+- The iconfont folder is `src\css\icon`, please replace it if necessary, but be sure to modify the icon name in the configuration file to avoid display issues
+- Replace the theme image `src\assets\yozakura.jpg`
+- Replace the logo `static\logo.png`
+- It is recommended to write blog posts on the master branch, keep the theme branch for theme updates (you can also submit a PR), and then merge it into the master branch
+- Add new articles in the `pages` folder, or create them using `node createPost post-title` or `node createPost post-title 2017-07-26`
 
-本主题特性包括：
+The features of this theme include:
 
-- 快（Lighthouse performance 评分 90）
-- Gatsby 相关依赖基本更新到最新
-- 已集成 代码高亮（prismjs）
-- 已集成 LaTeX（katex）
-- 已配置 `.npmrc` 减轻安装依赖的痛苦
-- 已添加 TOC
-- 自带图库、标签库
-- 自带（没什么用的）表情库
-- SEO 优化
+- Fast (Lighthouse performance score of 90)
+- Gatsby-related dependencies are mostly up to date
+- Integrated code highlighting (prismjs)
+- Integrated LaTeX (katex)
+- Configured `.npmrc` to alleviate the pain of installing dependencies
+- Added TOC (Table of Contents)
+- Built-in image library and tag library
+- Built-in (useless) emoji library
+- SEO optimization
 
-Gatsby 的优点：
+Advantages of Gatsby:
 
-- 高自由度页面自定义
-- 为数不多的体验 graphQL 的机会
+- High degree of freedom for customizing pages
+- One of the few opportunities to experience GraphQL
 
-Gatsby 的缺点：
+Disadvantages of Gatsby:
 
-- 有一定学习成本
-- 依赖多，但是也不是非常多，也就 500m（滑稽）
+- Steep learning curve
+- Has multiple dependencies, but not too many, only about 500m 😂
 
-## 开发
+## Development
 
 ```
 npm start
 ```
 
-## 发布
+## Deployment
 
 ```
 npm run build
 ```
 
-可选如 Gatsby 自家的 cloud、 Vercel 或 Netlify 等服务。
+Optional services such as Gatsby's own cloud, Vercel, or Netlify.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fssshooter%2Fgatsby-theme-usubeni.git&demo-title=Usubeni%20Fantasy&demo-description=Gatsby%20Theme%20For%20Blog&demo-url=gatsby-theme-usubeni.vercel.app)
 
-## 拒绝雷同
+## Front Matter
 
-修改 `src\css\global.scss` 文件夹的配色变量，用上自己喜欢的颜色！这是个性化主题最简单的方法！（也欢迎大家 PR 好看的配色）
+```yaml
+---
+path: '/first-post'
+slug: '/first-post'
+date: '2022-07-03T21:00:00.171Z'
+title: 'Title'
+tags: ['coding']
+description: 'This is a test page'
+released: true
+hidden: false
+---
+```
 
-其他排版优化可以参考 [Typography.js](https://github.com/kyleamathews/typography.js/)
+## Avoid Similarity
 
-## 评论系统
+Modify the color variables in the `src\css\global.scss` folder to use your favorite colors! This is the simplest way to personalize the theme! (We also welcome PRs for attractive color schemes)
 
-自带了评论渲染和发布组件（`src\components\Comment.js`），但是后端未开源，能干的大佬们可以小改一下接入自己的评论系统。
+Other typesetting optimizations can refer to [Typography.js](https://github.com/kyleamathews/typography.js/)
 
-也可以接其他系统例如：
+## Comment System
 
-- 静态方案，Staticman
-- 自己掌控数据，[valine](https://valine.js.org/)、waline、[twikoo](https://github.com/imaegoo/twikoo)
-- 第三方，disqus
+The theme comes with a comment rendering and publishing component (`src\components\Comment.js`), but the backend is not open source. Experienced developers can make some modifications to integrate their own comment system.
+
+Other systems that can be integrated include:
+
+- Static solution, Staticman
+- Self-controlled data, [valine](https://valine.js.org/), waline, [twikoo](https://github.com/imaegoo/twikoo)
+- Third-party, Disqus
 
 ## PWA
 
-本模板没有启用 PWA，尽管你可以通过 `gatsby-plugin-manifest` 和 `gatsby-plugin-offline` 简单地启用 PWA 功能，但是对个人博客来说 PWA 确实没有太大的必要，而且启用 PWA 之后，预渲染的页面就废了，似乎因为 PWA 的缓存机制跟多页面冲突。
+This template does not enable PWA. Although you can easily enable PWA functionality through `gatsby-plugin-manifest` and `gatsby-plugin-offline`, it is not necessary for personal blogs. Moreover, after enabling PWA, the pre-rendered pages become useless, seemingly due to conflicts between PWA's caching mechanism and multi-page rendering.
 
-## 注意事项
+## Notes
 
-1. `/archive/` 为全文章列表，`/tag/xxx/` 单标签列表
+1. `/archive/` is the full article list, `/tag/xxx/` is the single tag list.
 
 ```
 released: true
 hidden: false
 ```
 
-2. 文章信息的 `released` 代表完全不加入页面生成，`hidden` 代表生成页面但不出现在任何列表中。
+2. The `released` field in the article information means that it will not be included in page generation, while `hidden` means that the page will be generated but will not appear in any lists.
 
-3. 要保证至少有一篇文章有完整的 `frontmatter`，否则会构建异常。
+3. Make sure that at least one article has complete `frontmatter`, otherwise the build process will be abnormal.
 
-## 感谢
+## Acknowledgements
 
-- [了不起的 Gatsby](https://www.gatsbyjs.com/)
-- [封面图 P 站#18073647](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647)
-- [可以在这里抄一下样式](https://saruwakakun.com/html-css/reference/css-sample#section1)
+- [The Great Gatsby](https://www.gatsbyjs.com/)
+- [Cover image from Pixiv#18073647](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=18073647)
+- [You can copy some styles here](https://saruwakakun.com/html-css/reference/css-sample#section1)
