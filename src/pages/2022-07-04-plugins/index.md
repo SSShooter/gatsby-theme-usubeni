@@ -1,5 +1,5 @@
 ---
-path: '/plugins'
+slug: '/plugins'
 date: '2022-07-04T11:44:39.461Z'
 title: 'Plugins'
 tags: ['coding']

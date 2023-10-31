@@ -1,12 +1,11 @@
 ---
 slug: '/first-post'
 date: '2022-07-03T21:00:00.171Z'
-title: '这是一个标题'
+title: 'This is a title'
 tags: ['coding']
-description: '一个测试页'
+description: 'This is a test page.'
 released: true
 hidden: false
-multiLang: ['en']
 ---
 
 ## Welcome
