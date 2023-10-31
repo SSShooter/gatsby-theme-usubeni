@@ -139,6 +139,21 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+
+  const typeDefs = `
+    type MarkdownRemark implements Node{
+      fields: Fields
+    }
+    type Fields {
+      slug: String
+      lang: String
+    }
+  `
+  createTypes(typeDefs)
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
