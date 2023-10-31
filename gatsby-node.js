@@ -91,7 +91,6 @@ exports.createPages = async ({ graphql, actions }) => {
           frontmatter: { released: { ne: false }, hidden: { ne: true } }
           fields: { lang: { eq: null } }
         }
-        sort: { frontmatter: { date: DESC } }
         limit: 1000
       ) {
         edges {
@@ -114,14 +113,12 @@ exports.createPages = async ({ graphql, actions }) => {
     createPosts(createPage, post, prev, next)
   })
 
-  const hiddenAndMultiLangPosts = await graphql(`
+  const hiddenPosts = await graphql(`
     {
       allMarkdownRemark(
         filter: {
           frontmatter: { released: { ne: false }, hidden: { eq: true } }
-          fields: { lang: { ne: null } }
         }
-        sort: { frontmatter: { date: DESC } }
         limit: 1000
       ) {
         edges {
@@ -134,7 +131,27 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  hiddenAndMultiLangPosts.data.allMarkdownRemark.edges.forEach((post) => {
+  hiddenPosts.data.allMarkdownRemark.edges.forEach((post) => {
+    createPosts(createPage, post, null, null)
+  })
+
+  const multiLangPosts = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: { fields: { lang: { ne: null } } }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  multiLangPosts.data.allMarkdownRemark.edges.forEach((post) => {
     createPosts(createPage, post, null, null)
   })
 }
@@ -163,6 +180,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const lang = node.fileAbsolutePath.match(/\.([a-z]{2})\.md$/)?.[1] || null
     const path = node.frontmatter.slug || createFilePath({ node, getNode })
     const slug = lang ? `/${lang}${path}` : path
+    console.log(slug)
     createNodeField({
       node,
       name: `slug`,

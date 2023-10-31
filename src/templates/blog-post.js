@@ -47,11 +47,16 @@ class BlogPostTemplate extends React.Component {
   }
   render() {
     const post = this.props.data.markdownRemark
-    const { slug, prev, next } = this.props.pageContext 
+    const { slug, prev, next } = this.props.pageContext
     return (
       <Layout aside={post.tableOfContents}>
         <h1>{post.frontmatter.title}</h1>
-        <Info date={post.frontmatter.date} tags={post.frontmatter.tags} />
+        <Info
+          date={post.frontmatter.date}
+          tags={post.frontmatter.tags}
+          multiLang={post.frontmatter.multiLang}
+          slug={slug}
+        />
         <div
           className="css-post-main"
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -113,6 +118,7 @@ export const pageQuery = graphql`
         tags
         description
         date(formatString: "YYYY-MM-DD")
+        multiLang
       }
     }
   }

@@ -12,7 +12,7 @@ export default function (props) {
         {props.date}
       </span>
       {props.tags ? (
-        <React.Fragment>
+        <>
           {props.tags.map((tag, index) => (
             <span
               key={tag}
@@ -23,7 +23,15 @@ export default function (props) {
               <Link to={`/tag/${tag}`}>{tag}</Link>
             </span>
           ))}
-        </React.Fragment>
+        </>
+      ) : null}
+      {props.multiLang ? (
+        <div>
+          Also Available In: 
+          {props.multiLang?.map((lang) => (
+            <a href={`/${lang}${props.slug}`} className='multi-lang'>{lang.toUpperCase()}</a>
+          ))}
+        </div>
       ) : null}
     </div>
   )

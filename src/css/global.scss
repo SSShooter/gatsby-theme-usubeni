@@ -435,6 +435,9 @@ button {
 .css-info {
   font-size: 0.8em;
   color: var(--mainDerive1);
+  .multi-lang {
+    margin: 0 12px;
+  }
   .iconfont {
     &:first-of-type {
       padding: 0 5px 0 0;
