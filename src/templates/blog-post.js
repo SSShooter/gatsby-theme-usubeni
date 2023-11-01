@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Comment from '../components/Comment'
@@ -6,8 +7,8 @@ import Layout from '../components/Layout'
 import Info from '../components/PostInfo'
 import SEO from '../components/Seo'
 
-class BlogPostTemplate extends React.Component {
-  componentDidMount = () => {
+const BlogPostTemplate = (props) => {
+  useEffect(() => {
     let pre = location.hash || ''
     if (pre)
       document.querySelector(`.css-toc a[href*="${pre}"]`).className = 'active'
@@ -44,44 +45,42 @@ class BlogPostTemplate extends React.Component {
         pre = menuItem.hash
       }
     })
-  }
-  render() {
-    const post = this.props.data.markdownRemark
-    const { slug, prev, next } = this.props.pageContext
-    return (
-      <Layout aside={post.tableOfContents}>
-        <h1>{post.frontmatter.title}</h1>
-        <Info
-          date={post.frontmatter.date}
-          tags={post.frontmatter.tags}
-          multiLang={post.frontmatter.multiLang}
-          slug={slug}
-        />
-        <div
-          className="css-post-main"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        <hr />
-        <Comment slug={slug} />
-        <ul className="button-wrapper">
-          <li>
-            {prev && (
-              <Link to={prev.fields.slug} rel="prev">
-                <button>Prev: {prev.frontmatter.title}</button>
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                <button>Next: {next.frontmatter.title}</button>
-              </Link>
-            )}
-          </li>
-        </ul>
-      </Layout>
-    )
-  }
+  })
+  const post = props.data.markdownRemark
+  const { slug, prev, next } = props.pageContext
+  return (
+    <Layout aside={post.tableOfContents}>
+      <h1>{post.frontmatter.title}</h1>
+      <Info
+        date={post.frontmatter.date}
+        tags={post.frontmatter.tags}
+        multiLang={post.frontmatter.multiLang}
+        slug={slug}
+      />
+      <div
+        className="css-post-main"
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
+      <hr />
+      <Comment slug={slug} />
+      <ul className="button-wrapper">
+        <li>
+          {prev && (
+            <Link to={prev.fields.slug} rel="prev">
+              <button>Prev: {prev.frontmatter.title}</button>
+            </Link>
+          )}
+        </li>
+        <li>
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              <button>Next: {next.frontmatter.title}</button>
+            </Link>
+          )}
+        </li>
+      </ul>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate

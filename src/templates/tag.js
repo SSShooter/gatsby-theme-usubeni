@@ -10,37 +10,35 @@ const tagDescriptionMap = {}
 /**
  * Blog list of specific Tag
  */
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const posts = data.allMarkdownRemark.edges
-    const { totalPage, currentPage, tag } = this.props.pageContext
-    return (
-      <Layout pageName={tag} pageDescript={tagDescriptionMap[tag]}>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div className="list-item" key={node.fields.slug}>
-              <div className="list-title">
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </div>
-              <Info date={node.frontmatter.date} tags={node.frontmatter.tags} />
-              <p className="list-excerpt">
-                {node.frontmatter.description || node.excerpt}
-              </p>
+const BlogIndex = (props) => {
+  const { data } = props
+  const posts = data.allMarkdownRemark.edges
+  const { totalPage, currentPage, tag } = props.pageContext
+  return (
+    <Layout pageName={tag} pageDescript={tagDescriptionMap[tag]}>
+      {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug
+        return (
+          <div className="list-item" key={node.fields.slug}>
+            <div className="list-title">
+              <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+                {title}
+              </Link>
             </div>
-          )
-        })}
-        <Pagination
-          currentPage={currentPage}
-          totalPage={totalPage}
-          prefix={`/tag/${tag}/`}
-        />
-      </Layout>
-    )
-  }
+            <Info date={node.frontmatter.date} tags={node.frontmatter.tags} />
+            <p className="list-excerpt">
+              {node.frontmatter.description || node.excerpt}
+            </p>
+          </div>
+        )
+      })}
+      <Pagination
+        currentPage={currentPage}
+        totalPage={totalPage}
+        prefix={`/tag/${tag}/`}
+      />
+    </Layout>
+  )
 }
 
 export default BlogIndex

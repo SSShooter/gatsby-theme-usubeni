@@ -7,51 +7,49 @@ import Layout from '../components/Layout'
 /**
  * Archive page
  */
-class BlogIndex extends React.Component {
-  render() {
-    const { data, location } = this.props
-    const posts = data.allMarkdownRemark.edges
-    const { totalPage, currentPage } = this.props.pageContext
-    return (
-      <Layout>
-        <div className="css-archive">
-          {posts.map(({ node }, index) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              // show year if it's different from the previous one
-              <React.Fragment key={node.fields.slug}>
-                {(index === 0 ||
-                  (index > 0 &&
-                    posts[index - 1].node.frontmatter.year !==
-                      node.frontmatter.year)) && (
-                  <div
-                    style={{
-                      fontSize: '1.8em',
-                      marginTop: index === 0 ? '0rem' : '2rem',
-                      marginBottom: '1.2rem',
-                    }}
-                  >
-                    {node.frontmatter.year}
-                  </div>
-                )}
-                <div className="item">
-                  <span className="date">{node.frontmatter.date}</span>
-                  <Link className="title" to={node.fields.slug}>
-                    {title}
-                  </Link>
+const BlogIndex = (props) => {
+  const { data, location } = props
+  const posts = data.allMarkdownRemark.edges
+  const { totalPage, currentPage } = props.pageContext
+  return (
+    <Layout>
+      <div className="css-archive">
+        {posts.map(({ node }, index) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            // show year if it's different from the previous one
+            <React.Fragment key={node.fields.slug}>
+              {(index === 0 ||
+                (index > 0 &&
+                  posts[index - 1].node.frontmatter.year !==
+                    node.frontmatter.year)) && (
+                <div
+                  style={{
+                    fontSize: '1.8em',
+                    marginTop: index === 0 ? '0rem' : '2rem',
+                    marginBottom: '1.2rem',
+                  }}
+                >
+                  {node.frontmatter.year}
                 </div>
-              </React.Fragment>
-            )
-          })}
-        </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPage={totalPage}
-          prefix={'/archive/'}
-        />
-      </Layout>
-    )
-  }
+              )}
+              <div className="item">
+                <span className="date">{node.frontmatter.date}</span>
+                <Link className="title" to={node.fields.slug}>
+                  {title}
+                </Link>
+              </div>
+            </React.Fragment>
+          )
+        })}
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPage={totalPage}
+        prefix={'/archive/'}
+      />
+    </Layout>
+  )
 }
 
 export default BlogIndex
