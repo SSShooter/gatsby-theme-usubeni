@@ -88,6 +88,7 @@ export default BlogPostTemplate
 
 export const Head = ({ data, location }) => {
   const post = data.markdownRemark
+  const lang = post.fields.lang
   const pathname = location.pathname
   const siteDescription = post.frontmatter.description || post.excerpt
   return (
@@ -96,6 +97,7 @@ export const Head = ({ data, location }) => {
       description={siteDescription}
       keywords={post.frontmatter.tags}
       pathname={pathname}
+      lang={lang}
     />
   )
 }
@@ -119,6 +121,9 @@ export const pageQuery = graphql`
         description
         date(formatString: "YYYY-MM-DD")
         multiLang
+      }
+      fields {
+        lang
       }
     }
   }
