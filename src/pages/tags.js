@@ -56,10 +56,12 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {frontmatter: {released: {ne: false}, hidden: {ne: true}}}
-      limit: 2000
+      filter: {
+        frontmatter: { released: { ne: false }, hidden: { ne: true } }
+        fields: { lang: { eq: null } }
+      }
     ) {
-      group(field: {frontmatter: {tags: SELECT}}) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }
