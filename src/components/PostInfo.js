@@ -27,7 +27,8 @@ export default function (props) {
       ) : null}
       {props.multiLang ? (
         <div>
-          Also Available In: 
+          This Post is Available In: 
+          <a href={props.slug} className='multi-lang'>CN</a>
           {props.multiLang?.map((lang) => (
             <a href={`/${lang}${props.slug}`} className='multi-lang'>{lang.toUpperCase()}</a>
           ))}
