@@ -55,7 +55,7 @@ const BlogPostTemplate = (props) => {
         date={post.frontmatter.date}
         tags={post.frontmatter.tags}
         multiLang={post.frontmatter.multiLang}
-        slug={slug}
+        slug={post.frontmatter.slug}
       />
       <div
         className="css-post-main"
@@ -120,6 +120,7 @@ export const pageQuery = graphql`
         description
         date(formatString: "YYYY-MM-DD")
         multiLang
+        slug
       }
       fields {
         lang
