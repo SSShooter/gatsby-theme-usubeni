@@ -54,7 +54,7 @@ class Gallery extends React.Component {
                     {node.name}
                   </div>
                 </div>
-                <img style={{ width: '100%' }} src={node.publicURL} />
+                <img style={{ width: '100%' }} alt={node.name} src={node.publicURL} />
               </a>
             )
           })}

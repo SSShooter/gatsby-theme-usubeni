@@ -113,7 +113,7 @@ class Layout extends React.Component {
           to={'/tag/coding/'}
         >
           <span className="logo-mobile">{siteName}</span>
-          <img className="logo" src="/logo.png" />
+          <img className="logo" alt="Usubeni-Fantasy Logo" src="/logo.png" />
         </Link>
         {pageName ? (
           <div className="page-name">

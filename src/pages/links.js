@@ -18,6 +18,7 @@ const LinkList = ({ list }) => (
         {link.img ? (
           <img
             src={link.img}
+            alt={link.title + ' avatar'}
             onError={({ currentTarget }) => {
               currentTarget.src = 'data:image/svg+xml;utf8,' + placeholder
             }}
