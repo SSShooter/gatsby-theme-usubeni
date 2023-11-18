@@ -40,6 +40,14 @@ Disadvantages of Gatsby:
 - Steep learning curve
 - Has multiple dependencies, but not too many, only about 500m 😂
 
+## Create Post
+
+```
+node .\createPost.js -t title -d 2023-11-18 -f
+```
+
+`-d` is optional. Use `-f` if you want create only a markdown file (it will create a folder by default).
+
 ## Development
 
 ```
@@ -60,7 +68,6 @@ Optional services such as Gatsby's own cloud, Vercel, or Netlify.
 
 ```yaml
 ---
-path: '/first-post'
 slug: '/first-post'
 date: '2022-07-03T21:00:00.171Z'
 title: 'Title'
