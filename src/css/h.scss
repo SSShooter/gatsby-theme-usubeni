@@ -4,15 +4,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--linkColor);
-}
-
-h1 {
-  font-size: 29px;
-  margin-bottom: 0;
-  color: var(--mainColor);
-  font-weight: 400;
 }
 
 h2,
@@ -22,4 +15,16 @@ h5,
 h6 {
   position: relative;
   margin: 0.5em 0;
+}
+
+h1 {
+  font-size: 29px;
+  margin: 20px 0;
+  color: var(--mainColor);
+}
+
+h2 {
+  // border-top: 1px dashed var(--mainColor);
+  margin-top: 28px;
+  // padding-top: 20px;
 }

@@ -59,8 +59,8 @@
 @import './tag.scss';
 @import './comment.scss';
 
-@import './title.scss';
-@import './boxes.scss';
+// @import './title.scss';
+// @import './boxes.scss';
 
 @import './link.scss';
 @import './prism-dark.scss';
@@ -162,7 +162,7 @@ hr {
   height: 1px;
   width: 100%;
   background: var(--hrColor);
-  margin-top: 40px;
+  margin: 40px 0;
 }
 
 a {
@@ -364,7 +364,7 @@ button {
   }
   .css-post-main {
     margin-top: 3rem;
-    padding: 15px;
+    padding: 15px 30px;
     background-color: var(--backgroundColor2);
     border-radius: var(--radius);
     p {
@@ -471,15 +471,16 @@ button {
 .flower-toggle,
 .theme-toggle {
   background-color: var(--backgroundColor);
+  box-shadow: var(--shadow);
 
-  // font-family: fangsong;
-  font-weight: 200;
   position: fixed;
   cursor: pointer;
   font-size: 16px;
-  padding: 10px;
+  height: 2rem;
+  width: 2rem;
+  line-height: 2rem;
+  text-align: center;
   border-radius: 50%;
-  box-shadow: var(--shadow);
   right: 12px;
   font-weight: bolder;
 }
@@ -545,4 +546,59 @@ button {
   .page-button {
     display: block;
   }
+}
+
+.box26 {
+  position: relative;
+  margin: 2em;
+  padding: 1em;
+  border: solid 3px #5d627b;
+  border-radius: 8px;
+  a {
+    color: #5d627b;
+  }
+}
+.box26 .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #fff;
+  color: #5d627b;
+  font-weight: bold;
+}
+.box26 p {
+  margin: 0;
+  padding: 0;
+}
+
+.box27 {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border: solid 1px var(--mainColor);
+  pre {
+    overflow-x: auto;
+  }
+}
+.box27 .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -25px;
+  left: -1px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  font-size: 17px;
+  background: var(--mainColor);
+  color: #ffffff;
+  border-radius: 5px 5px 0 0;
+}
+.box27 p {
+  margin: 0;
+  padding: 0;
 }

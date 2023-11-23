@@ -50,35 +50,31 @@ const BlogPostTemplate = (props) => {
   const { slug, prev, next } = props.pageContext
   return (
     <Layout aside={post.tableOfContents}>
-      <h1>{post.frontmatter.title}</h1>
-      <Info
-        date={post.frontmatter.date}
-        tags={post.frontmatter.tags}
-        multiLang={post.frontmatter.multiLang}
-        slug={post.frontmatter.slug}
-      />
-      <div
-        className="css-post-main"
-        dangerouslySetInnerHTML={{ __html: post.html }}
-      />
+      <div className="css-post-main">
+        <h1>{post.frontmatter.title}</h1>
+        <Info
+          date={post.frontmatter.date}
+          tags={post.frontmatter.tags}
+          multiLang={post.frontmatter.multiLang}
+          slug={post.frontmatter.slug}
+          timeToRead={post.timeToRead}
+        />
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </div>
+      <div className="button-wrapper">
+        {prev && (
+          <Link to={prev.fields.slug} rel="prev">
+            <button>Prev: {prev.frontmatter.title}</button>
+          </Link>
+        )}
+        {next && (
+          <Link to={next.fields.slug} rel="next">
+            <button>Next: {next.frontmatter.title}</button>
+          </Link>
+        )}
+      </div>
       <hr />
       <Comment slug={slug} />
-      <ul className="button-wrapper">
-        <li>
-          {prev && (
-            <Link to={prev.fields.slug} rel="prev">
-              <button>Prev: {prev.frontmatter.title}</button>
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              <button>Next: {next.frontmatter.title}</button>
-            </Link>
-          )}
-        </li>
-      </ul>
     </Layout>
   )
 }
@@ -114,6 +110,7 @@ export const pageQuery = graphql`
       excerpt(truncate: true, pruneLength: 100)
       html
       tableOfContents
+      timeToRead
       frontmatter {
         title
         tags

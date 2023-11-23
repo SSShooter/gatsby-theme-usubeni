@@ -180,7 +180,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const lang = node.fileAbsolutePath.match(/\.([a-z]{2})\.md$/)?.[1] || null
     const path = node.frontmatter.slug || createFilePath({ node, getNode })
     const slug = lang ? `/${lang}${path}` : path
-    console.log(slug)
     createNodeField({
       node,
       name: `slug`,

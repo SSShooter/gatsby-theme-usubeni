@@ -9,26 +9,30 @@ const HTML = (props) => {
         <script
           dangerouslySetInnerHTML={{
             __html: `       
-          var theme = 'light'
-          let localTheme = localStorage.getItem('theme')
-          if (localTheme) {
-            if (localTheme === 'dark') {
-              theme = 'dark'
-            } else {
-              theme = 'light'
+            var theme = 'light' 
+            var setTheme = function(name) {
+              theme = name
+              localStorage.setItem('theme', name)
+              document.documentElement.className = name + '-theme'
             }
-          } else if (window.matchMedia) {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              theme = 'dark'
+            let localTheme = localStorage.getItem('theme')
+            if (localTheme) {
+              setTheme(localTheme)
+            } else if (window.matchMedia) {
+              const mql = window.matchMedia('(prefers-color-scheme: dark)')
+              function handleColorSchemeChange(e) {
+                if (e.matches) {
+                  setTheme('dark')
+                } else {
+                  setTheme('light')
+                }
+              }
+              handleColorSchemeChange(mql)
+              mql.addEventListener('change', handleColorSchemeChange)
             } else {
-              theme = 'light'
+              setTheme('light')
             }
-          } else {
-            // default light
-            theme = 'light'
-          }
-          document.documentElement.className = theme + '-theme'
-    `,
+            `,
           }}
         />
         <meta charSet="utf-8" />
