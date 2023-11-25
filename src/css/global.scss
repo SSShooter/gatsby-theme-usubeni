@@ -363,7 +363,7 @@ button {
     margin: 3px;
   }
   .css-post-main {
-    margin-top: 3rem;
+    margin-top: 1rem;
     padding: 15px 30px;
     background-color: var(--backgroundColor2);
     border-radius: var(--radius);
@@ -374,6 +374,7 @@ button {
     }
     ul {
       margin-bottom: 29px;
+      padding-inline-start: 20px;
     }
     p + ul,
     p + ol {
