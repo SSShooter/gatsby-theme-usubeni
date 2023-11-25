@@ -20,13 +20,16 @@
     padding: 0 10px;
     background-color: var(--backgroundColor2);
     z-index: 9;
+    display: flex;
+    align-items: center;
     a {
-      height: 100%;
-      width: 20%;
+      height: 80%;
       word-break: normal !important;
       .logo-mobile {
-        display: inline;
+        display: block;
         font-size: 1.5rem;
+        height: 100%;
+        background-color: var(--backgroundColor2);
       }
       .logo {
         display: none;
@@ -64,7 +67,7 @@
     overflow-y: auto;
   }
   .css-gallery {
-    header{
+    header {
       margin: 20px;
     }
     .css-menu {

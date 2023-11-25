@@ -17,7 +17,7 @@ const handleEnter = (e) => {
 const Layout = ({ pageName, pageDescript, children, aside }) => {
   const [menuState, setMenuState] = useState(false)
   const websiteName = (
-    <div>
+    <>
       <Link
         style={{
           boxShadow: 'none',
@@ -27,7 +27,7 @@ const Layout = ({ pageName, pageDescript, children, aside }) => {
         className="usubeni"
         to={'/tag/coding/'}
       >
-        <span className="logo-mobile">{siteName}</span>
+        <img className="logo-mobile" alt="Usubeni-Fantasy Logo Mobile" src="/logo-mobile.png" />
         <img className="logo" alt="Usubeni-Fantasy Logo" src="/logo.png" />
       </Link>
       {pageName ? (
@@ -36,7 +36,7 @@ const Layout = ({ pageName, pageDescript, children, aside }) => {
           {' ' + pageName}
         </div>
       ) : null}
-    </div>
+    </>
   )
   const descript = <div className="page-description">{pageDescript}</div>
 
