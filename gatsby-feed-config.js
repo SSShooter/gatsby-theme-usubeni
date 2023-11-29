@@ -20,7 +20,7 @@ module.exports = {
         query: `
         {
           allMarkdownRemark(
-            limit: 8
+            limit: 25
             filter: {frontmatter: {released: {ne: false}, hidden: {ne: true}}}
             sort: {frontmatter: {date: DESC}}
           ) {
