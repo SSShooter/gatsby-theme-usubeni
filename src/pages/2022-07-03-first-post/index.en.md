@@ -4,8 +4,6 @@ date: '2022-07-03T21:00:00.171Z'
 title: 'This is a title'
 tags: ['coding']
 description: 'This is a test page.'
-released: true
-hidden: false
 ---
 
 ## Welcome
