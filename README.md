@@ -107,9 +107,7 @@ released: true
 hidden: false
 ```
 
-2. The `released` field in the article information means that it will not be included in page generation, while `hidden` means that the page will be generated but will not appear in any lists.
-
-3. Make sure that at least one article has complete `frontmatter`, otherwise the build process will be abnormal.
+2. The `released` field in the frontmatter means that it will not be included in page generation, while `hidden` means that the page will be generated but will not appear in any lists.
 
 ## Acknowledgements
 

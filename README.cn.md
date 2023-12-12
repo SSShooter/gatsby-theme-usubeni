@@ -102,8 +102,6 @@ hidden: false
 
 2. 文章信息的 `released` 代表完全不加入页面生成，`hidden` 代表生成页面但不出现在任何列表中。
 
-3. 要保证至少有一篇文章有完整的 `frontmatter`，否则会构建异常。
-
 ## 感谢
 
 - [了不起的 Gatsby](https://www.gatsbyjs.com/)

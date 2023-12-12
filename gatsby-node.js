@@ -167,6 +167,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
       lang: String
     }
+    type MarkdownRemarkFrontmatter {
+      released: Boolean
+      hidden: Boolean
+      image: String
+    }
   `
   createTypes(typeDefs)
 }
