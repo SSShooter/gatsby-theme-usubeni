@@ -386,9 +386,14 @@ button {
       position: relative;
       display: block;
       margin: auto;
-      max-width: calc(100% + 30px);
-      left: -15px;
+      max-width: calc(100% + 60px);
+      left: -30px;
       max-height: 650px;
+    }
+    iframe {
+      position: relative;
+      width: calc(100% + 60px);
+      left: -30px;
     }
     .anchor {
       box-shadow: none;
