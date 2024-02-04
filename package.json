@@ -9,7 +9,7 @@
     "gatsby": "^5.12.8",
     "gatsby-plugin-feed": "^5.4.0",
     "gatsby-plugin-google-gtag": "^5.4.0",
-    "gatsby-plugin-sass": "^6.4.0",
+    "gatsby-plugin-sass": "^6.13.0",
     "gatsby-plugin-sitemap": "^6.4.0",
     "gatsby-remark-autolink-headers": "^6.4.0",
     "gatsby-remark-copy-linked-files": "^6.4.0",
@@ -21,12 +21,12 @@
     "gatsby-source-filesystem": "^5.4.0",
     "gatsby-transformer-remark": "^6.4.0",
     "gatsby-transformer-yaml": "^5.4.0",
-    "katex": "^0.15.2",
-    "node-sass": "^8.0.0",
+    "katex": "^0.13.3",
     "postcss": "^8.2.1",
     "prismjs": "^1.15.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.70.0"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
